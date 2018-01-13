@@ -1,0 +1,251 @@
+---
+title: "Comparing drug target libraries using enrichment analysis"
+subtitle: "Dataset description"
+author: "Damon Pham"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo=FALSE, warning=FALSE, message=FALSE, fig.align="center")
+
+#un-comment below lines the packages have not yet been installed.
+#install.packages("kableExtra")
+
+library(kableExtra)
+library(ggplot2)
+library(gridExtra)
+library(reshape2)
+library(grid)
+library(car)
+library(RColorBrewer)
+library(knitr)
+library(dplyr)
+library(data.table)
+
+```
+
+In this project, I compare the agreement among different drug target libraries using enrichment analysis. The libraries I looked at are DrugBank, the Target Central Resource Database, the CRowd Extracted Expression of Differential Signatures (CREEDS), DrugMatrix, Drug Gene Interaction Database (DGIdb), and the Drug Repurposing Hub. I also looked at the union and intersection sets between DrugBank and Target Central. 
+
+For libraries whose drugs have a small number of gene targets, I used protein-protein interaction (PPI) databases to expand their target lists. The PPI databases I used are hu.MAP, ARCHS4 and BioGRID.
+
+# Preliminaries
+
+I first converted all libraries to gene vector matrix format. In this format, each drug sample is a column, and the rows are genes. Cell values are TRUE or FALSE depending on whether the column drug is associated with the row gene. Thus, the gene set for each drug is given by its column vector. 
+
+```{r get_gvms, include=FALSE}
+#Obtain all libraries as gene vector matrix files.
+system('python get_gvms.py')
+```
+
+Next, I made a drug synonym table to help identify matching drugs between the libraries. Synonyms were extracted by equating the following values for each sample in these libraries:
+
+* DrugBank: DrugName and DrugID_ChEMBL
+* Target Central: DrugName and DrugID_ChEMBL
+* DGIdb: drug_claim_name, drug_claim_primary_name, drug_name, drug_chembl_id
+* Drug Rep Hub: pert_iname and vendor_name
+
+```{r make_drug_synonym_table}
+#Create or load the drug synonym table.
+if(!file.exists('drug_synonyms.r')){
+  DrugBank.original = fread('original_drug-gene_libs/1_DrugBank_EdgeList_10-05-17.csv')
+  TargetCentral.original = fread('original_drug-gene_libs/2_TargetCentral_EdgeList_10-05-17.csv')
+  DGIdb.original = fread('original_drug-gene_libs/interactions.tsv')
+  DrugRepHub.original = fread('original_drug-gene_libs/repurposing_drugs_20170327.txt', skip=9)
+  
+  expand_synonym_list = function(synonym_table, synonym_list, synonym_ids){
+    #Collects the synonyms from `synonym_table` and stores them as synonym and id vectors.
+    #synonym_table : a data.table of at least two columns, where each row contains a set of synonyms. Empty values are allowed.
+    #synonym_list : a list of synonyms, e.g. `c('dog','cat','canine')`.
+    #synonym_ids : corresponding ids for the synonym_list, e.g. `c(1,2,1). Words with the same ids are synonyms.
+    for(r in 1:nrow(synonym_table)){
+      #Get all unique, non-empty drug names in this row.
+      row = unique(tolower(synonym_table[r,]))
+      row = row[row!='']
+    
+      #If at least one of these names is already in the synonym list:
+      is_rep = row %in% synonym_list
+      if(any(is_rep)){
+        rep_ids = synonym_ids[synonym_list %in% row[is_rep]]
+        min_rep_id = min(rep_ids)
+        #If any existing names have different ids, map all names with those ids to the lowest id. 
+        if(length(rep_ids)>1){synonym_ids[synonym_ids %in% rep_ids] = min_rep_id}
+        #Add the new names under the same id as the existing names' id. 
+        synonym_list = append(synonym_list, row[!(is_rep)])
+        synonym_ids = append(synonym_ids, rep(min_rep_id, length(row[!(is_rep)])))
+      #Otherwise:
+      } else {
+        #If there are any synonyms...
+        if(length(row)>1){
+          #...add them under a new id. 
+          rep_id = max(synonym_ids) + 1
+          synonym_list = append(synonym_list, row[!(is_rep)])
+          synonym_ids = append(synonym_ids, rep(rep_id, length(row[!(is_rep)])))
+        }
+      }
+    }
+    return(list(synonym_list, as.numeric(synonym_ids)))
+  }
+  
+  DrugBank.drug_synonyms = DrugBank.original[,c(1,2)]
+  #Initialize using an empty string with index of zero so min() and max() functions work on first iteration (this value is removed later).
+  drug_synonyms = c('')
+  drug_synonyms_ids = as.integer(c(0))
+  expanded = expand_synonym_list(DrugBank.drug_synonyms, drug_synonyms, drug_synonyms_ids)
+  drug_synonyms = expanded[[1]]
+  drug_synonyms_ids = expanded[[2]]
+  #Remove the empty value used to initialize.
+  drug_synonyms = drug_synonyms[-c(1)]
+  drug_synonyms_ids = drug_synonyms_ids[-c(1)]
+  rm(DrugBank.original, DrugBank.drug_synonyms)
+  
+  TargetCentral.drug_synonyms = TargetCentral.original[,c(1,2)]
+  expanded = expand_synonym_list(TargetCentral.drug_synonyms, drug_synonyms, drug_synonyms_ids)
+  drug_synonyms = expanded[[1]]
+  drug_synonyms_ids = expanded[[2]]
+  rm(TargetCentral.original, TargetCentral.drug_synonyms)
+  
+  DGIdb.drug_synonyms = DGIdb.original[,c(6,7,8,9)]
+  expanded = expand_synonym_list(DGIdb.drug_synonyms, drug_synonyms, drug_synonyms_ids)
+  drug_synonyms = expanded[[1]]
+  drug_synonyms_ids = expanded[[2]]
+  rm(DGIdb.original, DGIdb.drug_synonyms)
+  
+  DrugRepHub.drug_synonyms = fread('original_drug-gene_libs/repurposing_samples_20170327.txt', skip=9)
+  DrugRepHub.drug_synonyms = DrugRepHub.drug_synonyms[,c('pert_iname','vendor_name')]
+  expanded = expand_synonym_list(DrugRepHub.drug_synonyms, drug_synonyms, drug_synonyms_ids)
+  drug_synonyms = expanded[[1]]
+  drug_synonyms_ids = expanded[[2]]
+  rm(DrugRepHub.original, DrugRepHub.drug_synonyms)
+  
+  drug_synonyms = data.table(cbind(drug_synonyms, drug_synonyms_ids))
+  drug_synonyms = drug_synonyms[, drug_synonyms_ids := as.numeric(drug_synonyms_ids)]
+  save(drug_synonyms, file='drug_synonyms.r')
+}
+
+load('drug_synonyms.r')
+```
+
+I used this synonym table to re-annotate all drug names in the gene vector matrix files. New annotations were created by manually cleaning the original drug names, and replacing the cleaned drug name with an alphabetically-lower synonym when possible. I saved the annotations in the gene vector matrix files as [new annotation]|||[old annotation] to be able to identify matches while still preserving the original annotation.
+
+```{r cleaning_CREEDS_drug_names}
+#Read in file and extract drug names.
+CREEDS.original = fread('original_drug-gene_libs/CREEDS_Drugs_gvm.csv')
+CREEDS.original.drugs = as.character(colnames(CREEDS.original)[-1])
+for(i in 1:length(CREEDS.original.drugs)){
+  CREEDS.original.drugs[i] = strsplit(CREEDS.original.drugs[[i]], ' GSE')[[1]][1] %>% strsplit(split=' ')
+  CREEDS.original.drugs[i] = paste(head(CREEDS.original.drugs[[i]], -2), collapse=' ')
+}
+CREEDS.original.drugs=as.character(tolower(CREEDS.original.drugs))
+
+#Deal with special cases.
+for(i in 1:length(CREEDS.original.drugs)){
+  drug = CREEDS.original.drugs[i]
+  if(grepl('ec50', drug)){
+    CREEDS.original.drugs[i] = strsplit(drug, ',')[[1]][1]
+  }
+  if(grepl(' cid', drug)){
+    CREEDS.original.drugs[i] = strsplit(drug, ' cid')[[1]][1]
+  }
+  if(grepl(' h\\)', drug)){
+    CREEDS.original.drugs[i] = strsplit(drug, '\\(')[[1]][1]
+  }
+}
+```
+
+While cleaning the CREEDS drug annotations, I noticed some names were formatted as "name (synonym)". For these, I replaced the annotation with the first name and added both the name and synonym to the synonym list. 
+
+```{r add_CREEDS_synonyms}
+#I discovered that some names contain a synonym in parenthesis, so remove the synonym from the name but add both syonyms to the list. 
+drug_synonyms_names = drug_synonyms[['drug_synonyms']]
+drug_synonyms_ids = drug_synonyms[['drug_synonyms_ids']]
+
+for(drug in CREEDS.original.drugs){
+  if(grepl(' \\(', drug)){
+    split = strsplit(drug, ' \\(')[[1]]
+    syn1 = trimws(split[[1]])
+    syn2 = trimws(strsplit(split[[2]], '\\)')[[1]])
+    
+    CREEDS.original.drugs[i] = syn1
+    
+    syns = as.data.table(matrix(c(syn1, syn2), nrow=1))
+    expanded = expand_synonym_list(syns, drug_synonyms_names, drug_synonyms_ids)
+    drug_synonyms = expanded[[1]]
+    drug_synonyms_ids = expanded[[2]]
+  }
+}
+
+drug_synonyms = data.table(cbind(drug_synonyms_names, drug_synonyms_ids))
+drug_synonyms = drug_synonyms[, drug_synonyms_ids := as.numeric(drug_synonyms_ids)]
+save(drug_synonyms, file='drug_synonyms_2.r')
+rm(drug_synonyms_names, drug_synonyms_ids)
+```
+
+```{r continue_cleaning_CREEDS_drug_names}
+replace_with_synonyms = function(drug_name_vector, drug_synonyms){
+  for(i in 1:length(drug_name_vector)){
+    name = drug_name_vector[[i]]
+    id = drug_synonyms[drug_synonyms_names == name, drug_synonyms_ids]
+    if(length(id) == 0){next}
+    synonyms = drug_synonyms[drug_synonyms_ids == id, drug_synonyms_names]
+    #Take the highest alphabetical synonym. 
+    new_name = synonyms[order(synonyms)][[1]]
+    drug_name_vector[[i]] = new_name
+  }
+  return(drug_name_vector)
+}
+
+CREEDS.cleaned.drugs = replace_with_synonyms(CREEDS.original.drugs, drug_synonyms)
+
+```
+
+
+```{r}
+DrugBank.original = fread('original_drug-gene_libs/1_DrugBank_EdgeList_10-05-17.csv')
+TargetCentral.original = fread('original_drug-gene_libs/2_TargetCentral_EdgeList_10-05-17.csv')
+#DBTC_Union.original = fread('original_drug-gene_libs/3_EdgeLists_Union_10-05-17.csv')
+#DBTC_Intsct.original = fread('original_drug-gene_libs/4_EdgeLists_Intersection_10-05-17.csv')
+CREEDS.original = fread('original_drug-gene_libs/CREEDS_Drugs_gvm.csv')
+DrugMatrix.original = fread('original_drug-gene_libs/DrugMatrix_gvm.csv')
+DGIdb.original = fread('original_drug-gene_libs/interactions.tsv')
+DrugRepHub.original = fread('original_drug-gene_libs/repurposing_drugs_20170327.txt', skip=9)
+```
+
+Drug-gene interactions were extracted from six different databases:
+
+```{r table_1}
+
+libnames = c('DrugBank','TargetCentral','CREEDS','DrugMatrix','DGIdb','DrugRepHub')
+full_libnames = c('DrugBank','Target Central Resource Database','CRowd Extracted Expression of Differential Signatures','DrugMatrix','Drug Gene Interaction Database','Drug Repurposing Hub')
+links = c('drugbank.ca/','juniper.health.unm.edu/tcrd/','amp.pharm.mssm.edu/CREEDS/','www.niehs.nih.gov/outage_maintenance/','dgidb.org/','clue.io/repurposing')
+descriptions = c('Encyclopedia-like drug database compiled from scientific publications.',
+  'The central resource behind the "Illuminating the Druggable Genome" project, which compiles data from multiple sources and emphasizes GPCR, kinase, ion channel and nuclear receptor targets.',
+  'Infers drug-gene associations using drug perturbation signatures extracted and processed from the Gene Expression Omnibus by crowdsource.',
+  'Drug and environmental chemical database compiled from toxicogenomic studies. The web tool is currently down until further notice.',
+  'Drug-gene interactions compiled by curation and text-mining from multiple sources.',
+  'Drug screening library containing known clinical drugs and their targets as reported by scientific publications.')
+
+CREEDS.n_rat = length(colnames(CREEDS.original)[grep('rat',colnames(CREEDS.original))])
+CREEDS.n_human = length(colnames(CREEDS.original)[grep('human',colnames(CREEDS.original))])
+CREEDS.n_mouse = length(colnames(CREEDS.original)[grep('mouse',colnames(CREEDS.original))])
+organisms_and_n_samples = c(paste0('Human (',as.character(nrow(DrugBank.original)), ')'), paste0('Human (',as.character(nrow(TargetCentral.original)), ')'), paste0('Human (' ,as.character(CREEDS.n_human), '), Mouse (',
+as.character(CREEDS.n_mouse), '), Rat (', as.character(CREEDS.n_rat), ')'), paste0('Rat (',as.character(ncol(DrugMatrix.original) -1), ')'), paste0('Human (',as.character(nrow(DGIdb.original)), ')'), paste0('Human (',as.character(nrow(DrugRepHub.original)), ')'))
+
+#need to lapply to_lower
+n_drugs = c(length(unique(DrugBank.original[,DrugName])), length(unique(TargetCentral.original[,DrugName])), ' ', length(unique(colnames(DrugMatrix.original))) - 1, ' ', length(unique(DrugRepHub.original[,pert_iname])))
+preprocessing = c('Kathleen made an edgelist','Kathleen made an edgelist','Took the union of up and down DE gene sets from Enrichr gmts ("Drug_Perturbations_from_GEO...")', 'Direct download', 'Direct download', 'Direct download')
+
+avg_n_genes_per_sample = c('','','','','','')
+
+t1 = do.call(cbind, list(libnames, full_libnames, descriptions, organisms_and_n_samples, n_drugs, avg_n_genes_per_sample, preprocessing))
+#colnames(x) = c('Autism','ADHD','Both','None','All Subjects')
+#rownames(x) = c('Number of subjects','MedianAge, mean','MedianAge, sd','Percent female','SRS_TotalRawScore, mean','SRS_TotalRawScore, sd','mABC_TotalStandardScore, mean','mABC_TotalStandardScore, sd','GAI, mean','GAI, sd')
+#x['Number of subjects',]=formatC(as.numeric(x['Number of subjects',]),format='d')
+
+colnames(t1) = c('Name, Abbreviated', 'Name, Full', 'Description','Organism (number of samples)', 'Number of unique drugs', 'Average number of genes per sample', 'Data preprocessing')
+
+t1[,'Name, Abbreviated'] = paste0("[", libnames, "](http://", links, ")")
+
+kable(t1, 'html', caption='Table 1: Dataset summary') %>%
+  kable_styling(bootstrap_options=c('striped', 'condensed', full_width=F, font_size=10))
+
+```

@@ -1,0 +1,144 @@
+```{r}
+TargetCentral.original = '2_TargetCentral_EdgeList_10-05-17.csv'
+CREEDS.original = 'CREEDS_Drugs_transformed.csv'
+DrugMatrix.original = 'DrugMatrix.csv'
+DGIdb.original = 'interactions.tsv'
+DrugRepHub.original = 'repurposing_drugs_20170327.txt'
+DBTC_Union.original = '3_EdgeLists_Union_10-05-17.csv'
+DBTC_Intsct.original = '4_EdgeLists_Intersection_10-05-17.csv'
+  
+  
+
+```
+
+```{r setup, echo=FALSE, fig.height=8, fig.width=8}
+knitr::opts_chunk$set(options(warn=-1))
+
+#================================================================
+#This is a collection of functions used to analyze our dataframe.
+#================================================================ 
+get_top_n_coexpressed = function(expansion_library_fname, output_fname, n=100){
+  print(output_fname)
+  
+  if(file.exists(output_fname)){
+  	print('already created.')
+  	return(NULL)
+  }
+  
+  #process it accordingly--different expansion library files are formatted differently. 
+  if(expansion_library_fname %in% c('human_correlation.rda', 'mouse_correlation.rda')){
+    rows_list = vector('list', length=10)
+    for(i in 0:9){
+      print(i)
+      temp_space = new.env()
+      f = load(expansion_library_fname, temp_space)
+      expansion_library = get(f, temp_space)
+      rm(temp_space)
+      
+      start = floor(nrow(expansion_library)/10*i) + 1
+      if(i==9){
+        end=nrow(expansion_library)} else {
+          end = floor(nrow(expansion_library)/10*(i + 1))}
+      expansion_library = expansion_library[start:end,]
+      
+      #define a function that returns the top n genes
+      ##with the highest coexpression values, for a given row.
+      get_top_n = function(row){
+        return(names(row)[order(row, decreasing=TRUE)[1:n]])
+      }
+      
+      #get the top n genes for each row.
+      rows_list[[i+1]] = t(apply(expansion_library, 1, get_top_n))
+    }
+    top_n = do.call(rbind, rows_list)
+    print(dim(top_n))
+    rm(rows_list)
+    
+    
+  } else if(expansion_library_fname %in% c('genename_pairsWprob.txt')) {
+    expansion_library = read.table(expansion_library_fname)
+    colnames(expansion_library) = c('gene1', 'gene2', 'p')
+    
+    #remove rows with p-value == 0.
+    expansion_library = subset(expansion_library, p > 0)
+    
+    genes = union(expansion_library$gene1, expansion_library$gene2)
+    
+    coexpressed = as.list(genes)
+    names(coexpressed) = genes
+    
+    for(i in 1:nrow(expansion_library)){
+      g1 = as.character(expansion_library[[i,'gene1']])
+      g2 = as.character(expansion_library[[i,'gene2']])
+      
+      coexpressed[[g1]] = append(coexpressed[[g1]], g2)
+      coexpressed[[g2]] = append(coexpressed[[g2]], g1)
+    }
+
+    for(i in names(coexpressed)){
+      if(length(coexpressed[[i]]) > 100){
+        coexpressed[[i]]=coexpressed[[i]][1:100]
+      }
+      
+      length(coexpressed[[i]]) = 100
+    }
+    
+    top_n = do.call(rbind, coexpressed)
+  }
+  
+  #save to file and return.
+  write.table(top_n, output_fname, sep='\t')
+  return(top_n)
+  
+}
+
+expand_gmt = function(gmt_fname, expansion_fname, output_fname){
+  if(file.exists(output_fname)){
+    print(paste0(output_fname, ' already created.'))
+    return(NULL)
+  }
+  
+  gmt=read.csv(gmt_fname, sep='\t', colClasses='character', row.names=1)
+  expansion = read.csv(expansion_fname, sep='\t', colClasses='character', row.names=1)
+  
+  gene_union = union(rownames(gmt), rownames(expansion))
+  
+  original_gmt = matrix(NA, ncol=ncol(gmt), nrow=length(gene_union))
+  colnames(original_gmt) = colnames(gmt)
+  rownames(original_gmt) = gene_union
+  
+  for(c in colnames(original_gmt)){
+    #print(c)
+    genes = as.character(rownames(gmt[gmt[c]=='True',]))
+    e_genes_with_na = as.character(unlist(expansion[genes,]))
+    e_genes = e_genes_with_na[!is.na(e_genes_with_na)]
+    genes_to_add = union(genes, e_genes)
+    original_gmt[genes_to_add, c] = 'True'
+  }
+  
+  write.table(original_gmt, output_fname, na='', sep='\t', quote=FALSE)
+}
+
+compare_original_gmt = function(old_gmt_fname, original_gmt_fname){
+  old_gmt = read.csv(old_gmt_fname, sep='\t', colClasses='character', row.names=1)
+  original_gmt = read.csv(original_gmt_fname, sep='\t', colClasses='character', row.names=1)
+  
+  ngenes = data.frame(old_ngenes=colSums(old_gmt=='True'))
+  ngenes$original_ngenes = colSums(original_gmt=='True')
+  print(ggplot(data=melt(ngenes, measure.vars=c('old_ngenes','original_ngenes')), aes(x=value, fill=variable)) + geom_histogram(bins=150) + facet_grid(variable~.) + labs(x='gene set size', y='count', title=strsplit(original_gmt_fname, '_transformed')[[1]]))
+}
+
+library(ggplot2)
+library(reshape2)
+
+for(gmt in c('1_DrugBank_EdgeList_10-05-17', '2_TargetCentral_EdgeList_10-05-17', '3_EdgeLists_Union_10-05-17', '4_EdgeLists_Intersection_10-05-17')){
+  for(expansion in c('genename_pairsWprob_top_100', 'human_correlation_top_100')){
+    if(expansion=='genename_pairsWprob_top_100'){exp_libname='hu.MAP'}
+    else{exp_libname='ARCHS4'}
+    output_fname = paste0('libs\\', gmt, '_original_with_', exp_libname, '_transformed.csv')
+    #print(output_fname)
+    #expand_gmt(gmt_fname=paste0('libs\\', gmt, '_transformed.csv'), expansion_fname=paste0('gene_coexp_data\\', expansion, '.csv'), output_fname=output_fname)
+    compare_original_gmt(old_gmt_fname=paste0('libs\\', gmt, '_transformed.csv'), original_gmt_fname=output_fname)
+  }
+}
+```
