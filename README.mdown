@@ -1,0 +1,5 @@
+In this project, I compare the agreement among different drug target libraries using enrichment analysis. The libraries I looked at are DrugBank, the Target Central Resource Database, the CRowd Extracted Expression of Differential Signatures (CREEDS), DrugMatrix, Drug Gene Interaction Database (DGIdb), and the Drug Repurposing Hub. I also looked at the union and intersection sets between DrugBank and Target Central.
+
+For libraries whose drugs have a small number of gene targets, I used protein-protein interaction (PPI) databases to expand their target lists. The PPI databases I used are hu.MAP, ARCHS4 and BioGRID.
+
+See http://htmlpreview.github.io/?https://github.com/MaayanLab/DrugLib_Enrichment_Comparison/blob/master/project_description_and_setup.html for a full description.
