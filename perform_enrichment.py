@@ -5,47 +5,40 @@ import numpy as np
 import pandas as pd
 from joblib import Parallel, delayed
 import enrichment_functions as m
-from setup import convert_gmt
 from sklearn.ensemble import RandomForestClassifier, GradientBoostingClassifier, \
 	RandomTreesEmbedding, AdaBoostClassifier, ExtraTreesClassifier
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.svm import LinearSVC
 from xgboost import XGBClassifier
 from random import uniform as rand
-from setup import open_csv
 import scipy.stats as stats
 #from get_classifiers import get_classifiers #REMOVED. the script was put in the old or unused scripts folder.
 import h5py
 
-def clean_tf(annot):
-	'''Extracts the transcription factor name from an annotation.'''
-	return str(annot).partition('_')[0].partition(' ')[0].upper()
+def open_gvm(fname):
+	print('opening', fname)
+	#Open the file.
+	gvm = pd.read_csv(fname, keep_default_na = False, na_values=('',), sep='\t', low_memory=False, encoding='Latin-1', index_col=0)
+	##Workaroud from bug which raised error if keep_default_na=False and index_col=0 are both used.
+	#gvm = pd.read_csv(fname, keep_default_na = False, na_values=('',), sep='\t', low_memory=False, encoding='Latin-1')
+	#lib_name = fname.partition('_gvm.csv')[0]
+	#gvm.set_index(gvm[lib_name], inplace=True)
+	#gvm.drop([lib_name], axis=1, inplace=True)
 
-def clean(annot, libname):
-	'''
-	More general version of `clean_tf()` which checks if the lib has tf or drug annotations based on its name,
-	and then extracts either the tf name or the drug name from the inputted annotation.
-	'''
-	if libname == 'CREEDS_Drugs': 
-		return str(annot).partition(' GSE')[0].partition(' ')[0].partition(' ')[0].lower() 
-	elif 'DrugMatrix' in libname:
-		for parser in ('mg/kg', '_uM_', 'ng/ml'):
-			if parser in annot:
-				return str(annot).partition(parser)[0].rpartition('-')[0].lower()
-		raise ValueError(annot + ' could not be parsed.')
-	elif ('10-05-17' in libname) or ('Drug' in libname):
-		#The library is some other drug library.
-		return str(annot).lower() 
-	else:
-		#The library is a transcription factor library.
-		return clean_tf(annot)
+	#Convert blank cells to False, and ensure bool type. 
+	gvm = gvm.fillna(False).astype(bool)
+	return gvm
+
+def clean(annot):
+	'''Extracts drug synonym from annotation.'''
+	return str(annot).partition('|||')[0]
 
 def get_overlapping_ilib_annots(ilib_name, ilib_annots, slib_name, slib_annots):
-	'''Return the annotations in the label library which have matches in the feature library.'''
-	cleaned_ilib_annots = {clean(annot, ilib_name) for annot in ilib_annots}
-	cleaned_slib_annots = {clean(annot, slib_name) for annot in slib_annots}
+	'''Return the annotations in the input library which have matches in the search library.'''
+	cleaned_ilib_annots = {clean(annot) for annot in ilib_annots}
+	cleaned_slib_annots = {clean(annot) for annot in slib_annots}
 	cleaned_overlaps = cleaned_ilib_annots & cleaned_slib_annots
-	overlapping_ilib_annots = [annot for annot in ilib_annots if clean(annot, ilib_name) in cleaned_overlaps]
+	overlapping_ilib_annots = [annot for annot in ilib_annots if clean(annot) in cleaned_overlaps]
 	return overlapping_ilib_annots
 
 def get_enrichment_algorithms(ilib_gvm, slib_gvm, ilib_name, slib_name):
@@ -82,26 +75,29 @@ def get_enrichment_algorithms(ilib_gvm, slib_gvm, ilib_name, slib_name):
 	#======================================================================================================================
 	enrichment_algorithms = pd.DataFrame(index=['func', 'params'])
 	enrichment_algorithms['Fisher'] = [m.Fisher, [slib_gvm]] 
-	enrichment_algorithms['RandomForest'] = [m.ML_wrapper, [RandomForestClassifier, train_group, features, 101317]]
+	#enrichment_algorithms['RandomForest'] = [m.ML_wrapper, [RandomForestClassifier, train_group, features, 101317]]
 	return enrichment_algorithms
 	#======================================================================================================================
 
 def perform_enrichment(pair):
 	'''This function is called for each lib pair, and iterates over each method and each tf. 
-	pair : dict
-		key 'i' gives the input library gvm, and key 's' gives the search library gvm. 
+	pair : tuple of str
+		(input library fname, search library fname)
 	'''
-	ilib_name, slib_name = pair['i'].index.name, pair['s'].index.name
+
+	ilib, slib = (open_gvm(lib) for lib in pair)
+	ilib.index.name, slib.index.name = [lib.partition('\\')[2].partition('_gvm')[0] for lib in pair]
+	ilib_name, slib_name = ilib.index.name, slib.index.name
 	print('Beginning enrichment analysis inputting', ilib_name, 'into', slib_name)
 
 	#Get the input library annotations whose corresponding tf/drug also corresponds to 
 	#	at least one search library annotation.
-	overlapping_ilib_annots = get_overlapping_ilib_annots(ilib_name, pair['i'].columns.values, 
-		slib_name, pair['s'].columns.values)
+	overlapping_ilib_annots = get_overlapping_ilib_annots(ilib_name, ilib.columns.values, 
+		slib_name, slib.columns.values)
 	print(str(len(overlapping_ilib_annots)), 'overlaps')
 
 	#Get the algorithms with which to perform enrichment. 
-	enrichment_algorithms = get_enrichment_algorithms(pair['i'], pair['s'], ilib_name, slib_name)
+	enrichment_algorithms = get_enrichment_algorithms(ilib, slib, ilib_name, slib_name)
 	prefix = 'input_' + ilib_name + '_into_' + slib_name
 
 	#Iterate over each algorithm (i.e. each column).
@@ -127,7 +123,7 @@ def perform_enrichment(pair):
 			#Iterate over each overlapping ilib annotation.
 			for annot in overlapping_ilib_annots:
 				print(algorithm_name, annot) #for diagnostics.
-				input_geneset = pair['i'].index[pair['i'][annot]]
+				input_geneset = ilib.index[ilib[annot]]
 				#Get scores for all the slib annotations.
 				result = algorithm['func'](input_geneset, *algorithm['params'])
 				for x in range(len(score_dfs)): 
@@ -138,34 +134,31 @@ def perform_enrichment(pair):
 			for x in range(len(score_dfs)): 
 				#Save the score_dfs as csv files.
 				df = score_dfs[x]
-				df.index = pair['s'].columns
-				df.to_csv(output_fnames[x], sep='\t')
+				df.index = slib.columns
+				df.to_csv('results\\' + output_fnames[x], sep='\t')
 	return
 
 if __name__ == '__main__':
-	tf_libs = ('ENCODE_TF_ChIP-seq_2015.txt', 'ChEA_2016.txt', 'CREEDS_tfs.txt')
-	drug_libs = ('1_DrugBank_EdgeList_10-05-17.txt', 
-		'2_TargetCentral_EdgeList_10-05-17.txt',
-		'3_EdgeLists_Union_10-05-17.txt', 
-		'4_EdgeLists_Intersection_10-05-17.txt',
-		'DrugBank',
-		'CREEDS_Drugs',
-		'DrugMatrix_Union',
-		)
+	
+	expanded_drug_libs = ['repurposing_drugs_20170327','interactions',
+		'1_DrugBank_Edgelist_10-05-17', '2_TargetCentral_Edgelist_10-05-17',
+		'3_Edgelists_Union_10-05-17', '4_EdgeLists_Intersection_10-05-17']
+	expansion_ppi_libs = ['hu.MAP','BioGRID','ARCHS4']
+	expanded_gvms = ['expanded_drug-gene_libs\\' + drug_lib + '_expanded_with_' + ppi_lib + 
+		'_gvm.csv' for drug_lib in expanded_drug_libs for ppi_lib in expansion_ppi_libs]
+
+	non_expanded_drug_libs = ['CREEDS_Drugs','DrugMatrix_Union']
+	non_expanded_gvms = ['original_drug-gene_libs\\' + drug_lib + 
+		'_gvm_2.csv' for drug_lib in non_expanded_drug_libs]
 
 	#========================================================
 	#Choose which libraries with which to perform enrichment.
 	#========================================================
-	libs = tf_libs
+	libs = expanded_gvms + non_expanded_gvms
 	#========================================================
 
-	#Get dataframes of each gmt library in libs
-	os.chdir('libs')
-	all_dfs = {lib:convert_gmt(lib, 'gvm') for lib in libs}
-	os.chdir('..')
 	if not os.path.isdir('results'): os.makedirs('results')
-	os.chdir('results')
 
 	#Iterate over each gmt pair.
-	lib_df_pairs = [{'i':all_dfs[a], 's':all_dfs[b]} for a in libs for b in libs if a != b]
-	Parallel(n_jobs=3, verbose=0)(delayed(perform_enrichment)(pair) for pair in lib_df_pairs)
+	lib_df_pairs = [(a,b) for a in libs for b in libs if a != b]
+	Parallel(n_jobs=1, verbose=0)(delayed(perform_enrichment)(pair) for pair in lib_df_pairs)
