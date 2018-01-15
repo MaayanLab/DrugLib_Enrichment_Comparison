@@ -117,13 +117,27 @@ $(document).ready(function () {
 
 
 <h1 class="title toc-ignore">Comparing drug target libraries using enrichment analysis</h1>
-<h3 class="subtitle"><em>Dataset description</em></h3>
+<h3 class="subtitle"><em>Setup and dataset description</em></h3>
 <h4 class="author"><em>Damon Pham</em></h4>
 
 </div>
 
 
-<p>Drug-gene interactions were extracted from six different databases:</p>
+<p>In this project, I compare the agreement among different drug target libraries using enrichment analysis. The libraries I looked at are DrugBank, the Target Central Resource Database, the CRowd Extracted Expression of Differential Signatures (CREEDS), DrugMatrix, Drug Gene Interaction Database (DGIdb), and the Drug Repurposing Hub. I also looked at the union and intersection sets between DrugBank and Target Central.</p>
+<p>For libraries whose drugs have a small number of gene targets, I used protein-protein interaction (PPI) databases to expand their target lists. The PPI databases I used are hu.MAP, ARCHS4 and BioGRID.</p>
+<div id="preliminaries" class="section level1">
+<h1>Preliminaries</h1>
+<p>I first converted all libraries to gene vector matrix format. In this format, each drug sample is a column, and the rows are genes. Cell values are TRUE or FALSE depending on whether the column drug is associated with the row gene. Thus, the gene set for each drug is given by its column vector.</p>
+<p>Next, I made a drug synonym table to help identify matching drugs between the libraries. Synonyms were extracted by equating the following values for each sample in these libraries:</p>
+<ul>
+<li>DrugBank: DrugName and DrugID_ChEMBL</li>
+<li>Target Central: DrugName and DrugID_ChEMBL</li>
+<li>DGIdb: drug_claim_name, drug_claim_primary_name, drug_name, drug_chembl_id</li>
+<li>Drug Rep Hub: pert_iname and vendor_name</li>
+</ul>
+<p>I used this synonym table to re-annotate all drug names in the gene vector matrix files. New annotations were created by manually cleaning the original drug names, and replacing the cleaned drug name with an alphabetically-lower synonym when possible. I saved the annotations in the gene vector matrix files as [new annotation]|||[old annotation] to be able to identify matches while still preserving the original annotation.</p>
+<p>While cleaning the CREEDS drug annotations, I noticed some names were formatted as “name (synonym)”. For these, I replaced the annotation with the first name and added both the name and synonym to the synonym list.</p>
+<p>Now that all gene vector matrices have been created, here is a summary of the features of each library. (Note: the union and intersection gvms between Drug Bank and Target Central are not included in this table.)</p>
 <table class="table table-striped table-condensed" style="margin-left: auto; margin-right: auto;">
 <caption>
 Table 1: Dataset summary
@@ -165,12 +179,13 @@ DrugBank
 Encyclopedia-like drug database compiled from scientific publications.
 </td>
 <td style="text-align:left;">
-Human (12132)
+Human (4894)
 </td>
 <td style="text-align:left;">
-4894
+4878
 </td>
 <td style="text-align:left;">
+2.47
 </td>
 <td style="text-align:left;">
 Kathleen made an edgelist
@@ -187,12 +202,13 @@ Target Central Resource Database
 The central resource behind the “Illuminating the Druggable Genome” project, which compiles data from multiple sources and emphasizes GPCR, kinase, ion channel and nuclear receptor targets.
 </td>
 <td style="text-align:left;">
-Human (3638)
+Human (1527)
 </td>
 <td style="text-align:left;">
-1527
+1517
 </td>
 <td style="text-align:left;">
+2.38
 </td>
 <td style="text-align:left;">
 Kathleen made an edgelist
@@ -209,11 +225,13 @@ CRowd Extracted Expression of Differential Signatures
 Infers drug-gene associations using drug perturbation signatures extracted and processed from the Gene Expression Omnibus by crowdsource.
 </td>
 <td style="text-align:left;">
-Human (461), Mouse (294), Rat (171)
+Human (465), Mouse (294), Rat (174)
 </td>
 <td style="text-align:left;">
+272
 </td>
 <td style="text-align:left;">
+599.34
 </td>
 <td style="text-align:left;">
 Took the union of up and down DE gene sets from Enrichr gmts (“Drug_Perturbations_from_GEO…”)
@@ -233,9 +251,10 @@ Drug and environmental chemical database compiled from toxicogenomic studies. Th
 Rat (7876)
 </td>
 <td style="text-align:left;">
-7876
+654
 </td>
 <td style="text-align:left;">
+299.96
 </td>
 <td style="text-align:left;">
 Direct download
@@ -252,11 +271,13 @@ Drug Gene Interaction Database
 Drug-gene interactions compiled by curation and text-mining from multiple sources.
 </td>
 <td style="text-align:left;">
-Human (42727)
+Human (13188)
 </td>
 <td style="text-align:left;">
+10552
 </td>
 <td style="text-align:left;">
+2.63
 </td>
 <td style="text-align:left;">
 Direct download
@@ -273,12 +294,13 @@ Drug Repurposing Hub
 Drug screening library containing known clinical drugs and their targets as reported by scientific publications.
 </td>
 <td style="text-align:left;">
-Human (5628)
+Human (4020)
 </td>
 <td style="text-align:left;">
-5628
+3978
 </td>
 <td style="text-align:left;">
+3.07
 </td>
 <td style="text-align:left;">
 Direct download
@@ -286,74 +308,8 @@ Direct download
 </tr>
 </tbody>
 </table>
-<p>Cleaning up CREEDS drug names:</p>
-<pre><code>## [1] &quot;cytarabine, 2xec50, 3 d&quot; &quot;cytarabine&quot;             
-## [1] &quot;cytarabine, ec50, 5 d&quot; &quot;cytarabine&quot;           
-## [1] &quot;doxorubicin, ec50, 5 d&quot; &quot;doxorubicin&quot;           
-## [1] &quot;cytarabine, ec50, 1 d&quot; &quot;cytarabine&quot;           
-## [1] &quot;puromycin, ec50, 1 d&quot; &quot;puromycin&quot;           
-## [1] &quot;doxorubicin, 2xec50, 3 d&quot; &quot;doxorubicin&quot;             
-## [1] &quot;doxorubicin, 2xec50, 5 d&quot; &quot;doxorubicin&quot;             
-## [1] &quot;puromycin, ec50, 3 d&quot; &quot;puromycin&quot;           
-## [1] &quot;doxorubicin, 2xec50, 1 d&quot; &quot;doxorubicin&quot;             
-## [1] &quot;cytarabine, 2xec50, 5 d&quot; &quot;cytarabine&quot;             
-## [1] &quot;puromycin, ec50, 5 d&quot; &quot;puromycin&quot;           
-## [1] &quot;cytarabine, ec50, 3 d&quot; &quot;cytarabine&quot;           
-## [1] &quot;doxorubicin, ec50, 1 d&quot; &quot;doxorubicin&quot;           
-## [1] &quot;doxorubicin, ec50, 3 d&quot; &quot;doxorubicin&quot;           
-## [1] &quot;cytarabine, 2xec50, 1 d&quot; &quot;cytarabine&quot;             
-## [1] &quot;puromycin, 2xec50, 3 d&quot; &quot;puromycin&quot;             
-## [1] &quot;puromycin, 2xec50, 1d&quot; &quot;puromycin&quot;</code></pre>
-<p>Remove this suffix.</p>
-<pre><code>## [1] &quot;mepenzolate bromide cid&quot; &quot;mepenzolate bromide&quot;    
-## [1] &quot;mk-886 cid&quot; &quot;mk-886&quot;    
-## [1] &quot;hodgkin lymphoma cid&quot; &quot;hodgkin lymphoma&quot;    
-## [1] &quot;cadmium cid&quot; &quot;cadmium&quot;    
-## [1] &quot;plx4720 cid&quot; &quot;plx4720&quot;    
-## [1] &quot;pbde 47 cid&quot; &quot;pbde 47&quot;    
-## [1] &quot;arsenic cid&quot; &quot;arsenic&quot;    
-## [1] &quot;curcumin cid&quot; &quot;curcumin&quot;    
-## [1] &quot;curcumin cid&quot; &quot;curcumin&quot;    
-## [1] &quot;mk-886 cid&quot; &quot;mk-886&quot;    
-## [1] &quot;plx4720 cid&quot; &quot;plx4720&quot;    
-## [1] &quot;plx4720 cid&quot; &quot;plx4720&quot;</code></pre>
-<p>Remove this suffix.</p>
-<pre><code>## [1] &quot;carboplatin (36 h)&quot; &quot;carboplatin &quot;      
-## [1] &quot;motexafin gadolinium (12 h)&quot; &quot;motexafin gadolinium &quot;      
-## [1] &quot;carboplatin (30 h)&quot; &quot;carboplatin &quot;      
-## [1] &quot;carboplatin (24 h)&quot; &quot;carboplatin &quot;      
-## [1] &quot;motexafin gadolinium (24 h)&quot; &quot;motexafin gadolinium &quot;      
-## [1] &quot;motexafin gadolinium (4 h)&quot; &quot;motexafin gadolinium &quot;</code></pre>
-<p>Remove this suffix.</p>
-<pre><code>## [1] &quot;dmnq   (2,3-dimethoxy-1,4-naphthoquinone)&quot;
-## [1] &quot;arc (nsc 188491)&quot;
-## [1] &quot;sapphyrin pci-2050 (1.25 &amp;icirc;&amp;frac14;m)&quot;
-## [1] &quot;2,2',4,4',5,5'-hexachlorobiphenyl   (pcb-153)&quot;
-## [1] &quot;phorbol ester 12-o-tetradecanoylphorbol-13-acetate (tpa)&quot;
-## [1] &quot;triiodothyronine-[13c6] hydrochloride (t3 thyronine)&quot;
-## [1] &quot;phorbol ester 12-o-tetradecanoylphorbol-13-acetate (tpa)&quot;
-## [1] &quot;mek inhibitor (meki -azd6244)&quot;
-## [1] &quot;triiodothyronine-[13c6] hydrochloride (t3 thyronine)&quot;
-## [1] &quot;triiodothyronine-[13c6] hydrochloride (t3 thyronine)&quot;
-## [1] &quot;phorbol 12-myristate 13-acetate (pma)&quot;
-## [1] &quot;nvp-tnks656 (tankyrase inhibitor)&quot;
-## [1] &quot;triiodothyronine-[13c6] hydrochloride (t3 thyronine)&quot;
-## [1] &quot;mek inhibitor (meki -azd6244)&quot;
-## [1] &quot;imatinib (glivec)&quot;
-## [1] &quot;2,2',4,4',5,5'-hexachlorobiphenyl   (pcb-153)&quot;
-## [1] &quot;lipopolysaccharide (lps)&quot;
-## [1] &quot;2,3-dimethoxy-1,4-naphtoquinone (dmnq)&quot;
-## [1] &quot;type ii ifn (ifn-gamma1b)&quot;
-## [1] &quot;triiodothyronine-[13c6] hydrochloride (t3 thyronine)&quot;
-## [1] &quot;triiodothyronine-[13c6] hydrochloride (t3 thyronine)&quot;
-## [1] &quot;sapphyrin pci-2050 (2.5 &amp;icirc;&amp;frac14;m)&quot;
-## [1] &quot;sangivamycin (nsc 65346)&quot;
-## [1] &quot;2,2',4,4',5,5'-hexachlorobiphenyl   (pcb-153)&quot;
-## [1] &quot;interferon-&amp;icirc;&amp;sup2;-1b (betaferon)&quot;
-## [1] &quot;2,3-dimethoxy-1,4-naphtoquinone (dmnq)&quot;
-## [1] &quot;2,3,7,8-tetrachlorodibenzo-p-dioxin (tcdd)&quot;
-## [1] &quot;2,2',4,4',5,5'-hexachlorobiphenyl   (pcb-153)&quot;</code></pre>
-<p>These parentheses enclose a synonym. We will keep the original name and add the (original name, synonym) pair to a synonym list.</p>
+<p>From the “average number of genes per sample” column, it is apparent that the gene set sizes for samples from DrugBank, TargetCentral, DGIdb and DrugRepHub are small. These libraries will be expanded using PPI data from three sources: ARCHS4, hu.MAP and BioGRID. To do this, the PPI libraries will be narrowed down such that each gene/protein in the library has up to 100 top coexpressed genes/proteins, including itself. (For BioGRID, since coexpression scores are not provided, the first 100 coexpression entries for each gene/protein, from top to bottom in the original file, were kept.) Then, each gene set in the drug libraries is expanded by adding to it the coexpression entries of each gene/protein it contains. For example, the set of genes {CTPS, MLLT11} will become the union of the coexpression sets for CTPS and MLLT11. (If a gene doese not appear in the PPI library, the coexpression set is interpreted as just the gene itself.) This results in three new drug-gene libraries for each original drug-gene library: one for each PPI library used to expand it.</p>
+</div>
 
 
 

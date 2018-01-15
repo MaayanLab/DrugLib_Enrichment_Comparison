@@ -142,3 +142,28 @@ for(gmt in c('1_DrugBank_EdgeList_10-05-17', '2_TargetCentral_EdgeList_10-05-17'
   }
 }
 ```
+
+
+
+
+
+```{r temp_edit_syntable_2}
+#load('drug_synonyms_2.r')
+colnames(drug_synonyms) = c('drug_synonyms_names','drug_synonyms_ids')
+duplicated_names = drug_synonyms[duplicated(drug_synonyms[,drug_synonyms_names]),drug_synonyms_names]
+duplicated_rows = drug_synonyms[drug_synonyms_names %in% duplicated_names,]
+duplicated_ids = drug_synonyms[drug_synonyms_ids %in% duplicated_rows[,drug_synonyms_ids],]
+```
+
+```{r}
+load('drug_synonyms.r')
+#colnames(drug_synonyms) = c('drug_synonyms_names','drug_synonyms_ids')
+```
+
+```{r temp_edit_syn_table}
+duplicated_names = drug_synonyms[duplicated(drug_synonyms[,drug_synonyms_names]),drug_synonyms_names]
+duplicated_rows = drug_synonyms[drug_synonyms_names %in% duplicated_names,]
+duplicated_ids = drug_synonyms[drug_synonyms_ids %in% duplicated_rows[,drug_synonyms_ids],]
+
+
+```
