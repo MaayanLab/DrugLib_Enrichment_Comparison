@@ -17,16 +17,23 @@ import h5py
 
 def open_gvm(fname):
 	print('opening', fname)
-	#Open the file.
-	gvm = pd.read_csv(fname, keep_default_na = False, na_values=('',), sep='\t', low_memory=False, encoding='Latin-1', index_col=0)
-	##Workaroud from bug which raised error if keep_default_na=False and index_col=0 are both used.
-	#gvm = pd.read_csv(fname, keep_default_na = False, na_values=('',), sep='\t', low_memory=False, encoding='Latin-1')
-	#lib_name = fname.partition('_gvm.csv')[0]
-	#gvm.set_index(gvm[lib_name], inplace=True)
-	#gvm.drop([lib_name], axis=1, inplace=True)
+	#Read in chunks if the file is too big.
+	if 'interactions' in fname:
+		file_chunks = pd.read_csv(fname, keep_default_na = False, sep='\t', 
+			low_memory=False, encoding='Latin-1', index_col=0, chunksize=1000)
+		gvm = pd.concat(file_chunks)
+		gvm = gvm.replace(to_replace='',value=False).astype(bool)
+	else:
+		gvm = pd.read_csv(fname, keep_default_na = False, na_values=('',), sep='\t', 
+			low_memory=False, encoding='Latin-1', index_col=0)
+		##Workaroud from bug which raised error if keep_default_na=False and index_col=0 are both used.
+		#gvm = pd.read_csv(fname, keep_default_na = False, na_values=('',), sep='\t', low_memory=False, encoding='Latin-1')
+		#lib_name = fname.partition('_gvm.csv')[0]
+		#gvm.set_index(gvm[lib_name], inplace=True)
+		#gvm.drop([lib_name], axis=1, inplace=True)
 
-	#Convert blank cells to False, and ensure bool type. 
-	gvm = gvm.fillna(False).astype(bool)
+		#Convert blank cells to False, and ensure bool type. 
+		gvm = gvm.fillna(False).astype(bool)
 	return gvm
 
 def clean(annot):
@@ -85,9 +92,25 @@ def perform_enrichment(pair):
 		(input library fname, search library fname)
 	'''
 
+	#Get the algorithms with which to perform enrichment. 
+	algorithm_name = 'Fisher'
+
+	ilib_name, slib_name = [lib.partition('\\')[2].partition('_gvm')[0] for lib in pair]
+	prefix = 'input_' + ilib_name + '_into_' + slib_name
+	output_fnames = ('results\\' + prefix + '_' + algorithm_name + '.csv',)
+
+	#TEMPORARY
+	if 'interactions' in ilib_name and 'interactions' in slib_name:
+		print('skipping')
+		return
+
+	if os.path.isfile(output_fnames[0]): 
+		print('score file already created for', algorithm_name, prefix)
+		return
+
 	ilib, slib = (open_gvm(lib) for lib in pair)
-	ilib.index.name, slib.index.name = [lib.partition('\\')[2].partition('_gvm')[0] for lib in pair]
-	ilib_name, slib_name = ilib.index.name, slib.index.name
+	func = m.Fisher
+	params = [slib,]
 	print('Beginning enrichment analysis inputting', ilib_name, 'into', slib_name)
 
 	#Get the input library annotations whose corresponding tf/drug also corresponds to 
@@ -96,51 +119,29 @@ def perform_enrichment(pair):
 		slib_name, slib.columns.values)
 	print(str(len(overlapping_ilib_annots)), 'overlaps')
 
-	#Get the algorithms with which to perform enrichment. 
-	enrichment_algorithms = get_enrichment_algorithms(ilib, slib, ilib_name, slib_name)
-	prefix = 'input_' + ilib_name + '_into_' + slib_name
-
-	#Iterate over each algorithm (i.e. each column).
-	for algorithm_name in enrichment_algorithms:
-		algorithm = enrichment_algorithms[algorithm_name]
-
-		#Some methods actually return multiple results. These will need multiple score files.
-		if algorithm_name == 'ZAndCombined': output_fnames = (prefix + '_Z.csv', prefix + '_Combined.csv')
-		#elif algorithm_name == 'Pairwise_Gini': output_fnames = (prefix + '_Pair_Gini_ltf100_1.csv', 
-		#	prefix + '_Pair_Gini_ltf100_5.csv', prefix + '_Pair_Gini_ltf100_10.csv', prefix + '_Pair_Gini_ltf100_25.csv')
-		#========================================================================================
-		#If using a algorithm which returns multiple results, add the appropriate elif statement here.
-		#========================================================================================
-		else: output_fnames = (prefix + '_' + algorithm_name + '.csv',)
-
-		#Check if the file has already been created.
-		if os.path.isfile(output_fnames[0]): print('score file already created for', algorithm_name)
-
-		#If not, create it. 
-		else:
-			#Results will be stored after each tf iteration.
-			score_dfs = [pd.DataFrame() for n in range(len(output_fnames))]
-			#Iterate over each overlapping ilib annotation.
-			for annot in overlapping_ilib_annots:
-				print(algorithm_name, annot) #for diagnostics.
-				input_geneset = ilib.index[ilib[annot]]
-				#Get scores for all the slib annotations.
-				result = algorithm['func'](input_geneset, *algorithm['params'])
-				for x in range(len(score_dfs)): 
-					df = score_dfs[x]
-					#Store this result as a column in the score df.
-					if len(score_dfs) == 1: df[annot] = result
-					else: df[annot] = result[x]
-			for x in range(len(score_dfs)): 
-				#Save the score_dfs as csv files.
-				df = score_dfs[x]
-				df.index = slib.columns
-				df.to_csv('results\\' + output_fnames[x], sep='\t')
+	#Results will be stored after each tf iteration.
+	score_dfs = [pd.DataFrame() for n in range(len(output_fnames))]
+	#Iterate over each overlapping ilib annotation.
+	for annot in overlapping_ilib_annots:
+		print(algorithm_name, annot) #for diagnostics.
+		input_geneset = ilib.index[ilib[annot]]
+		#Get scores for all the slib annotations.
+		result = func(input_geneset, *params)
+		for x in range(len(score_dfs)): 
+			df = score_dfs[x]
+			#Store this result as a column in the score df.
+			if len(score_dfs) == 1: df[annot] = result
+			else: df[annot] = result[x]
+	for x in range(len(score_dfs)): 
+		#Save the score_dfs as csv files.
+		df = score_dfs[x]
+		df.index = slib.columns
+		df.to_csv(output_fnames[x], sep='\t')
 	return
 
 if __name__ == '__main__':
 	
-	expanded_drug_libs = ['repurposing_drugs_20170327','interactions',
+	expanded_drug_libs = ['repurposing_drugs_20170327','interactions', 
 		'1_DrugBank_Edgelist_10-05-17', '2_TargetCentral_Edgelist_10-05-17',
 		'3_Edgelists_Union_10-05-17', '4_EdgeLists_Intersection_10-05-17']
 	expansion_ppi_libs = ['hu.MAP','BioGRID','ARCHS4']
@@ -149,13 +150,13 @@ if __name__ == '__main__':
 
 	non_expanded_drug_libs = ['CREEDS_Drugs','DrugMatrix_Union']
 	non_expanded_gvms = ['original_drug-gene_libs\\' + drug_lib + 
-		'_gvm_2.csv' for drug_lib in non_expanded_drug_libs]
+		'_gvm2.csv' for drug_lib in non_expanded_drug_libs]
 
-	#========================================================
-	#Choose which libraries with which to perform enrichment.
-	#========================================================
+	#======================================================
+	#Choose the libraries with which to perform enrichment.
+	#======================================================
 	libs = expanded_gvms + non_expanded_gvms
-	#========================================================
+	#======================================================
 
 	if not os.path.isdir('results'): os.makedirs('results')
 

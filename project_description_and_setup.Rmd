@@ -365,7 +365,7 @@ kable(t1, 'html', caption='Table 1: Dataset summary') %>%
 
 From the "average number of genes per sample" column in Table 1, it is apparent that the gene set sizes for samples from DrugBank, TargetCentral, DGIdb and DrugRepHub are too small for enrichment analysis. These libraries will be expanded using PPI data from three sources: ARCHS4, hu.MAP and BioGRID. 
 
-To do this, gene coexpression sets were extracted from each PPI library by taking the top 100 coexpressed genes/proteins for each gene/protein. (For BioGRID, since coexpression scores are not provided, the first 100 coexpression entries for each gene/protein, from top to bottom in the original file, were kept.) Then, each gene set in the drug libraries is expanded by adding to it the coexpression set of each gene/protein it contains. For example, the gene set {CTPS, MLLT11} will become the union of the coexpression sets for CTPS and MLLT11. (If a gene doese not appear in the PPI library, the coexpression set is interpreted as just the gene itself.) This results in three new drug-gene libraries for each original drug-gene library that was expanded: one for each PPI library.
+To do this, gene coexpression sets were extracted from each PPI library by taking the top 100 coexpressed genes/proteins for each gene/protein. (For BioGRID, since coexpression scores are not provided, the first 100 coexpression entries for each gene/protein, from top to bottom in the original file, were kept.) Then, each gene set in the drug libraries is expanded by adding to it the coexpression set of each gene/protein it contains. For example, the gene set {CTPS, MLLT11} will become the union of the coexpression sets for CTPS and MLLT11. (If a gene does not appear in the PPI library, the coexpression set is interpreted as just the gene itself.) This results in three new drug-gene libraries for each original drug-gene library that was expanded: one for each PPI library.
 
 ```{r get_top_n_for_ppi_libs}
 source('expand_gvms.R')
@@ -403,9 +403,41 @@ for(i in 1:length(gvms)){
     expansion_lib = expansion_libs[[i]]
     expansion_lib_name = expansion_libs_names[[i]]
     output_fname = paste0('expanded_drug-gene_libs\\', gvm_fname, '_expanded_with_', expansion_lib_name, '_gvm.csv')
-    print(output_fname)
+    #print(output_fname)
     expand_gvm(gvm, expansion_lib, output_fname)
   }
+}
+```
+
+Below is a comparison of how the gene set sizes changed after expansion.
+
+```{r size_comparison, include=TRUE}
+
+gvm_fnames_cleaned = c('DrugBank','TargetCentral','DBTC_Union','DBTC_Interesect','DGIdb','DrugRepHub')
+
+for(i in 1:length(gvms)){
+  old_gvm = gvms[[i]]
+  old_gvm_fname = gvm_fnames[[i]]
+  
+  ngenes = data.frame(Original=log(colSums(old_gvm==TRUE, na.rm=TRUE), base=10)[-1])
+  
+  for(j in 1:length(expansion_libs)){
+    expansion_lib_name = expansion_libs_names[[j]]
+    new_gvm_fname = paste0('expanded_drug-gene_libs\\', old_gvm_fname, '_expanded_with_', expansion_lib_name, '_gvm.csv')
+    new_gvm = fread(new_gvm_fname, header=FALSE, showProgress=FALSE)
+    ngenes[[expansion_lib_name]] = log(colSums(new_gvm==TRUE, na.rm=TRUE), base=10)[-1]
+  }
+  ngenes[ngenes==-Inf]=0
+  
+  #ngenes$BAAAD = (ngenes$Original > ngenes$ARCHS4) | (ngenes$Original > ngenes$BioGRID) | (ngenes$Original > ngenes$hu.MAP)
+  #if(any(ngenes$BAAAD)){
+  #  print(old_gvm_fname)
+  #  bad = subset(ngenes,BAAAD==TRUE)
+  #  print(bad)
+  #  }
+  
+  print(ggplot(data=melt(ngenes, measure.vars=c('Original', expansion_libs_names)), aes(x=value, fill=variable)) + geom_histogram(bins=150) + facet_grid(variable~.) + labs(x='log 10 of gene set size', y='count', title=gvm_fnames_cleaned[[i]]))
+  
 }
 ```
 
