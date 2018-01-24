@@ -396,13 +396,13 @@ gvm_fnames = c('1_DrugBank_EdgeList_10-05-17','2_TargetCentral_EdgeList_10-05-17
 expansion_libs = list(ARCHS4, BioGRID, hu.MAP)
 expansion_libs_names = c('ARCHS4','BioGRID','hu.MAP')
 
-for(i in 1:length(gvms)){
+for(i in 1:length(gvm_fnames)){
   gvm = gvms[[i]]
   gvm_fname = gvm_fnames[[i]]
-  for(i in 1:length(expansion_libs)){
+  for(i in 1:length(expansion_libs_names)){
     expansion_lib = expansion_libs[[i]]
     expansion_lib_name = expansion_libs_names[[i]]
-    output_fname = paste0('expanded_drug-gene_libs\\', gvm_fname, '_expanded_with_', expansion_lib_name, '_gvm.csv')
+    output_fname = paste0('expanded_drug-gene_libs\\', gvm_fname, '_expanded_with_', expansion_lib_name, '_gvm2.csv')
     #print(output_fname)
     expand_gvm(gvm, expansion_lib, output_fname)
   }
@@ -423,7 +423,7 @@ for(i in 1:length(gvms)){
   
   for(j in 1:length(expansion_libs)){
     expansion_lib_name = expansion_libs_names[[j]]
-    new_gvm_fname = paste0('expanded_drug-gene_libs\\', old_gvm_fname, '_expanded_with_', expansion_lib_name, '_gvm.csv')
+    new_gvm_fname = paste0('expanded_drug-gene_libs\\', old_gvm_fname, '_expanded_with_', expansion_lib_name, '_gvm2.csv')
     new_gvm = fread(new_gvm_fname, header=FALSE, showProgress=FALSE)
     ngenes[[expansion_lib_name]] = log(colSums(new_gvm==TRUE, na.rm=TRUE), base=10)[-1]
   }

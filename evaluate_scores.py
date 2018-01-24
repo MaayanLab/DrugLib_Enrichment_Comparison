@@ -7,6 +7,40 @@ from sklearn.metrics import auc
 from joblib import Parallel, delayed
 from collections import Counter
 
+ppi_libs = ['hu.MAP','BioGRID','ARCHS4']
+
+simplify_ppi_code = {
+	'' + ' ' + '' : 'none',
+	'hu.MAP' + ' ' + '' : 'hu.MAP',
+	'BioGRID' + ' ' + '' : 'BioGRID',
+	'ARCHS4' + ' ' + '' : 'ARCHS4',
+	'' + ' ' + 'hu.MAP' : 'hu.MAP',
+	'' + ' ' + 'BioGRID' : 'BioGRID',
+	'' + ' ' + 'ARCHS4' : 'ARCHS4',
+	'hu.MAP' + ' ' + 'hu.MAP' : 'hu.MAP',
+	'hu.MAP' + ' ' + 'BioGRID' : 'hu.MAP into BioGRID',
+	'hu.MAP' + ' ' + 'ARCHS4' : 'hu.MAP into ARCHS4',
+	'BioGRID' + ' ' + 'hu.MAP' : 'BioGRID into hu.MAP',
+	'BioGRID' + ' ' + 'BioGRID' : 'BioGRID',
+	'BioGRID' + ' ' + 'ARCHS4' : 'BioGRID into ARCHS4',
+	'ARCHS4' + ' ' + 'hu.MAP' : 'ARCHS4 into hu.MAP',
+	'ARCHS4' + ' ' + 'BioGRID' : 'ARCHS4 into BioGRID',
+	'ARCHS4' + ' ' + 'ARCHS4' : 'ARCHS4',
+}
+
+expansion_color_dict = {
+	'none' : 'C8',
+	'hu.MAP' : 'black',
+	'BioGRID' : 'C0',
+	'ARCHS4' : 'C1',
+	'hu.MAP into BioGRID' : 'C2',
+	'hu.MAP into ARCHS4' : 'C3',
+	'BioGRID into hu.MAP' : 'C4',
+	'BioGRID into ARCHS4' : 'C5',
+	'ARCHS4 into hu.MAP' : 'C6',
+	'ARCHS4 into BioGRID' : 'C7',
+}
+
 #This is used to assign each method a color for the bridge plots.
 color_dict = {
 	'Fisher': 'black',
@@ -66,7 +100,14 @@ def shorten_libnames(str_with_libnames):
 		'Single_Gene_Perturbations_from_GEO_up', 'CREEDS_sep').replace(
 		'ENCODE_TF_ChIP-seq_2015', 'ENCODE').replace(
 		'_2016','').replace(
-		'_10-05-17', '')
+		'repurposing_drugs_20170327', 'DrugRepHub').replace(
+		'interactions', 'DGIdb').replace(
+		'1_DrugBank_Edgelist_10-05-17','DrugBank').replace(
+		'2_TargetCentral_Edgelist_10-05-17','TargetCentral').replace(
+		'3_Edgelists_Union_10-05-17','DBTC_Union').replace(
+		'4_EdgeLists_Intersection_10-05-17','DBTC_Intersect').replace(
+		'CREEDS_Drugs','CREEDS').replace(
+		'DrugMatrix_Union','DrugMatrix')
 	return str_with_libnames
 
 def plot_curve(df, alg_info, prefix):
@@ -107,7 +148,7 @@ def pairwise_plots(pair):
 	'''
 	def get_ranks(file, dn_file):
 		'''
-		Collects the "hit" ranks:
+		Collects the "match" ranks:
 			the ranks where the search library annotation matches 
 			the input library annotation which was used to get the enrichment score.
 		Normally, `dn_file == None`. 
@@ -118,7 +159,7 @@ def pairwise_plots(pair):
 		i_lib = file.partition('_into_')[0].partition('input_')[2]
 		s_lib = file.rpartition('_')[0].partition('_into_')[2]
 
-		hit_ranks_collection = []
+		match_ranks_collection = []
 		scores = open_csv(file)
 		if dn_file is not None: dn_scores = open_csv(dn_file)
 		#Recall that the columns of `scores` will be input library annotations,
@@ -136,18 +177,18 @@ def pairwise_plots(pair):
 				ordered_annots = scores[input_annot].sort_values().index
 
 			#Collect the rank values for search library annotations whose corresponding tf/drug matches
-			#	that of the input library annotation. (These are the "hit" ranks)
+			#	that of the input library annotation. (These are the "match" ranks)
 			col_clean = clean(input_annot)
-			hit_ranks = [ordered_annots.get_loc(x) for x in ordered_annots if clean(x) == col_clean]
-			hit_ranks_collection += hit_ranks
+			match_ranks = [ordered_annots.get_loc(x) for x in ordered_annots if clean(x) == col_clean]
+			match_ranks_collection += match_ranks
 
 		#Return scores.shape too, which will be needed to make the graph.
 		#(scores.shape should be identical between the different methods)
-		return hit_ranks_collection, scores.shape
+		return match_ranks_collection, scores.shape
 
-	def get_bridge_coords(hit_ranks, ranks_range, n_rankings):
-		'''From the "hit" ranks, get the coordinates of the bridge plot curve.
-		hit_ranks : list
+	def get_bridge_coords(match_ranks, ranks_range, n_rankings):
+		'''From the "match" ranks, get the coordinates of the bridge plot curve.
+		match_ranks : list
 			Aggregated ranks of the search lib annotation 
 			whose corresponding tf/drug matches that of the input lib annotation.
 		ranks_range : int
@@ -158,14 +199,14 @@ def pairwise_plots(pair):
 			i.e. the number of rankings that were created. 
 		'''
 		down_const = 1/(ranks_range - 1)
-		vert_scale = len(hit_ranks)
+		vert_scale = len(match_ranks)
 
-		hits = Counter(hit_ranks)
+		matches = Counter(match_ranks)
 		coords = pd.Series(0.0, index=range(ranks_range))
-		coords[0] = hits[0] / vert_scale
+		coords[0] = matches[0] / vert_scale
 		for x in range(1, ranks_range):
-			coords[x] = coords[x - 1] + hits[x] / vert_scale - down_const
-		return coords.index.values, coords.values, hits, coords
+			coords[x] = coords[x - 1] + matches[x] / vert_scale - down_const
+		return coords.index.values, coords.values, matches, coords
 
 	prefix = 'input_' + pair['i'] + '_into_' + pair['s']
 	print(prefix)
@@ -177,7 +218,7 @@ def pairwise_plots(pair):
 	if os.path.isfile(rank_fname): all_coords = pd.read_csv(rank_fname, sep='\t', index_col=0)
 	else: all_coords = pd.DataFrame()
 	
-	#new_ranks will contain all the NEW algorithms' hit ranks for this pair.
+	#new_ranks will contain all the NEW algorithms' match ranks for this pair.
 	new_ranks = pd.DataFrame()
 	#Let's begin by looking for new score files.
 	for file in os.listdir(os.getcwd()):
@@ -185,20 +226,20 @@ def pairwise_plots(pair):
 			#print('found', file)
 			#Get the enrichment algoritm name.
 			algorithm_name = str(file).partition(prefix + '_')[2].partition('.csv')[0]
-			#If the algoritm is new, get and store its hit ranks.
+			#If the algoritm is new, get and store its match ranks.
 			if str(algorithm_name + ',x') in all_coords.columns.values: continue
 			if '_down' in prefix: continue
-			elif '_up' in prefix: hit_ranks, r_shape = get_ranks(file, file.replace('up','down'))
-			else: hit_ranks, r_shape = get_ranks(file, None)
-			print(algorithm_name, '   ', len(hit_ranks), 'hits', '   ', r_shape)
-			new_ranks[algorithm_name] = hit_ranks
+			elif '_up' in prefix: match_ranks, r_shape = get_ranks(file, file.replace('up','down'))
+			else: match_ranks, r_shape = get_ranks(file, None)
+			print(algorithm_name, '   ', len(match_ranks), 'matches', '   ', r_shape)
+			new_ranks[algorithm_name] = match_ranks
 			ranks_range, n_rankings = r_shape[0], r_shape[1]
 
 	#If any new ranking files were found, we need to get and save their plot coordinates to all_coords for later.
 	if not new_ranks.empty:
 		for algorithm in new_ranks:
 			#Get and store the plot coordinates.
-			x, y, hits, coords = get_bridge_coords(new_ranks[algorithm].values, ranks_range, n_rankings)
+			x, y, matches, coords = get_bridge_coords(new_ranks[algorithm].values, ranks_range, n_rankings)
 			all_coords[algorithm + ',x']=x
 			all_coords[algorithm + ',y']=y
 		all_coords.index=range(len(x))
@@ -342,35 +383,50 @@ def subplots_expansionlibs(lib_pairs, all_libs, top_10):
 	#IMPORTANT: the legend only works if each lib_pair has the EXACT same algorithms.
 	algorithms = pd.Series()
 
+	expanded_libs = ['repurposing_drugs_20170327','interactions',
+		'1_DrugBank_Edgelist_10-05-17', '2_TargetCentral_Edgelist_10-05-17',
+		'3_Edgelists_Union_10-05-17', '4_EdgeLists_Intersection_10-05-17']
+
+	ppi_libs = ['hu.MAP','BioGRID','ARCHS4']
+
 	#Create the grid by iterating over all_libs.
 	for i in range(len(all_libs)):
 		for j in range(len(all_libs)):
-			rlib = all_libs[i]
-			clib = all_libs[j]
+			all_rlib = all_libs[i]
+			all_clib = all_libs[j]
 			subplot = axarr[i,j]
-			#Check if you want to plot this pair (e.g. you dont want to if rlib == clib).
-			if {'i':rlib, 's':clib} in lib_pairs:
-				prefix = 'input_' + rlib + '_into_' + clib
-				rank_fname = 'rankings_' + prefix + '.csv'
-				if os.path.isfile(rank_fname): 
-					all_coords = open_csv(rank_fname)
-					for alg_info in all_coords:
-						algorithm_name, axis = alg_info.partition(',')[0], alg_info.partition(',')[2]
-						#===========================================================================================
-						#Filter for only certain enrichment algorithms here using an if statement.
-						#===========================================================================================
-						if axis == 'x': 
-						#===========================================================================================
-							x_vals = [a/len(all_coords[algorithm_name + ',x']) for a in all_coords[algorithm_name + ',x']]
-							y_vals = all_coords[algorithm_name + ',y']
 
-							linewidth = 2.5
-							if algorithm_name in color_dict: 
-								algorithms[algorithm_name] = subplot.plot(x_vals, y_vals, label=algorithm_name + ' ' + str(np.round(auc(x_vals, y_vals), 4)), color=color_dict[algorithm_name], linewidth=linewidth)
-							else:
-								algorithms[algorithm_name] = subplot.plot(x_vals, y_vals, label=algorithm_name + ' ' + str(np.round(auc(x_vals, y_vals), 4)), linewidth=linewidth)
-							#If you want to view legends for each subplot (e.g. to see the AUC), you will need to un-comment this line.
-							subplot.legend(fontsize=12, loc='upper right')
+			if all_rlib in expanded_libs: all_rlib = [all_rlib + '_expanded_with_' + ppi_lib for ppi_lib in ppi_libs]
+			else: all_rlib = (all_rlib,)
+			if all_clib in expanded_libs: all_clib = [all_clib + '_expanded_with_' + ppi_lib for ppi_lib in ppi_libs]
+			else: all_clib = (all_clib,)
+
+			for rlib in all_rlib:
+				for clib in all_clib:
+					ppi_code = rlib.partition('_expanded_with_')[2] + ' ' + clib.partition('_expanded_with_')[2]
+					#Check if you want to plot this pair (e.g. you dont want to if rlib == clib).
+					if rlib != clib:
+						prefix = 'input_' + rlib + '_into_' + clib
+						rank_fname = 'rankings_' + prefix + '.csv'
+						if os.path.isfile(rank_fname): 
+							all_coords = open_csv(rank_fname)
+							for alg_info in all_coords:
+								algorithm_name, axis = alg_info.partition(',')[0], alg_info.partition(',')[2]
+								#===========================================================================================
+								#Filter for only certain enrichment algorithms here using an if statement.
+								#===========================================================================================
+								if axis == 'x': 
+								#===========================================================================================
+									x_vals = [a/len(all_coords[algorithm_name + ',x']) for a in all_coords[algorithm_name + ',x']]
+									y_vals = all_coords[algorithm_name + ',y']
+
+									linewidth = 2.5
+									algorithms[simplify_ppi_code[ppi_code]] = subplot.plot(x_vals, y_vals, 
+										label=str(np.round(auc(x_vals, y_vals), 2)).partition('0')[2], 
+										linewidth=linewidth, color=expansion_color_dict[simplify_ppi_code[ppi_code]])
+									#If you want to view legends for each subplot (e.g. to see the AUC), you will need to un-comment this line.
+									subplot.legend(fontsize=12, loc='upper right')
+						else: print(rank_fname, 'does not exist.')
 			#Uncomment below to scale all subplots equally (to compare relative sizes between subplots).
 			subplot.set_ylim([-.2,1])
 			if top_10: subplot.set_xlim([0,.10])
@@ -401,7 +457,7 @@ def subplots_expansionlibs(lib_pairs, all_libs, top_10):
 
 def hexbin_method_comparison(libs, m1, m2):
 	'''
-	Creates a grid of heatmaps comparing how two different methods rank the "hits", or "matches".
+	Creates a grid of heatmaps comparing how two different methods rank the "matches", or "matches".
 	libs : list-like
 		the gmt libraries to create heatmaps for
 	m1 : str
@@ -410,7 +466,7 @@ def hexbin_method_comparison(libs, m1, m2):
 		the second method, to correspond with the y-axis
 	'''
 	def get_coords(f1, f2):
-		'''Get the coordinates of the hits.'''
+		'''Get the coordinates of the matches.'''
 		#Store coordinates here.
 		coords_collection = []
 		#Open the two score files.
@@ -423,8 +479,8 @@ def hexbin_method_comparison(libs, m1, m2):
 		for column in s1: 
 			ordered_s1 = s1[column].sort_values().index
 			ordered_s2 = s2[column].sort_values().index
-			#Get the coordinates for each hit. 
-			###You can change == to != in order to view the hexbin for all the non-hits i.e. misses.###
+			#Get the coordinates for each match. 
+			###You can change == to != in order to view the hexbin for all the non-matches i.e. misses.###
 			these_coords = [(ordered_s1.get_loc(x) / s1len, ordered_s2.get_loc(x) / s2len) for 
 				x in ordered_s1 if clean(x) != clean(column)]
 			#Store them. 
@@ -500,11 +556,11 @@ if __name__ == '__main__':
 	#=============================================================
 	#Choose how to visualize the results.
 	#=============================================================
-	Parallel(n_jobs=1, verbose=0)(delayed(pairwise_plots)(pair) for pair in lib_pairs_with_expansions)
+	#Parallel(n_jobs=1, verbose=0)(delayed(pairwise_plots)(pair) for pair in lib_pairs_with_expansions)
 	#combined_plot(all_pairs)
-	#subplots(lib_pairs, libs, top_10=False)
-	#subplots(lib_pairs, libs, top_10=True)
-	subplots_expansionlibs(lib_pairs, libs, top_10=False)
+	#subplots(lib_pairs_with_expansions, libs_with_expansions, top_10=False)
+	#subplots(lib_pairs_with_expansions, libs_with_expansions, top_10=True)
+	#subplots_expansionlibs(lib_pairs, libs, top_10=False)
+	subplots_expansionlibs(lib_pairs, libs, top_10=True)
 	#hexbin_method_comparison(libs, 'Pair_Gini_ltf100_25', 'Pair_Gini_ltf100_w_25')
 	#=============================================================
-
