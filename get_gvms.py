@@ -183,7 +183,11 @@ def combine_paired_gvm(input_fname, output_fname, merge_type='union'):
 	new_gvm.to_csv('DrugMatrix_Union_gvm.csv',sep='\t')
 
 def get_interactionlist(fname):
-	if '_10-05-17.csv' in fname: 
+	if '1-14-18' in fname:
+		interactions = pd.read_csv(fname, sep=',', encoding='latin1')
+		interactions = interactions[['TargetGeneSymbol_Entrez','DrugName']]
+
+	elif '_10-05-17.csv' in fname: 
 		interactions = pd.read_csv(fname, sep=',', encoding='latin1')
 		interactions = interactions[['TargetGeneSymbol_Entrez','DrugName']]
 
@@ -201,6 +205,8 @@ def get_interactionlist(fname):
 			geneset = f.at[row,'target'].split('|')
 			interactions = interactions + [np.column_stack([geneset,[f.at[row,'pert_iname']] * len(geneset)])]
 		interactions = pd.DataFrame(np.vstack(interactions))
+
+	else: raise ValueError(fname, ' was not recognized.')
 
 	interactions.columns = ('gene','annotation')
 	interactions = interactions.loc[~interactions['gene'].isnull().values,]
@@ -248,16 +254,17 @@ def interactionlist_to_gvm(interactionlist_fname):
 
 os.chdir('original_drug-gene_libs')
 
-interactionlists = ('1_DrugBank_EdgeList_10-05-17.csv', 
-	'2_TargetCentral_EdgeList_10-05-17.csv',
-	'3_EdgeLists_Union_10-05-17.csv', 
-	'4_EdgeLists_Intersection_10-05-17.csv',
-	'interactions.tsv',
-	'repurposing_drugs_20170327.txt')
+interactionlists = (
+	'1_DrugBank_Column_5OrMoreTargets_MissingChEMBL_IDsRemoved_1-14-18.csv',
+	'2_TargetCentral_Column_5OrMoreTargets_MissingChEMBL_IDsRemoved_1-14-18.csv',
+	'3_RepurposeHub_Column_5OrMoreTargets_MissingChEMBL_IDsRemoved_1-14-18.csv',
+	'4_DGIdb_Column_5OrMoreTargets_MissingChEMBL_IDsRemoved_1-14-18.csv',
+	'5b_DrugCentral_Column_5OrMoreTargets_MissingChEMBL_IDsRemoved_Human_1-14-18.csv')
+
 for interactionlist in interactionlists: interactionlist_to_gvm(interactionlist)
 
 combine_gmts(['Drug_Perturbations_from_GEO_down.txt', 'Drug_Perturbations_from_GEO_up.txt'], 'CREEDS_Drugs_gvm.csv')
 
-combine_paired_gvm('DrugMatrix_gvm.csv', 'DrugMatrix_Union_gvm.csv', merge_type='union')
+#combine_paired_gvm('DrugMatrix_gvm.csv', 'DrugMatrix_Union_gvm.csv', merge_type='union') #REMOVED
 
 os.chdir('..')

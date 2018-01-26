@@ -17,21 +17,18 @@ import h5py
 
 def list_of_drug_libs_fnames():
 	'''Generates and returns a tuple of drug library file names.'''
-	expanded_drug_libs = (
-		'repurposing_drugs_20170327',
-		'interactions', 
-		'1_DrugBank_Edgelist_10-05-17', 
-		'2_TargetCentral_Edgelist_10-05-17',
-		'3_Edgelists_Union_10-05-17', 
-		'4_EdgeLists_Intersection_10-05-17')
+	expanded_drug_libs = ('1_DrugBank_Column_5OrMoreTargets_MissingChEMBL_IDsRemoved_1-14-18',
+		'2_TargetCentral_Column_5OrMoreTargets_MissingChEMBL_IDsRemoved_1-14-18', 
+		'3_RepurposeHub_Column_5OrMoreTargets_MissingChEMBL_IDsRemoved_1-14-18', 
+		'4_DGIdb_Column_5OrMoreTargets_MissingChEMBL_IDsRemoved_1-14-18', 
+		'5b_DrugCentral_Column_5OrMoreTargets_MissingChEMBL_IDsRemoved_Human_1-14-18')
 	ppi_libs = (
 		'hu.MAP',
 		'BioGRID',
 		'ARCHS4')
 
 	non_expanded_drug_libs = (
-		'CREEDS_Drugs',
-		'DrugMatrix_Union')
+		'CREEDS_Drugs',)
 
 	drug_libs = tuple(
 		'expanded_drug-gene_libs\\' + edl + '_expanded_with_' + ppi + '_gvm2.csv' 
@@ -204,10 +201,18 @@ def enrichment(pair):
 if __name__ == '__main__':
 
 	libs = list_of_drug_libs_fnames()
+	target_libs = libs[:-1]
+	perturb_libs = libs[-1]
+	print(perturb_libs)
+
+	#fwd_pairs = [(a,b) for a in target_libs for b in perturb_libs]
+	#bck_pairs = [(a,b) for a in perturb_libs for b in target_libs]
+
+	fwd_pairs = [(a,perturb_libs) for a in target_libs]
+	bck_pairs = [(perturb_libs,a) for a in target_libs]
 
 	if not os.path.isdir('results'): os.makedirs('results')
 
 	#Iterate over each gmt pair.
-	lib_df_pairs = [(a,b) for a in libs for b in libs if a != b]
-	lib_df_pairs.reverse()
-	Parallel(n_jobs=1, verbose=0)(delayed(enrichment)(pair) for pair in lib_df_pairs)
+	lib_df_pairs = fwd_pairs + bck_pairs
+	Parallel(n_jobs=6, verbose=0)(delayed(enrichment)(pair) for pair in lib_df_pairs)
