@@ -2,95 +2,17 @@ import os
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
-from perform_enrichment import clean
+from perform_enrichment import clean, list_of_drug_libs_fnames
 from sklearn.metrics import auc
 from joblib import Parallel, delayed
 from collections import Counter
 
-ppi_libs = ['hu.MAP','BioGRID','ARCHS4']
-
-simplify_ppi_code = {
-	'' + ' ' + '' : 'none',
-	'hu.MAP' + ' ' + '' : 'hu.MAP',
-	'BioGRID' + ' ' + '' : 'BioGRID',
-	'ARCHS4' + ' ' + '' : 'ARCHS4',
-	'' + ' ' + 'hu.MAP' : 'hu.MAP',
-	'' + ' ' + 'BioGRID' : 'BioGRID',
-	'' + ' ' + 'ARCHS4' : 'ARCHS4',
-	'hu.MAP' + ' ' + 'hu.MAP' : 'hu.MAP',
-	'hu.MAP' + ' ' + 'BioGRID' : 'hu.MAP into BioGRID',
-	'hu.MAP' + ' ' + 'ARCHS4' : 'hu.MAP into ARCHS4',
-	'BioGRID' + ' ' + 'hu.MAP' : 'BioGRID into hu.MAP',
-	'BioGRID' + ' ' + 'BioGRID' : 'BioGRID',
-	'BioGRID' + ' ' + 'ARCHS4' : 'BioGRID into ARCHS4',
-	'ARCHS4' + ' ' + 'hu.MAP' : 'ARCHS4 into hu.MAP',
-	'ARCHS4' + ' ' + 'BioGRID' : 'ARCHS4 into BioGRID',
-	'ARCHS4' + ' ' + 'ARCHS4' : 'ARCHS4',
-}
-
-expansion_color_dict = {
-	'none' : 'C8',
-	'hu.MAP' : 'black',
-	'BioGRID' : 'C0',
-	'ARCHS4' : 'C1',
-	'hu.MAP into BioGRID' : 'C2',
-	'hu.MAP into ARCHS4' : 'C3',
-	'BioGRID into hu.MAP' : 'C4',
-	'BioGRID into ARCHS4' : 'C5',
-	'ARCHS4 into hu.MAP' : 'C6',
-	'ARCHS4 into BioGRID' : 'C7',
-}
-
-#This is used to assign each method a color for the bridge plots.
-color_dict = {
-	'Fisher': 'black',
-	'Fisher_20': 'black',
-	'Fisher_50': 'black',
-	'Fisher_ltf100': 'black',
-	'Control': 'gray',
-	'Binomial_proportion': 'C0',
-	'RandomForest': 'C2',
-	'BadRForest': 'C0',
-	'ML_Fisher_features': 'C0',
-	'Combined': 'C8',
-	'CombinedFF':'C1',
-	'CombinedFF2':'C0',
-	'CombinedFF3':'C2',
-	'CombinedFF4':'C3',
-	'Z': 'C9',
-	'Entropy': 'C3',
-	'Gini': 'C4',
-	'Forest_ne_5': '#6bd66b',
-	'Forest_ne_25': '#289128',
-	'Forest_ne_50': '#175317',
-	'Forest_md_2': '#c8f0c8',
-	'Forest_md_4': '#a9e7a9',
-	'Forest_md_6': '#8adf8a',
-	'Forest_md_8': '#6bd66b',
-	'Forest_md_10': '#3dca3d',
-	'ForestDrop': '#662ca0',
-	'ForestDrop5': '#a02c66',
-	'ExtraTrees': '#b8e7a1',
-	'ExtraTreesDrop': '#72d043',
-	'ExtraTreesDrop5': '#2f5e18',
-	'ForestFisherCutoff.05': '#decaa6',
-	'ForestFisherCutoff.10': '#c9a86d',
-	'ForestFisherCutoff.25': '#9a7839',
-	'ForestFisherCutoff.5': '#614b24',
-	'ForestFisherCutoffV2.05': '#decaa6',
-	'ForestFisherCutoffV2.10': '#c9a86d',
-	'ForestFisherCutoffV2.25': '#9a7839',
-	'ForestFisherCutoffV2.5': '#614b24',
-	'FisherForestCutoff.05': '#e1c6cc',
-	'FisherForestCutoff.10': '#d0a5ad',
-	'FisherForestCutoff.25': '#be838f',
-	'FisherForestCutoff.5': '#ad6270',
-	'AdaBoost': 'C0',
-	'GradientBoosting': 'C1',
-	'RandomTreesEmbedding': 'C3',
-	'XGBoost': 'C5',
-	'LinearSVC':'C6',
-}
+GET_DTARGET_LIBNAME = {
+	'1_DrugBank_Column_5OrMoreTargets_MissingChEMBL_IDsRemoved_1-14-18':'DrugBank',
+	'2_TargetCentral_Column_5OrMoreTargets_MissingChEMBL_IDsRemoved_1-14-18':'TargetCentral', 
+	'3_RepurposeHub_Column_5OrMoreTargets_MissingChEMBL_IDsRemoved_1-14-18':'RepurposeHub', 
+	'4_DGIdb_Column_5OrMoreTargets_MissingChEMBL_IDsRemoved_1-14-18':'DGIdb', 
+	'5b_DrugCentral_Column_5OrMoreTargets_MissingChEMBL_IDsRemoved_Human_1-14-18':'DrugCentral'}
 
 def open_csv(fname):
 	return pd.read_csv(fname, index_col=0, sep='\t', low_memory=False, encoding='Latin-1')
@@ -244,7 +166,7 @@ def pairwise_plots(pair):
 			all_coords[algorithm + ',y']=y
 		all_coords.index=range(len(x))
 	#Save the plot coordinate file.
-	all_coords.to_csv(rank_fname, sep='\t')
+		all_coords.to_csv(rank_fname, sep='\t')
 
 	#Plot the results for all enrichment methods, if any.
 	if not all_coords.empty:
@@ -265,46 +187,22 @@ def pairwise_plots(pair):
 		plt.show()
 	return
 
-def combined_plot(lib_df_pairs):
-	'''
-	Plots a single graph for all results, across all libraries and methods.
-	lib_df_pairs : dict
-		keys are names of the gmt libraries; values are their dfs. 
-	'''
-	plt.figure(2, figsize=(10,10))
-	font = {'size': 12}
-	plt.rc('font', **font)
-	for pair in lib_df_pairs:
-		prefix = 'input_' + pair['i'] + '_into_' + pair['s']
-		rank_fname = 'rankings_' + prefix + '.csv'
-		if os.path.isfile(rank_fname): 
-			all_coords = open_csv(rank_fname)
-			for alg_info in all_coords:
-				algorithm_name, axis = alg_info.partition(',')[0], alg_info.partition(',')[2]
-				#===========================================================================================
-				#Filter for only certain enrichment methods here using an if statement.
-				#===========================================================================================
-				if axis == 'x' and (algorithm_name in ['RandomForest']): plot_curve(all_coords, alg_info, prefix + ' ')
-				#===========================================================================================
+def druglib_target_comparison(top_pct=None):
 
-	plt.title('Combined Bridge Plot')
-	plt.xlabel('Rank')
-	#Uncomment the line below to view only the first few ranks.
-	#plt.gca().set_xlim([0,.10])
-	plt.legend(prop={'size':10}, frameon=False)#, bbox_to_anchor=(1.05, 1), loc=2)
-	plt.show()
-	return
+	dtarget_libs = ('1_DrugBank_Column_5OrMoreTargets_MissingChEMBL_IDsRemoved_1-14-18',
+		'2_TargetCentral_Column_5OrMoreTargets_MissingChEMBL_IDsRemoved_1-14-18', 
+		'3_RepurposeHub_Column_5OrMoreTargets_MissingChEMBL_IDsRemoved_1-14-18', 
+		'4_DGIdb_Column_5OrMoreTargets_MissingChEMBL_IDsRemoved_1-14-18', 
+		'5b_DrugCentral_Column_5OrMoreTargets_MissingChEMBL_IDsRemoved_Human_1-14-18')
+	ppi_libs = (
+		'hu.MAP',
+		'BioGRID',
+		'ARCHS4')
+	dperturb_libs = ('CREEDS_Drugs',) * 2
+	dperturb_lib_titles = ('CREEDS as search', 'CREEDS as input')
 
-def subplots(lib_pairs, all_libs, top_10):
-	'''
-	Like pairwise_plots, but shows all plots as different subplots in the same figure, organized in a grid.
-	lib_pairs : dict
-		keys are names of the gmt libraries; values are their dfs. 
-	all_libs : list-like
-		the gmt libraries in lib_pairs
-	'''
-	f, axarr = plt.subplots(nrows=len(all_libs),ncols=len(all_libs), figsize=(35,35))
-	font = {'size':20}
+	f, axarr = plt.subplots(nrows=len(ppi_libs),ncols=len(dperturb_libs), figsize=(20,20))
+	font = {'size':25}
 	plt.rc('font', **font)
 
 	#Collect all the algorithms found so that we can create a legend at the end.
@@ -312,14 +210,22 @@ def subplots(lib_pairs, all_libs, top_10):
 	algorithms = pd.Series()
 
 	#Create the grid by iterating over all_libs.
-	for i in range(len(all_libs)):
-		for j in range(len(all_libs)):
-			rlib = all_libs[i]
-			clib = all_libs[j]
+	for i in range(len(ppi_libs)):
+		for j in range(len(dperturb_libs)):
+			ppi_lib = ppi_libs[i]
+			dperturb_lib= dperturb_libs[j]
+
+			if j < (len(dperturb_libs) / 2): enrichment_direction= 'fwd'
+			else: enrichment_direction = 'rev'
+
 			subplot = axarr[i,j]
-			#Check if you want to plot this pair (e.g. you dont want to if rlib == clib).
-			if {'i':rlib, 's':clib} in lib_pairs:
-				prefix = 'input_' + rlib + '_into_' + clib
+
+			for dtarget_lib in dtarget_libs:
+				if enrichment_direction == 'fwd':
+					prefix = 'input_' + dtarget_lib + '_expanded_with_' + ppi_lib + '_into_' + dperturb_lib
+				else:
+					prefix = 'input_' + dperturb_lib + '_into_' + dtarget_lib + '_expanded_with_' + ppi_lib
+
 				rank_fname = 'rankings_' + prefix + '.csv'
 				if os.path.isfile(rank_fname): 
 					all_coords = open_csv(rank_fname)
@@ -334,233 +240,43 @@ def subplots(lib_pairs, all_libs, top_10):
 							y_vals = all_coords[algorithm_name + ',y']
 
 							linewidth = 2.5
-							if algorithm_name in color_dict: 
-								algorithms[algorithm_name] = subplot.plot(x_vals, y_vals, label=algorithm_name + ' ' + str(np.round(auc(x_vals, y_vals), 4)), color=color_dict[algorithm_name], linewidth=linewidth)
-							else:
-								algorithms[algorithm_name] = subplot.plot(x_vals, y_vals, label=algorithm_name + ' ' + str(np.round(auc(x_vals, y_vals), 4)), linewidth=linewidth)
+							algorithms[GET_DTARGET_LIBNAME[dtarget_lib]] = subplot.plot(x_vals, y_vals, label= str(np.round(auc(x_vals, y_vals), 3)), linewidth=linewidth)
 							#If you want to view legends for each subplot (e.g. to see the AUC), you will need to un-comment this line.
-							subplot.legend(fontsize=12, loc='upper right')
+							subplot.legend(fontsize=20, loc='upper right')
 			#Uncomment below to scale all subplots equally (to compare relative sizes between subplots).
 			subplot.set_ylim([-.2,1])
-			if top_10: subplot.set_xlim([0,.10])
-			#Only show y-axis on left-most subplots.
-			if j != 0: subplot.yaxis.set_visible(False)
-			#Remove box around the bottom-right subplot (legend will go here.)
-			if j == 2 and i == 2: plt.axis('off')
+			if top_pct is not None: subplot.set_xlim([0,top_pct])
 			#Hide ticks -- although axis='both', this only seems to affect the x-axis.
 			subplot.tick_params(axis='x', which='both', bottom='off', top='off',labelbottom='off')
 			#Hide ticks on the y axis.
-			#subplot.axes.get_yaxis().set_ticks([])
+			if j != 0: subplot.axes.get_yaxis().set_ticks([])
 
 	#Label the rows and columns of the figure.
-	print(all_libs)
-	lib_titles = [shorten_libnames(x) for x in all_libs]
-	for ax, col in zip(axarr[0], lib_titles): ax.set_title(col)
-	for ax, row in zip(axarr[:,0], lib_titles): ax.set_ylabel(row, size='large')
+	for ax, row in zip(axarr[:,0], [x for x in ppi_libs]): ax.set_ylabel(row, size='large')
+	for ax, col in zip(axarr[0], dperturb_lib_titles): ax.set_title(col)
 	#Leave some space between the subplots.
-	f.subplots_adjust(hspace=.15, wspace=.1)
+	f.subplots_adjust(hspace=.13, wspace=.1, left=.3)
 	#Create a legend in the last cell (should be empty, because it is a diagonal).
-	plt.legend([x for sublist in algorithms.values for x in sublist], algorithms.index, loc='upper left', ncol=1)
+	plt.figlegend([x for sublist in algorithms.values for x in sublist], algorithms.index, loc=10, bbox_to_anchor=(.1,.5))
+		#bbox_to_anchor=(1.05, 1), loc=2, borderaxespad=0.)
 	#Title the plot.
-	if top_10: plt.suptitle('Bridge plots inputting [row] into [column], top 10 percentile of ranks', fontsize=28)
-	else: plt.suptitle('Bridge plots inputting [row] into [column]', fontsize=32)
-	plt.show()
-	return 
-
-def subplots_expansionlibs(lib_pairs, all_libs, top_10):
-	'''
-	Like pairwise_plots, but shows all plots as different subplots in the same figure, organized in a grid.
-	lib_pairs : dict
-		keys are names of the gmt libraries; values are their dfs. 
-	all_libs : list-like
-		the gmt libraries in lib_pairs
-	'''
-	f, axarr = plt.subplots(nrows=len(all_libs),ncols=len(all_libs), figsize=(35,35))
-	font = {'size':20}
-	plt.rc('font', **font)
-
-	#Collect all the algorithms found so that we can create a legend at the end.
-	#IMPORTANT: the legend only works if each lib_pair has the EXACT same algorithms.
-	algorithms = pd.Series()
-
-	expanded_libs = ['repurposing_drugs_20170327','interactions',
-		'1_DrugBank_Edgelist_10-05-17', '2_TargetCentral_Edgelist_10-05-17',
-		'3_Edgelists_Union_10-05-17', '4_EdgeLists_Intersection_10-05-17']
-
-	ppi_libs = ['hu.MAP','BioGRID','ARCHS4']
-
-	#Create the grid by iterating over all_libs.
-	for i in range(len(all_libs)):
-		for j in range(len(all_libs)):
-			all_rlib = all_libs[i]
-			all_clib = all_libs[j]
-			subplot = axarr[i,j]
-
-			if all_rlib in expanded_libs: all_rlib = [all_rlib + '_expanded_with_' + ppi_lib for ppi_lib in ppi_libs]
-			else: all_rlib = (all_rlib,)
-			if all_clib in expanded_libs: all_clib = [all_clib + '_expanded_with_' + ppi_lib for ppi_lib in ppi_libs]
-			else: all_clib = (all_clib,)
-
-			for rlib in all_rlib:
-				for clib in all_clib:
-					ppi_code = rlib.partition('_expanded_with_')[2] + ' ' + clib.partition('_expanded_with_')[2]
-					#Check if you want to plot this pair (e.g. you dont want to if rlib == clib).
-					if rlib != clib:
-						prefix = 'input_' + rlib + '_into_' + clib
-						rank_fname = 'rankings_' + prefix + '.csv'
-						if os.path.isfile(rank_fname): 
-							all_coords = open_csv(rank_fname)
-							for alg_info in all_coords:
-								algorithm_name, axis = alg_info.partition(',')[0], alg_info.partition(',')[2]
-								#===========================================================================================
-								#Filter for only certain enrichment algorithms here using an if statement.
-								#===========================================================================================
-								if axis == 'x': 
-								#===========================================================================================
-									x_vals = [a/len(all_coords[algorithm_name + ',x']) for a in all_coords[algorithm_name + ',x']]
-									y_vals = all_coords[algorithm_name + ',y']
-
-									linewidth = 2.5
-									algorithms[simplify_ppi_code[ppi_code]] = subplot.plot(x_vals, y_vals, 
-										label=str(np.round(auc(x_vals, y_vals), 2)).partition('0')[2], 
-										linewidth=linewidth, color=expansion_color_dict[simplify_ppi_code[ppi_code]])
-									#If you want to view legends for each subplot (e.g. to see the AUC), you will need to un-comment this line.
-									subplot.legend(fontsize=12, loc='upper right')
-						else: print(rank_fname, 'does not exist.')
-			#Uncomment below to scale all subplots equally (to compare relative sizes between subplots).
-			subplot.set_ylim([-.2,1])
-			if top_10: subplot.set_xlim([0,.10])
-			#Only show y-axis on left-most subplots.
-			if j != 0: subplot.yaxis.set_visible(False)
-			#Remove box around the bottom-right subplot (legend will go here.)
-			if j == 2 and i == 2: plt.axis('off')
-			#Hide ticks -- although axis='both', this only seems to affect the x-axis.
-			subplot.tick_params(axis='x', which='both', bottom='off', top='off',labelbottom='off')
-			#Hide ticks on the y axis.
-			#subplot.axes.get_yaxis().set_ticks([])
-
-	#Label the rows and columns of the figure.
-	print(all_libs)
-	lib_titles = [shorten_libnames(x) for x in all_libs]
-	for ax, col in zip(axarr[0], lib_titles): ax.set_title(col)
-	for ax, row in zip(axarr[:,0], lib_titles): ax.set_ylabel(row, size='large')
-	#Leave some space between the subplots.
-	f.subplots_adjust(hspace=.15, wspace=.1)
-	#Create a legend in the last cell (should be empty, because it is a diagonal).
-	plt.legend([x for sublist in algorithms.values for x in sublist], algorithms.index, loc='upper left', ncol=1)
-	#Title the plot.
-	if top_10: plt.suptitle('Bridge plots inputting [row] into [column], top 10 percentile of ranks', fontsize=28)
-	else: plt.suptitle('Bridge plots inputting [row] into [column]', fontsize=32)
-	plt.show()
-	return 
-
-
-def hexbin_method_comparison(libs, m1, m2):
-	'''
-	Creates a grid of heatmaps comparing how two different methods rank the "matches", or "matches".
-	libs : list-like
-		the gmt libraries to create heatmaps for
-	m1 : str
-		the first method, to correspond with the x-axis
-	m2 : str
-		the second method, to correspond with the y-axis
-	'''
-	def get_coords(f1, f2):
-		'''Get the coordinates of the matches.'''
-		#Store coordinates here.
-		coords_collection = []
-		#Open the two score files.
-		s1, s2 = open_csv(f1), open_csv(f2)
-		#Get the maximum rank possible (to scale our plot).
-		#This should be the same for s1 and s2, but just get s2len for completeness.
-		s1len = s1.shape[0]
-		s2len = s2.shape[0]
-		#Iterate over each label library tf. 
-		for column in s1: 
-			ordered_s1 = s1[column].sort_values().index
-			ordered_s2 = s2[column].sort_values().index
-			#Get the coordinates for each match. 
-			###You can change == to != in order to view the hexbin for all the non-matches i.e. misses.###
-			these_coords = [(ordered_s1.get_loc(x) / s1len, ordered_s2.get_loc(x) / s2len) for 
-				x in ordered_s1 if clean(x) != clean(column)]
-			#Store them. 
-			coords_collection += these_coords
-		x,y = zip(*coords_collection)
-		#Return the list of x values, and the list of y values. 
-		return x,y
-
-	f, axarr = plt.subplots(nrows=len(libs),ncols=len(libs), figsize=(10,10))
-	font = {'size':8}
-	plt.rc('font', **font)
-
-	#Create the grid by iterating over libs.
-	for i in range(len(libs)):
-		for j in range(len(libs)):
-			rlib = libs[i]
-			clib = libs[j]
-			subplot = axarr[i,j]
-			if {'i':rlib, 's':clib} in lib_pairs:
-				prefix = 'input_' + rlib + '_into_' + clib
-				fname1 = prefix + '_' + m1 + '.csv'
-				fname2 = prefix + '_' + m2 + '.csv'
-				if fname1 in os.listdir(os.getcwd()) and fname2 in os.listdir(os.getcwd()):
-					x,y = get_coords(fname1, fname2)
-					subplot.hexbin(x, y, gridsize=30, cmap='binary', bins=[pow(1.3,x) for x in range(1,22)]) #Hexbin plot.
-					#subplot.plot(x,y, 'o') #If you want a regular dot plot.
-			#Only show y-axis on left-most subplots.
-			if j != 0: subplot.yaxis.set_visible(False)
-			#Remove box around the bottom-right subplot (legend will go here.)
-			subplot.tick_params(axis='x', which='both', bottom='off', top='off',labelbottom='off')
-			#Hide ticks on the y axis.
-			subplot.axes.get_yaxis().set_ticks([])
-
-	lib_titles = [shorten_libnames(x) for x in all_libs]
-	for ax, col in zip(axarr[0], lib_titles): ax.set_title(col)
-	for ax, row in zip(axarr[:,0], lib_titles): ax.set_ylabel(row, size='large')
-	#Leave some space between the subplots.
-	f.subplots_adjust(hspace=.03, wspace=.03)
-	#Title the plot.
-	plt.suptitle('HexBin Plots, ' + m1 + ' (x) to ' + m2 + ' (y)', fontsize=12)
+	if top_pct is not None: plt.suptitle('Drug library bridge plots, top ' + 
+		str(top_pct).partition('.')[2] + ' percentile of ranks', fontsize=35)
+	else: plt.suptitle('Drug library bride plots', fontsize=35)
+	#Save and display results.
+	if top_pct is None: plt.savefig('DRAFT_druglib_bridgeplot.png',bbox_inches='tight')
+	else: plt.savefig('DRAFT_druglib_bridgeplot_' + str(top_pct).partition('.')[2] + 'th_pctile.png',bbox_inches='tight')
 	plt.show()
 	return 
 
 if __name__ == '__main__':
 
-	drug_libs = ['repurposing_drugs_20170327','interactions',
-		'1_DrugBank_Edgelist_10-05-17', '2_TargetCentral_Edgelist_10-05-17',
-		'3_Edgelists_Union_10-05-17', '4_EdgeLists_Intersection_10-05-17']
-	ppi_libs = ['hu.MAP','BioGRID','ARCHS4']
-	expanded_libs = [drug_lib + '_expanded_with_' + ppi_lib 
-		for drug_lib in drug_libs for ppi_lib in ppi_libs]
-
-	non_expanded_libs = ['CREEDS_Drugs','DrugMatrix_Union']
-
-	#========================================================
-	#Choose which libraries with which to perform enrichment.
-	#========================================================
-	libs_with_expansions = expanded_libs + non_expanded_libs
-	libs = drug_libs + non_expanded_libs
-	#========================================================
-
-	lib_pairs_with_expansions = [{'i':a, 's':b} for a in libs_with_expansions for b in libs_with_expansions if a != b]
+	libs = list_of_drug_libs_fnames()
+	libs = [x.partition('_gvm2.csv')[0].partition('\\')[2] for x in libs]
 	lib_pairs = [{'i':a, 's':b} for a in libs for b in libs if a != b]
-
-	##Handle the separate results for CREEDS, if applicable. 
-	#CREEDS_sep_pairs = [{'i':a, 's':'Single_Gene_Perturbations_from_GEO_up'} for a in libs if a != 'CREEDS'] + [
-	#{'i':'Single_Gene_Perturbations_from_GEO_up', 's':b} for b in libs if b != 'CREEDS']
-	#all_pairs = lib_pairs + CREEDS_sep_pairs
-	#all_libs = ['Single_Gene_Perturbations_from_GEO_up'] + libs
-
 	os.chdir('results')
 
-	#=============================================================
-	#Choose how to visualize the results.
-	#=============================================================
-	#Parallel(n_jobs=1, verbose=0)(delayed(pairwise_plots)(pair) for pair in lib_pairs_with_expansions)
-	#combined_plot(all_pairs)
-	#subplots(lib_pairs_with_expansions, libs_with_expansions, top_10=False)
-	#subplots(lib_pairs_with_expansions, libs_with_expansions, top_10=True)
-	#subplots_expansionlibs(lib_pairs, libs, top_10=False)
-	subplots_expansionlibs(lib_pairs, libs, top_10=True)
-	#hexbin_method_comparison(libs, 'Pair_Gini_ltf100_25', 'Pair_Gini_ltf100_w_25')
-	#=============================================================
+	#Parallel(n_jobs=1, verbose=0)(delayed(pairwise_plots)(pair) for pair in lib_pairs)
+
+	druglib_target_comparison(top_pct=None)
+	druglib_target_comparison(top_pct=.15)
