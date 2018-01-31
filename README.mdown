@@ -1,5 +1,7 @@
-In this project, I compare the agreement among different drug target libraries using enrichment analysis. The libraries I looked at are DrugBank, the Target Central Resource Database, the CRowd Extracted Expression of Differential Signatures (CREEDS), DrugMatrix, Drug Gene Interaction Database (DGIdb), and the Drug Repurposing Hub. I also looked at the union and intersection sets between DrugBank and Target Central.
+In this project, I compare the agreement of different drug target libraries with different drug perturbation signature libraries using enrichment analysis. The drug target libraries I look at are DrugBank, the Target Central Resource Database, Drug Repurposing Hub, the Drug Gene Interaction Database (DGIdb), and DrugCentral. The drug perturbation signature libraries I used are the CRowd Extracted Expression of Differential Signatures (CREEDS) and the LINCS L1000.
 
-For libraries whose drugs have a small number of gene targets, I used protein-protein interaction (PPI) databases to expand their target lists. The PPI databases I used are hu.MAP, ARCHS4 and BioGRID.
+For drug target libraries whose samples have a small number of gene targets on average, I used protein-protein interaction (PPI) databases to expand their target lists. The PPI databases I used are hu.MAP, ARCHS4, and BioGRID.
 
-See http://htmlpreview.github.io/?https://github.com/MaayanLab/DrugLib_Enrichment_Comparison/blob/master/project_description_and_setup.html for a full description.
+*Note: LINCS L1000 benchmarking has not yet been implemented.*
+
+See http://htmlpreview.github.io/?https://github.com/MaayanLab/DrugLib_Enrichment_Comparison/blob/new_libs/project_description_and_setup.html for a full description.
