@@ -347,9 +347,7 @@ replace_with_synonyms = function(drug_name_vector, drug_synonyms, original_name_
   #drug_name_vector: the drug names extracted from the sample names
   #drug_synonyms: the synonym list
   #original_name_vector: the original sample names
-  drug_name_vector = trimws( #Remove white space but not spaces, which may be in `left_paren_split`.
-    gsub("[^[:alnum:]]", '', #Remove all punctuatiom.
-         tolower(drug_name_vector))) #Lowercase.
+  drug_name_vector = clean_drug_names(drug_name_vector)
   
   if(is.null(original_name_vector)){original_name_vector=drug_name_vector}
   for(i in 1:length(drug_name_vector)){
@@ -369,10 +367,9 @@ replace_with_synonyms = function(drug_name_vector, drug_synonyms, original_name_
 ```
 
 ```{r replace_CREEDS_names}
-CREEDS_fname = 'original_drug-gene_libs/CREEDS_Drugs_gvm.csv'
-if(!file.exists(CREEDS_fname)){
+if(!file.exists('original_drug-gene_libs/CREEDS_Drugs_gvm2.csv')){
   CREEDS.drugs.new = replace_with_synonyms(CREEDS.drugs, drug_synonyms, CREEDS.samples)
-  CREEDS = fread(CREEDS_fname)
+  CREEDS = fread('original_drug-gene_libs/CREEDS_Drugs_gvm.csv')
   colnames(CREEDS)[-1] = CREEDS.drugs.new
   CREEDS[CREEDS=='TRUE'] = 'True'
   write.table(CREEDS, 'original_drug-gene_libs/CREEDS_Drugs_gvm2.csv', na='', sep='\t', quote=FALSE, row.names=FALSE)
@@ -381,10 +378,9 @@ rm(CREEDS, CREEDS.drugs, CREEDS.drugs.new, CREEDS.samples)
 ```
 
 ```{r replace_LINCS_names}
-LINCS_fname = 'original_drug-gene_libs/LINCS_L1000_Chem_Pert_gvm.csv'
-if(!file.exists(LINCS_fname)){
+if(!file.exists('original_drug-gene_libs/LINCS_L1000_Chem_Pert_gvm2.csv')){
   LINCS.drugs.new = replace_with_synonyms(LINCS.drugs, drug_synonyms, LINCS.samples)
-  LINCS = fread(LINCS_fname)
+  LINCS = fread('original_drug-gene_libs/LINCS_L1000_Chem_Pert_gvm.csv')
   colnames(LINCS)[-1] = LINCS.drugs.new
   LINCS[LINCS=='TRUE'] = 'True'
   write.table(LINCS, 'original_drug-gene_libs/LINCS_L1000_Chem_Pert_gvm2.csv', na='', sep='\t', quote=FALSE, row.names=FALSE)
@@ -400,26 +396,24 @@ for(i in 1:length(drug_target_libnames)){
   lib$DrugName_Final = result
   write.csv(lib, file=drug_target_libnames[[i]], quote=FALSE, sep=',', row.names=FALSE)
 }
+
+rm(drug_synonyms, lib, drug_target_libnames, dt_drugnames_nosyns, i, result)
 ```
 
 ```{r}
 system('python get_drugtarget_gvms.py')
 ```
 
-```{r}
-for()
-
-```
 ### Drug library summary
 
 After creating the gene vector matrices [and doing the synonym shit], I made a table to summarize the features of each library.
 
 ```{r read_gvms}
-DrugBank = fread('original_drug-gene_libs/1_DrugBank_Column_5OrMoreTargets_MissingChEMBL_IDsRemoved_1-14-18_gvm2.csv')
-TargetCentral = fread('original_drug-gene_libs/2_TargetCentral_Column_5OrMoreTargets_MissingChEMBL_IDsRemoved_1-14-18_gvm2.csv')
-DrugCentral = fread('original_drug-gene_libs/5b_DrugCentral_Column_5OrMoreTargets_MissingChEMBL_IDsRemoved_Human_1-14-18_gvm2.csv')
-DGIdb = fread('original_drug-gene_libs/4_DGIdb_Column_5OrMoreTargets_MissingChEMBL_IDsRemoved_1-14-18_gvm2.csv')
-DrugRepHub = fread('original_drug-gene_libs/3_RepurposeHub_Column_5OrMoreTargets_MissingChEMBL_IDsRemoved_1-14-18_gvm2.csv')
+DrugBank = fread('original_drug-gene_libs/1_DrugBank_Column_5OrMoreTargets_MissingChEMBL_IDsRemoved_1-14-18_gvm.csv')
+TargetCentral = fread('original_drug-gene_libs/2_TargetCentral_Column_5OrMoreTargets_MissingChEMBL_IDsRemoved_1-14-18_gvm.csv')
+DrugCentral = fread('original_drug-gene_libs/5b_DrugCentral_Column_5OrMoreTargets_MissingChEMBL_IDsRemoved_Human_1-14-18_gvm.csv')
+DGIdb = fread('original_drug-gene_libs/4_DGIdb_Column_5OrMoreTargets_MissingChEMBL_IDsRemoved_1-14-18_gvm.csv')
+DrugRepHub = fread('original_drug-gene_libs/3_RepurposeHub_Column_5OrMoreTargets_MissingChEMBL_IDsRemoved_1-14-18_gvm.csv')
 CREEDS = fread('original_drug-gene_libs/CREEDS_Drugs_gvm2.csv')
 LINCS = fread('original_drug-gene_libs/LINCS_L1000_Chem_Pert_gvm2.csv')
 ```
@@ -481,7 +475,7 @@ avg_n_genes_per_sample = as.character(sapply(list(DrugBank,TargetCentral,DGIdb,D
 
 t1 = do.call(cbind, list(libnames, full_libnames, libtypes, descriptions, organisms_and_n_samples, n_drugs, avg_n_genes_per_sample, preprocessing))
 
-colnames(t1) = c('Name, Abbreviated', 'Name, Full', 'Description','Organism (number of samples)', 'Number of unique drugs', 'Average number of genes per sample', 'Data preprocessing')
+colnames(t1) = c('Name, Abbreviated', 'Name, Full', 'Library Type', 'Description','Organism (number of samples)', 'Number of unique drugs', 'Average number of genes per sample', 'Data preprocessing')
 
 t1[,'Name, Abbreviated'] = paste0("[", libnames, "](http://", links, ")")
 
