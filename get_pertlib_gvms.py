@@ -7,9 +7,6 @@ import numpy as np
 import pandas as pd
 from joblib import Parallel, delayed 
 
-def open_csv(fname):
-	return pd.read_csv(fname, index_col=0, sep='\t', low_memory=False, encoding='Latin-1')
-
 def open_gvm(fname):
 	#Open the file.
 	gvm = pd.read_csv(fname, keep_default_na = False, na_values=('',), sep='\t', low_memory=False, encoding='Latin-1', index_col=0)
@@ -121,14 +118,40 @@ def combine_gmts(gmt_fnames, output_fname, merge_type='union'):
 	merge_type : str
 		'union' or 'intersection'
 	'''
-	def dict_to_gvm(d, output_fname):
-		df = pd.DataFrame(dtype=bool)
+	def dict_to_gvm(d, output_fname, ROWS_PER_CHUNK=2500):
+		chunk_fname_prefix = output_fname.partition('_gvm.csv')[0] + '_gvm_chunk_'
+
 		#Convert each key to a gene vector column in the matrix.
+		df = pd.DataFrame(dtype=bool)
+		it = 0
+		subit = 0
 		for k in d:
-			vec = pd.DataFrame(True, index = d[k], columns = [k], dtype=bool)
-			df = pd.concat([df,vec], axis=1)
-		df.index.name = output_fname.partition('_gvm.csv')[0]
-		df.to_csv(output_fname, sep='\t')
+			print(it, subit, k)
+			if not os.path.isfile(chunk_fname_prefix + str(it) + '.csv'):
+				vec = pd.DataFrame(True, index = d[k], columns = [k], dtype=bool)
+				df = pd.concat([df,vec], axis=1)
+				df.index.name = output_fname.partition('_gvm.csv')[0]
+			subit += 1
+			#Switch to a new data.frame 'chunk' every `ROWS_PER_CHUNK` rows.
+			if subit == ROWS_PER_CHUNK:
+				if not df.empty: df.to_csv(chunk_fname_prefix + str(it) + '.csv', sep='\t')
+				df = pd.DataFrame(dtype=bool)
+				subit = 0
+				it += 1
+		if (subit != 0) and (not df.empty): df.to_csv(chunk_fname_prefix + str(it) + '.csv', sep='\t')
+
+		#Merge all the "chunks" together.
+		gvm = pd.DataFrame(dtype=bool)
+		for fname in os.listdir(os.getcwd()):
+			if chunk_fname_prefix in fname:
+				print(fname)
+				chunk = open_gvm(fname)
+				gvm = pd.concat([gvm,chunk], axis=1)
+		gvm = gvm.replace(to_replace=False, value='')
+		gvm.to_csv(output_fname, sep='\t')
+
+		print('Done. Delete the chunk files manually after verifying accuracy of merged gvm.')
+
 		return df
 
 	#Exit if already completed.
@@ -147,117 +170,16 @@ def combine_gmts(gmt_fnames, output_fname, merge_type='union'):
 	elif merge_type == 'intersection': 
 		for k in dicts[0]: combined_dict[k] = dicts[0][k] & dicts[1][k]
 
-	#Finally, convert the merged dict to a gvm matrix and return it.
+	#Finally, convert the merged dict to a gvm matrix.
 	#(Also save it in the current working directory.)
 	print('converting merged dict to df')
 	return dict_to_gvm(combined_dict, output_fname)
 
-def combine_paired_gvm(input_fname, output_fname, merge_type='union'):
-	'''
-	Creates a gvm with merged gene sets from a gvm file where columns are up/down paired, 
-		i.e. (col1,col2),(col3,col4),(col5,col6).
-	Odd columns must be labeled "[annotation]-up" and even columns must be labeled "[annotation]-dn".
-	input_fname : str
-		Name of the input gvm file, which must be in the current working directory. 
-	output_fname : str
-		Name of the output file. 
-	merge_type : str
-		'union' or 'intersection'
-	'''
-	#Exit if already completed.
-	if file_exists(output_fname): return
-
-	old_gvm = open_gvm(input_fname)
-	new_gvm = pd.DataFrame(index=old_gvm.index)
-	dn_cols = list(old_gvm.columns)[::2]
-	for dn_col in dn_cols:
-		col = str(dn_col).rpartition('-dn')[0]
-		up_col = col + '-up'
-		if up_col not in old_gvm.columns: raise ValueError(up_col)
-		if merge_type == 'union': new_gvm[col] = old_gvm[dn_col] | old_gvm[up_col]
-		elif merge_type == 'intersection': new_gvm[col] = old_gvm[dn_col] & old_gvm[up_col]
-		else: raise ValueError('invalid merge type: ' + merge_type)
-
-	new_gvm = new_gvm.replace(to_replace=False, value='')
-	new_gvm.index.name = 'DrugMatrix_Union'
-	new_gvm.to_csv('DrugMatrix_Union_gvm.csv',sep='\t')
-
-def get_interactionlist(fname):
-	if '_10-05-17.csv' in fname: 
-		interactions = pd.read_csv(fname, sep=',', encoding='latin1')
-		interactions = interactions[['TargetGeneSymbol_Entrez','DrugName']]
-
-	elif fname == 'interactions.tsv':
-		interactions = pd.read_csv(fname, sep='\t', encoding='latin1')
-		interactions.loc[interactions['gene_name'].isnull().values, 'gene_name'] = interactions.loc[
-			interactions['gene_name'].isnull().values, 'gene_claim_name']
-		interactions = interactions[['gene_name','drug_claim_primary_name']]
-
-	elif fname == 'repurposing_drugs_20170327.txt':
-		f = pd.read_csv(fname,sep='\t',skiprows=9,encoding='latin1')
-		f = f.loc[~f['target'].isnull().values,]
-		interactions = []
-		for row in f.index:
-			geneset = f.at[row,'target'].split('|')
-			interactions = interactions + [np.column_stack([geneset,[f.at[row,'pert_iname']] * len(geneset)])]
-		interactions = pd.DataFrame(np.vstack(interactions))
-
-	interactions.columns = ('gene','annotation')
-	interactions = interactions.loc[~interactions['gene'].isnull().values,]
-	interactions = interactions.loc[~interactions['annotation'].isnull().values,]
-	interactions = interactions.drop_duplicates()
-	return interactions
-
-def interactionlist_to_gvm(interactionlist_fname):
-	#Check if this has already been done. 
-	output_fname = interactionlist_fname.partition('.')[0]+ '_gvm.csv'
-	if os.path.isfile(output_fname): 
-		print(output_fname, 'already created.')
-		return
-
-	#Otherwise, proceed.
-	print(interactionlist_fname)
-	interactionlist = get_interactionlist(interactionlist_fname)
-
-	#The first segment of this list, ending at 'nan', comes from pandas.read_csv(na_values) documentation.
-		#From the original list, 'NA' was removed because it is, in fact, a gene. 
-	#The second segment of this list, beginning with '---', was added according to my own observations.
-	MY_NA_VALS = {'', '#N/A', '#N/A N/A', '#NA', '-1.#IND', '-1.#QNAN',
-		'-NaN', '-nan', '1.#IND', '1.#QNAN', 'N/A', 'NULL', 'NaN', 'nan', 
-		'---', '[NULL]'}
-
-	#Initialize the gvm with annotations as indices.
-	gvm = pd.DataFrame(index=set(interactionlist['annotation']), dtype=bool)
-	#For each gene:
-	##(I think this is faster than iterating over annotations because there are less unique genes than annots.)
-	genes = set(interactionlist['gene'])
-	for gene in genes:
-		print(gene)
-		#Get this gene's annotation vector: the collection of annotations with this gene in their set.
-		annotations = interactionlist.loc[interactionlist['gene'] == gene, 'annotation'].values
-		#annotations = set(annotations)
-		#Add this annotation vector to the gvm.
-		vec = pd.DataFrame(True, index=annotations, columns=[gene], dtype=bool)
-		gvm = pd.concat([gvm,vec], axis=1)
-	#Transpose such that genes are indices and annotations are columns.
-	gvm = gvm.transpose()
-
-	#Save the results.
-	gvm.to_csv(output_fname, sep='\t')
-	return
-
 os.chdir('original_drug-gene_libs')
 
-interactionlists = ('1_DrugBank_EdgeList_10-05-17.csv', 
-	'2_TargetCentral_EdgeList_10-05-17.csv',
-	'3_EdgeLists_Union_10-05-17.csv', 
-	'4_EdgeLists_Intersection_10-05-17.csv',
-	'interactions.tsv',
-	'repurposing_drugs_20170327.txt')
-for interactionlist in interactionlists: interactionlist_to_gvm(interactionlist)
-
-combine_gmts(['Drug_Perturbations_from_GEO_down.txt', 'Drug_Perturbations_from_GEO_up.txt'], 'CREEDS_Drugs_gvm.csv')
-
-combine_paired_gvm('DrugMatrix_gvm.csv', 'DrugMatrix_Union_gvm.csv', merge_type='union')
+combine_gmts(['Drug_Perturbations_from_GEO_down.txt', 'Drug_Perturbations_from_GEO_up.txt'], 
+	'CREEDS_Drugs_gvm.csv', merge_type='union')
+combine_gmts(('LINCS_L1000_Chem_Pert_up.txt','LINCS_L1000_Chem_Pert_down.txt'), 
+	'LINCS_L1000_Chem_Pert_gvm.csv', merge_type='union')
 
 os.chdir('..')
