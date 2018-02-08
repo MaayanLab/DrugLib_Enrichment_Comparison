@@ -8,7 +8,7 @@ output:
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo=FALSE, warning=FALSE, message=FALSE, include=FALSE, fig.align="center")
+knitr::opts_chunk$set(cache=TRUE, echo=FALSE, warning=FALSE, message=FALSE, include=FALSE, fig.align="center")
 
 #un-comment below lines the packages have not yet been installed.
 #install.packages("kableExtra")
@@ -31,7 +31,7 @@ library(data.table)
 
 In this project, I evaluate the accuracy of various drug target libraries by measuring their agreement with different drug perturbation signature libraries. The drug target libraries I look at are DrugBank, the Target Central Resource Database, Drug Repurposing Hub, the Drug Gene Interaction Database (DGIdb), and DrugCentral. The drug perturbation signature libraries I used are the CRowd Extracted Expression of Differential Signatures (CREEDS) and the LINCS L1000. For all the drug target libraries, the average number of gene targets per drug was small, so I use protein-protein interaction (PPI) databases to expand their gene target lists. The PPI databases I use are hu.MAP, ARCHS4, and BioGRID.
 
-The way I measure agreement is by using enrichment analysis--specifically, the Fisher's exact test for overrepresentation. For the drug target libraries, I treat each (drug, target list) as an (annotation, gene set) pair. For the drug perturbation signature libraries, I treat each (drug sample, list of most-perturbed genes) as an (annotation, gene set) pair. I then perform enrichment into one library using the annotated gene sets from the other library, and observe how highly matching annotations, i.e. those which correspond to the same drug as the input, are ranked. The rationale is that if two libraries agree with one another, then the highest-ranked annotations should match the input annotation.
+I measured agreement using enrichment analysis--specifically, the Fisher's exact test for overrepresentation. For the drug target libraries, I treat each (drug, target list) as an (annotation, gene set) pair. For the drug perturbation signature libraries, I treat each (drug sample, list of most-perturbed genes) as an (annotation, gene set) pair. I then perform enrichment into one library using the annotated gene sets from the other library, and observe how highly matching annotations, i.e. those which correspond to the same drug as the input, are ranked. The rationale is that if two libraries agree with one another, then the highest-ranked annotations should match the input annotation.
 
 ## Setup
 
@@ -400,13 +400,17 @@ for(i in 1:length(drug_target_libnames)){
 rm(drug_synonyms, lib, drug_target_libnames, dt_drugnames_nosyns, i, result)
 ```
 
+### Converting drug target libraries to gvms
+
+Finally, I converted the drug target libraries to gvms.
+
 ```{r}
 system('python get_drugtarget_gvms.py')
 ```
 
 ### Drug library summary
 
-After creating the gene vector matrices [and doing the synonym shit], I made a table to summarize the features of each library.
+After creating the gene vector matrices, I made a table to summarize the features of each library.
 
 ```{r read_gvms}
 DrugBank = fread('original_drug-gene_libs/1_DrugBank_Column_5OrMoreTargets_MissingChEMBL_IDsRemoved_1-14-18_gvm.csv')
@@ -534,12 +538,11 @@ for(i in 1:length(gvm_fnames)){
 Below is a comparison of how the gene set sizes changed after expansion.
 
 ```{r size_comparison, include=TRUE}
-
 gvm_fnames_cleaned = c('DrugBank','TargetCentral','DGIdb','DrugRepHub','DrugCentral')
 
-for(i in 1:length(gvms)){
-  old_gvm = gvms[[i]]
+for(i in 1:length(gvm_fnames)){
   old_gvm_fname = gvm_fnames[[i]]
+  old_gvm = fread(paste0('original_drug-gene_libs\\', old_gvm_fname, '_gvm.csv'))
   
   ngenes = data.frame(Original=log(colSums(old_gvm==TRUE, na.rm=TRUE), base=10)[-1])
   
