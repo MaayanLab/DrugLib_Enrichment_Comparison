@@ -29,7 +29,8 @@ def list_of_drug_libs_fnames():
 		'ARCHS4')
 
 	non_expanded_drug_libs = (
-		'CREEDS_Drugs',)
+		'CREEDS_Drugs',
+		'LINCS_L1000_Chem_Pert')
 
 	drug_libs = tuple(
 		'expanded_drug-gene_libs\\' + edl + '_expanded_with_' + ppi + '_gvm2.csv' 
@@ -202,18 +203,18 @@ def enrichment(pair):
 if __name__ == '__main__':
 
 	libs = list_of_drug_libs_fnames()
-	target_libs = libs[:-1]
-	perturb_libs = libs[-1]
-	print(perturb_libs)
+	target_libs = libs[:-2]
+	perturb_libs = libs[-2:]
 
 	#fwd_pairs = [(a,b) for a in target_libs for b in perturb_libs]
 	#bck_pairs = [(a,b) for a in perturb_libs for b in target_libs]
 
-	fwd_pairs = [(a,perturb_libs) for a in target_libs]
-	bck_pairs = [(perturb_libs,a) for a in target_libs]
+	fwd_pairs = [(a,b) for a in target_libs for b in perturb_libs]
+	bck_pairs = [(b,a) for a in target_libs for b in perturb_libs]
 
 	if not os.path.isdir('results'): os.makedirs('results')
 
 	#Iterate over each gmt pair.
 	lib_df_pairs = fwd_pairs + bck_pairs
-	Parallel(n_jobs=3, verbose=0)(delayed(enrichment)(pair) for pair in lib_df_pairs)
+	#Parallel(n_jobs=1, verbose=0)(delayed(enrichment)(pair) for pair in lib_df_pairs)
+	for pair in lib_df_pairs: enrichment(pair)

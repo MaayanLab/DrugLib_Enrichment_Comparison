@@ -8,7 +8,7 @@ output:
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(cache=TRUE, echo=FALSE, warning=FALSE, message=FALSE, include=FALSE, fig.align="center")
+knitr::opts_chunk$set(cache=TRUE, echo=TRUE, warning=FALSE, message=FALSE, include=TRUE, fig.align="center")
 
 #un-comment below lines the packages have not yet been installed.
 #install.packages("kableExtra")
@@ -31,13 +31,13 @@ library(data.table)
 
 In this project, I evaluate the accuracy of various drug target libraries by measuring their agreement with different drug perturbation signature libraries. The drug target libraries I look at are DrugBank, the Target Central Resource Database, Drug Repurposing Hub, the Drug Gene Interaction Database (DGIdb), and DrugCentral. The drug perturbation signature libraries I used are the CRowd Extracted Expression of Differential Signatures (CREEDS) and the LINCS L1000. For all the drug target libraries, the average number of gene targets per drug was small, so I use protein-protein interaction (PPI) databases to expand their gene target lists. The PPI databases I use are hu.MAP, ARCHS4, and BioGRID.
 
-I measured agreement using enrichment analysis--specifically, the Fisher's exact test for overrepresentation. For the drug target libraries, I treat each (drug, target list) as an (annotation, gene set) pair. For the drug perturbation signature libraries, I treat each (drug sample, list of most-perturbed genes) as an (annotation, gene set) pair. I then perform enrichment into one library using the annotated gene sets from the other library, and observe how highly matching annotations, i.e. those which correspond to the same drug as the input, are ranked. The rationale is that if two libraries agree with one another, then the highest-ranked annotations should match the input annotation.
+I measured agreement using enrichment analysis--specifically, the Fisher's exact test for overrepresentation. For the drug target libraries, I treat each (drug, target list) as an (annotation, gene set) pair. For the drug perturbation signature libraries, I treat each (drug sample, list of most-perturbed genes) also as an (annotation, gene set) pair. I then perform enrichment into one library using the annotated gene sets from the other library, and observe how highly the matching annotations, i.e. those which correspond to the same drug as the input, are ranked. The rationale is that if two libraries agree with one another, then matching annotations should be highly ranked often.
 
 ## Setup
 
 In order to perform enrichment analysis, I needed to (1) convert all files to gene vector matrix (gvm) format, and (2) ensure I am able to identify matching annotations between the different libraries, even if different names for the same drug are used.
 
-### Creating gvms for the drug perturbation signature libraries
+#### Creating gvms for the drug perturbation signature libraries
 
 The code I wrote to perform enrichment analysis works on gene vector matrices. In this format, each drug annotation is a column label, and each gene is a row label. Cell values are TRUE or FALSE depending on whether the column annotation is associated with the row gene. 
 
@@ -48,22 +48,9 @@ Each drug perturbation signature library was originally two separate gmt files: 
 system('python get_pertlib_gvms.py')
 ```
 
-```{r}
-#install.packages('biomaRt')
-#install.packages('stringi')
-#library(biomaRt)
-#STITCH=fread('original_drug-gene_libs\\9606.protein_chemical.links.v5.0.tsv')
-#mart=useMart(biomart="ensembl", dataset="hsapiens_gene_ensembl")
+#### Identifying matching annotations
 
-#proteins = unique(STITCH$protein)
-
-#hgnc_symbols = getBM(attributes = c('hgnc_symbol'), filters = 'ensembl_peptide_id', values=proteins, mart=mart)
-
-```
-
-### Identifying matching annotations
-
-This next step consists of two tasks: separating drug names from the sample names in the perturbation signature libraries, and then identifying drug synonyms. Synonyms were either provided by the libraries as a separate column or file, or embedded in the drug name itself, e.g. "chembl1255588 ((+)-butaclamol)". Once I accomplished these tasks, I returned to each library and labeled each annotation with its corresponding drug's lowest alphabetical synonym. 
+This next step consists of two tasks: separating drug names from the sample names in the perturbation signature libraries, and then identifying drug synonyms. Synonyms were either provided by the libraries as a separate column or file, or embedded in the drug name itself, e.g. "chembl1255588 ((+)-butaclamol)". Once I accomplished these tasks, I returned to each library and re-labeled each annotation with its corresponding drug's lowest alphabetical synonym. 
 
 Here is a summary of my procedure:
 
@@ -186,11 +173,9 @@ extract_synonyms_in_parentheses = function(drug_names, synonym_list, left_paren_
 }
 ```
 
-#### Drug target libraries
+*Drug target libraries*: These libraries had a drug name, a ChEMBL ID, and a DrugBank ID for each drug. I began by looking at the drug names and checking them for embedded synonyms. Upon inspection, all synonyms seemed to be enclosed in parentheses and separated by a space. Below is a list of drug names in these libraries containing the " (" substring.
 
-These libraries had a drug name, a ChEMBL ID, and a DrugBank ID for each drug. I began by looking at the drug names and checking them for embedded synonyms. Upon inspection, all synonyms seemed to be enclosed in parentheses and separated by a space. Below is a list of drug names in these libraries containing the " (" substring.
-
-```{r drug_target_libraries_show_potential_synonyms}
+```{r drug_target_libraries_show_potential_synonyms, include=TRUE}
 drug_target_libnames = c(
   'original_drug-gene_libs/1_DrugBank_Column_5OrMoreTargets_MissingChEMBL_IDsRemoved_1-14-18.csv',
   'original_drug-gene_libs/2_TargetCentral_Column_5OrMoreTargets_MissingChEMBL_IDsRemoved_1-14-18.csv',
@@ -206,7 +191,8 @@ for(i in 1:length(drug_target_libnames)){
 }
 all_dt_drugnames_nosyns = unique(unlist(all_dt_drugnames_nosyns))
 potential_synonyms = matrix(all_dt_drugnames_nosyns[grepl(' \\(', all_dt_drugnames_nosyns)], ncol=3)
-print(kable(potential_synonyms))
+kable(potential_synonyms, 'html', caption='Potential embedded synonyms') %>%
+  kable_styling(bootstrap_options=c('striped', 'condensed', full_width=F, font_size=10))
 rm(all_dt_drugnames_nosyns, potential_synonyms)
 ```
 
@@ -244,9 +230,7 @@ save(drug_synonyms, file='synonyms\\drug_synonyms1.r')
 rm(input_table, lib, potential_synonyms, got_first_synonym, i, paren_results)
 ```
 
-#### CREEDS
-
-In CREEDS, each sample is described by both a name and a DrugBank ID. In addition, some names contain a symnonym in parentheses. I began by separating the drug name and DrugBank ID from the sample name, and hand-scrubbing the drug name. 
+*CREEDS*: In CREEDS, each sample is described by both a name and a DrugBank ID. In addition, some names contain a symnonym in parentheses. I began by separating the drug name and DrugBank ID from the sample name, and hand-scrubbing the drug name. 
 
 ```{r cleaning_CREEDS_drug_names}
 #Read in file separate drug names from the DrugBank ID. 
@@ -303,11 +287,9 @@ save(drug_synonyms, file='synonyms\\drug_synonyms2.r')
 rm(drug, i, paren_results, CREEDS_drug_and_DBname, CREEDS.DB_ID, CREEDS)
 ```
 
-##### LINCS
+*LINCS*: I extracted the drug names from the sample names. I then added and removed embedded synonyms.
 
-I extracted the drug names from the sample names. I then added and removed embedded synonyms.
-
-```{r}
+```{r, results='hide'}
 
 LINCS = fread('original_drug-gene_libs\\LINCS_L1000_Chem_Pert_gvm.csv')
 LINCS.samples = colnames(LINCS)[-1]
@@ -338,7 +320,7 @@ save(drug_synonyms, file='synonyms\\drug_synonyms3.r')
 rm(add_this, LINCS, drug, i, paren_results, sample)
 ```
 
-### Re-labeling annotations
+#### Re-labeling annotations
 
 After collecting the synonyms, I appended to each annotation the highest-alphabetical synonym of the drug it represents, and separated it with three vertical bars. For example, in CREEDS, the sample "vitamin c DB00126 mouse GSE32994 sample 3510" became "ascorbate|||vitamin c DB00126 mouse GSE32994 sample 3510".
 
@@ -392,7 +374,7 @@ rm(LINCS.samples, LINCS.drugs, LINCS.drugs.new, LINCS)
 
 for(i in 1:length(drug_target_libnames)){
   lib = fread(drug_target_libnames[[i]])
-  result = replace_with_synonyms(dt_drugnames_nosyns[[i]], drug_synonyms)
+  result = replace_with_synonyms(dt_drugnames_nosyns[[i]], drug_synonyms, lib$DrugName)
   lib$DrugName_Final = result
   write.csv(lib, file=drug_target_libnames[[i]], quote=FALSE, sep=',', row.names=FALSE)
 }
@@ -400,19 +382,19 @@ for(i in 1:length(drug_target_libnames)){
 rm(drug_synonyms, lib, drug_target_libnames, dt_drugnames_nosyns, i, result)
 ```
 
-### Converting drug target libraries to gvms
+#### Creating gvms for the drug perturbation signature libraries
 
-Finally, I converted the drug target libraries to gvms.
+Finally, I converted the drug target libraries to gvms. I combined all drug targets for the same drug into a single gene set, and used its re-labeled annotation as the column label.
 
 ```{r}
 system('python get_drugtarget_gvms.py')
 ```
 
-### Drug library summary
+#### Drug library summary
 
 After creating the gene vector matrices, I made a table to summarize the features of each library.
 
-```{r read_gvms}
+```{r read_gvms, results='hide'}
 DrugBank = fread('original_drug-gene_libs/1_DrugBank_Column_5OrMoreTargets_MissingChEMBL_IDsRemoved_1-14-18_gvm.csv')
 TargetCentral = fread('original_drug-gene_libs/2_TargetCentral_Column_5OrMoreTargets_MissingChEMBL_IDsRemoved_1-14-18_gvm.csv')
 DrugCentral = fread('original_drug-gene_libs/5b_DrugCentral_Column_5OrMoreTargets_MissingChEMBL_IDsRemoved_Human_1-14-18_gvm.csv')
@@ -422,7 +404,7 @@ CREEDS = fread('original_drug-gene_libs/CREEDS_Drugs_gvm2.csv')
 LINCS = fread('original_drug-gene_libs/LINCS_L1000_Chem_Pert_gvm2.csv')
 ```
 
-```{r table_1, include=FALSE}
+```{r table_1, include=TRUE}
 
 libnames = c('DrugBank','TargetCentral','DGIdb','DrugRepHub','DrugCentral','CREEDS','LINCS L1000')
 
@@ -488,13 +470,13 @@ kable(t1, 'html', caption='Table 1: Dataset summary') %>%
 
 ```
 
-### Expansion with PPI data
+#### Expansion with PPI data
 
 From the "average number of genes per sample" column in Table 1, it is apparent that the gene set sizes for the drug target libraries (DrugBank, TargetCentral, DGIdb, DrugRepHub and DrugCentral) are too small for enrichment analysis. These libraries were expanded using PPI data from three sources: ARCHS4, hu.MAP and BioGRID. 
 
 To do this, gene coexpression sets were extracted from each PPI library by taking the top 100 coexpressed genes/proteins for each gene/protein. (For BioGRID, since coexpression scores are not provided, the first 100 coexpression entries for each gene/protein, from top to bottom in the original file, were kept.) Then, each gene set in the drug libraries is expanded by adding to it the coexpression set of each gene/protein it contains. For example, the gene set {CTPS, MLLT11} becomesthe union of the coexpression sets for CTPS and MLLT11. (If a gene does not appear in the PPI library, the coexpression set is interpreted as just the gene itself.) This results in three new drug-gene libraries for each original drug-gene library that was expanded: one for each PPI library.
 
-```{r get_top_n_for_ppi_libs}
+```{r get_top_n_for_ppi_libs, results='hide'}
 source('expand_gvms.R')
 
 input_files = c('human_correlation.rda', 'mouse_correlation.rda', 'genename_pairsWprob.txt',
@@ -509,7 +491,7 @@ for(i in 1:length(input_files)){
 }
 ```
 
-```{r expand_gvms}
+```{r expand_gvms, results='hide'}
 source('expand_gvms.R')
 ARCHS4 = fread('ppi_libs\\human_correlation_top_100.csv', header=FALSE)
 BioGRID = fread('ppi_libs\\BIOGRID-ORGANISM-Homo_sapiens-3.4.156.tab2_top_100.csv', header=FALSE)
@@ -553,14 +535,7 @@ for(i in 1:length(gvm_fnames)){
     ngenes[[expansion_lib_name]] = log(colSums(new_gvm==TRUE, na.rm=TRUE), base=10)[-1]
   }
   ngenes[ngenes==-Inf]=0
-  
-  #ngenes$BAAAD = (ngenes$Original > ngenes$ARCHS4) | (ngenes$Original > ngenes$BioGRID) | (ngenes$Original > ngenes$hu.MAP)
-  #if(any(ngenes$BAAAD)){
-  #  print(old_gvm_fname)
-  #  bad = subset(ngenes,BAAAD==TRUE)
-  #  print(bad)
-  #  }
-  
+
   print(ggplot(data=melt(ngenes, measure.vars=c('Original', expansion_libs_names)), aes(x=value, fill=variable)) + geom_histogram(bins=150) + facet_grid(variable~.) + labs(x='log 10 of gene set size', y='count', title=gvm_fnames_cleaned[[i]]))
   
 }
@@ -570,4 +545,8 @@ for(i in 1:length(gvm_fnames)){
 
 After creating the expanded libraries, I performed enrichment analysis, using the Fisher's exact test, between each pair of drug target library and perturbation signature library.
 
-See https://github.com/MaayanLab/Enrichment_Sandbox for an explanation of how enrichment analysis is used to see the agreement between different gene set libraries.
+See https://github.com/MaayanLab/Enrichment_Sandbox for an explanation of how enrichment analysis is used to see the agreement between different gene set libraries, and how to interpret the bridge plots.
+
+Here are the results:
+
+![Enrichment analysis results](results/DRAFT_druglib_bridgeplot.png "Enrichment analysis results")

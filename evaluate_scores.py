@@ -134,7 +134,6 @@ def pairwise_plots(pair):
 		return coords.index.values, coords.values, matches, coords
 
 	prefix = 'input_' + pair['i'] + '_into_' + pair['s']
-	print(prefix)
 	rank_fname = 'rankings_' + prefix + '.csv'
 	
 	#all_coords will the contain all the different methods' bridge plot coordinates for this library pair.
@@ -204,7 +203,7 @@ def druglib_target_comparison(top_pct=None):
 		'hu.MAP',
 		'BioGRID',
 		'ARCHS4')
-	dperturb_libs = ('CREEDS_Drugs', 'LINCS_L1000_Chem_Pert',) * 2
+	dperturb_libs = ('CREEDS_Drugs', 'CREEDS_Drugs', 'LINCS_L1000_Chem_Pert', 'LINCS_L1000_Chem_Pert')
 	dperturb_lib_titles = ('CREEDS as search', 'CREEDS as input', 'LINCS as search', 'LINCS as input')
 
 	f, axarr = plt.subplots(nrows=len(ppi_libs),ncols=len(dperturb_libs), figsize=(30,20))
@@ -221,7 +220,7 @@ def druglib_target_comparison(top_pct=None):
 			ppi_lib = ppi_libs[i]
 			dperturb_lib= dperturb_libs[j]
 
-			if j < (len(dperturb_libs) / 2): enrichment_direction= 'fwd'
+			if 'as search' in dperturb_lib_titles[j]: enrichment_direction = 'fwd'
 			else: enrichment_direction = 'rev'
 
 			subplot = axarr[i,j]
@@ -231,7 +230,6 @@ def druglib_target_comparison(top_pct=None):
 					prefix = 'input_' + dtarget_lib + '_expanded_with_' + ppi_lib + '_into_' + dperturb_lib
 				else:
 					prefix = 'input_' + dperturb_lib + '_into_' + dtarget_lib + '_expanded_with_' + ppi_lib
-
 				rank_fname = 'rankings_' + prefix + '.csv'
 				if os.path.isfile(rank_fname): 
 					all_coords = open_csv(rank_fname)
@@ -249,10 +247,10 @@ def druglib_target_comparison(top_pct=None):
 							algorithms[GET_DTARGET_LIBNAME[dtarget_lib]] = subplot.plot(x_vals, y_vals, label= str(np.round(auc(x_vals, y_vals), 3)), linewidth=linewidth)
 							#If you want to view legends for each subplot (e.g. to see the AUC), you will need to un-comment this line.
 							subplot.legend(fontsize=20, loc='upper right')
-			#Uncomment below to scale all subplots equally (to compare relative sizes between subplots).
-			subplot.set_ylim([-.2,1])
+							#Uncomment below to scale all subplots equally (to compare relative sizes between subplots).
+							subplot.set_ylim([-.2,1])
 			if top_pct is not None: subplot.set_xlim([0,top_pct])
-			#Hide ticks -- although axis='both', this only seems to affect the x-axis.
+			#Hide x ticks.
 			subplot.tick_params(axis='x', which='both', bottom='off', top='off',labelbottom='off')
 			#Hide ticks on the y axis.
 			if j != 0: subplot.axes.get_yaxis().set_ticks([])
@@ -271,7 +269,91 @@ def druglib_target_comparison(top_pct=None):
 	else: plt.suptitle('Drug library bride plots', fontsize=35)
 	#Save and display results.
 	if top_pct is None: plt.savefig('DRAFT_druglib_bridgeplot.png',bbox_inches='tight')
-	else: plt.savefig('DRAFT_druglib_bridgeplot_' + str(top_pct).partition('.')[2] + 'th_pctile.png',bbox_inches='tight')
+	else: plt.savefig('DRAFT_druglib_bridgeplot_' + str(top_pct).partition('.')[2] + 'th_pctile.png', bbox_inches='tight')
+	plt.show()
+	return 
+
+def druglib_target_just_one_column(column, top_pct=None):
+
+	dtarget_libs = ('1_DrugBank_Column_5OrMoreTargets_MissingChEMBL_IDsRemoved_1-14-18',
+		'2_TargetCentral_Column_5OrMoreTargets_MissingChEMBL_IDsRemoved_1-14-18', 
+		'3_RepurposeHub_Column_5OrMoreTargets_MissingChEMBL_IDsRemoved_1-14-18', 
+		'4_DGIdb_Column_5OrMoreTargets_MissingChEMBL_IDsRemoved_1-14-18', 
+		'5b_DrugCentral_Column_5OrMoreTargets_MissingChEMBL_IDsRemoved_Human_1-14-18',
+		#'3_EdgeLists_Union_10-05-17',
+		#'4_EdgeLists_Intersection_10-05-17'
+		)
+	ppi_libs = (
+		'hu.MAP',
+		'BioGRID',
+		'ARCHS4')
+	dperturb_lib = 'LINCS_L1000_Chem_Pert'
+	dperturb_lib_title = column
+	if 'as input' in dperturb_lib_title: enrichment_direction = 'rev'
+	elif 'as search' in dperturb_lib_title: enrichment_direction = 'fwd'
+	else: raise ValueError(dperturb_lib_title)
+
+	f, axarr = plt.subplots(nrows=len(ppi_libs),ncols=1, figsize=(13,20))
+	font = {'size':25}
+	plt.rc('font', **font)
+
+	#Collect all the algorithms found so that we can create a legend at the end.
+	#IMPORTANT: the legend only works if each lib_pair has the EXACT same algorithms.
+	algorithms = pd.Series()
+
+	#Create the grid by iterating over all_libs.
+	for i in range(len(ppi_libs)):
+		ppi_lib = ppi_libs[i]
+		subplot = axarr[i]
+
+		for dtarget_lib in dtarget_libs:
+			if enrichment_direction == 'fwd':
+				prefix = 'input_' + dtarget_lib + '_expanded_with_' + ppi_lib + '_into_' + dperturb_lib
+			else:
+				prefix = 'input_' + dperturb_lib + '_into_' + dtarget_lib + '_expanded_with_' + ppi_lib
+
+			rank_fname = 'rankings_' + prefix + '.csv'
+			if os.path.isfile(rank_fname): 
+				all_coords = open_csv(rank_fname)
+				for alg_info in all_coords:
+					algorithm_name, axis = alg_info.partition(',')[0], alg_info.partition(',')[2]
+					#===========================================================================================
+					#Filter for only certain enrichment algorithms here using an if statement.
+					#===========================================================================================
+					if axis == 'x': 
+					#===========================================================================================
+						x_vals = [a/len(all_coords[algorithm_name + ',x']) for a in all_coords[algorithm_name + ',x']]
+						y_vals = all_coords[algorithm_name + ',y']
+
+						linewidth = 2.5
+						algorithms[GET_DTARGET_LIBNAME[dtarget_lib]] = subplot.plot(x_vals, y_vals, label= str(np.round(auc(x_vals, y_vals), 3)), linewidth=linewidth)
+						#If you want to view legends for each subplot (e.g. to see the AUC), you will need to un-comment this line.
+						subplot.legend(fontsize=20, loc='upper right')
+		#Uncomment below to scale all subplots equally (to compare relative sizes between subplots).
+		subplot.set_ylim([-.2,1])
+		if top_pct is not None: subplot.set_xlim([0,top_pct])
+		#Hide ticks -- although axis='both', this only seems to affect the x-axis.
+		subplot.tick_params(axis='x', which='both', bottom='off', top='off',labelbottom='off')
+		#Hide ticks on the y axis.
+
+	#Label the rows and columns of the figure.
+	for ax, row in zip(axarr, [x for x in ppi_libs]): ax.set_ylabel(row, size='large')
+	for ax, col in zip(axarr, (dperturb_lib_title,)): ax.set_title(col)
+	#Leave some space between the subplots.
+	f.subplots_adjust(hspace=.13, wspace=.1, left=.3)
+	#Create a legend in the last cell (should be empty, because it is a diagonal).
+	plt.figlegend([x for sublist in algorithms.values for x in sublist], algorithms.index, loc=10, bbox_to_anchor=(.16,.5))
+		#bbox_to_anchor=(1.05, 1), loc=2, borderaxespad=0.)
+
+	plt.tight_layout(rect=[.31,0,1,.95])
+	#Title the plot.
+	if top_pct is not None: plt.suptitle('Drug library bridge plots, top ' + 
+		"{:.2f}".format(top_pct).partition('.')[2] + ' percentile of ranks', fontsize=35)
+	else: plt.suptitle('Drug library bride plots', fontsize=35)
+	#Save and display results.
+	if top_pct is None: plt.savefig('DRAFT_druglib_bridgeplot.eps',bbox_inches='tight', format='eps', dpi=1000)
+	else: plt.savefig('DRAFT_druglib_bridgeplot_' + str(top_pct).partition('.')[2] + 'th_pctile.eps',
+		bbox_inches='tight', format='eps', dpi=1000)
 	plt.show()
 	return 
 
@@ -282,7 +364,10 @@ if __name__ == '__main__':
 	lib_pairs = [{'i':a, 's':b} for a in libs for b in libs if a != b]
 	os.chdir('results')
 
-	Parallel(n_jobs=1, verbose=0)(delayed(pairwise_plots)(pair) for pair in lib_pairs)
+	#Parallel(n_jobs=1, verbose=0)(delayed(pairwise_plots)(pair) for pair in lib_pairs)
 
-	druglib_target_comparison(top_pct=None)
-	druglib_target_comparison(top_pct=.15)
+	#druglib_target_comparison(top_pct=None)
+	#druglib_target_comparison(top_pct=.15)
+	
+	druglib_target_just_one_column(top_pct=.50, column = 'LINCS as input')
+	druglib_target_just_one_column(top_pct=None, column = 'LINCS as input')
