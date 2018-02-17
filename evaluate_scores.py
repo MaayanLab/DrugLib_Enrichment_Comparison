@@ -63,8 +63,7 @@ def plot_curve(df, alg_info, prefix):
 	#		+ str(np.round(auc(x_vals, y_vals), 4)), color=color_dict[algorithm], linewidth=linewidth)
 	#else: 
 	print('plotting', algorithm)
-	plt.plot(x_vals, y_vals, label=prefix + algorithm + '    ' + 'AUC: ' 
-		+ str(np.round(auc(x_vals, y_vals), 4)), linewidth=linewidth)
+	plt.plot(x_vals, y_vals, label=str(np.round(auc(x_vals, y_vals), 4)), linewidth=linewidth)
 
 def pairwise_plots(pair):
 	'''Creates a bridge plot for enrichment results between the specified library pair.
@@ -357,6 +356,50 @@ def druglib_target_just_one_column(column, top_pct=None):
 	plt.show()
 	return 
 
+def combined_plot(file_patterns):
+	'''
+	Plots a single graph for all results, across all libraries and methods.
+	file_patterns : tuple
+		If all in file name, plots the results.
+	'''
+	algorithms = pd.Series()
+
+	plt.figure(2, figsize=(10,10))
+	font = {'size': 25}
+	plt.rc('font', **font)
+
+	for dtarget_lib in ('2_TargetCentral_Column_5OrMoreTargets_MissingChEMBL_IDsRemoved_1-14-18',
+		'5b_DrugCentral_Column_5OrMoreTargets_MissingChEMBL_IDsRemoved_Human_1-14-18',
+		'1_DrugBank_Column_5OrMoreTargets_MissingChEMBL_IDsRemoved_1-14-18', 
+		'3_RepurposeHub_Column_5OrMoreTargets_MissingChEMBL_IDsRemoved_1-14-18', 
+		'4_DGIdb_Column_5OrMoreTargets_MissingChEMBL_IDsRemoved_1-14-18'):
+
+		fname = 'rankings_input_LINCS_L1000_Chem_Pert_into_' + dtarget_lib + '_expanded_with_BioGRID.csv'
+		prefix = fname.partition('rankings')[2].partition('.csv')[0]
+		all_coords = open_csv(fname)
+		for alg_info in all_coords:
+			algorithm_name, axis = alg_info.partition(',')[0], alg_info.partition(',')[2]
+			if axis != 'x': continue
+			dtarget_lib = prefix.partition('_into_')[2].partition('_expanded_with_')[0]
+			x_vals = [a/len(all_coords[algorithm_name + ',x']) for a in all_coords[algorithm_name + ',x']]
+			y_vals = all_coords[algorithm_name + ',y']
+			#===========================================================================================
+			#Filter for only certain enrichment methods here using an if statement.
+			#===========================================================================================
+			algorithms[GET_DTARGET_LIBNAME[dtarget_lib]] = plt.plot(
+                    x_vals, y_vals, label= GET_DTARGET_LIBNAME[dtarget_lib] + ', AUC: ' + str(
+                            np.round(auc(x_vals, y_vals), 3)), linewidth=3.5)
+			#===========================================================================================
+	plt.legend(fontsize=18, loc=2, bbox_to_anchor=(.3, .32))
+	plt.title('Bridge Plots, Top 50 Percentile')
+	plt.xlabel('Rank')
+	#Uncomment the line below to view only the first few ranks.
+	plt.gca().set_xlim([0,.50])
+	#plt.legend(prop={'size':10}, frameon=False)#, bbox_to_anchor=(1.05, 1), loc=2)
+	plt.savefig('bridgeplot_top50.eps', bbox_inches='tight', format='eps', dpi=1000)
+	plt.show()
+	return
+
 if __name__ == '__main__':
 
 	libs = list_of_drug_libs_fnames()
@@ -369,5 +412,7 @@ if __name__ == '__main__':
 	#druglib_target_comparison(top_pct=None)
 	#druglib_target_comparison(top_pct=.15)
 	
-	druglib_target_just_one_column(top_pct=.50, column = 'LINCS as input')
-	druglib_target_just_one_column(top_pct=None, column = 'LINCS as input')
+	#druglib_target_just_one_column(top_pct=.50, column = 'LINCS as input')
+	#druglib_target_just_one_column(top_pct=None, column = 'LINCS as input')
+
+	combined_plot(['input_LINCS','_expanded_with_BioGRID'])

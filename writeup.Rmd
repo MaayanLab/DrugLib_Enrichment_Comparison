@@ -1,37 +1,26 @@
 ---
 title: "Comparing drug target libraries using enrichment analysis"
 author: "Damon Pham"
-subtitle: Project description and setup
 output:
   html_document: default
   pdf_document: default
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(cache=TRUE, echo=TRUE, warning=FALSE, message=FALSE, include=TRUE, fig.align="center")
+list.of.packages <- c('kableExtra', 'knitr', 'ggplot2', 'data.table','gridExtra','reshape2','grid')
+new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"Package"])]
+if(length(new.packages)) install.packages(new.packages)
+lapply(list.of.packages, require, character.only = TRUE)
+rm(list.of.packages, new.packages)
 
-#un-comment below lines the packages have not yet been installed.
-#install.packages("kableExtra")
-#install.packages('ggplot2')
-#install.packages('data.table')
-library(kableExtra)
-library(ggplot2)
-#library(gridExtra)
-library(reshape2)
-library(grid)
-#library(car)
-#library(RColorBrewer)
-library(knitr)
-#library(dplyr)
-library(data.table)
-
+knitr::opts_chunk$set(cache=TRUE, echo=FALSE, warning=FALSE, message=FALSE, include=TRUE, fig.align="center")
 ```
 
 ## Project description
 
-In this project, I evaluate the accuracy of various drug target libraries by measuring their agreement with different drug perturbation signature libraries. The drug target libraries I look at are DrugBank, the Target Central Resource Database, Drug Repurposing Hub, the Drug Gene Interaction Database (DGIdb), and DrugCentral. The drug perturbation signature libraries I used are the CRowd Extracted Expression of Differential Signatures (CREEDS) and the LINCS L1000. For all the drug target libraries, the average number of gene targets per drug was small, so I use protein-protein interaction (PPI) databases to expand their gene target lists. The PPI databases I use are hu.MAP, ARCHS4, and BioGRID.
+In this project, I evaluate the accuracy of various drug target libraries by measuring their agreement with different drug perturbation signature libraries. The drug target libraries I look at are DrugBank, the Target Central Resource Database, the Drug Repurposing Hub, the Drug Gene Interaction Database (DGIdb), and DrugCentral. The drug perturbation signature libraries I used are the CRowd Extracted Expression of Differential Signatures (CREEDS) and the LINCS L1000. For all the drug target libraries, since their average number of gene targets was small, I used protein-protein interaction (PPI) databases to create expanded gene sets from their target lists. The PPI databases I use are hu.MAP, ARCHS4, and BioGRID.
 
-I measured agreement using enrichment analysis--specifically, the Fisher's exact test for overrepresentation. For the drug target libraries, I treat each (drug, target list) as an (annotation, gene set) pair. For the drug perturbation signature libraries, I treat each (drug sample, list of most-perturbed genes) also as an (annotation, gene set) pair. I then perform enrichment into one library using the annotated gene sets from the other library, and observe how highly the matching annotations, i.e. those which correspond to the same drug as the input, are ranked. The rationale is that if two libraries agree with one another, then matching annotations should be highly ranked often.
+I measured agreement using enrichment analysis--specifically, the Fisher's exact test for overrepresentation. I treat each (drug, expanded target list) from the drug target libraries as an (annotation, gene set) pair, and each (drug sample, list of most-perturbed genes) from the drug perturbation signature libraries also as an (annotationn, gene set) pair. I then then perform enrichment into one library using the annotated gene sets from the other library, and observe how highly the matching annotations, i.e. those which correspond to the same drug as the input, are ranked. If two libraries agree with one another, then these matching annotations should often be highly ranked.
 
 ## Setup
 
@@ -41,9 +30,9 @@ In order to perform enrichment analysis, I needed to (1) convert all files to ge
 
 The code I wrote to perform enrichment analysis works on gene vector matrices. In this format, each drug annotation is a column label, and each gene is a row label. Cell values are TRUE or FALSE depending on whether the column annotation is associated with the row gene. 
 
-Each drug perturbation signature library was originally two separate gmt files: one for the up-perturbed genes, and one for the down-perturbed genes. I converted each of these to a python dictionary, with the sample name as the key and its set of perturbed genes as its value. These files have the same set of samples (i.e. keys), so I merged the two dictionaries by taking the union of the corresponding sets for each sample. I then converted the resulting dictionary to a gene vector matrix, adding each sample as a column.
+Each drug perturbation signature library was originally two separate gmt files: one for the up-perturbed genes, and one for the down-perturbed genes. I merged these files by taking the union of up-perturbed and down-perturbed genes for each sample. I then converted this to a gene vector matrix with each sample as its own column.
 
-```{r get_gvms, include=FALSE}
+```{r get_drug_pert_sig_gvms}
 #Obtain all libraries as gene vector matrix files.
 system('python get_pertlib_gvms.py')
 ```
@@ -52,18 +41,17 @@ system('python get_pertlib_gvms.py')
 
 This next step consists of two tasks: separating drug names from the sample names in the perturbation signature libraries, and then identifying drug synonyms. Synonyms were either provided by the libraries as a separate column or file, or embedded in the drug name itself, e.g. "chembl1255588 ((+)-butaclamol)". Once I accomplished these tasks, I returned to each library and re-labeled each annotation with its corresponding drug's lowest alphabetical synonym. 
 
+To match identical drug names with different punctuation, I only kept alphanumeric characters and lowercased all letters. 
+
 Here is a summary of my procedure:
 
-* Create a data.table to use as a synonym list. It will have two columns: one for drug names, and one for IDs. Drugs that are synonyms will have the same ID. 
+* Create a synonym table with two columns: one for drug names, and one for IDs. Drugs that are synonyms will have the same ID. 
 * For each library: 
-  * Add synonyms given as separate columns or files to the list. 
-  * Extract the drug names from the sample names, if necessary.
-  * Check the drug names for embedded synonyms. 
-    * If any are present, add the true drug name and its synonym to the list. Then overwrite the drug name with the true drug name. For example, "chembl1255588 ((+)-butaclamol)" will become "chembl1255588" and ('chembl1255588', 'butaclamol') will be added to the synonym list. 
-  * Clean all drug names. 
-* Now that all synonyms have been identified, go back and label each sample with its drug's lowest alphabetical synonym.
-
-Two notes: (1) When I "clean" the drug names, it means that I keep only the alphanumeric characters and lowercase the letters. (2) Whenever I add synonyms to the list, I "clean" them beforehand.
+    * Add synonyms given as separate columns or files to the list. 
+    * Extract the drug names from the sample names, if necessary.
+    * Check the drug names for embedded synonyms. If any are present, add the true drug name and its synonym to the list. Then remove the embedded synonym from the drug name, For example, "chembl1255588 ((+)-butaclamol)" will become "chembl1255588" and ('chembl1255588', 'butaclamol') will be added to the synonym table. 
+    * Save the list of drug names for later.
+* After all synonyms across all libraries have been identified, go back and label each sample with its drug's lowest alphabetical synonym.
 
 ```{r}
 clean_drug_names = function(drug_names, rm_parens_and_space=TRUE){
@@ -79,13 +67,13 @@ clean_drug_names = function(drug_names, rm_parens_and_space=TRUE){
 ```
 
 ```{r}
-expand_synonym_list = function(input_table, synonym_list){
-  #Collects the synonyms from `input_table` and stores them as synonym and id vectors.
+expand_synonym_table = function(input_table, synonym_table){
+  #Collects the synonyms from `input_table` and adds them to `synonym_table`
   #input_table : a data.table of at least two columns, where each row contains a set of synonyms. Empty values are allowed.
-  #synonym_list : a data.table of synonyms. The first column is the name or term, and the second column is its id. Synonyms have the same id. e.g. data.table(cbind(c('dog','cat','canine'),c(1,2,1))).
+  #synonym_table : a data.table of synonyms. The first column is the name or term, and the second column is its id. Synonyms have the same id. e.g. data.table(cbind(c('dog','cat','canine'),c(1,2,1))).
 
-  names = synonym_list[['name']]
-  ids = synonym_list[['id']]
+  names = synonym_table[['name']]
+  ids = synonym_table[['id']]
 
   for(r in 1:nrow(input_table)){
     #Get and clean all drug names in this row.
@@ -96,7 +84,7 @@ expand_synonym_list = function(input_table, synonym_list){
     row = row[row!='']
     row = row[!is.na(row)]
 
-    #If at least one of these names is already in the synonym list:
+    #If at least one of these names is already in the synonym table:
     is_rep = row %in% names
     if(any(is_rep)){
       rep_ids = ids[names %in% row[is_rep]]
@@ -117,17 +105,17 @@ expand_synonym_list = function(input_table, synonym_list){
       }
     }
   }
-  synonym_list = data.table(cbind(names, ids))
-  synonym_list = synonym_list[, ids := as.numeric(ids)]
-  colnames(synonym_list) = c('name','id')
-  return(synonym_list)
+  synonym_table = data.table(cbind(names, ids))
+  synonym_table = synonym_table[, ids := as.numeric(ids)]
+  colnames(synonym_table) = c('name','id')
+  return(synonym_table)
 }
 ```
 
 ```{r}
-extract_synonyms_in_parentheses = function(drug_names, synonym_list, left_paren_split = ' \\(', no_syns_substrs = NULL){
-  #Identifies drug names containing a synonym enclosed in parentheses. Adds the synonym pairs to the list, and replaces the drug name with the true drug name. The true drug name is defined as the substring to the left of `left_paren_split`, and the synonym is defined as the substring between `left_paren_split` and the right-most ")". For example, the drug name "chembl1255588 ((+)-butaclamol)" will become "chembl1255588" and ('chembl1255588', 'butaclamol') will be added to the synonym list. 
-  #Returns the new drug names and the expanded synonym list. 
+extract_embedded_synonyms = function(drug_names, synonym_table, left_paren_split = ' \\(', no_syns_substrs = NULL){
+  #Identifies drug names containing a synonym enclosed in parentheses. Adds the synonym pairs to the list, and replaces the drug names with the true drug names. The true drug name is defined as the substring to the left of `left_paren_split`, and the synonym is defined as the substring between `left_paren_split` and the right-most ")". For example, the drug name "chembl1255588 ((+)-butaclamol)" will become "chembl1255588" and ('chembl1255588', 'butaclamol') will be added to the synonym table. 
+  #Returns the new drug names and the expanded synonym table. 
   #left_paren_split : the substring used to identify the left parenthesis enclosing the synonym. Usually, synonyms are separated from the actual drug name by a space, so searching for ' \\(' instead of '\\(' prevents names like "4-(benzyloxy)phenol" from being detected as having a synonym.
   #no_syns_substrs : a vector of substrings. If any are present in a drug name, the drug name will not be identified as having a synonym. For example, 'methyl \\(' will prevent "methyl (2z)-..." from being identified. One problem is that it will also prevent "methyl (2z)-... (true-synonym)" from being identified, even though it does contain a synonym. Luckily, this case does not occur in the given libraries. 
   
@@ -159,7 +147,7 @@ extract_synonyms_in_parentheses = function(drug_names, synonym_list, left_paren_
       #(The name is now cleaned, but all names will be cleaned anyway afterward.)
       #print(syns) #USED FOR DEBUGGING
       input_table = as.data.table(matrix(syns, nrow=1))
-      synonym_list = expand_synonym_list(input_table, synonym_list)
+      synonym_table = expand_synonym_table(input_table, synonym_table)
       drug_names.removed_synonyms[[i]] = syn1
     } else {
       #If false synonym, simply keep the original.
@@ -169,11 +157,11 @@ extract_synonyms_in_parentheses = function(drug_names, synonym_list, left_paren_
   
   #Replace the potential synonyms.
   drug_names[might_have_synonym] = drug_names.removed_synonyms
-  return(list(drug_names, synonym_list))
+  return(list(drug_names, synonym_table))
 }
 ```
 
-*Drug target libraries*: These libraries had a drug name, a ChEMBL ID, and a DrugBank ID for each drug. I began by looking at the drug names and checking them for embedded synonyms. Upon inspection, all synonyms seemed to be enclosed in parentheses and separated by a space. Below is a list of drug names in these libraries containing the " (" substring.
+*Drug target libraries*: These libraries had a drug name, a ChEMBL ID, and a DrugBank ID for each drug. I began by looking at the drug names and checking them for embedded synonyms. I did find a few; they seemed to be enclosed in parentheses and separated by a space. Below is a list of drug names in these libraries containing the " (" substring.
 
 ```{r drug_target_libraries_show_potential_synonyms, include=TRUE}
 drug_target_libnames = c(
@@ -210,13 +198,13 @@ for(i in 1:length(drug_target_libnames)){
   lib = fread(drug_target_libnames[[i]])
   
   #Get synonyms in parenthesis. Also, remove these synonyms from the drug name. 
-  paren_results = extract_synonyms_in_parentheses(lib$DrugName, synonym_list=drug_synonyms, no_syns_substrs = c('methyl \\(','orphenadrine \\(chloride\\)'))
+  paren_results = extract_embedded_synonyms(lib$DrugName, synonym_table=drug_synonyms, no_syns_substrs = c('methyl \\(','orphenadrine \\(chloride\\)'))
   dt_drugnames_nosyns[[i]] = paren_results[[1]]
   drug_synonyms = paren_results[[2]]
   
   #Get synonyms by equating the DrugName, DrugID_ChEMBL and DrugID_DrugBank
   input_table = lib[,c('DrugName','DrugID_ChEMBL','DrugID_DrugBank')]
-  drug_synonyms = expand_synonym_list(input_table, drug_synonyms)
+  drug_synonyms = expand_synonym_table(input_table, drug_synonyms)
   
   #Delete initializing row if a synonym has been found.
   if(any(drug_synonyms$id != 0) & got_first_synonym==FALSE){
@@ -265,7 +253,7 @@ Next, I added embedded synonyms to the list and removed them from the drug name.
 
 ```{r}
 #I discovered that some names contain a synonym in parenthesis, so remove the synonym from the name but add both syonyms to the list. 
-paren_results = extract_synonyms_in_parentheses(CREEDS.drugs, drug_synonyms)
+paren_results = extract_embedded_synonyms(CREEDS.drugs, drug_synonyms)
 CREEDS.drugs = paren_results[[1]]
 drug_synonyms = paren_results[[2]]
 ```
@@ -275,16 +263,16 @@ Lastly, I appended the 'db' prefix to the DrugBank IDs if absent, and then added
 ```{r}
 CREEDS.DB_ID = clean_drug_names(CREEDS.DB_ID)
 CREEDS.drugs = clean_drug_names(CREEDS.drugs)
-#Change 'na' to blank (will be removed from synonym list) and append 'db' where absent.
+#Change 'na' to blank (will be removed from synonym table) and append 'db' where absent.
 CREEDS.DB_ID = replace(CREEDS.DB_ID, CREEDS.DB_ID=='na', '')
 CREEDS.DB_ID[(!grepl('db', CREEDS.DB_ID))&(!CREEDS.DB_ID=='')] = paste0('db',
   CREEDS.DB_ID[(!grepl('db', CREEDS.DB_ID))&(!CREEDS.DB_ID=='')])
-CREEDS_drug_and_DBname = matrix(c(CREEDS.drugs, CREEDS.DB_ID), ncol=2)
-CREEDS_drug_and_DBname = unique(CREEDS_drug_and_DBname)
-drug_synonyms = expand_synonym_list(CREEDS_drug_and_DBname, drug_synonyms)
+CREEDS.drug_and_DBname = matrix(c(CREEDS.drugs, CREEDS.DB_ID), ncol=2)
+CREEDS.drug_and_DBname = unique(CREEDS.drug_and_DBname)
+drug_synonyms = expand_synonym_table(CREEDS.drug_and_DBname, drug_synonyms)
 save(drug_synonyms, file='synonyms\\drug_synonyms2.r')
 
-rm(drug, i, paren_results, CREEDS_drug_and_DBname, CREEDS.DB_ID, CREEDS)
+rm(drug, i, paren_results, CREEDS.drug_and_DBname, CREEDS.DB_ID, CREEDS)
 ```
 
 *LINCS*: I extracted the drug names from the sample names. I then added and removed embedded synonyms.
@@ -304,14 +292,14 @@ for(i in 1:length(LINCS.drugs)){
 LINCS.drugs = tolower(as.character(LINCS.drugs))
 
 #For the drug name "_(2-aminoethyl)-4-chlorobenzamide_(ro-16-6491)", the first "_(" is not a synonym. So prevent it from being added and manually add ('(2-aminoethyl)-4-chlorobenzamide', 'ro-16-6491').
-paren_results = extract_synonyms_in_parentheses(LINCS.drugs, drug_synonyms, 
+paren_results = extract_embedded_synonyms(LINCS.drugs, drug_synonyms, 
   left_paren_split = '_\\(', no_syns_substrs = c('_\\(2-amino'))
 LINCS.drugs = paren_results[[1]]
 drug_synonyms = paren_results[[2]]
 
 add_this = matrix(c('(2-aminoethyl)-4-chlorobenzamide', 'ro-16-6491'), nrow=1)
 colnames(add_this) = c('name','id')
-drug_synonyms = expand_synonym_list(add_this, drug_synonyms)
+drug_synonyms = expand_synonym_table(add_this, drug_synonyms)
 #Recall the dashes were changed to space.
 LINCS.drugs[grepl('ro 16 6491', LINCS.drugs)] = 'ro 16 6491'
 
@@ -322,12 +310,12 @@ rm(add_this, LINCS, drug, i, paren_results, sample)
 
 #### Re-labeling annotations
 
-After collecting the synonyms, I appended to each annotation the highest-alphabetical synonym of the drug it represents, and separated it with three vertical bars. For example, in CREEDS, the sample "vitamin c DB00126 mouse GSE32994 sample 3510" became "ascorbate|||vitamin c DB00126 mouse GSE32994 sample 3510".
+After collecting all the synonyms, I appended to each annotation the highest-alphabetical synonym of the drug it represents, and separated it with three vertical bars. For example, in CREEDS, the sample "vitamin c DB00126 mouse GSE32994 sample 3510" became "ascorbate|||vitamin c DB00126 mouse GSE32994 sample 3510".
 
 ```{r make_replace_with_synonyms_function}
 replace_with_synonyms = function(drug_name_vector, drug_synonyms, original_name_vector=NULL){
   #drug_name_vector: the drug names extracted from the sample names
-  #drug_synonyms: the synonym list
+  #drug_synonyms: the synonym table
   #original_name_vector: the original sample names
   drug_name_vector = clean_drug_names(drug_name_vector)
   
@@ -371,7 +359,6 @@ rm(LINCS.samples, LINCS.drugs, LINCS.drugs.new, LINCS)
 ```
 
 ```{r replace_drug_target_names}
-
 for(i in 1:length(drug_target_libnames)){
   lib = fread(drug_target_libnames[[i]])
   result = replace_with_synonyms(dt_drugnames_nosyns[[i]], drug_synonyms, lib$DrugName)
@@ -390,9 +377,9 @@ Finally, I converted the drug target libraries to gvms. I combined all drug targ
 system('python get_drugtarget_gvms.py')
 ```
 
-#### Drug library summary
+#### Summary of all drug libraries
 
-After creating the gene vector matrices, I made a table to summarize the features of each library.
+After creating all the gene vector matrices, I made a table to summarize the features of each library.
 
 ```{r read_gvms, results='hide'}
 DrugBank = fread('original_drug-gene_libs/1_DrugBank_Column_5OrMoreTargets_MissingChEMBL_IDsRemoved_1-14-18_gvm.csv')
@@ -461,7 +448,7 @@ avg_n_genes_per_sample = as.character(sapply(list(DrugBank,TargetCentral,DGIdb,D
 
 t1 = do.call(cbind, list(libnames, full_libnames, libtypes, descriptions, organisms_and_n_samples, n_drugs, avg_n_genes_per_sample, preprocessing))
 
-colnames(t1) = c('Name, Abbreviated', 'Name, Full', 'Library Type', 'Description','Organism (number of samples)', 'Number of unique drugs', 'Average number of genes per sample', 'Data preprocessing')
+colnames(t1) = c('Name, Abbreviated', 'Name, Full', 'Library Type', 'Description','Organism (number of samples)', 'Number of unique drugs', 'Average number of genes per annotation', 'Data preprocessing')
 
 t1[,'Name, Abbreviated'] = paste0("[", libnames, "](http://", links, ")")
 
@@ -474,7 +461,7 @@ kable(t1, 'html', caption='Table 1: Dataset summary') %>%
 
 From the "average number of genes per sample" column in Table 1, it is apparent that the gene set sizes for the drug target libraries (DrugBank, TargetCentral, DGIdb, DrugRepHub and DrugCentral) are too small for enrichment analysis. These libraries were expanded using PPI data from three sources: ARCHS4, hu.MAP and BioGRID. 
 
-To do this, gene coexpression sets were extracted from each PPI library by taking the top 100 coexpressed genes/proteins for each gene/protein. (For BioGRID, since coexpression scores are not provided, the first 100 coexpression entries for each gene/protein, from top to bottom in the original file, were kept.) Then, each gene set in the drug libraries is expanded by adding to it the coexpression set of each gene/protein it contains. For example, the gene set {CTPS, MLLT11} becomesthe union of the coexpression sets for CTPS and MLLT11. (If a gene does not appear in the PPI library, the coexpression set is interpreted as just the gene itself.) This results in three new drug-gene libraries for each original drug-gene library that was expanded: one for each PPI library.
+To do this, gene coexpression sets were extracted from each PPI library by taking the top 100 coexpressed genes/proteins for each gene/protein. (For BioGRID, since coexpression scores are not provided, the first 100 coexpression entries for each gene/protein, from top to bottom in the original file, were kept.) Then, each gene set in the drug libraries is expanded by adding to it the coexpression set of each gene/protein it contains. For example, the gene set {CTPS, MLLT11} becomes the union of the coexpression sets for CTPS and MLLT11. (If a gene does not appear in the PPI library, the coexpression set is interpreted as just the gene itself.) The result is three new drug target libraries for each original drug target library: one for each PPI library.
 
 ```{r get_top_n_for_ppi_libs, results='hide'}
 source('expand_gvms.R')
@@ -543,10 +530,10 @@ for(i in 1:length(gvm_fnames)){
 
 ## Enrichment analysis
 
-After creating the expanded libraries, I performed enrichment analysis, using the Fisher's exact test, between each pair of drug target library and perturbation signature library.
+After creating the expanded libraries, I performed enrichment analysis, using the Fisher's exact test, between each drug target library and perturbation signature library pair.
 
-See https://github.com/MaayanLab/Enrichment_Sandbox for an explanation of how enrichment analysis is used to see the agreement between different gene set libraries, and how to interpret the bridge plots.
+See https://github.com/MaayanLab/Enrichment_Sandbox for an explanation of how enrichment analysis is used to measure the agreement between different gene set libraries, and how to interpret the bridge plots.
 
 Here are the results:
 
-![Enrichment analysis results](results/DRAFT_druglib_bridgeplot.png "Enrichment analysis results")
+![](figures/DRAFT_druglib_bridgeplot.png "Enrichment analysis results")
