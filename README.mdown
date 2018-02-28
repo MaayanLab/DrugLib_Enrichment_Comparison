@@ -2,4 +2,4 @@ In this project, I compare the agreement of different drug target libraries with
 
 For drug target libraries whose samples have a small number of gene targets on average, I used protein-protein interaction (PPI) databases to expand their target lists. The PPI databases I used are hu.MAP, ARCHS4, and BioGRID.
 
-See http://htmlpreview.github.io/?https://github.com/MaayanLab/DrugLib_Enrichment_Comparison/blob/master/project_description_and_setup.html for a full description and results.
+See http://htmlpreview.github.io/?https://github.com/MaayanLab/DrugLib_Enrichment_Comparison/blob/master/writeup.html for a full description and results.
