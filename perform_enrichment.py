@@ -132,11 +132,6 @@ def enrichment(pair):
 	algorithm_names = ('Fisher',) #e.g. `('Fisher', 'RandomForest')` or `None`. 
 	#==============================================================================================================
 
-	#TEMP
-	if 'interactions' in ilib_name and 'interactions' in slib_name:
-		print('skipping', prefix)
-		return
-
 	#Exit if enrichment between this library pair has already been done.
 	#See above chunk: `algorithm_names` must be specified.
 	if algorithm_names is not None:
@@ -158,6 +153,8 @@ def enrichment(pair):
 		ilib_name, ilib_gvm.columns.values, 
 		slib_name, slib_gvm.columns.values)
 	print(str(len(common_ilib_annots)), 'overlaps')
+	#Only keep the columns of `ilib_gvm` we will use.
+	ilib_gvm = ilib_gvm[:,common_ilib_annots]
 
 	#Iterate over each algorithm (i.e. each column).
 	for algorithm_name in enrichment_algorithms:
