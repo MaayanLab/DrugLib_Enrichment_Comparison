@@ -2,6 +2,7 @@ import pandas as pd
 import numpy as np
 import os
 import csv
+from scipy.sparse import coo_matrix
 
 def open_gvm(fname):
 	#Open the file.
@@ -29,7 +30,7 @@ def file_exists(fname):
 def get_interactionlist(fname, *args):
 	#fivedtlibs
 	if '1-14-18' in fname:
-		interactions = pd.read_csv(fname, sep=',', encoding='latin1')
+		interactions = pd.read_csv(fname, sep='\t', encoding='latin1')
 		interactions = interactions[['TargetGeneSymbol_Entrez','gvm']]
 
 	#STITCH
@@ -81,7 +82,7 @@ def get_interactionlist(fname, *args):
 			interactions = interactions + [np.column_stack([geneset,[f.at[row,'pert_iname']] * len(geneset)])]
 		interactions = pd.DataFrame(np.vstack(interactions))
 
-	elif 'dtc_interactionlist.txt' in fname:
+	elif 'DTCommons_interactionlist.txt' in fname:
 		interactions = pd.read_csv(fname, sep='\t')
 		interactions = interactions[['gene_name', 'gvm']]
 
@@ -118,12 +119,12 @@ def get_genesetlist(item, item_type):
 def convert_genesetlist(gslist, to, output_fname = None, verbose = False):
 	if to == 'gmt':
 		#Create the gmt.
-		gmt = [[annot] + [''] + genes for (annot,genes) in zip(gslist.index, gslist.values) if len(genes) > 4]
+		gmt = [[annot] + [''] + genes for (annot,genes) in zip(gslist.index, gslist.values)]
 		#Save it to the file if it does not exist yet.
 		if output_fname is not None:
 			if not file_exists(output_fname):
-				with open(output_fname, 'w', newline='') as csvfile:
-					writer = csv.writer(csvfile, delimiter='\t')
+				with open(output_fname, 'w', newline='') as f:
+					writer = csv.writer(f, delimiter='\t')
 					for geneset in gmt: writer.writerow(geneset)
 		return gmt
 
@@ -131,17 +132,61 @@ def convert_genesetlist(gslist, to, output_fname = None, verbose = False):
 		#If the gvm file already exists, load it and return it.
 		if file_exists(output_fname): return open_gvm(output_fname)
 		#Otherwise, create it, save it to the file, and return it.
-		all_genes = sorted({item for sublist in gslist for item in sublist})
-		gvm = pd.DataFrame([[gene in s for gene in all_genes] for s in gslist]).transpose()
+		all_genes_set = {item for sublist in gslist for item in sublist}
+		all_genes = pd.Series(sorted(all_genes_set))
+		gslist = gslist.apply(set)
+		gvm = [np.array(all_genes.isin(gs), dtype=bool) for gs in gslist]
+
+		if len(gvm) < 10000:
+			gvm = pd.DataFrame(gvm).transpose()
+		else:
+			print('getting coo_matrix for gvm with ' + str(len(gvm)) + ' columns.')
+			gvm = coo_matrix(gvm, dtype=bool).transpose()
+			print('converting coo_matrix to sparse df')
+			gvm = pd.SparseDataFrame(gvm, dtype=bool, default_fill_value=False)
+			print('obtained sparse df.')
 		gvm.index = all_genes
-		gvm.columns = gslist.index #These are the annotations.
+		gvm.columns = gslist.index
 		gvm = gvm.replace(to_replace=False, value='')
-		if output_fname is not None: gvm.to_csv(output_fname, sep='\t')
+		if output_fname is not None: 
+			if gvm.shape[0] < 10000: gvm.to_csv(output_fname, sep='\t')
+			else: gvm.to_pickle(output_fname.replace('gvm.csv','gvm.pkl'))
 		return gvm
 
 def remove_few_targets(gslist, MINIMUM_N_TARGETS = 5):
 	mask = gslist.apply(len) >= MINIMUM_N_TARGETS
 	return gslist[mask]
+
+def get_gmt_and_gvm(gslist, gmt_fname, gvm_fname = None):
+	if gvm_fname is None: gvm_fname = gmt_fname.replace('gmt','gvm')
+	convert_genesetlist(gslist, to='gmt', output_fname=gmt_fname)
+	convert_genesetlist(gslist, to='gvm', output_fname=gvm_fname)
+
+def get_gmt_and_gvm2(gslist, gmt_fname, gvm_fname = None):
+	if gvm_fname is None: gvm_fname = gmt_fname.replace('gmt','gvm')
+	convert_genesetlist(gslist, to='gmt', output_fname=gmt_fname)
+	convert_genesetlist(gslist, to='gvm2', output_fname=gvm_fname)
+
+def subset_gmt_and_gvm(filter, axis, gmt_fname, new_gmt_fname, gvm_fname = None, new_gvm_fname = None):
+	gvm = open_gvm(gvm_fname)
+	if axis == 'genes':
+		#gvm.
+		keep = filter(gvm.index.values)
+		genes_to_keep = set(gvm.index.values[keep])
+		gvm = gvm[keep]
+		gvm.to_csv(new_gvm_fname, sep='\t')
+		#gmt.
+		with open(gmt_fname, 'r') as f:
+			reader = csv.reader(f, delimiter = '\t')
+			gmt = [row[0:2] + [str(g) for g in row[2:] if g in genes_to_keep] for row in reader]
+
+		with open(new_gmt_fname, 'w', newline='') as f:
+			writer = csv.writer(f, delimiter='\t')
+			for geneset in gmt: writer.writerow(geneset)
+
+	elif axis == 'annotations':
+		print('b')
+	else: raise ValueError('axis must be genes or annotations')
 
 def combine_genesetlists(gslist1, gslist2, merge_type = 'union'):
 	if not len(gslist1) == len(gslist2): raise ValueError('gslist1 and gslist2 must be the same length.')

@@ -7,222 +7,414 @@ output:
 ---
 
 ```{r setup, include=FALSE}
-list.of.packages <- c('kableExtra', 'knitr', 'ggplot2', 'data.table','gridExtra','reshape2','grid')
+#source("https://bioconductor.org/biocLite.R")
+#biocLite("biomaRt")
+#biocLite("rhdf5")
+#biocLite("UniProt.ws")
+#devtools::install_github("cmap/cmapR")
+
+list.of.packages <- c('kableExtra', 'knitr', 'ggplot2', 'cmapR', 'stringi', 'data.table','gridExtra','reshape2','grid', 'biomaRt', 'webchem', 'httr', 'jsonlite','UniProt.ws', 'magrittr', 'VennDiagram')
 new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"Package"])]
 if(length(new.packages)) install.packages(new.packages)
 lapply(list.of.packages, require, character.only = TRUE)
 rm(list.of.packages, new.packages)
 
-knitr::opts_chunk$set(cache=TRUE, echo=FALSE, warning=FALSE, message=FALSE, include=TRUE, fig.align="center")
+opts_chunk$set(echo=FALSE, cache=TRUE, autodep=TRUE, eval=FALSE,
+               message=FALSE, warning=FALSE,
+               fig.align="center")
+
+source('writeup_scripts.R')
 ```
 
 ## Project description
 
-In this project, I evaluate the accuracy of various drug target libraries by measuring their agreement with different drug perturbation signature libraries. The drug target libraries I look at are DrugBank, the Target Central Resource Database, the Drug Repurposing Hub, the Drug Gene Interaction Database (DGIdb), and DrugCentral. The drug perturbation signature libraries I used are the CRowd Extracted Expression of Differential Signatures (CREEDS) and the LINCS L1000. For all the drug target libraries, since their average number of gene targets was small, I used protein-protein interaction (PPI) databases to create expanded gene sets from their target lists. The PPI databases I use are hu.MAP, ARCHS4, and BioGRID.
+In this project, I evaluated the accuracy of different drug target libraries by measuring their agreement with drug perturbation signature libraries. The drug target libraries I looked at are DrugBank, the Target Central Resource Database, the Drug Repurposing Hub, the Drug Gene Interaction Database (DGIdb), DrugCentral, STITCH, and the Drug Target Commons. The drug perturbation signature libraries I used are the CRowd Extracted Expression of Differential Signatures (CREEDS) and the LINCS L1000. For all drug target libraries, since their average number of gene targets was small, I used hu.MAP and ARCHS4, protein-protein interaction (PPI) databases, and ARCHS4, a protein co-expression database, to create expanded gene sets from the target lists.
 
-I measured agreement using enrichment analysis--specifically, the Fisher's exact test for overrepresentation. I treat each (drug, expanded target list) from the drug target libraries as an (annotation, gene set) pair, and each (drug sample, list of most-perturbed genes) from the drug perturbation signature libraries also as an (annotationn, gene set) pair. I then then perform enrichment into one library using the annotated gene sets from the other library, and observe how highly the matching annotations, i.e. those which correspond to the same drug as the input, are ranked. If two libraries agree with one another, then these matching annotations should often be highly ranked.
+I measured agreement using enrichment analysis--specifically, the Fisher's exact test for overrepresentation. I treated each (drug, expanded target list) from the drug target libraries as an (annotation, gene set) pair, and each (drug sample, list of most-perturbed genes) from the drug perturbation signature libraries also as an (annotation, gene set) pair. I then performed enrichment into one library using the gene sets from the other library, and observed how highly the matching annotations, i.e. those which correspond to the same drug as the input, were ranked. If two libraries agree with one another, then these matching annotations should often be highly ranked.
 
 ## Setup
 
-In order to perform enrichment analysis, I needed to (1) convert all files to gene vector matrix (gvm) format, and (2) ensure I am able to identify matching annotations between the different libraries, even if different names for the same drug are used.
+In order to perform enrichment analysis, I needed to do two things:
 
-#### Creating gvms for the drug perturbation signature libraries
+1. Convert all libraries to gene vector matrix (gvm) format. In this format, each drug annotation is a column label, and each gene, represented by its HGNC symbol, is a row label. Cell values are TRUE or FALSE depending on whether the column annotation is associated with the row gene. For completeness, I also obtained gmt files for each of the libraries.
 
-The code I wrote to perform enrichment analysis works on gene vector matrices. In this format, each drug annotation is a column label, and each gene is a row label. Cell values are TRUE or FALSE depending on whether the column annotation is associated with the row gene. 
+2. Identify matching annotations, i.e. drug synonyms, among the libraries. I accomplished this by renaming annotations to their corresponding drug's PubChem Compound ID. This was performed by accessing PubChem's synonym database through the webchem R package. If the PubChem Compound ID was not available, I instead used the drug's lowest alphabetical synonym, with alphanumeric characters only, and all letters in lowercase. 
 
-Each drug perturbation signature library was originally two separate gmt files: one for the up-perturbed genes, and one for the down-perturbed genes. I merged these files by taking the union of up-perturbed and down-perturbed genes for each sample. I then converted this to a gene vector matrix with each sample as its own column.
+* In the future, I might also access the Chemical Translation Service through webchem to recover any IDs PubChem was able to obtain.
 
-```{r get_drug_pert_sig_gvms}
-#Obtain all libraries as gene vector matrix files.
-system('python get_pertlib_gvms.py')
-```
+These steps are described below, for each library. 
 
-#### Identifying matching annotations
+#### DrugBank, TCRD, DrugRepHub, DGIdb, and DrugCentral
 
-This next step consists of two tasks: separating drug names from the sample names in the perturbation signature libraries, and then identifying drug synonyms. Synonyms were either provided by the libraries as a separate column or file, or embedded in the drug name itself, e.g. "chembl1255588 ((+)-butaclamol)". Once I accomplished these tasks, I returned to each library and re-labeled each annotation with its corresponding drug's lowest alphabetical synonym. 
+These five drug target libraries have a name and ChEMBL ID (always present), as well as a DrugBank ID (sometimes missing) for each drug. I began by aggregating all drugs across these libraries. Then, I tried to obtain the PubChem IDs by using, in this order:
 
-To match identical drug names with different punctuation, I only kept alphanumeric characters and lowercased all letters. 
+* the ChEMBL ID
+* the Drug Name
+* the DrugBank ID
+* the SMILES
+* the cleaned Drug Name (alphanumeric characters only)
 
-Here is a summary of my procedure:
-
-* Create a synonym table with two columns: one for drug names, and one for IDs. Drugs that are synonyms will have the same ID. 
-* For each library: 
-    * Add synonyms given as separate columns or files to the list. 
-    * Extract the drug names from the sample names, if necessary.
-    * Check the drug names for embedded synonyms. If any are present, add the true drug name and its synonym to the list. Then remove the embedded synonym from the drug name, For example, "chembl1255588 ((+)-butaclamol)" will become "chembl1255588" and ('chembl1255588', 'butaclamol') will be added to the synonym table. 
-    * Save the list of drug names for later.
-* After all synonyms across all libraries have been identified, go back and label each sample with its drug's lowest alphabetical synonym.
-
-```{r}
-clean_drug_names = function(drug_names, rm_parens_and_space=TRUE){
-  if(rm_parens_and_space){
-    #Only keep alphanumeric characters. Lowercase all letters.
-    return(gsub('[^[:alnum:]]', '', tolower(drug_names)))
-  } else {
-    return(trimws( #Remove white space but not interstitial spaces.
-      gsub('[^[:alnum:][:space:]()]', '', #Remove all punctuation except parentheses and spaces.
-           tolower(drug_names)))) #Lowercase.
-  }
-}
-```
-
-```{r}
-expand_synonym_table = function(input_table, synonym_table){
-  #Collects the synonyms from `input_table` and adds them to `synonym_table`
-  #input_table : a data.table of at least two columns, where each row contains a set of synonyms. Empty values are allowed.
-  #synonym_table : a data.table of synonyms. The first column is the name or term, and the second column is its id. Synonyms have the same id. e.g. data.table(cbind(c('dog','cat','canine'),c(1,2,1))).
-
-  names = synonym_table[['name']]
-  ids = synonym_table[['id']]
-
-  for(r in 1:nrow(input_table)){
-    #Get and clean all drug names in this row.
-    row = clean_drug_names(input_table[r,])
-    
-    #Remove duplicate, empty, or NA names.
-    row = unique(row)
-    row = row[row!='']
-    row = row[!is.na(row)]
-
-    #If at least one of these names is already in the synonym table:
-    is_rep = row %in% names
-    if(any(is_rep)){
-      rep_ids = ids[names %in% row[is_rep]]
-      min_rep_id = min(rep_ids)
-      #If any existing names have different ids, map all names with those ids to the lowest id. 
-      if(length(rep_ids)>1){ids[ids %in% rep_ids] = min_rep_id}
-      #Add the new names under the same id as the existing names' id. 
-      names = append(names, row[!(is_rep)])
-      ids = append(ids, rep(min_rep_id, length(row[!(is_rep)])))
-    #Otherwise:
-    } else {
-      #If there are any synonyms...
-      if(length(row)>1){
-        #...add them under a new id. 
-        rep_id = max(ids) + 1
-        names = append(names, row[!(is_rep)])
-        ids = append(ids, rep(rep_id, length(row[!(is_rep)])))
-      }
-    }
-  }
-  synonym_table = data.table(cbind(names, ids))
-  synonym_table = synonym_table[, ids := as.numeric(ids)]
-  colnames(synonym_table) = c('name','id')
-  return(synonym_table)
-}
-```
-
-```{r}
-extract_embedded_synonyms = function(drug_names, synonym_table, left_paren_split = ' \\(', no_syns_substrs = NULL){
-  #Identifies drug names containing a synonym enclosed in parentheses. Adds the synonym pairs to the list, and replaces the drug names with the true drug names. The true drug name is defined as the substring to the left of `left_paren_split`, and the synonym is defined as the substring between `left_paren_split` and the right-most ")". For example, the drug name "chembl1255588 ((+)-butaclamol)" will become "chembl1255588" and ('chembl1255588', 'butaclamol') will be added to the synonym table. 
-  #Returns the new drug names and the expanded synonym table. 
-  #left_paren_split : the substring used to identify the left parenthesis enclosing the synonym. Usually, synonyms are separated from the actual drug name by a space, so searching for ' \\(' instead of '\\(' prevents names like "4-(benzyloxy)phenol" from being detected as having a synonym.
-  #no_syns_substrs : a vector of substrings. If any are present in a drug name, the drug name will not be identified as having a synonym. For example, 'methyl \\(' will prevent "methyl (2z)-..." from being identified. One problem is that it will also prevent "methyl (2z)-... (true-synonym)" from being identified, even though it does contain a synonym. Luckily, this case does not occur in the given libraries. 
-  
-  #Identify names with potential synonyms.
-  if(is.null(no_syns_substrs)){
-    might_have_synonym = grepl(left_paren_split, drug_names)
-  } else {
-    might_have_synonym = grepl(left_paren_split, drug_names) & !grepl(paste(no_syns_substrs, collapse='|'), drug_names)
-  }
-  
-  #Exit if no potential synonyms are detected.
-  if(!any(might_have_synonym)){
-    return(list(drug_names, drug_synonyms)) #Remove parentheses and spaces.
-  }
-  
-  #Confirm potential synonyms by checking each, one at a time.
-  drug_names.might_have_synonym = drug_names[might_have_synonym]
-  drug_names.removed_synonyms = vector(mode='character', length=length(drug_names.might_have_synonym))
-  for(i in 1:length(drug_names.might_have_synonym)){
-    name = drug_names.might_have_synonym[i]
-    name_split = strsplit(name, split=left_paren_split)[[1]]
-    syn1 = name_split[1]
-    syn2 = paste0(name_split[-1])
-    #Currently, the only other condition for a potential synonym to be a true synonym is
-    #that both the true drug name and its synonym must have three or more alphanumeric characters.
-    syns = clean_drug_names(c(syn1, syn2))
-    if(all(nchar(syns) > 2)){
-      #If true synonym, add to the list and remove the synonym from the name. 
-      #(The name is now cleaned, but all names will be cleaned anyway afterward.)
-      #print(syns) #USED FOR DEBUGGING
-      input_table = as.data.table(matrix(syns, nrow=1))
-      synonym_table = expand_synonym_table(input_table, synonym_table)
-      drug_names.removed_synonyms[[i]] = syn1
-    } else {
-      #If false synonym, simply keep the original.
-      drug_names.removed_synonyms[[i]] = name
-    }
-  }
-  
-  #Replace the potential synonyms.
-  drug_names[might_have_synonym] = drug_names.removed_synonyms
-  return(list(drug_names, synonym_table))
-}
-```
-
-*Drug target libraries*: These libraries had a drug name, a ChEMBL ID, and a DrugBank ID for each drug. I began by looking at the drug names and checking them for embedded synonyms. I did find a few; they seemed to be enclosed in parentheses and separated by a space. Below is a list of drug names in these libraries containing the " (" substring.
-
-```{r drug_target_libraries_show_potential_synonyms, include=TRUE}
-drug_target_libnames = c(
+```{r five_dtarget_libs, eval = TRUE}
+fivedtlibs_fnames = c(
   'original_drug-gene_libs/1_DrugBank_Column_5OrMoreTargets_MissingChEMBL_IDsRemoved_1-14-18.csv',
   'original_drug-gene_libs/2_TargetCentral_Column_5OrMoreTargets_MissingChEMBL_IDsRemoved_1-14-18.csv',
   'original_drug-gene_libs/4_DGIdb_Column_5OrMoreTargets_MissingChEMBL_IDsRemoved_1-14-18.csv',
   'original_drug-gene_libs/3_RepurposeHub_Column_5OrMoreTargets_MissingChEMBL_IDsRemoved_1-14-18.csv',
   'original_drug-gene_libs/5b_DrugCentral_Column_5OrMoreTargets_MissingChEMBL_IDsRemoved_Human_1-14-18.csv'
 )
+fivedtlibs_libnames = c('DrugBank','TargetCentral','DGIdb','RepurposeHub','DrugCentral')
+```
 
-all_dt_drugnames_nosyns = vector(mode='list', length=5)
-for(i in 1:length(drug_target_libnames)){
-  lib = fread(drug_target_libnames[[i]])
-  all_dt_drugnames_nosyns[[i]] =unique(lib$DrugName)
+```{r five_dtargetlibs_check_for_invalid_ChEMBL_IDs, eval=FALSE}
+#To check for invalid ChEMBL IDs, I viewed all IDs with (1) any punctuation including spaces, or (2) without the "chembl" substring. 
+#There weren't any, so I did not include this check in my report.
+
+all_ChEMBL_IDs = vector(mode='list', length=5)
+for(i in 1:length(fivedtlibs_fnames)){
+  lib = fread(fivedtlibs_fnames[[i]])
+  all_ChEMBL_IDs[[i]] =unique(lib$DrugID_ChEMBL)
 }
-all_dt_drugnames_nosyns = unique(unlist(all_dt_drugnames_nosyns))
-potential_synonyms = matrix(all_dt_drugnames_nosyns[grepl(' \\(', all_dt_drugnames_nosyns)], ncol=3)
-kable(potential_synonyms, 'html', caption='Potential embedded synonyms') %>%
+all_ChEMBL_IDs = unique(tolower(unlist(all_ChEMBL_IDs)))
+invalid_ChEMBL_IDs = all_ChEMBL_IDs[grepl('[^[:alnum:]]',all_ChEMBL_IDs) | !(grepl('chembl',all_ChEMBL_IDs))]
+knitr::kable(matrix(invalid_ChEMBL_IDs, ncol=3), 'html', caption='Invalid ChEMBL IDs') %>%
   kable_styling(bootstrap_options=c('striped', 'condensed', full_width=F, font_size=10))
-rm(all_dt_drugnames_nosyns, potential_synonyms)
+rm(all_ChEMBL_IDs, invalid_ChEMBL_IDs, lib)
 ```
 
-There are only two drug names with this substring that do not actually have a synonym, and they both have "methyl (". I left those alone, and for the rest, I added the synonym pair and removed the enclosed synonym from the drug name. Once synonyms were removed from the drug names, I added each (drug name, ChEMBL ID, DrugBank ID) set as synonyms.
-
-```{r get_synonyms_from_drug_target_libraries}
-#Initialize using an empty string with index of zero so min() and max() functions work on first iteration (this value is removed later).
-drug_synonyms = data.table(cbind(c(''), as.integer(c(0))))
-colnames(drug_synonyms) = c('name','id')
-drug_synonyms = drug_synonyms[, id := as.numeric(id)]
-
-dt_drugnames_nosyns = vector(mode='list', length=5)
-got_first_synonym = FALSE
-for(i in 1:length(drug_target_libnames)){
-  lib = fread(drug_target_libnames[[i]])
-  
-  #Get synonyms in parenthesis. Also, remove these synonyms from the drug name. 
-  paren_results = extract_embedded_synonyms(lib$DrugName, synonym_table=drug_synonyms, no_syns_substrs = c('methyl \\(','orphenadrine \\(chloride\\)'))
-  dt_drugnames_nosyns[[i]] = paren_results[[1]]
-  drug_synonyms = paren_results[[2]]
-  
-  #Get synonyms by equating the DrugName, DrugID_ChEMBL and DrugID_DrugBank
-  input_table = lib[,c('DrugName','DrugID_ChEMBL','DrugID_DrugBank')]
-  drug_synonyms = expand_synonym_table(input_table, drug_synonyms)
-  
-  #Delete initializing row if a synonym has been found.
-  if(any(drug_synonyms$id != 0) & got_first_synonym==FALSE){
-    drug_synonyms = drug_synonyms[order(drug_synonyms[['id']]),]
-    drug_synonyms = drug_synonyms[2:nrow(drug_synonyms),]
-    got_first_synonym=TRUE
-  }
+```{r five_dtargetlibs_aggregate_drugs, eval = TRUE}
+fivedtlibs_identifiers = matrix(NA, nrow=4, ncol=0)
+for(i in 1:length(fivedtlibs_fnames)){
+  lib = fread(fivedtlibs_fnames[[i]])
+  #I manually renamed the 'DrugSMILES' or 'SMILES' column to 'DrugID_SMILES' for some of the libraries.
+  lib = lib[,c('DrugName','DrugID_ChEMBL','DrugID_DrugBank','DrugID_SMILES')]
+  lib = unique(as.data.frame(sapply(lib, tolower)))
+  fivedtlibs_identifiers = unique(rbind(fivedtlibs_identifiers, lib))
 }
-  
-save(drug_synonyms, file='synonyms\\drug_synonyms1.r')
-rm(input_table, lib, potential_synonyms, got_first_synonym, i, paren_results)
+
+#Keep only the first entry for all unique ChEMBL IDs.
+fivedtlibs_identifiers = fivedtlibs_identifiers[!duplicated(fivedtlibs_identifiers$DrugID_ChEMBL),]
+
+#Scrub drug names.
+fivedtlibs_identifiers$DrugName = gsub('.*insulin human.*', 'Regular human insulin', fivedtlibs_identifiers$DrugName)
+fivedtlibs_identifiers$DrugName = gsub('.*insulin pork.*', 'insulin (bovine)', fivedtlibs_identifiers$DrugName)
+
+rm(lib)
 ```
 
-*CREEDS*: In CREEDS, each sample is described by both a name and a DrugBank ID. In addition, some names contain a symnonym in parentheses. I began by separating the drug name and DrugBank ID from the sample name, and hand-scrubbing the drug name. 
+```{r fivedtlibs_get_PCID, eval = TRUE}
+PCID_fname = 'synonyms/fivedtlibs_PCIDs.txt'
+if(file.exists(PCID_fname)){
+  PCID_table = read_table(PCID_fname)
+  PCIDs = PCID_table$PCID
+} else {
+  #Get PCIDs.
+  PCID_ChEMBL_only_fname = 'synonyms/fivedtlibs_PCIDs_ChEMBL_ID_only.txt'
+  if(file.exists(PCID_ChEMBL_only_fname)){
+    PCID_table = read_table(PCID_ChEMBL_only_fname)
+    PCIDs = PCID_table$PCID
+  }
+  
+  
+  PCIDs = do_chunkwise(get_cid, fivedtlibs_identifiers$DrugID_ChEMBL, 
+                       out_fname = PCID_ChEMBL_only_fname,
+                       DELETE_OUTFILE = FALSE,
+                       first = TRUE)
+  #For the NA results, try again with the DrugName, the DrugBank ID, and then the SMILES.
+  PCIDs[is.na(PCIDs)] = do_chunkwise(get_cid, fivedtlibs_identifiers[is.na(PCIDs),'DrugName'], first = TRUE)
+  PCIDs[is.na(PCIDs)] = do_chunkwise(get_cid, fivedtlibs_identifiers[is.na(PCIDs),'DrugID_DrugBank'], first = TRUE)
+  PCIDs[is.na(PCIDs)] = do_chunkwise(get_cid, fivedtlibs_identifiers[is.na(PCIDs),'DrugID_SMILES'], first = TRUE)
+  #Finally, try with cleaned drug names.
+  PCIDs[is.na(PCIDs)] = do_chunkwise(get_cid, clean_drug_names(fivedtlibs_identifiers[is.na(PCIDs),'DrugName']), first=TRUE)
+  
+  PCID_table = data.frame(DrugID_ChEMBL = fivedtlibs_identifiers$DrugID_ChEMBL, PCID = PCIDs)
+  rm(PCID_ChEMBL_only_fname, PCID_table)
+}
+rm(PCID_fname)
 
-```{r cleaning_CREEDS_drug_names}
-#Read in file separate drug names from the DrugBank ID. 
-CREEDS = fread('original_drug-gene_libs/CREEDS_Drugs_gvm.csv')
+names(PCIDs) = fivedtlibs_identifiers$DrugID_ChEMBL
+fivedtlibs_identifiers$DrugID_PC = PCIDs
+write_table(fivedtlibs_identifiers, fname='synonyms/fivedtlibs_identifiers.csv')
+```
+
+`r sum(is.na(PCIDs))` out of `r length(PCIDs)` PCIDs were unable to be converted.
+
+Next, for each library, I added a column of the PCIDs, and checked for compounds which have different ChEMBL IDs but were assigned the same PubChem ID.
+
+```{r fivedtlibs_rename_to_PCID, eval = TRUE}
+for(i in 1:length(fivedtlibs_fnames)){
+  lib_fname = fivedtlibs_fnames[[i]]
+  lib = fread(lib_fname)
+  lib$DrugID_PC = clean_drug_names(PCIDs[tolower(lib$DrugID_ChEMBL)])
+  #Use the PubChem ID, or the common name if the PubChem ID is unavailable.
+  lib$gvm = ifelse(!is.na(lib$DrugID_PC), paste0('pc', lib$DrugID_PC), clean_drug_names(lib$DrugName))
+  
+  #Check for compounds with different ChEMBL IDs but the same PubChem ID.
+  subset = lib[!duplicated(lib$DrugID_ChEMBL),]
+  subset = subset[!is.na(subset$DrugID_PC),]
+  multimapped = subset$DrugID_PC[duplicated(subset$DrugID_PC)]
+  multimapped_rows = lib[lib$DrugID_PC %in% multimapped, c('DrugName', 'DrugID_ChEMBL','DrugID_PC')]
+  multimapped_rows = unique(multimapped_rows[order(multimapped_rows$DrugID_PC)])
+  if(nrow(multimapped_rows)>1){
+    print(knitr::kable(multimapped_rows, caption=fivedtlibs_libnames[[i]], 'html') %>% kable_styling())
+  }
+  
+  write_table(lib, fname=gsub('original_drug-gene_libs','intermediate_files', 
+                             gsub('.csv','_PCIDs.csv', lib_fname)))
+}
+rm(lib, multimapped, multimapped_rows, subset, i, lib_fname)
+```
+
+This issue only occured in the Drug-Gene Interaction database. Here, Su-014813 is identical to su-14813. Pergolide is administered as a mesylate salt. Me-344 is a metabolite of nv-128. Enoxaparin and heparin are similar: enoxaparin is often called "low-molecular-weight heparin." I decided to allow these compounds to be equated. 
+
+Now that I have the PubChem IDs, I transformed the libraries into gene vector matrices and used the PubChem IDs (or the ChEMBL ID if the PubChem ID was not found) as the column annotation names. 
+
+```{r}
+system('python convert_files.py fivedtlibs')
+```
+
+```{r}
+rm(PCIDs, PCID_table, fivedtlibs_fnames, fivedtlibs_identifiers, fivedtlibs_libnames)
+```
+
+#### STITCH
+
+The chemical names are given as PubChem CIDs, so I kept them as is.
+
+The proteins are given as ENSP IDs, so I converted as many as possible to HGNC format using the biomaRt R package. 
+
+```{r eval = TRUE}
+STITCH = fread('original_drug-gene_libs/9606.protein_chemical.links.v5.0.tsv')
+
+#Ignore the distinction between single and multiple compounds.
+STITCH$chemical = gsub('CIDs','pc',STITCH$chemical)
+STITCH$chemical = gsub('CIDm','pc',STITCH$chemical)
+
+gene_symbol_lookup_fname = 'synonyms/ENSP_to_HGNC.csv'
+if(file.exists(gene_symbol_lookup_fname)){
+  gene_symbol_lookup = fread(gene_symbol_lookup_fname)
+} else {
+  ensembl = useMart('ENSEMBL_MART_ENSEMBL',dataset='hsapiens_gene_ensembl')
+  gene_symbol_lookup = getBM(filters= "ensembl_peptide_id", 
+                             attributes= c("ensembl_peptide_id","hgnc_symbol"),
+                             values=unique(STITCH$protein),
+                             mart=ensembl) 
+  #Replace blank symbol values with the ENSP.
+  gene_symbol_lookup[gene_symbol_lookup$hgnc_symbol=='','hgnc_symbol'] =
+    gene_symbol_lookup[gene_symbol_lookup$hgnc_symbol=='','ensembl_peptide_id']
+  write.table(gene_symbol_lookup, file=gene_symbol_lookup_fname, row.names=FALSE, quote=FALSE)
+}
+
+STITCH$protein = gsub('9606.','',STITCH$protein)
+STITCH$protein_symbol = gene_symbol_lookup$hgnc_symbol[match(
+  STITCH$protein, gene_symbol_lookup$ensembl_peptide_id)]
+```
+
+`r sum(grepl('ENSP', gene_symbol_lookup$hgnc_symbol))` out of `r nrow(gene_symbol_lookup)` ENSP IDs were unable to be converted.
+
+Drug-protein interactions are given a score from 150 to 1000, with higher numbers indicating higher probability of intereaction. Here is a table with the number of protein interactions per drug, with different cutoff levels.
+
+```{r eval = TRUE}
+cutoffs = c(300,400,500,600,700,800,900)
+info = vector(mode='list',length=length(cutoffs))
+for(i in 1:length(cutoffs)){
+  s = STITCH[combined_score>cutoffs[i],]
+  info[[i]] = c(nrow(unique(s[,'chemical'])), nrow(s)/nrow(unique(s[,'chemical'])))
+}
+
+info = as.data.frame(do.call(rbind, info))
+info = cbind(cutoffs, info)
+colnames(info) = c('Combined score cutoff', 'Number of unique chemicals','Average number of protein interactions per chemical')
+
+kable_styling(kable(info, 'html'))
+
+rm(STITCH, gene_symbol_lookup, gene_symbol_lookup_fname, info, s, cutoffs)
+```
+
+I made gmts and gvms for cutoff levels 500, 600, 700 and 800. To be consistent with the five previous libraries, I only kept chemicals with at least five interactions afer applying the cutoff. I also made gmts and gvms with proteins whose ENSP ID could not be converted to a HGNC name removed. These are what I will use for enrichment analysis.
+
+```{r}
+system('python convert_files.py STITCH')
+```
+
+```{r eval=FALSE}
+#I MOVED THIS TO get_gvm.py
+cutoffs = c(500,600,700,800)
+old_gvm_fnames = paste0('original_drug-gene_libs/STITCH_', cutoffs, 'Cutoff_gvm.csv')
+for(gvm_fname in old_gvm_fnames){
+  new_gvm_fname = gsub('_gvm.csv', '_noENSP_gvm.csv', gvm_fname)
+  if(file.exists(new_gvm_fname)){next}
+  gvm = fread(gvm_fname)
+  gene.names = unlist(gvm[, 1])
+  gvm = gvm[!grepl('ENSP', gene.names),]
+  write_gvm(gvm, file=new_gvm_fname)
+}
+```
+
+#### Drug Target Commons
+
+This library has many interactions. I filtered on the following columns:
+
+* `wildtype_or_mutant`: removing interactions for mutated cell lines.
+* `activity_comments`: only keeping interactions with comments that confirmed activity, or which I was unsure how to interpret. This means I removed interactions with negative or inconclusive activity, or which were blank. Tables for activity comments before and after filtering are below.
+
+This library is actually a protein-drug interaction database, so I also converted the UniProt protein IDs to HGNC symbols using the UniProt.ws R package. I removed interactions for which the protein ID could not be converted.
+
+```{r}
+DTCommons_intermediate.fname = 'intermediate_files/DTCommons_intermediate.txt'
+if(!file.exists(DTCommons_intermediate.fname)){
+  DTCommons = fread('original_drug-gene_libs/DtcDrugTargetInteractions.csv')
+  
+  DTCommons = subset(DTCommons, wildtype_or_mutant!='mutated')
+  
+  DTCommons$activity_comment = tolower(DTCommons$activity_comment)
+  DTCommons$activity_comment = gsub(' \\[.*\\]','',DTCommons$activity_comment)
+  DTCommons$activity_comment = gsub('cytochrome p450 mechanistic inhibitor: pmid.*$',
+                              'cytochrome p450 mechanistic inhibitor',
+                              DTCommons$activity_comment)
+  activity_comments = as.data.frame(table(DTCommons$activity_comment))
+  activity_comments = activity_comments[rev(order(activity_comments$Freq)),]
+  kable_styling(kable(activity_comments[1:12,], 'html', caption='Top 12 activity comments'))
+  
+  no_activity = '^no inhibition$|^not active$|not active \\(inhibition|^inactive$|ineffective|is not a|no action|no activity|no activity detected|no binding|no block|no change|no detectable activity|no displacement|no effect|no enzyme activity|no evidence for binding|no inactivation|no incorporation|no increase|no inhibitory action|no interactions|no loss in activity|no measureable reactivation observed|no reaction|no reactivation|no significant|no substrate detected|no time-dependent inhibition|^none$|none observed|not a substrate|phenotype: inactive'
+  
+  uncertain = 'compound not obtained|could not be accurately determined due to low solubility|inconclusive|not determined|not estimated accurately|not evaluated|not examined|not measureable|unstable|unable to be measured|the compound was too insoluble to obtain reliable data|not detectable|not detected|non valid test|unspecified|no data'
+  
+  DTCommons=DTCommons[!grepl(no_activity, DTCommons$activity_comment),]
+  DTCommons=DTCommons[!grepl(uncertain, DTCommons$activity_comment),]
+  DTCommons=DTCommons[nzchar(DTCommons$activity_comment),]
+  
+  activity_comments = as.data.frame(table(DTCommons$activity_comment))
+  activity_comments = activity_comments[rev(order(activity_comments$Freq)),]
+  kable_styling(kable(activity_comments[1:12,], 'html', caption='Top 12 activity comments, after filtering'))
+  
+  up = UniProt.ws(taxId=9606)
+  unique_target_ids = unique(DTCommons$target_id)
+  uniprot_to_hgnc = select(up, keys=unique_target_ids, columns='GENES', keytype='UNIPROTKB')
+  uniprot_to_hgnc$GENES = gsub('\\s+', '|', gsub('[^[:alnum:]]',' ', uniprot_to_hgnc$GENES))
+  uniprot_to_hgnc$GENES[is.na(uniprot_to_hgnc$GENES)] = ''
+  
+  DTCommons$gene_names = gsub('\\s+', '|', gsub('[^[:alnum:]]',' ', DTCommons$gene_names))
+  DTCommons$gene_names[DTCommons$gene_names==''] = uniprot_to_hgnc$GENES[match(DTCommons$target_id[DTCommons$gene_names==''],
+                                                                   uniprot_to_hgnc$UNIPROTKB)]
+  DTCommons$gene_names = toupper(DTCommons$gene_names)
+  DTCommons = subset(DTCommons, gene_names != '')
+  write.table(DTCommons, file=DTCommons_intermediate.fname, sep='\t', quote=FALSE, row.names=FALSE)  
+}
+DTCommons = fread(DTCommons_intermediate.fname, sep='\t')
+```
+
+```{r}
+DTCommons=DTCommons[,c('compound_id','standard_inchi_key','compound_name','gene_names')]
+DTCommons$compound_id = tolower(DTCommons$compound_id)
+DTCommons$compound_name = tolower(DTCommons$compound_name)
+DTCommons = unique(DTCommons)
+```
+
+Next, I tried to obtain the PubChem IDs by using, in this order:
+
+* the ChEMBL ID
+* the Standard InChIKey
+* the compound name
+* the cleaned compound name (alphanumeric characters only)
+
+```{r}
+PCID_fname = 'synonyms/DTCommons_PCIDs.txt'
+if(file.exists(PCID_fname)){
+  PCIDs = read.table(PCID_fname, sep='\t', quote='', 
+                     header = FALSE, comment.char = "")
+  PCIDs = PCIDs[,2]
+  
+  PCIDs = PCIDs[match(DTCommons$compound_id, unique(DTCommons$compound_id))]
+  PCIDs = as.numeric(PCIDs)
+} else {
+  DTCommons_identifiers = unique(DTCommons[,-c('gene_names')])
+  
+  fivedtlibs_identifiers = fread('synonyms/fivedtlibs_identifiers.csv')
+  PCIDs = fivedtlibs_identifiers$DrugID_PC[match(DTCommons_identifiers$compound_id, 
+                                                 fivedtlibs_identifiers$DrugID_ChEMBL)]
+  PCIDs[is.na(PCIDs)] = fivedtlibs_identifiers$DrugID_PC[match(DTCommons_identifiers$compound_name[is.na(PCIDs)], 
+                                                     fivedtlibs_identifiers$DrugName)]
+  PCIDs[is.na(PCIDs)] = fivedtlibs_identifiers$DrugID_PC[match(clean_drug_identifiers(DTCommons_identifiers$compound_name[is.na(PCIDs)]), 
+                                                     fivedtlibs_identifiers$DrugName)]
+  
+  old_DTCommons_PCIDs_fname = 'synonyms/DTCommons_PCIDs_OLD.txt'
+  if(file.exists(old_DTCommons_PCIDs_fname)){
+    old_PCIDs = fread(old_DTCommons_PCIDs_fname)
+    colnames(old_PCIDs) = c('chembl_id','pc_id')
+    old_PCIDs$chembl_id = tolower(old_PCIDs$chembl_id)
+    PCIDs[is.na(PCIDs)] = old_PCIDs$pc_id[match(DTCommons_identifiers$compound_id[is.na(PCIDs)], old_PCIDs$chembl_id)]
+  }
+  
+  PCIDs[is.na(PCIDs)] = do_chunkwise(get_cid, DTCommons_identifiers$compound_id[is.na(PCIDs)],
+                                     out_fname = 'synonyms/DTCommons_temp1.txt', from='name', first=TRUE)
+  PCIDs[is.na(PCIDs)] = do_chunkwise(get_cid, DTCommons_identifiers$standard_inchi_key[is.na(PCIDs)],
+                                     out_fname = 'synonyms/DTCommons_temp2.txt', from='inchikey', first=TRUE)
+  PCIDs[is.na(PCIDs)] = do_chunkwise(get_cid, clean_drug_names(DTCommons_identifiers$compound_id[is.na(PCIDs)]),
+                                     out_fname = 'synonyms/DTCommons_temp3.txt', from='name', first=TRUE)
+
+  PCIDs = PCIDs[match(DTCommons$compound_id, unique(DTCommons$compound_id))]
+  PCIDs = as.numeric(PCIDs)
+  
+  PCID_table = unique(as.data.frame(cbind(DTCommons$compound_id, PCIDs)))
+  
+  write.table(PCID_table, file = PCID_fname, sep = '\t', quote = FALSE,
+                col.names = FALSE, row.names = FALSE)
+  
+  names(PCIDs) = DTCommons$compound_id
+  
+  rm(PCID_table, fivedtlibs_identifiers, DTCommons_identifiers, old_PCIDs, old_DTCommons_PCIDs_fname, unique_chembl_ids)
+}
+```
+
+I was not able to convert ```{r length(unique(names(PCIDs)[is.na(PCIDs)]))}``` out of ```{r length(unique(names(PCIDs)))}``` genes.
+
+```{r}
+rm(activity_comments, uniprot_to_hgnc, up, no_activity, uncertain, PCID_fname, unique_target_ids)
+```
+
+For the final gvm name I used the PCID, and the drug name if that is unavailable, and the ChEMBL ID if both are unavailable.
+
+```{r}
+DTCommons$pc_id = PCIDs
+DTCommons$gvm = ifelse(is.na(PCIDs),
+                   ifelse(DTCommons$compound_name == '', 
+                          clean_drug_names(DTCommons$compound_id), 
+                          clean_drug_names(DTCommons$compound_name)),
+                   paste0('pc', PCIDs))
+
+genes = strsplit(DTCommons$gene_names, split = '\\|')
+DTCommons = data.frame(compound_id = rep(DTCommons$compound_id, sapply(genes, length)),
+                 standard_inchi_key = rep(DTCommons$standard_inchi_key, sapply(genes, length)),
+                 compound_name = rep(DTCommons$compound_name, sapply(genes, length)),
+                 gene_name = unlist(genes),
+                 pc_id = rep(DTCommons$pc_id, sapply(genes, length)),
+                 gvm = rep(DTCommons$gvm, sapply(genes, length)))
+
+write_table(DTCommons, fname='intermediate_files/DTCommons_interactionlist.txt')
+rm(PCIDs)
+```
+
+```{r}
+system('python convert_files.py DTCommons')
+```
+
+#### CREEDS and the LINCS 1000
+
+Each drug perturbation signature library was originally two separate gmt files: one for the up-perturbed genes, and one for the down-perturbed genes. I first merged these files by taking the union of up-perturbed and down-perturbed genes for each sample. I then converted this to a gene vector matrix with each sample as its own column.
+
+```{r drug_pert_sig_get_gvms}
+#Obtain all libraries as gene vector matrix files.
+system('python convert_files.py pertlibs')
+```
+
+The next step was to obtain the PubChem IDs.
+
+*CREEDS*: In CREEDS, each sample is described by both a name and a DrugBank ID. In addition, some names contain a symnonym in parentheses. I began by extracting and scrubbing the drug name and DrugBank ID. I then removed embedded synonyms from the drug name.
+
+```{r CREEDS_clean_sample_name}
+CREEDS_noPCIDs_fname = 'intermediate_files/CREEDS_noPCIDs_gvm.csv'
+#Extract drug names and the DrugBank IDs. 
+CREEDS = fread(CREEDS_noPCIDs_fname)
 CREEDS.samples = as.character(colnames(CREEDS)[-1])
 CREEDS.drugs = CREEDS.samples
 CREEDS.DB_ID = vector(mode='character', length=length(CREEDS.drugs))
@@ -234,171 +426,277 @@ for(i in 1:length(CREEDS.drugs)){
 CREEDS.drugs = tolower(as.character(CREEDS.drugs))
 CREEDS.DB_ID = tolower(as.character(CREEDS.DB_ID))
 
-#Hand-scrub the drug name. 
-for(i in 1:length(CREEDS.drugs)){
-  drug = CREEDS.drugs[i]
-  if(grepl('ec50', drug)){
-    CREEDS.drugs[i] = strsplit(drug, ',')[[1]][1]
-  }
-  if(grepl(' cid', drug)){
-    CREEDS.drugs[i] = strsplit(drug, ' cid')[[1]][1]
-  }
-  if(grepl(' h\\)', drug)){
-    CREEDS.drugs[i] = strsplit(drug, '\\(')[[1]][1]
-  }
-}
-```
+CREEDS.drugs = gsub(' effect on .*','',CREEDS.drugs)
+CREEDS.drugs = gsub(' compound sid.*','',CREEDS.drugs)
+CREEDS.drugs = gsub(' regular','',CREEDS.drugs)
+CREEDS.drugs = gsub(',.*ec50.*','',CREEDS.drugs)
+CREEDS.drugs = gsub(' cid.*','',CREEDS.drugs)
+CREEDS.drugs = gsub(' \\(.*h\\)','', CREEDS.drugs)
 
-Next, I added embedded synonyms to the list and removed them from the drug name. 
-
-```{r}
-#I discovered that some names contain a synonym in parenthesis, so remove the synonym from the name but add both syonyms to the list. 
-paren_results = extract_embedded_synonyms(CREEDS.drugs, drug_synonyms)
-CREEDS.drugs = paren_results[[1]]
-drug_synonyms = paren_results[[2]]
-```
-
-Lastly, I appended the 'db' prefix to the DrugBank IDs if absent, and then added them as synonyms. 
-
-```{r}
-CREEDS.DB_ID = clean_drug_names(CREEDS.DB_ID)
-CREEDS.drugs = clean_drug_names(CREEDS.drugs)
-#Change 'na' to blank (will be removed from synonym table) and append 'db' where absent.
+#Scrub DB IDs.
 CREEDS.DB_ID = replace(CREEDS.DB_ID, CREEDS.DB_ID=='na', '')
 CREEDS.DB_ID[(!grepl('db', CREEDS.DB_ID))&(!CREEDS.DB_ID=='')] = paste0('db',
   CREEDS.DB_ID[(!grepl('db', CREEDS.DB_ID))&(!CREEDS.DB_ID=='')])
-CREEDS.drug_and_DBname = matrix(c(CREEDS.drugs, CREEDS.DB_ID), ncol=2)
-CREEDS.drug_and_DBname = unique(CREEDS.drug_and_DBname)
-drug_synonyms = expand_synonym_table(CREEDS.drug_and_DBname, drug_synonyms)
-save(drug_synonyms, file='synonyms\\drug_synonyms2.r')
 
-rm(drug, i, paren_results, CREEDS.drug_and_DBname, CREEDS.DB_ID, CREEDS)
+#Remove embedded synonyms.
+embedded = extract_embedded_synonyms(CREEDS.drugs)
+CREEDS.drugs = embedded[[1]]
+CREEDS.synonyms = embedded[[2]]
+
+#Create a table with all the names.
+CREEDS_identifiers = as.data.frame(cbind(CREEDS.samples, CREEDS.drugs, CREEDS.DB_ID, rep(NA, length=length(CREEDS.drugs))))
+colnames(CREEDS_identifiers) = c('sample','drug','dbID','syn')
+CREEDS_identifiers[match(CREEDS.synonyms[,1], CREEDS.drugs),'syn'] = CREEDS.synonyms[,2]
+rm(CREEDS.drugs, CREEDS.synonyms, CREEDS.DB_ID, embedded, CREEDS.samples, drug, i)
+```
+
+I tried to obtain the PubChem IDs first by using the following information, in this order:
+
+* the Drug Name
+* the DrugBank ID
+* the synonym, if any
+* the cleaned Drug Name
+* the cleaned synonym, if any
+
+```{r}
+CREEDS.PCID_file = 'synonyms/CREEDS_identifiers.txt'
+if(!file.exists(CREEDS.PCID_file)){
+  drug_name = CREEDS_identifiers$drug
+  drug_name.cleaned = clean_drug_names(CREEDS_identifiers$drug)
+  dbID = CREEDS_identifiers$dbID
+  synonym = CREEDS_identifiers$syn
+  synonym.cleaned = clean_drug_names(CREEDS_identifiers$syn)
+  
+  fivedtlibs_identifiers = fread('synonyms/fivedtlibs_identifiers.csv')
+  PCIDs = fivedtlibs_identifiers$DrugID_PC[match(drug_name, 
+                                                 fivedtlibs_identifiers$DrugName)]
+  PCIDs[is.na(PCIDs)] = fivedtlibs_identifiers$DrugID_PC[match(dbID[is.na(PCIDs)], 
+                                                     fivedtlibs_identifiers$DrugID_DrugBank)]
+  PCIDs[is.na(PCIDs)] = fivedtlibs_identifiers$DrugID_PC[match(synonym[is.na(PCIDs)], 
+                                                     fivedtlibs_identifiers$DrugName)]
+  PCIDs[is.na(PCIDs)] = fivedtlibs_identifiers$DrugID_PC[match(drug_name.cleaned[is.na(PCIDs)], 
+                                                     fivedtlibs_identifiers$DrugName)]
+  PCIDs[is.na(PCIDs)] = fivedtlibs_identifiers$DrugID_PC[match(synonym.cleaned[is.na(PCIDs)], 
+                                                     fivedtlibs_identifiers$DrugID_DrugBank)]
+  
+  PCIDs[is.na(PCIDs)] = do_chunkwise(get_cid, drug_name[is.na(PCIDs)], 
+                                          out_fname = 'synonyms/CREEDS_temp1.txt', first=TRUE)
+  PCIDs[is.na(PCIDs)] = do_chunkwise(get_cid, dbID[is.na(PCIDs)], 
+                                          out_fname = 'synonyms/CREEDS_temp2.txt', first=TRUE)
+  PCIDs[is.na(PCIDs)] = do_chunkwise(get_cid, synonym[is.na(PCIDs)], 
+                                          out_fname = 'synonyms/CREEDS_temp3.txt', first=TRUE)
+  PCIDs[is.na(PCIDs)] = do_chunkwise(get_cid, drug_name.cleaned[is.na(PCIDs)], 
+                                          out_fname = 'synonyms/CREEDS_temp4.txt', first=TRUE)
+  PCIDs[is.na(PCIDs)] = do_chunkwise(get_cid, synonym.cleaned[is.na(PCIDs)], 
+                                          out_fname = 'synonyms/CREEDS_temp5.txt', first=TRUE)
+  
+  write_table(data.frame(c1 = drug_name, c2 = PCIDs), fname=CREEDS.PCID_file, na='')
+  rm(drug_name, drug_name.cleaned, synonym, dbID, synonym.cleaned)
+}
+PCIDs = read_table(CREEDS.PCID_file)
+PCIDs = PCIDs[,2]
+CREEDS_identifiers$PCID = PCIDs
+CREEDS_identifiers$gvm = ifelse(!is.na(CREEDS_identifiers$PCID), 
+                              paste0('pc', CREEDS_identifiers$PCID), 
+                              clean_drug_names(CREEDS_identifiers$drug))
+```
+
+Out of `r length(CREEDS_identifiers$PCID)` unique drugs, I was able to obtain  `r length(CREEDS_identifiers$PCID[!is.na(CREEDS_identifiers$PCID)])` PCIDs. 
+
+```{r replace_CREEDS_names}
+CREEDS_fname = 'gvms/CREEDS_gvm.csv'
+if(!file.exists(CREEDS_fname)){
+  colnames(CREEDS)[-1] = CREEDS_identifiers$gvm
+  CREEDS[CREEDS=='TRUE'] = 'True'
+  write_gvm(CREEDS, file = CREEDS_fname)
+}
+write_table(CREEDS_identifiers, fname='synonyms/CREEDS_identifiers.csv', na='')
+rm(list = setdiff(ls(), lsf.str()))
 ```
 
 *LINCS*: I extracted the drug names from the sample names. I then added and removed embedded synonyms.
 
 ```{r, results='hide'}
-
-LINCS = fread('original_drug-gene_libs\\LINCS_L1000_Chem_Pert_gvm.csv')
+LINCS = fread('original_drug-gene_libs/LINCS_L1000_Chem_Pert_gvm.csv')
 LINCS.samples = colnames(LINCS)[-1]
 
 #Extract drug name.
 LINCS.drugs = strsplit(LINCS.samples, split='-')
 for(i in 1:length(LINCS.drugs)){
   sample = LINCS.drugs[[i]]
-  drug = do.call(paste, as.list(sample[2:(length(sample) - 1)])) #Dash changed to space: will remove both anyway.
+  drug = do.call(paste, as.list(sample[2:(length(sample) - 1)]))
   LINCS.drugs[[i]] = drug
 }
 LINCS.drugs = tolower(as.character(LINCS.drugs))
 
 #For the drug name "_(2-aminoethyl)-4-chlorobenzamide_(ro-16-6491)", the first "_(" is not a synonym. So prevent it from being added and manually add ('(2-aminoethyl)-4-chlorobenzamide', 'ro-16-6491').
-paren_results = extract_embedded_synonyms(LINCS.drugs, drug_synonyms, 
+#The list is still imperfect but I will move forward with it.
+paren_results = extract_embedded_synonyms(LINCS.drugs, 
   left_paren_split = '_\\(', no_syns_substrs = c('_\\(2-amino'))
 LINCS.drugs = paren_results[[1]]
-drug_synonyms = paren_results[[2]]
+LINCS.synonyms = paren_results[[2]]
+LINCS.synonyms = rbind(LINCS.synonyms, 
+                      matrix(c('(2-aminoethyl)-4-chlorobenzamide', 'ro-16-6491'), nrow=1))
 
-add_this = matrix(c('(2-aminoethyl)-4-chlorobenzamide', 'ro-16-6491'), nrow=1)
-colnames(add_this) = c('name','id')
-drug_synonyms = expand_synonym_table(add_this, drug_synonyms)
-#Recall the dashes were changed to space.
-LINCS.drugs[grepl('ro 16 6491', LINCS.drugs)] = 'ro 16 6491'
+LINCS.drugs = gsub('_',' ', LINCS.drugs)
 
-save(drug_synonyms, file='synonyms\\drug_synonyms3.r')
+LINCS_identifiers = data.table(drug = unique(LINCS.drugs))
 
-rm(add_this, LINCS, drug, i, paren_results, sample)
+fivedtlibs_identifiers = fread('synonyms/fivedtlibs_identifiers.csv')
+LINCS_identifiers$PCIDs = fivedtlibs_identifiers$DrugID_PC[match(
+  LINCS_identifiers$drug, fivedtlibs_identifiers$DrugName)]
+LINCS_identifiers$PCIDs = fivedtlibs_identifiers$DrugID_PC[match(
+  clean_drug_names(LINCS_identifiers$drug), 
+  clean_drug_names(fivedtlibs_identifiers$DrugName))]
+
+LINCS_identifiers$PCIDs = as.integer(LINCS_identifiers$PCIDs)
 ```
 
-#### Re-labeling annotations
+I tried to obtain the PubChem IDs first by using the following information, in this order:
 
-After collecting all the synonyms, I appended to each annotation the highest-alphabetical synonym of the drug it represents, and separated it with three vertical bars. For example, in CREEDS, the sample "vitamin c DB00126 mouse GSE32994 sample 3510" became "ascorbate|||vitamin c DB00126 mouse GSE32994 sample 3510".
-
-```{r make_replace_with_synonyms_function}
-replace_with_synonyms = function(drug_name_vector, drug_synonyms, original_name_vector=NULL){
-  #drug_name_vector: the drug names extracted from the sample names
-  #drug_synonyms: the synonym table
-  #original_name_vector: the original sample names
-  drug_name_vector = clean_drug_names(drug_name_vector)
-  
-  if(is.null(original_name_vector)){original_name_vector=drug_name_vector}
-  for(i in 1:length(drug_name_vector)){
-    drug_name = drug_name_vector[[i]]
-    drug_id = drug_synonyms[name == drug_name, id]
-    if(length(drug_id) == 0){
-      drug_name_vector[[i]] = paste0(drug_name, '|||', original_name_vector[[i]])
-      next
-    }
-    synonyms = drug_synonyms[id == drug_id, name]
-    #Take the highest alphabetical synonym. 
-    new_name = synonyms[order(synonyms)][[1]]
-    drug_name_vector[[i]] = paste0(new_name, '|||', original_name_vector[[i]])
-  }
-  return(drug_name_vector)
-}
-```
-
-```{r replace_CREEDS_names}
-if(!file.exists('original_drug-gene_libs/CREEDS_Drugs_gvm2.csv')){
-  CREEDS.drugs.new = replace_with_synonyms(CREEDS.drugs, drug_synonyms, CREEDS.samples)
-  CREEDS = fread('original_drug-gene_libs/CREEDS_Drugs_gvm.csv')
-  colnames(CREEDS)[-1] = CREEDS.drugs.new
-  CREEDS[CREEDS=='TRUE'] = 'True'
-  write.table(CREEDS, 'original_drug-gene_libs/CREEDS_Drugs_gvm2.csv', na='', sep='\t', quote=FALSE, row.names=FALSE)
-}
-rm(CREEDS, CREEDS.drugs, CREEDS.drugs.new, CREEDS.samples)
-```
-
-```{r replace_LINCS_names}
-if(!file.exists('original_drug-gene_libs/LINCS_L1000_Chem_Pert_gvm2.csv')){
-  LINCS.drugs.new = replace_with_synonyms(LINCS.drugs, drug_synonyms, LINCS.samples)
-  LINCS = fread('original_drug-gene_libs/LINCS_L1000_Chem_Pert_gvm.csv')
-  colnames(LINCS)[-1] = LINCS.drugs.new
-  LINCS[LINCS=='TRUE'] = 'True'
-  write.table(LINCS, 'original_drug-gene_libs/LINCS_L1000_Chem_Pert_gvm2.csv', na='', sep='\t', quote=FALSE, row.names=FALSE)
-}
-rm(LINCS.samples, LINCS.drugs, LINCS.drugs.new, LINCS)
-```
-
-```{r replace_drug_target_names}
-for(i in 1:length(drug_target_libnames)){
-  lib = fread(drug_target_libnames[[i]])
-  result = replace_with_synonyms(dt_drugnames_nosyns[[i]], drug_synonyms, lib$DrugName)
-  lib$DrugName_Final = result
-  write.csv(lib, file=drug_target_libnames[[i]], quote=FALSE, sep=',', row.names=FALSE)
-}
-
-rm(drug_synonyms, lib, drug_target_libnames, dt_drugnames_nosyns, i, result)
-```
-
-#### Creating gvms for the drug perturbation signature libraries
-
-Finally, I converted the drug target libraries to gvms. I combined all drug targets for the same drug into a single gene set, and used its re-labeled annotation as the column label.
+* the Drug Name
+* the synonym, if any
+* the cleaned Drug Name
+* the cleaned synonym, if any
 
 ```{r}
-system('python get_drugtarget_gvms.py')
+LINCS_identifiers$PCIDs[is.na(LINCS_identifiers$PCIDs)] = do_chunkwise(get_cid,  LINCS.drugs[is.na(LINCS_identifiers$PCIDs)], out_fname ='synonyms/LINCS_PCIDs1.txt', DELETE_OUTFILE = FALSE, from='name', first=TRUE)
+LINCS_identifiers$PCIDs = as.integer(LINCS_identifiers$PCIDs)
+
+LINCS_identifiers$PCIDs[is.na(LINCS_identifiers$PCIDs)] = do_chunkwise(get_cid,  clean_drug_names(LINCS.drugs[is.na(LINCS_identifiers$PCIDs)]), out_fname ='synonyms/LINCS_PCIDs2.txt', DELETE_OUTFILE = FALSE, from='name', first=TRUE)
+LINCS_identifiers$PCIDs = as.integer(LINCS_identifiers$PCIDs)
+
+LINCS.syns.query = LINCS.synonyms[,2]
+
+LINCS.syns.query.PCIDs = do_chunkwise(get_cid, LINCS.syns.query, out_fname ='synonyms/LINCS_PCIDs3.txt', from='name', first=TRUE)
+
+LINCS.syns.query.PCIDs[is.na(LINCS.syns.query.PCIDs)] = do_chunkwise(get_cid, clean_drug_names(LINCS.syns.query[is.na(LINCS.syns.query.PCIDs)]), out_fname ='synonyms/LINCS_PCIDs4.txt', from='name', first=TRUE)
+
+LINCS_identifiers$PCIDs[is.na(LINCS_identifiers$PCIDs)] = LINCS.syns.query.PCIDs[match(LINCS_identifiers$syn, LINCS.syns.query)][is.na(LINCS_identifiers$PCIDs)]
 ```
 
-#### Summary of all drug libraries
+```{r}
+LINCS_identifiers$syn = LINCS.synonyms[,2][match(LINCS_identifiers$drug,
+                                               LINCS.synonyms[,1])]
 
-After creating all the gene vector matrices, I made a table to summarize the features of each library.
+LINCS_identifiers$gvm = ifelse(is.na(LINCS_identifiers$PCIDs),
+                             clean_drug_names(LINCS_identifiers$drug),
+                             paste0('pc', LINCS_identifiers$PCIDs))
+write_table(LINCS_identifiers, 'synonyms/LINCS_identifiers.csv', na='')
+```
 
-```{r read_gvms, results='hide'}
-DrugBank = fread('original_drug-gene_libs/1_DrugBank_Column_5OrMoreTargets_MissingChEMBL_IDsRemoved_1-14-18_gvm.csv')
-TargetCentral = fread('original_drug-gene_libs/2_TargetCentral_Column_5OrMoreTargets_MissingChEMBL_IDsRemoved_1-14-18_gvm.csv')
-DrugCentral = fread('original_drug-gene_libs/5b_DrugCentral_Column_5OrMoreTargets_MissingChEMBL_IDsRemoved_Human_1-14-18_gvm.csv')
-DGIdb = fread('original_drug-gene_libs/4_DGIdb_Column_5OrMoreTargets_MissingChEMBL_IDsRemoved_1-14-18_gvm.csv')
-DrugRepHub = fread('original_drug-gene_libs/3_RepurposeHub_Column_5OrMoreTargets_MissingChEMBL_IDsRemoved_1-14-18_gvm.csv')
-CREEDS = fread('original_drug-gene_libs/CREEDS_Drugs_gvm2.csv')
-LINCS = fread('original_drug-gene_libs/LINCS_L1000_Chem_Pert_gvm2.csv')
+Out of `r length(LINCS_identifiers$PCIDs)` unique drugs, I was able to obtain all but  `r sum(is.na(LINCS_identifiers$PCIDs))` PCIDs. 
+
+```{r replace_LINCS_names}
+LINCS_fname = 'gvms/LINCS_gvm.csv'
+if(!file.exists(LINCS_fname)){
+  gvm_names = LINCS_identifiers$gvm[match(LINCS.drugs, LINCS_identifiers$drug)]
+  colnames(LINCS)[-1] = gvm_names
+  LINCS[LINCS=='TRUE'] = 'True'
+  write_gvm(LINCS, file= LINCS_fname)
+}
+```
+
+```{r}
+rm(list = setdiff(ls(), lsf.str()))
+```
+
+# Summary
+
+Still working on this...
+
+```{r}
+nrow=1
+DrugBank = names(fread('original_drug-gene_libs/1_DrugBank_Column_5OrMoreTargets_MissingChEMBL_IDsRemoved_1-14-18_PCIDs_gvm.csv', nrow=nrow))[-1]
+TargetCentral = names(fread('original_drug-gene_libs/2_TargetCentral_Column_5OrMoreTargets_MissingChEMBL_IDsRemoved_1-14-18_PCIDs_gvm.csv', nrow=nrow))[-1]
+RepurposeHub = names(fread('original_drug-gene_libs/3_RepurposeHub_Column_5OrMoreTargets_MissingChEMBL_IDsRemoved_1-14-18_PCIDs_gvm.csv', nrow=nrow))[-1]
+DGIdb = names(fread('original_drug-gene_libs/4_DGIdb_Column_5OrMoreTargets_MissingChEMBL_IDsRemoved_1-14-18_PCIDs_gvm.csv', nrow=nrow))[-1]
+DrugCentral = names(fread('original_drug-gene_libs/5b_DrugCentral_Column_5OrMoreTargets_MissingChEMBL_IDsRemoved_Human_1-14-18_PCIDs_gvm.csv', nrow=nrow))[-1]
+
+DTC = names(fread('original_drug-gene_libs/drugtargetcommons_5ormoretargets_gvm.csv', nrow=nrow))[-1]
+
+STITCH500 = names(fread('original_drug-gene_libs/STITCH_500cutoff_gvm.csv', nrow=nrow))[-1]
+STITCH600 = names(fread('original_drug-gene_libs/STITCH_600cutoff_gvm.csv', nrow=nrow))[-1]
+STITCH700 = names(fread('original_drug-gene_libs/STITCH_700cutoff_gvm.csv', nrow=nrow))[-1]
+STITCH800 = names(fread('original_drug-gene_libs/STITCH_800cutoff_gvm.csv', nrow=nrow))[-1]
+
+LINCS = names(fread('original_drug-gene_libs/LINCS_L1000_Chem_Pert_PCIDs_gvm.csv', nrow=nrow))[-1]
+CREEDS = names(fread('original_drug-gene_libs/CREEDS_PCIDs_gvm.csv', nrow=nrow))[-1]
+```
+
+```{r}
+PCIDs = list(CREEDS, DGIdb, DrugBank, DrugCentral, DTC, LINCS, RepurposeHub, 
+            STITCH700, TargetCentral)
+names(PCIDs) = c('CREEDS','DGIdb','DrugBank','DrugCentral','DTC','LINCS','RepurposeHub',
+                 'STITCH700','TargetCentral')
+
+PCIDs = PCIDs[1:5]
+venn.plot <- venn.diagram(
+   x = PCIDs,
+filename = "PubChemmID_Venn.tiff",
+col = "black",
+lty = "dotted",
+lwd = 4,
+alpha = 0.50,
+cex = 2.5,
+fontfamily = "serif",
+fontface = "bold",
+cat.cex = 2.5,
+cat.fontfamily = "serif"
+);
+
+```
+
+```{r}
+#drugs = list(DrugBank, TargetCentral, RepurposeHub, DGIdb, DrugCentral, STITCH600, LINCS, CREEDS)
+dtarget = list(DGIdb, DrugBank, DrugCentral, DTC, RepurposeHub, STITCH500, STITCH600, STITCH700, STITCH800, TargetCentral)
+dperturb = list(CREEDS, LINCS)
+
+n_matches = matrix(NA, length(dtarget), length(dperturb))
+for(i in 1:length(dtarget)){
+  for(j in 1:length(dperturb)){
+    lib.i = dtarget[[i]]
+    lib.j = dperturb[[j]]
+    
+    n_matches[[i,j]] = length(intersect(lib.i, lib.j))
+  }
+}
+
+Total = sapply(dtarget, length)
+
+rownames(n_matches) = c('DGIdb','DrugBank','DrugCentral','DTC','RepurposeHub','STITCH500','STITCH600','STITCH700','STITCH800','TargetCentral')
+colnames(n_matches) = c('CREEDS','LINCS')
+
+t = cbind(n_matches, Total)
+
+kable_styling(kable(t, 'html', caption='Number of matches'))
+```
+
+```{r}
+nrow=-1
+DrugBank = fread('original_drug-gene_libs/1_DrugBank_Column_5OrMoreTargets_MissingChEMBL_IDsRemoved_1-14-18_PCIDs_gvm.csv', nrow=nrow)
+TargetCentral = fread('original_drug-gene_libs/2_TargetCentral_Column_5OrMoreTargets_MissingChEMBL_IDsRemoved_1-14-18_PCIDs_gvm.csv', nrow=nrow)
+RepurposeHub = fread('original_drug-gene_libs/3_RepurposeHub_Column_5OrMoreTargets_MissingChEMBL_IDsRemoved_1-14-18_PCIDs_gvm.csv', nrow=nrow)
+DGIdb = fread('original_drug-gene_libs/4_DGIdb_Column_5OrMoreTargets_MissingChEMBL_IDsRemoved_1-14-18_PCIDs_gvm.csv', nrow=nrow)
+DrugCentral = fread('original_drug-gene_libs/5b_DrugCentral_Column_5OrMoreTargets_MissingChEMBL_IDsRemoved_Human_1-14-18_PCIDs_gvm.csv', nrow=nrow)
+
+#STITCH500 = fread('original_drug-gene_libs/STITCH_500cutoff_gvm.csv', nrow=nrow)
+STITCH600 = fread('original_drug-gene_libs/STITCH_600cutoff_gvm.csv', nrow=nrow)
+#STITCH700 = fread('original_drug-gene_libs/STITCH_700cutoff_gvm.csv', nrow=nrow)
+#STITCH800 = fread('original_drug-gene_libs/STITCH_800cutoff_gvm.csv', nrow=nrow)
+
+LINCS = fread('original_drug-gene_libs/LINCS_L1000_Chem_Pert_PCIDs_gvm.csv', nrow=nrow)
+CREEDS = fread('original_drug-gene_libs/CREEDS_Drugs_PCIDs_gvm.csv', nrow=nrow)
 ```
 
 ```{r table_1, include=TRUE}
 
-libnames = c('DrugBank','TargetCentral','DGIdb','DrugRepHub','DrugCentral','CREEDS','LINCS L1000')
+libnames = c('DrugBank','TargetCentral','DGIdb','DrugRepHub','DrugCentral','STITCH','Drug Target Commons','CREEDS','LINCS L1000')
 
-full_libnames = c('DrugBank','Target Central Resource Database','Drug Gene Interaction Database','Drug Repurposing Hub','DrugCentral','CRowd Extracted Expression of Differential Signatures','Library of Integrated Network-Based Cellular Signatures')
-links = c('drugbank.ca/','juniper.health.unm.edu/tcrd/','dgidb.org/','clue.io/repurposing','http://drugcentral.org/','amp.pharm.mssm.edu/CREEDS/','http://www.lincsproject.org/')
+full_libnames = c('DrugBank','Target Central Resource Database','Drug Gene Interaction Database','Drug Repurposing Hub','DrugCentral','','Drug Target Commons', 'CRowd Extracted Expression of Differential Signatures','Library of Integrated Network-Based Cellular Signatures')
+links = c('drugbank.ca','juniper.health.unm.edu/tcrd','dgidb.org','clue.io/repurposing','drugcentral.org','STITCH.embl.de','amp.pharm.mssm.edu/CREEDS','lincsproject.org')
 
-libtypes = c(rep('Drug Target', 5), rep('Perturbation Signature', 2))
+libtypes = c(rep('Drug Target', 7), rep('Perturbation Signature', 2))
 
 descriptions = c(
   'Encyclopedia-like drug database compiled from scientific publications.',
@@ -406,6 +704,8 @@ descriptions = c(
   'Drug-gene interactions compiled by curation and text-mining from multiple sources.',
   'Drug screening library containing known clinical drugs and their targets as reported by scientific publications.',
   'Datatbase of drugs approved or regulated by government agencies.',
+  'Chemical interaction database...',
+  '...',
   'Infers drug-gene associations using drug perturbation signatures extracted and processed from the Gene Expression Omnibus by crowdsource.',
   'Collection of gene expression profiles from flow cytometry experiments with different perturbagens, time points, doses, and cell lines')
 
@@ -418,6 +718,8 @@ organisms_and_n_samples = c(
   paste0('Human (',as.character(ncol(DGIdb) -1), ')'), 
   paste0('Human (',as.character(ncol(DrugRepHub) -1), ')'),
   paste0('Human (',as.character(ncol(DrugCentral) -1), ')'),
+  paste0('Human (',as.character(ncol(STITCH) -1), ')'),
+  paste0('Human (',as.character(ncol(DTC) -1), ')'),
   paste0('Human (' ,as.character(CREEDS.n_human), '), Mouse (',
 as.character(CREEDS.n_mouse), '), Rat (', as.character(CREEDS.n_rat), ')'),
   paste0('Human (',as.character(ncol(LINCS) -1), ')'))
@@ -429,7 +731,10 @@ get_n_drugs = function(df){
   #print(drug_names[duplicated(drug_names)]) #temp
   return(length(unique(drug_names)))
 }
-n_drugs = as.character(sapply(list(DrugBank,TargetCentral,DGIdb,DrugRepHub,DrugCentral,CREEDS, LINCS), get_n_drugs))
+
+gvms = list(DrugBank,TargetCentral,DGIdb,DrugRepHub,DrugCentral,STITCH,DTC,CREEDS,LINCS)
+
+n_drugs = as.character(sapply(gvms, get_n_drugs))
   
 preprocessing = c(
   'Edgelist. Samples with less than five targets or missing the ChEMBL_ID were removed.',
@@ -437,6 +742,8 @@ preprocessing = c(
   'Edgelist. Samples with less than five targets or missing the ChEMBL_ID were removed.',
   'Edgelist. Samples with less than five targets or missing the ChEMBL_ID were removed.',
   'Edgelist. Samples with less than five targets or missing the ChEMBL_ID were removed.',
+  'Blargh.',
+  'Fe.',
   'Took the union of up and down DE gene sets from Enrichr gmts.',
   'Took the union of up and down DE gene sets from Enrichr gmts.')
 
@@ -444,7 +751,7 @@ get_avg_n_genes = function(df){
   avg_n_genes = sum(df=='TRUE', na.rm=TRUE)/ncol(df)
   return(round(avg_n_genes, 2))
 }
-avg_n_genes_per_sample = as.character(sapply(list(DrugBank,TargetCentral,DGIdb,DrugRepHub,DrugCentral,CREEDS,LINCS), get_avg_n_genes))
+avg_n_genes_per_sample = as.character(sapply(gvms, get_avg_n_genes))
 
 t1 = do.call(cbind, list(libnames, full_libnames, libtypes, descriptions, organisms_and_n_samples, n_drugs, avg_n_genes_per_sample, preprocessing))
 
@@ -474,31 +781,38 @@ output_files = c('human_correlation_top_100.csv', 'mouse_correlation_top_100.csv
 for(i in 1:length(input_files)){
   input_file = input_files[[i]]
   output_file = output_files[[i]]
-  get_top_n_coexpressed(paste0('ppi_libs\\', input_file), paste0('ppi_libs\\', output_file))
+  get_top_n_coexpressed(paste0('ppi_libs/', input_file), paste0('ppi_libs/', output_file))
 }
 ```
 
 ```{r expand_gvms, results='hide'}
 source('expand_gvms.R')
-ARCHS4 = fread('ppi_libs\\human_correlation_top_100.csv', header=FALSE)
-BioGRID = fread('ppi_libs\\BIOGRID-ORGANISM-Homo_sapiens-3.4.156.tab2_top_100.csv', header=FALSE)
-hu.MAP = fread('ppi_libs\\genename_pairsWprob_top_100.csv', header=FALSE)
+ARCHS4 = fread('ppi_libs/human_correlation_top_100.csv', header=FALSE)
+BioGRID = fread('ppi_libs/BIOGRID-ORGANISM-Homo_sapiens-3.4.156.tab2_top_100.csv', header=FALSE)
+hu.MAP = fread('ppi_libs/genename_pairsWprob_top_100.csv', header=FALSE)
 setkey(ARCHS4, V1)
 setkey(BioGRID, V1)
 setkey(hu.MAP, V1)
 
 gvm_fnames = c('1_DrugBank_Column_5OrMoreTargets_MissingChEMBL_IDsRemoved_1-14-18','2_TargetCentral_Column_5OrMoreTargets_MissingChEMBL_IDsRemoved_1-14-18', '3_RepurposeHub_Column_5OrMoreTargets_MissingChEMBL_IDsRemoved_1-14-18', '4_DGIdb_Column_5OrMoreTargets_MissingChEMBL_IDsRemoved_1-14-18', '5b_DrugCentral_Column_5OrMoreTargets_MissingChEMBL_IDsRemoved_Human_1-14-18')
 expansion_libs = list(ARCHS4, BioGRID, hu.MAP)
-expansion_libs_names = c('ARCHS4','BioGRID','hu.MAP')
+expansion_libs_names = c('ARCHS4','BioGRID','huMAP')
 
-for(i in 1:length(gvm_fnames)){
-  gvm_fname = gvm_fnames[[i]]
-  gvm=fread(paste0('original_drug-gene_libs/', gvm_fname, '_gvm.csv'))
-  for(i in 1:length(expansion_libs_names)){
-    expansion_lib = expansion_libs[[i]]
-    expansion_lib_name = expansion_libs_names[[i]]
-    output_fname = paste0('expanded_drug-gene_libs\\', gvm_fname, '_expanded_with_', expansion_lib_name, '_gvm2.csv')
-    #print(output_fname)
+#gvm_libnames = c('DGIdb','DrugBank','DrugCentral','RepurposeHub','TargetCentral')
+#gvms = list(DGIdb, DrugBank, DrugCentral, RepurposeHub, TargetCentral)
+
+gvm_fnames = c('drugtargetcommons_5ormoretargets')
+gvm_libnames = c('DTC'),# 'STITCH_500cutoff_noENSP', 'STITCH_600cutoff_noENSP', 
+                 #'STITCH_700cutoff_noENSP', 'STITCH_800cutoff_noENSP')
+gvms = list(DTCommons)
+
+for(i in 1:length(gvms)){
+  gvm=gvms[[i]]
+  for(j in 1:length(expansion_libs_names)){
+    expansion_lib = expansion_libs[j]
+    expansion_lib_name = expansion_libs_names[j]
+    output_fname = paste0('expanded_drug-gene_libs/', gvm_libnames[i], '_expanded_with_', expansion_lib_name, '_gvm.csv')
+    print(output_fname)
     expand_gvm(gvm, expansion_lib, output_fname)
   }
 }
@@ -511,13 +825,13 @@ gvm_fnames_cleaned = c('DrugBank','TargetCentral','DGIdb','DrugRepHub','DrugCent
 
 for(i in 1:length(gvm_fnames)){
   old_gvm_fname = gvm_fnames[[i]]
-  old_gvm = fread(paste0('original_drug-gene_libs\\', old_gvm_fname, '_gvm.csv'))
+  old_gvm = fread(paste0('original_drug-gene_libs/', old_gvm_fname, '_gvm.csv'))
   
   ngenes = data.frame(Original=log(colSums(old_gvm==TRUE, na.rm=TRUE), base=10)[-1])
   
   for(j in 1:length(expansion_libs)){
     expansion_lib_name = expansion_libs_names[[j]]
-    new_gvm_fname = paste0('expanded_drug-gene_libs\\', old_gvm_fname, '_expanded_with_', expansion_lib_name, '_gvm2.csv')
+    new_gvm_fname = paste0('expanded_drug-gene_libs/', gvm_libnames[i], '_expanded_with_', expansion_lib_name, '_gvm.csv')
     new_gvm = fread(new_gvm_fname, header=FALSE, showProgress=FALSE)
     ngenes[[expansion_lib_name]] = log(colSums(new_gvm==TRUE, na.rm=TRUE), base=10)[-1]
   }

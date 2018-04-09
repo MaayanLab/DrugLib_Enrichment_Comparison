@@ -1,0 +1,30 @@
+---
+title: "Comparing drug target libraries using enrichment analysis"
+author: "Damon Pham"
+output:
+  html_document: default
+  pdf_document: default
+---
+
+```{r setup, include=FALSE}
+#source("https://bioconductor.org/biocLite.R")
+#biocLite("biomaRt")
+#biocLite("rhdf5")
+#biocLite("UniProt.ws")
+#devtools::install_github("cmap/cmapR")
+
+list.of.packages <- c('kableExtra', 'knitr', 'ggplot2', 'cmapR', 'stringi', 'data.table','gridExtra','reshape2','grid', 'biomaRt', 'webchem', 'httr', 'jsonlite','UniProt.ws', 'magrittr')
+new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"Package"])]
+if(length(new.packages)) install.packages(new.packages)
+lapply(list.of.packages, require, character.only = TRUE)
+rm(list.of.packages, new.packages)
+
+opts_chunk$set(echo=FALSE, cache=TRUE, autodep=TRUE,
+               message=FALSE, warning=FALSE,
+               fig.align="center")
+```
+
+```{r}
+PCIDs = 1:1500
+syns = pc_synonyms_chunkwise(PCIDs, from='cid', temp_out_fname = 'synonyms/pcid_to_drugname.txt')
+```
