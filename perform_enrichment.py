@@ -18,27 +18,33 @@ import h5py
 def list_of_drug_libs_fnames():
 	'''Generates and returns a tuple of drug library file names.'''
 	expanded_drug_libs = (
-		'1_DrugBank_Column_5OrMoreTargets_MissingChEMBL_IDsRemoved_1-14-18',
-		'2_TargetCentral_Column_5OrMoreTargets_MissingChEMBL_IDsRemoved_1-14-18', 
-		'3_RepurposeHub_Column_5OrMoreTargets_MissingChEMBL_IDsRemoved_1-14-18', 
-		'4_DGIdb_Column_5OrMoreTargets_MissingChEMBL_IDsRemoved_1-14-18', 
-		'5b_DrugCentral_Column_5OrMoreTargets_MissingChEMBL_IDsRemoved_Human_1-14-18')
+		'stitch_500cutoff_noENSP',
+		'stitch_600cutoff_noENSP',
+		'stitch_700cutoff_noENSP',
+		'stitch_800cutoff_noENSP',
+		'drugtargetcommons_5ormoretargets')
 	ppi_libs = (
-		'hu.MAP',
+		'huMAP',
 		'BioGRID',
 		'ARCHS4')
 
 	non_expanded_drug_libs = (
-		'CREEDS_Drugs',
+		'CREEDS',
 		'LINCS_L1000_Chem_Pert')
 
 	drug_libs = tuple(
-		'expanded_drug-gene_libs\\' + edl + '_expanded_with_' + ppi + '_gvm2.csv' 
+		'expanded_drug-gene_libs\\' + edl + '_expanded_with_' + ppi + '_gvm.csv' 
 		for edl in expanded_drug_libs for ppi in ppi_libs) + tuple(
-		'original_drug-gene_libs\\' + drug_lib + '_gvm2.csv' 
+		'original_drug-gene_libs\\' + drug_lib + '_pcids_gvm.csv' 
 		for drug_lib in non_expanded_drug_libs)
 
-	return drug_libs
+	drug_libs2 = tuple(
+		'original_drug-gene_libs\\' + edl + '_gvm.csv' 
+		for edl in expanded_drug_libs) + tuple(
+		'original_drug-gene_libs\\' + drug_lib + '_pcids_gvm.csv' 
+		for drug_lib in non_expanded_drug_libs)
+
+	return drug_libs2
 
 def open_gvm(fname, already_have_LINCS=True):
 	print('opening', fname)
@@ -63,7 +69,8 @@ def open_gvm(fname, already_have_LINCS=True):
 
 def clean(annot):
 	'''Extracts drug synonym from annotation.'''
-	return str(annot).partition('|||')[0]
+	#This handles duplicate column names.
+	return str(annot).partition('.')[0]
 
 def get_common_ilib_annots(ilib_name, ilib_annots, slib_name, slib_annots):
 	'''Return the annotations in the input library which have matches in the search library.'''
@@ -132,6 +139,11 @@ def enrichment(pair):
 	algorithm_names = ('Fisher',) #e.g. `('Fisher', 'RandomForest')` or `None`. 
 	#==============================================================================================================
 
+	#TEMP
+	if 'interactions' in ilib_name and 'interactions' in slib_name:
+		print('skipping', prefix)
+		return
+
 	#Exit if enrichment between this library pair has already been done.
 	#See above chunk: `algorithm_names` must be specified.
 	if algorithm_names is not None:
@@ -153,8 +165,8 @@ def enrichment(pair):
 		ilib_name, ilib_gvm.columns.values, 
 		slib_name, slib_gvm.columns.values)
 	print(str(len(common_ilib_annots)), 'overlaps')
-	#Only keep the columns of `ilib_gvm` we will use.
-	ilib_gvm = ilib_gvm[:,common_ilib_annots]
+
+	ilib_gvm = ilib_gvm.loc[:,common_ilib_annots]
 
 	#Iterate over each algorithm (i.e. each column).
 	for algorithm_name in enrichment_algorithms:
@@ -214,4 +226,4 @@ if __name__ == '__main__':
 	#Iterate over each gmt pair.
 	lib_df_pairs = fwd_pairs + bck_pairs
 	#Parallel(n_jobs=1, verbose=0)(delayed(enrichment)(pair) for pair in lib_df_pairs)
-	for pair in lib_df_pairs: enrichment(pair)
+	for pair in reversed(lib_df_pairs): enrichment(pair)

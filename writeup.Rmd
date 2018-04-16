@@ -108,17 +108,20 @@ if(file.exists(PCID_fname)){
   PCIDs = PCID_table$PCID
 } else {
   #Get PCIDs.
+  
   PCID_ChEMBL_only_fname = 'synonyms/fivedtlibs_PCIDs_ChEMBL_ID_only.txt'
   if(file.exists(PCID_ChEMBL_only_fname)){
     PCID_table = read_table(PCID_ChEMBL_only_fname)
     PCIDs = PCID_table$PCID
-  }
-  
-  
-  PCIDs = do_chunkwise(get_cid, fivedtlibs_identifiers$DrugID_ChEMBL, 
+  } else {
+    PCIDs = do_chunkwise(get_cid, fivedtlibs_identifiers$DrugID_ChEMBL, 
                        out_fname = PCID_ChEMBL_only_fname,
                        DELETE_OUTFILE = FALSE,
                        first = TRUE)
+    PCID_table = data.frame(DrugID_ChEMBL = fivedtlibs_identifiers$DrugID_ChEMBL, PCID = PCIDs)
+    write_table(PCID_table, fname = PCID_ChEMBL_only_fname)
+  }
+
   #For the NA results, try again with the DrugName, the DrugBank ID, and then the SMILES.
   PCIDs[is.na(PCIDs)] = do_chunkwise(get_cid, fivedtlibs_identifiers[is.na(PCIDs),'DrugName'], first = TRUE)
   PCIDs[is.na(PCIDs)] = do_chunkwise(get_cid, fivedtlibs_identifiers[is.na(PCIDs),'DrugID_DrugBank'], first = TRUE)
@@ -127,6 +130,7 @@ if(file.exists(PCID_fname)){
   PCIDs[is.na(PCIDs)] = do_chunkwise(get_cid, clean_drug_names(fivedtlibs_identifiers[is.na(PCIDs),'DrugName']), first=TRUE)
   
   PCID_table = data.frame(DrugID_ChEMBL = fivedtlibs_identifiers$DrugID_ChEMBL, PCID = PCIDs)
+  write_table(PCID_table, fname = PCID_fname)
   rm(PCID_ChEMBL_only_fname, PCID_table)
 }
 rm(PCID_fname)
@@ -412,10 +416,9 @@ The next step was to obtain the PubChem IDs.
 *CREEDS*: In CREEDS, each sample is described by both a name and a DrugBank ID. In addition, some names contain a symnonym in parentheses. I began by extracting and scrubbing the drug name and DrugBank ID. I then removed embedded synonyms from the drug name.
 
 ```{r CREEDS_clean_sample_name}
-CREEDS_noPCIDs_fname = 'intermediate_files/CREEDS_noPCIDs_gvm.csv'
+CREEDS.annotations.fname = 'intermediate_files/CREEDS_original_annotations.csv'
 #Extract drug names and the DrugBank IDs. 
-CREEDS = fread(CREEDS_noPCIDs_fname)
-CREEDS.samples = as.character(colnames(CREEDS)[-1])
+CREEDS.samples = fread(CREEDS.annotations.fname, sep='\n')$annotations
 CREEDS.drugs = CREEDS.samples
 CREEDS.DB_ID = vector(mode='character', length=length(CREEDS.drugs))
 for(i in 1:length(CREEDS.drugs)){
@@ -446,8 +449,9 @@ CREEDS.synonyms = embedded[[2]]
 #Create a table with all the names.
 CREEDS_identifiers = as.data.frame(cbind(CREEDS.samples, CREEDS.drugs, CREEDS.DB_ID, rep(NA, length=length(CREEDS.drugs))))
 colnames(CREEDS_identifiers) = c('sample','drug','dbID','syn')
-CREEDS_identifiers[match(CREEDS.synonyms[,1], CREEDS.drugs),'syn'] = CREEDS.synonyms[,2]
-rm(CREEDS.drugs, CREEDS.synonyms, CREEDS.DB_ID, embedded, CREEDS.samples, drug, i)
+CREEDS_identifiers$syn = as.character(CREEDS_identifiers$syn)
+CREEDS_identifiers$syn[match(CREEDS.synonyms[,1], CREEDS.drugs)] = CREEDS.synonyms[,2]
+rm(CREEDS.drugs, CREEDS.synonyms, CREEDS.DB_ID, embedded, drug, i)
 ```
 
 I tried to obtain the PubChem IDs first by using the following information, in this order:
@@ -459,7 +463,7 @@ I tried to obtain the PubChem IDs first by using the following information, in t
 * the cleaned synonym, if any
 
 ```{r}
-CREEDS.PCID_file = 'synonyms/CREEDS_identifiers.txt'
+CREEDS.PCID_file = 'synonyms/CREEDS_PCIDs.csv'
 if(!file.exists(CREEDS.PCID_file)){
   drug_name = CREEDS_identifiers$drug
   drug_name.cleaned = clean_drug_names(CREEDS_identifiers$drug)
@@ -477,38 +481,49 @@ if(!file.exists(CREEDS.PCID_file)){
   PCIDs[is.na(PCIDs)] = fivedtlibs_identifiers$DrugID_PC[match(drug_name.cleaned[is.na(PCIDs)], 
                                                      fivedtlibs_identifiers$DrugName)]
   PCIDs[is.na(PCIDs)] = fivedtlibs_identifiers$DrugID_PC[match(synonym.cleaned[is.na(PCIDs)], 
-                                                     fivedtlibs_identifiers$DrugID_DrugBank)]
+                                                     fivedtlibs_identifiers$DrugName)]
   
-  PCIDs[is.na(PCIDs)] = do_chunkwise(get_cid, drug_name[is.na(PCIDs)], 
-                                          out_fname = 'synonyms/CREEDS_temp1.txt', first=TRUE)
+  PCIDs[is.na(PCIDs)] = do_chunkwise(get_cid, drug_name[is.na(PCIDs)],
+                                     out_fname = 'synonyms/CREEDS_temp1.txt', 
+                                     CHUNKSIZE = 1000, first=TRUE)
   PCIDs[is.na(PCIDs)] = do_chunkwise(get_cid, dbID[is.na(PCIDs)], 
-                                          out_fname = 'synonyms/CREEDS_temp2.txt', first=TRUE)
+                                     out_fname = 'synonyms/CREEDS_temp2.txt', 
+                                     CHUNKSIZE = 1000, first=TRUE)
   PCIDs[is.na(PCIDs)] = do_chunkwise(get_cid, synonym[is.na(PCIDs)], 
-                                          out_fname = 'synonyms/CREEDS_temp3.txt', first=TRUE)
+                                     out_fname = 'synonyms/CREEDS_temp3.txt', 
+                                     CHUNKSIZE = 1000, first=TRUE)
   PCIDs[is.na(PCIDs)] = do_chunkwise(get_cid, drug_name.cleaned[is.na(PCIDs)], 
-                                          out_fname = 'synonyms/CREEDS_temp4.txt', first=TRUE)
+                                     out_fname = 'synonyms/CREEDS_temp4.txt', 
+                                     CHUNKSIZE = 1000, first=TRUE)
   PCIDs[is.na(PCIDs)] = do_chunkwise(get_cid, synonym.cleaned[is.na(PCIDs)], 
-                                          out_fname = 'synonyms/CREEDS_temp5.txt', first=TRUE)
+                                     out_fname = 'synonyms/CREEDS_temp5.txt', 
+                                     CHUNKSIZE = 1000, first=TRUE)
   
-  write_table(data.frame(c1 = drug_name, c2 = PCIDs), fname=CREEDS.PCID_file, na='')
+  write_table(data.frame(DrugID_ChEMBL = drug_name, PCID = PCIDs), fname=CREEDS.PCID_file, na='')
   rm(drug_name, drug_name.cleaned, synonym, dbID, synonym.cleaned)
 }
 PCIDs = read_table(CREEDS.PCID_file)
-PCIDs = PCIDs[,2]
+PCIDs = PCIDs$PCID
 CREEDS_identifiers$PCID = PCIDs
 CREEDS_identifiers$gvm = ifelse(!is.na(CREEDS_identifiers$PCID), 
                               paste0('pc', CREEDS_identifiers$PCID), 
                               clean_drug_names(CREEDS_identifiers$drug))
 ```
 
-Out of `r length(CREEDS_identifiers$PCID)` unique drugs, I was able to obtain  `r length(CREEDS_identifiers$PCID[!is.na(CREEDS_identifiers$PCID)])` PCIDs. 
+```{r}
+CREEDS_unique = unique(CREEDS_identifiers[,c('drug','PCID')])
+```
+
+Out of `r nrow(CREEDS_unique)` unique drugs, I was unable to obtain  `r sum(is.na(CREEDS_unique$PCID)) ` PCIDs. 
 
 ```{r replace_CREEDS_names}
+CREEDS.old = fread('intermediate_files/CREEDS_noPCIDs_gvm.csv')
 CREEDS_fname = 'gvms/CREEDS_gvm.csv'
 if(!file.exists(CREEDS_fname)){
-  colnames(CREEDS)[-1] = CREEDS_identifiers$gvm
-  CREEDS[CREEDS=='TRUE'] = 'True'
-  write_gvm(CREEDS, file = CREEDS_fname)
+  colnames(CREEDS.old)[1] = 'CREEDS'
+  colnames(CREEDS.old)[-1] = CREEDS_identifiers$gvm
+  CREEDS.old[CREEDS.old=='TRUE'] = 'True'
+  write_gvm(CREEDS.old, fname = CREEDS_fname)
 }
 write_table(CREEDS_identifiers, fname='synonyms/CREEDS_identifiers.csv', na='')
 rm(list = setdiff(ls(), lsf.str()))
@@ -517,9 +532,9 @@ rm(list = setdiff(ls(), lsf.str()))
 *LINCS*: I extracted the drug names from the sample names. I then added and removed embedded synonyms.
 
 ```{r, results='hide'}
-LINCS = fread('original_drug-gene_libs/LINCS_L1000_Chem_Pert_gvm.csv')
-LINCS.samples = colnames(LINCS)[-1]
-
+LINCS.annotations.fname = 'intermediate_files/LINCS_original_annotations.csv'
+#Extract drug names and the DrugBank IDs. 
+LINCS.samples = fread(LINCS.annotations.fname, sep='\n')$annotations
 #Extract drug name.
 LINCS.drugs = strsplit(LINCS.samples, split='-')
 for(i in 1:length(LINCS.drugs)){
@@ -540,7 +555,7 @@ LINCS.synonyms = rbind(LINCS.synonyms,
 
 LINCS.drugs = gsub('_',' ', LINCS.drugs)
 
-LINCS_identifiers = data.table(drug = unique(LINCS.drugs))
+LINCS_identifiers = data.table(sample = LINCS.samples, drug = LINCS.drugs)
 
 fivedtlibs_identifiers = fread('synonyms/fivedtlibs_identifiers.csv')
 LINCS_identifiers$PCIDs = fivedtlibs_identifiers$DrugID_PC[match(
@@ -548,7 +563,6 @@ LINCS_identifiers$PCIDs = fivedtlibs_identifiers$DrugID_PC[match(
 LINCS_identifiers$PCIDs = fivedtlibs_identifiers$DrugID_PC[match(
   clean_drug_names(LINCS_identifiers$drug), 
   clean_drug_names(fivedtlibs_identifiers$DrugName))]
-
 LINCS_identifiers$PCIDs = as.integer(LINCS_identifiers$PCIDs)
 ```
 
@@ -560,11 +574,15 @@ I tried to obtain the PubChem IDs first by using the following information, in t
 * the cleaned synonym, if any
 
 ```{r}
-LINCS_identifiers$PCIDs[is.na(LINCS_identifiers$PCIDs)] = do_chunkwise(get_cid,  LINCS.drugs[is.na(LINCS_identifiers$PCIDs)], out_fname ='synonyms/LINCS_PCIDs1.txt', DELETE_OUTFILE = FALSE, from='name', first=TRUE)
-LINCS_identifiers$PCIDs = as.integer(LINCS_identifiers$PCIDs)
+LINCS_identifiers_unique = unique(LINCS_identifiers[,c('drug','PCIDs')])
+```
 
-LINCS_identifiers$PCIDs[is.na(LINCS_identifiers$PCIDs)] = do_chunkwise(get_cid,  clean_drug_names(LINCS.drugs[is.na(LINCS_identifiers$PCIDs)]), out_fname ='synonyms/LINCS_PCIDs2.txt', DELETE_OUTFILE = FALSE, from='name', first=TRUE)
-LINCS_identifiers$PCIDs = as.integer(LINCS_identifiers$PCIDs)
+```{r}
+LINCS_identifiers_unique$PCIDs[is.na(LINCS_identifiers_unique$PCIDs)] = do_chunkwise(get_cid, LINCS.drugs[is.na(LINCS_identifiers_unique$PCIDs)], out_fname ='synonyms/LINCS_PCIDs1.txt', DELETE_OUTFILE = FALSE, from='name', first=TRUE)
+LINCS_identifiers_unique$PCIDs = as.integer(LINCS_identifiers_unique$PCIDs)
+
+LINCS_identifiers_unique$PCIDs[is.na(LINCS_identifiers_unique$PCIDs)] = do_chunkwise(get_cid,  clean_drug_names(LINCS.drugs[is.na(LINCS_identifiers_unique$PCIDs)]), out_fname ='synonyms/LINCS_PCIDs2.txt', DELETE_OUTFILE = FALSE, from='name', first=TRUE)
+LINCS_identifiers_unique$PCIDs = as.integer(LINCS_identifiers_unique$PCIDs)
 
 LINCS.syns.query = LINCS.synonyms[,2]
 
@@ -572,29 +590,28 @@ LINCS.syns.query.PCIDs = do_chunkwise(get_cid, LINCS.syns.query, out_fname ='syn
 
 LINCS.syns.query.PCIDs[is.na(LINCS.syns.query.PCIDs)] = do_chunkwise(get_cid, clean_drug_names(LINCS.syns.query[is.na(LINCS.syns.query.PCIDs)]), out_fname ='synonyms/LINCS_PCIDs4.txt', from='name', first=TRUE)
 
-LINCS_identifiers$PCIDs[is.na(LINCS_identifiers$PCIDs)] = LINCS.syns.query.PCIDs[match(LINCS_identifiers$syn, LINCS.syns.query)][is.na(LINCS_identifiers$PCIDs)]
+LINCS_identifiers_unique$PCIDs[is.na(LINCS_identifiers_unique$PCIDs)] = LINCS.syns.query.PCIDs[match(LINCS_identifiers_unique$syn, LINCS.syns.query)][is.na(LINCS_identifiers_unique$PCIDs)]
 ```
 
 ```{r}
 LINCS_identifiers$syn = LINCS.synonyms[,2][match(LINCS_identifiers$drug,
                                                LINCS.synonyms[,1])]
 
+LINCS_identifiers$PCIDs = LINCS_identifiers_unique$PCIDs[match(LINCS_identifiers$drug, LINCS_identifiers_unique$drug)]
+
 LINCS_identifiers$gvm = ifelse(is.na(LINCS_identifiers$PCIDs),
                              clean_drug_names(LINCS_identifiers$drug),
                              paste0('pc', LINCS_identifiers$PCIDs))
+
 write_table(LINCS_identifiers, 'synonyms/LINCS_identifiers.csv', na='')
 ```
 
 Out of `r length(LINCS_identifiers$PCIDs)` unique drugs, I was able to obtain all but  `r sum(is.na(LINCS_identifiers$PCIDs))` PCIDs. 
 
 ```{r replace_LINCS_names}
-LINCS_fname = 'gvms/LINCS_gvm.csv'
-if(!file.exists(LINCS_fname)){
-  gvm_names = LINCS_identifiers$gvm[match(LINCS.drugs, LINCS_identifiers$drug)]
-  colnames(LINCS)[-1] = gvm_names
-  LINCS[LINCS=='TRUE'] = 'True'
-  write_gvm(LINCS, file= LINCS_fname)
-}
+#LINCS was too big to save as a csv--it is a pickled pandas DataFrame file.
+#I wrote the script to rename it in Python.
+system('python convert_files.py LINCS2')
 ```
 
 ```{r}
@@ -607,21 +624,21 @@ Still working on this...
 
 ```{r}
 nrow=1
-DrugBank = names(fread('original_drug-gene_libs/1_DrugBank_Column_5OrMoreTargets_MissingChEMBL_IDsRemoved_1-14-18_PCIDs_gvm.csv', nrow=nrow))[-1]
-TargetCentral = names(fread('original_drug-gene_libs/2_TargetCentral_Column_5OrMoreTargets_MissingChEMBL_IDsRemoved_1-14-18_PCIDs_gvm.csv', nrow=nrow))[-1]
-RepurposeHub = names(fread('original_drug-gene_libs/3_RepurposeHub_Column_5OrMoreTargets_MissingChEMBL_IDsRemoved_1-14-18_PCIDs_gvm.csv', nrow=nrow))[-1]
-DGIdb = names(fread('original_drug-gene_libs/4_DGIdb_Column_5OrMoreTargets_MissingChEMBL_IDsRemoved_1-14-18_PCIDs_gvm.csv', nrow=nrow))[-1]
-DrugCentral = names(fread('original_drug-gene_libs/5b_DrugCentral_Column_5OrMoreTargets_MissingChEMBL_IDsRemoved_Human_1-14-18_PCIDs_gvm.csv', nrow=nrow))[-1]
+DrugBank = names(fread('gvms/1_DrugBank_Column_5OrMoreTargets_MissingChEMBL_IDsRemoved_1-14-18_PCIDs_gvm.csv', nrow=nrow))[-1]
+TargetCentral = names(fread('gvms/2_TargetCentral_Column_5OrMoreTargets_MissingChEMBL_IDsRemoved_1-14-18_PCIDs_gvm.csv', nrow=nrow))[-1]
+RepurposeHub = names(fread('gvms/3_RepurposeHub_Column_5OrMoreTargets_MissingChEMBL_IDsRemoved_1-14-18_PCIDs_gvm.csv', nrow=nrow))[-1]
+DGIdb = names(fread('gvms/4_DGIdb_Column_5OrMoreTargets_MissingChEMBL_IDsRemoved_1-14-18_PCIDs_gvm.csv', nrow=nrow))[-1]
+DrugCentral = names(fread('gvms/5b_DrugCentral_Column_5OrMoreTargets_MissingChEMBL_IDsRemoved_Human_1-14-18_PCIDs_gvm.csv', nrow=nrow))[-1]
 
-DTC = names(fread('original_drug-gene_libs/drugtargetcommons_5ormoretargets_gvm.csv', nrow=nrow))[-1]
+DTC = names(fread('gvms/drugtargetcommons_5ormoretargets_gvm.csv', nrow=nrow))[-1]
 
-STITCH500 = names(fread('original_drug-gene_libs/STITCH_500cutoff_gvm.csv', nrow=nrow))[-1]
-STITCH600 = names(fread('original_drug-gene_libs/STITCH_600cutoff_gvm.csv', nrow=nrow))[-1]
-STITCH700 = names(fread('original_drug-gene_libs/STITCH_700cutoff_gvm.csv', nrow=nrow))[-1]
-STITCH800 = names(fread('original_drug-gene_libs/STITCH_800cutoff_gvm.csv', nrow=nrow))[-1]
+STITCH500 = names(fread('gvms/STITCH_500cutoff_gvm.csv', nrow=nrow))[-1]
+STITCH600 = names(fread('gvms/STITCH_600cutoff_gvm.csv', nrow=nrow))[-1]
+STITCH700 = names(fread('gvms/STITCH_700cutoff_gvm.csv', nrow=nrow))[-1]
+STITCH800 = names(fread('gvms/STITCH_800cutoff_gvm.csv', nrow=nrow))[-1]
 
-LINCS = names(fread('original_drug-gene_libs/LINCS_L1000_Chem_Pert_PCIDs_gvm.csv', nrow=nrow))[-1]
-CREEDS = names(fread('original_drug-gene_libs/CREEDS_PCIDs_gvm.csv', nrow=nrow))[-1]
+LINCS = names(fread('gvms/LINCS_L1000_Chem_Pert_PCIDs_gvm.csv', nrow=nrow))[-1]
+CREEDS = names(fread('gvms/CREEDS_PCIDs_gvm.csv', nrow=nrow))[-1]
 ```
 
 ```{r}

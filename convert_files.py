@@ -21,7 +21,7 @@ if lib_to_convert == 'fivedtlibs':
 	gslists = [get_genesetlist(get_interactionlist(i_fname), 'ilist') for i_fname in interactionlist_fnames]
 	for i in range(len(gslists)): 
 		gslist = gslists[i]
-		libname = libnames[i]
+		libname = libnames[i] + '_5OrMoreTargets'
 		gmt_fname = 'gmts/' + libname + '_gmt.csv'
 		gvm_fname = 'gvms/' + libname + '_gvm.csv'
 		print('getting files for ' + libname)
@@ -34,7 +34,7 @@ elif lib_to_convert == 'STITCH':
 	STITCH = get_interactionlist('9606.protein_chemical.links.v5.0.tsv', CONFIDENCE_SCORES)
 
 	for conf_score in CONFIDENCE_SCORES:
-		print('creating STITCH files for interactions at least , ' + str(conf_score) + ' confidence.')
+		print('creating STITCH files for interactions at least ' + str(conf_score) + ' confidence.')
 		prefix = 'STITCH_' + str(conf_score)
 		STITCH = STITCH.loc[STITCH['combined_score'] >= conf_score]
 
@@ -70,11 +70,26 @@ elif lib_to_convert == 'pertlibs':
 	CREEDS_down = get_genesetlist(
 		'original_drug-gene_libs/Drug_Perturbations_from_GEO_down.txt', item_type='gmt_fname')
 	CREEDS = combine_genesetlists(CREEDS_up, CREEDS_down)
-	get_gmt_and_gvm(CREEDS, 'intermediate_files/CREEDS_HGNC_gmt.csv')
+	get_gmt_and_gvm(CREEDS, 'intermediate_files/CREEDS_noPCIDs_gmt.csv')
+	annotations = pd.Series(CREEDS.index.values)
+	annotations.name = 'annotations'
+	annotations.to_csv('intermediate_files/CREEDS_original_annotations.csv', header=True, index=False, sep='\n')
 
 	LINCS_up = get_genesetlist(
 		'original_drug-gene_libs/LINCS_L1000_Chem_Pert_up.txt', item_type='gmt_fname')
 	LINCS_down = get_genesetlist(
 		'original_drug-gene_libs/LINCS_L1000_Chem_Pert_down.txt', item_type='gmt_fname')
 	LINCS = combine_genesetlists(LINCS_up, LINCS_down)
-	get_gmt_and_gvm(LINCS,'intermediate_files/LINCS_HGNC_gmt.csv')
+	get_gmt_and_gvm(LINCS,'intermediate_files/LINCS_noPCIDs_gmt.csv')
+	annotations = pd.Series(LINCS.index.values)
+	annotations.name = 'annotations'
+	annotations.to_csv('intermediate_files/LINCS_original_annotations.csv', header=True, index=False, sep='\n')
+
+elif lib_to_convert == 'LINCS2':
+	LINCS = get_genesetlist('intermediate_files/LINCS_noPCIDs_gmt.csv', item_type='gmt_fname')
+	LINCS_identifiers = pd.read_csv('synonyms/LINCS_identifiers.csv', sep='\t')
+	if not all(LINCS.index.values == LINCS_identifiers['sample']): raise ValueError('Mismatched annotations.')
+	LINCS.index = LINCS_identifiers['gvm']
+	get_gmt_and_gvm(LINCS, 'gmts/LINCS_gmt.csv')
+
+else: raise ValueError('Invalid library to convert argument.')

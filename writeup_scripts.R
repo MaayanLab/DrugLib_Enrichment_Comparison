@@ -3,7 +3,6 @@ clean_drug_names = function(drug_names){
 	return(gsub('[^[:alnum:]]', '', tolower(drug_names)))
 }
 
-
 extract_embedded_synonyms = function(drug_names, left_paren_split = ' \\(', no_syns_substrs = NULL){
 	#Identifies drug names containing a synonym enclosed in parentheses. Replaces the drug name with the first synonym, and creates a table with the first synonym in one column and the second synonym in another. The first synonym is defined as the substring to the left of `left_paren_split`, and the second synonym is defined as the substring between `left_paren_split` and the right-most ")". For example, the drug name "chembl1255588 ((+)-butaclamol)" will become "chembl1255588" and ('chembl1255588', '(+)-butaclamol') will be added to the synonym table. 
 	#Returns the input `drug_names` vector, but with second synonyms removed, and a data.table of the synonyms. 
@@ -58,6 +57,10 @@ extract_embedded_synonyms = function(drug_names, left_paren_split = ' \\(', no_s
 do_chunkwise = function(FUN, x, out_fname = 'temp.txt', CHUNKSIZE = 1000, ATTEMPTS = 100, DELETE_OUTFILE = TRUE, ...){
 	#if(is.null(out_fname)){stop('out_fname must be given.')}
 	
+	if(length(x) < CHUNKSIZE){
+		return(FUN(x, ...))
+	}
+
 	chunks = split(x, ceiling(seq_along(x)/CHUNKSIZE))
 
 	next_chunk = 1

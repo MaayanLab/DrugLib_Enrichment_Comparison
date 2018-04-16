@@ -2,6 +2,7 @@ import pandas as pd
 import numpy as np
 import os
 import csv
+import pickle
 from scipy.sparse import coo_matrix
 
 def open_gvm(fname):
@@ -117,6 +118,7 @@ def get_genesetlist(item, item_type):
 	else: raise ValueError('unknown item type ' + item_type)
 
 def convert_genesetlist(gslist, to, output_fname = None, verbose = False):
+	if verbose: print('obtaining ' + output_fname)
 	if to == 'gmt':
 		#Create the gmt.
 		gmt = [[annot] + [''] + genes for (annot,genes) in zip(gslist.index, gslist.values)]
@@ -130,7 +132,11 @@ def convert_genesetlist(gslist, to, output_fname = None, verbose = False):
 
 	if to == 'gvm':
 		#If the gvm file already exists, load it and return it.
-		if file_exists(output_fname): return open_gvm(output_fname)
+		if file_exists(output_fname): 
+			return open_gvm(output_fname)
+		elif file_exists(output_fname.replace('gvm.csv','gvm.pkl')):
+			return pickle.load(open(output_fname.replace('gvm.csv','gvm.pkl'), 'rb'))
+
 		#Otherwise, create it, save it to the file, and return it.
 		all_genes_set = {item for sublist in gslist for item in sublist}
 		all_genes = pd.Series(sorted(all_genes_set))
@@ -149,7 +155,7 @@ def convert_genesetlist(gslist, to, output_fname = None, verbose = False):
 		gvm.columns = gslist.index
 		gvm = gvm.replace(to_replace=False, value='')
 		if output_fname is not None: 
-			if gvm.shape[0] < 10000: gvm.to_csv(output_fname, sep='\t')
+			if gvm.shape[1] < 10000: gvm.to_csv(output_fname, sep='\t')
 			else: gvm.to_pickle(output_fname.replace('gvm.csv','gvm.pkl'))
 		return gvm
 
@@ -161,11 +167,6 @@ def get_gmt_and_gvm(gslist, gmt_fname, gvm_fname = None):
 	if gvm_fname is None: gvm_fname = gmt_fname.replace('gmt','gvm')
 	convert_genesetlist(gslist, to='gmt', output_fname=gmt_fname)
 	convert_genesetlist(gslist, to='gvm', output_fname=gvm_fname)
-
-def get_gmt_and_gvm2(gslist, gmt_fname, gvm_fname = None):
-	if gvm_fname is None: gvm_fname = gmt_fname.replace('gmt','gvm')
-	convert_genesetlist(gslist, to='gmt', output_fname=gmt_fname)
-	convert_genesetlist(gslist, to='gvm2', output_fname=gvm_fname)
 
 def subset_gmt_and_gvm(filter, axis, gmt_fname, new_gmt_fname, gvm_fname = None, new_gvm_fname = None):
 	gvm = open_gvm(gvm_fname)
