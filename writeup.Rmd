@@ -510,11 +510,12 @@ CREEDS_identifiers$gvm = ifelse(!is.na(CREEDS_identifiers$PCID),
                               clean_drug_names(CREEDS_identifiers$drug))
 ```
 
-```{r}
-CREEDS_unique = unique(CREEDS_identifiers[,c('drug','PCID')])
+```{r eval=TRUE}
+CREEDS_unique = unique(colnames(fread('gvms/CREEDS_gvm.csv', showProgress = FALSE))[-1])
+CREEDS_noPCID = CREEDS_unique[!grepl('pc', CREEDS_unique)]
 ```
 
-Out of `r nrow(CREEDS_unique)` unique drugs, I was unable to obtain  `r sum(is.na(CREEDS_unique$PCID)) ` PCIDs. 
+Out of `r length(CREEDS_unique)` unique drugs, I was unable to obtain  `length(CREEDS_noPCID) ` PCIDs. 
 
 ```{r replace_CREEDS_names}
 CREEDS.old = fread('intermediate_files/CREEDS_noPCIDs_gvm.csv')
@@ -606,7 +607,11 @@ LINCS_identifiers$gvm = ifelse(is.na(LINCS_identifiers$PCIDs),
 write_table(LINCS_identifiers, 'synonyms/LINCS_identifiers.csv', na='')
 ```
 
-Out of `r length(LINCS_identifiers$PCIDs)` unique drugs, I was able to obtain all but  `r sum(is.na(LINCS_identifiers$PCIDs))` PCIDs. 
+```{r eval=TRUE}
+LINCS_identifiers = read_table('synonyms/LINCS_identifiers.csv', showProgress = FALSE)
+```
+
+Out of `r length(LINCS_identifiers$PCIDs)` unique drugs, I was unable to obtain `r sum(is.na(LINCS_identifiers$PCIDs))` PCIDs. 
 
 ```{r replace_LINCS_names}
 #LINCS was too big to save as a csv--it is a pickled pandas DataFrame file.
@@ -620,243 +625,50 @@ rm(list = setdiff(ls(), lsf.str()))
 
 # Summary
 
-Still working on this...
-
-```{r}
-nrow=1
-DrugBank = names(fread('gvms/1_DrugBank_Column_5OrMoreTargets_MissingChEMBL_IDsRemoved_1-14-18_PCIDs_gvm.csv', nrow=nrow))[-1]
-TargetCentral = names(fread('gvms/2_TargetCentral_Column_5OrMoreTargets_MissingChEMBL_IDsRemoved_1-14-18_PCIDs_gvm.csv', nrow=nrow))[-1]
-RepurposeHub = names(fread('gvms/3_RepurposeHub_Column_5OrMoreTargets_MissingChEMBL_IDsRemoved_1-14-18_PCIDs_gvm.csv', nrow=nrow))[-1]
-DGIdb = names(fread('gvms/4_DGIdb_Column_5OrMoreTargets_MissingChEMBL_IDsRemoved_1-14-18_PCIDs_gvm.csv', nrow=nrow))[-1]
-DrugCentral = names(fread('gvms/5b_DrugCentral_Column_5OrMoreTargets_MissingChEMBL_IDsRemoved_Human_1-14-18_PCIDs_gvm.csv', nrow=nrow))[-1]
-
-DTC = names(fread('gvms/drugtargetcommons_5ormoretargets_gvm.csv', nrow=nrow))[-1]
-
-STITCH500 = names(fread('gvms/STITCH_500cutoff_gvm.csv', nrow=nrow))[-1]
-STITCH600 = names(fread('gvms/STITCH_600cutoff_gvm.csv', nrow=nrow))[-1]
-STITCH700 = names(fread('gvms/STITCH_700cutoff_gvm.csv', nrow=nrow))[-1]
-STITCH800 = names(fread('gvms/STITCH_800cutoff_gvm.csv', nrow=nrow))[-1]
-
-LINCS = names(fread('gvms/LINCS_L1000_Chem_Pert_PCIDs_gvm.csv', nrow=nrow))[-1]
-CREEDS = names(fread('gvms/CREEDS_PCIDs_gvm.csv', nrow=nrow))[-1]
-```
-
-```{r}
-PCIDs = list(CREEDS, DGIdb, DrugBank, DrugCentral, DTC, LINCS, RepurposeHub, 
-            STITCH700, TargetCentral)
-names(PCIDs) = c('CREEDS','DGIdb','DrugBank','DrugCentral','DTC','LINCS','RepurposeHub',
-                 'STITCH700','TargetCentral')
-
-PCIDs = PCIDs[1:5]
-venn.plot <- venn.diagram(
-   x = PCIDs,
-filename = "PubChemmID_Venn.tiff",
-col = "black",
-lty = "dotted",
-lwd = 4,
-alpha = 0.50,
-cex = 2.5,
-fontfamily = "serif",
-fontface = "bold",
-cat.cex = 2.5,
-cat.fontfamily = "serif"
-);
-
-```
-
-```{r}
-#drugs = list(DrugBank, TargetCentral, RepurposeHub, DGIdb, DrugCentral, STITCH600, LINCS, CREEDS)
-dtarget = list(DGIdb, DrugBank, DrugCentral, DTC, RepurposeHub, STITCH500, STITCH600, STITCH700, STITCH800, TargetCentral)
-dperturb = list(CREEDS, LINCS)
-
-n_matches = matrix(NA, length(dtarget), length(dperturb))
-for(i in 1:length(dtarget)){
-  for(j in 1:length(dperturb)){
-    lib.i = dtarget[[i]]
-    lib.j = dperturb[[j]]
-    
-    n_matches[[i,j]] = length(intersect(lib.i, lib.j))
-  }
-}
-
-Total = sapply(dtarget, length)
-
-rownames(n_matches) = c('DGIdb','DrugBank','DrugCentral','DTC','RepurposeHub','STITCH500','STITCH600','STITCH700','STITCH800','TargetCentral')
-colnames(n_matches) = c('CREEDS','LINCS')
-
-t = cbind(n_matches, Total)
-
-kable_styling(kable(t, 'html', caption='Number of matches'))
-```
-
-```{r}
-nrow=-1
-DrugBank = fread('original_drug-gene_libs/1_DrugBank_Column_5OrMoreTargets_MissingChEMBL_IDsRemoved_1-14-18_PCIDs_gvm.csv', nrow=nrow)
-TargetCentral = fread('original_drug-gene_libs/2_TargetCentral_Column_5OrMoreTargets_MissingChEMBL_IDsRemoved_1-14-18_PCIDs_gvm.csv', nrow=nrow)
-RepurposeHub = fread('original_drug-gene_libs/3_RepurposeHub_Column_5OrMoreTargets_MissingChEMBL_IDsRemoved_1-14-18_PCIDs_gvm.csv', nrow=nrow)
-DGIdb = fread('original_drug-gene_libs/4_DGIdb_Column_5OrMoreTargets_MissingChEMBL_IDsRemoved_1-14-18_PCIDs_gvm.csv', nrow=nrow)
-DrugCentral = fread('original_drug-gene_libs/5b_DrugCentral_Column_5OrMoreTargets_MissingChEMBL_IDsRemoved_Human_1-14-18_PCIDs_gvm.csv', nrow=nrow)
-
-#STITCH500 = fread('original_drug-gene_libs/STITCH_500cutoff_gvm.csv', nrow=nrow)
-STITCH600 = fread('original_drug-gene_libs/STITCH_600cutoff_gvm.csv', nrow=nrow)
-#STITCH700 = fread('original_drug-gene_libs/STITCH_700cutoff_gvm.csv', nrow=nrow)
-#STITCH800 = fread('original_drug-gene_libs/STITCH_800cutoff_gvm.csv', nrow=nrow)
-
-LINCS = fread('original_drug-gene_libs/LINCS_L1000_Chem_Pert_PCIDs_gvm.csv', nrow=nrow)
-CREEDS = fread('original_drug-gene_libs/CREEDS_Drugs_PCIDs_gvm.csv', nrow=nrow)
-```
+Here is a table summarizing each drug library.
 
 ```{r table_1, include=TRUE}
+t1 = read.csv('intermediate_files/lib_summary_table.csv', sep='\t')
+t1 = as.data.frame(t1)
+links = t1$link
+t1 = t1[-match('link', names(t1))]
+colnames(t1) = c('Name', 'Library Type', 'Description','Number of samples', 'Number of unique drugs', 'Average number of genes per annotation', 'Data preprocessing')
 
-libnames = c('DrugBank','TargetCentral','DGIdb','DrugRepHub','DrugCentral','STITCH','Drug Target Commons','CREEDS','LINCS L1000')
-
-full_libnames = c('DrugBank','Target Central Resource Database','Drug Gene Interaction Database','Drug Repurposing Hub','DrugCentral','','Drug Target Commons', 'CRowd Extracted Expression of Differential Signatures','Library of Integrated Network-Based Cellular Signatures')
-links = c('drugbank.ca','juniper.health.unm.edu/tcrd','dgidb.org','clue.io/repurposing','drugcentral.org','STITCH.embl.de','amp.pharm.mssm.edu/CREEDS','lincsproject.org')
-
-libtypes = c(rep('Drug Target', 7), rep('Perturbation Signature', 2))
-
-descriptions = c(
-  'Encyclopedia-like drug database compiled from scientific publications.',
-  'The central resource behind the "Illuminating the Druggable Genome" project, which compiles data from multiple sources and emphasizes GPCR, kinase, ion channel and nuclear receptor targets.',
-  'Drug-gene interactions compiled by curation and text-mining from multiple sources.',
-  'Drug screening library containing known clinical drugs and their targets as reported by scientific publications.',
-  'Datatbase of drugs approved or regulated by government agencies.',
-  'Chemical interaction database...',
-  '...',
-  'Infers drug-gene associations using drug perturbation signatures extracted and processed from the Gene Expression Omnibus by crowdsource.',
-  'Collection of gene expression profiles from flow cytometry experiments with different perturbagens, time points, doses, and cell lines')
-
-CREEDS.n_rat = length(colnames(CREEDS)[grep('rat',colnames(CREEDS))])
-CREEDS.n_human = length(colnames(CREEDS)[grep('human',colnames(CREEDS))])
-CREEDS.n_mouse = length(colnames(CREEDS)[grep('mouse',colnames(CREEDS))])
-organisms_and_n_samples = c(
-  paste0('Human (',as.character(ncol(DrugBank) -1), ')'), 
-  paste0('Human (',as.character(ncol(TargetCentral) -1), ')'), 
-  paste0('Human (',as.character(ncol(DGIdb) -1), ')'), 
-  paste0('Human (',as.character(ncol(DrugRepHub) -1), ')'),
-  paste0('Human (',as.character(ncol(DrugCentral) -1), ')'),
-  paste0('Human (',as.character(ncol(STITCH) -1), ')'),
-  paste0('Human (',as.character(ncol(DTC) -1), ')'),
-  paste0('Human (' ,as.character(CREEDS.n_human), '), Mouse (',
-as.character(CREEDS.n_mouse), '), Rat (', as.character(CREEDS.n_rat), ')'),
-  paste0('Human (',as.character(ncol(LINCS) -1), ')'))
-
-get_n_drugs = function(df){
-  sample_names = colnames(df)[-1]
-  drug_names = strsplit(sample_names, '|||', fixed=TRUE)
-  drug_names = do.call(rbind, drug_names)[,1]
-  #print(drug_names[duplicated(drug_names)]) #temp
-  return(length(unique(drug_names)))
-}
-
-gvms = list(DrugBank,TargetCentral,DGIdb,DrugRepHub,DrugCentral,STITCH,DTC,CREEDS,LINCS)
-
-n_drugs = as.character(sapply(gvms, get_n_drugs))
-  
-preprocessing = c(
-  'Edgelist. Samples with less than five targets or missing the ChEMBL_ID were removed.',
-  'Edgelist. Samples with less than five targets or missing the ChEMBL_ID were removed.',
-  'Edgelist. Samples with less than five targets or missing the ChEMBL_ID were removed.',
-  'Edgelist. Samples with less than five targets or missing the ChEMBL_ID were removed.',
-  'Edgelist. Samples with less than five targets or missing the ChEMBL_ID were removed.',
-  'Blargh.',
-  'Fe.',
-  'Took the union of up and down DE gene sets from Enrichr gmts.',
-  'Took the union of up and down DE gene sets from Enrichr gmts.')
-
-get_avg_n_genes = function(df){
-  avg_n_genes = sum(df=='TRUE', na.rm=TRUE)/ncol(df)
-  return(round(avg_n_genes, 2))
-}
-avg_n_genes_per_sample = as.character(sapply(gvms, get_avg_n_genes))
-
-t1 = do.call(cbind, list(libnames, full_libnames, libtypes, descriptions, organisms_and_n_samples, n_drugs, avg_n_genes_per_sample, preprocessing))
-
-colnames(t1) = c('Name, Abbreviated', 'Name, Full', 'Library Type', 'Description','Organism (number of samples)', 'Number of unique drugs', 'Average number of genes per annotation', 'Data preprocessing')
-
-t1[,'Name, Abbreviated'] = paste0("[", libnames, "](http://", links, ")")
+t1[,'Name'] = paste0("[", as.character(t1[,'Name']), "](http://", links, ")")
 
 kable(t1, 'html', caption='Table 1: Dataset summary') %>%
   kable_styling(bootstrap_options=c('striped', 'condensed', full_width=F, font_size=10))
 
 ```
 
-#### Expansion with PPI data
+Here are the number of unique matching drugs between each pair of libraries.
 
-From the "average number of genes per sample" column in Table 1, it is apparent that the gene set sizes for the drug target libraries (DrugBank, TargetCentral, DGIdb, DrugRepHub and DrugCentral) are too small for enrichment analysis. These libraries were expanded using PPI data from three sources: ARCHS4, hu.MAP and BioGRID. 
+```{r}
+t1 = read.csv('intermediate_files/lib_summary_matches.csv', sep='\t')
+t1 = as.data.frame(t1)
+rownames(t1) = colnames(t1)
+kable_styling(kable(t1, 'html', caption='Number of matches'))
+```
 
-To do this, gene coexpression sets were extracted from each PPI library by taking the top 100 coexpressed genes/proteins for each gene/protein. (For BioGRID, since coexpression scores are not provided, the first 100 coexpression entries for each gene/protein, from top to bottom in the original file, were kept.) Then, each gene set in the drug libraries is expanded by adding to it the coexpression set of each gene/protein it contains. For example, the gene set {CTPS, MLLT11} becomes the union of the coexpression sets for CTPS and MLLT11. (If a gene does not appear in the PPI library, the coexpression set is interpreted as just the gene itself.) The result is three new drug target libraries for each original drug target library: one for each PPI library.
+#### Expansion with coexpression or PPI data
+
+From the "average number of genes per sample" column in Table 1, it is apparent that the average gene set sizes for the drug target libraries (DrugBank, TargetCentral, DGIdb, DrugRepHub, DrugCentral, DTCommons, and STITCH) are too small for enrichment analysis. These libraries were expanded using data from three sources: ARCHS4 (a coexpression database), hu.MAP, and BioGRID (both PPI databases). 
+
+To do this, gene coexpression/interaction sets were extracted from each library by taking the top 100 coexpressed/interacting genes/proteins for each gene/protein. (For BioGRID, since interaction scores are not provided, the first 100 entries for each gene/protein, from top to bottom in the original file, were kept.) Then, each gene set in the drug libraries is expanded by adding to it the coexpression set of each gene/protein it contains. For example, the gene set {CTPS, MLLT11} becomes the union of: (1) {CTPS, MLLT11}, (2) the coexpression set for CTPS, and (3) the coexpression set for MLLT11. (If a gene does not appear in the expansion library, the coexpression set is interpreted as just the gene itself.) The result is three new drug target libraries for each original drug target library: one for each expansion library.
 
 ```{r get_top_n_for_ppi_libs, results='hide'}
 source('expand_gvms.R')
-
-input_files = c('human_correlation.rda', 'mouse_correlation.rda', 'genename_pairsWprob.txt',
-  'BIOGRID-ORGANISM-Homo_sapiens-3.4.156.tab2.txt')
-output_files = c('human_correlation_top_100.csv', 'mouse_correlation_top_100.csv', 'genename_pairsWprob_top_100.csv',
-  'BIOGRID-ORGANISM-Homo_sapiens-3.4.156.tab2_top_100.csv')
-
-for(i in 1:length(input_files)){
-  input_file = input_files[[i]]
-  output_file = output_files[[i]]
-  get_top_n_coexpressed(paste0('ppi_libs/', input_file), paste0('ppi_libs/', output_file))
-}
+ppi.coexp_files = c('ppi-coexp_libs\\human_correlation.rda', 
+                    'ppi-coexp_libs\\mouse_correlation.rda',
+                    'ppi-coexp_libs\\genename_pairsWprob.txt',
+                    'ppi-coexp_libs\\BIOGRID-ORGANISM-Homo_sapiens-3.4.160.tab2.txt')
+output_files = c('ppi-coexp_libs\\ARCHS4_human.csv', 'ppi-coexp_libs\\ARCHS4_mouse.csv', 
+                 'ppi-coexp_libs\\huMAP.csv', 'ppi-coexp_libs\\BioGRID.csv')
+lapply(ppi.coexp_files, get_top_n_coexpressed, output_files)
 ```
 
 ```{r expand_gvms, results='hide'}
-source('expand_gvms.R')
-ARCHS4 = fread('ppi_libs/human_correlation_top_100.csv', header=FALSE)
-BioGRID = fread('ppi_libs/BIOGRID-ORGANISM-Homo_sapiens-3.4.156.tab2_top_100.csv', header=FALSE)
-hu.MAP = fread('ppi_libs/genename_pairsWprob_top_100.csv', header=FALSE)
-setkey(ARCHS4, V1)
-setkey(BioGRID, V1)
-setkey(hu.MAP, V1)
-
-gvm_fnames = c('1_DrugBank_Column_5OrMoreTargets_MissingChEMBL_IDsRemoved_1-14-18','2_TargetCentral_Column_5OrMoreTargets_MissingChEMBL_IDsRemoved_1-14-18', '3_RepurposeHub_Column_5OrMoreTargets_MissingChEMBL_IDsRemoved_1-14-18', '4_DGIdb_Column_5OrMoreTargets_MissingChEMBL_IDsRemoved_1-14-18', '5b_DrugCentral_Column_5OrMoreTargets_MissingChEMBL_IDsRemoved_Human_1-14-18')
-expansion_libs = list(ARCHS4, BioGRID, hu.MAP)
-expansion_libs_names = c('ARCHS4','BioGRID','huMAP')
-
-#gvm_libnames = c('DGIdb','DrugBank','DrugCentral','RepurposeHub','TargetCentral')
-#gvms = list(DGIdb, DrugBank, DrugCentral, RepurposeHub, TargetCentral)
-
-gvm_fnames = c('drugtargetcommons_5ormoretargets')
-gvm_libnames = c('DTC'),# 'STITCH_500cutoff_noENSP', 'STITCH_600cutoff_noENSP', 
-                 #'STITCH_700cutoff_noENSP', 'STITCH_800cutoff_noENSP')
-gvms = list(DTCommons)
-
-for(i in 1:length(gvms)){
-  gvm=gvms[[i]]
-  for(j in 1:length(expansion_libs_names)){
-    expansion_lib = expansion_libs[j]
-    expansion_lib_name = expansion_libs_names[j]
-    output_fname = paste0('expanded_drug-gene_libs/', gvm_libnames[i], '_expanded_with_', expansion_lib_name, '_gvm.csv')
-    print(output_fname)
-    expand_gvm(gvm, expansion_lib, output_fname)
-  }
-}
-```
-
-Below is a comparison of how the gene set sizes changed after expansion.
-
-```{r size_comparison, include=TRUE}
-gvm_fnames_cleaned = c('DrugBank','TargetCentral','DGIdb','DrugRepHub','DrugCentral')
-
-for(i in 1:length(gvm_fnames)){
-  old_gvm_fname = gvm_fnames[[i]]
-  old_gvm = fread(paste0('original_drug-gene_libs/', old_gvm_fname, '_gvm.csv'))
-  
-  ngenes = data.frame(Original=log(colSums(old_gvm==TRUE, na.rm=TRUE), base=10)[-1])
-  
-  for(j in 1:length(expansion_libs)){
-    expansion_lib_name = expansion_libs_names[[j]]
-    new_gvm_fname = paste0('expanded_drug-gene_libs/', gvm_libnames[i], '_expanded_with_', expansion_lib_name, '_gvm.csv')
-    new_gvm = fread(new_gvm_fname, header=FALSE, showProgress=FALSE)
-    ngenes[[expansion_lib_name]] = log(colSums(new_gvm==TRUE, na.rm=TRUE), base=10)[-1]
-  }
-  ngenes[ngenes==-Inf]=0
-
-  print(ggplot(data=melt(ngenes, measure.vars=c('Original', expansion_libs_names)), aes(x=value, fill=variable)) + geom_histogram(bins=150) + facet_grid(variable~.) + labs(x='log 10 of gene set size', y='count', title=gvm_fnames_cleaned[[i]]))
-  
-}
+system('python convert_files.py expansion_libs')
 ```
 
 ## Enrichment analysis
@@ -865,6 +677,4 @@ After creating the expanded libraries, I performed enrichment analysis, using th
 
 See https://github.com/MaayanLab/Enrichment_Sandbox for an explanation of how enrichment analysis is used to measure the agreement between different gene set libraries, and how to interpret the bridge plots.
 
-Here are the results:
-
-![](figures/DRAFT_druglib_bridgeplot.png "Enrichment analysis results")
+(Still working on obtaining the results.)

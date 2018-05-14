@@ -138,3 +138,70 @@ def gvm_to_gmt(gvm_fname, gmt_fname = None, duplicates_might_exist=True):
 		wr = csv.writer(out, delimiter='\t', lineterminator='\n')
 		for r in gmt_rows:
 			wr.writerow(r)
+
+def subset_gmt_and_gvm(filter, axis, gmt_fname, new_gmt_fname, gvm_fname = None, new_gvm_fname = None):
+	'''
+	
+	'''
+	gvm = open_gvm(gvm_fname)
+	if axis == 'genes':
+		#gvm.
+		keep = filter(gvm.index.values)
+		genes_to_keep = set(gvm.index.values[keep])
+		gvm = gvm[keep]
+		gvm.to_csv(new_gvm_fname, sep='\t')
+		#gmt.
+		with open(gmt_fname, 'r') as f:
+			reader = csv.reader(f, delimiter = '\t')
+			gmt = [row[0:2] + [str(g) for g in row[2:] if g in genes_to_keep] for row in reader]
+
+		with open(new_gmt_fname, 'w', newline='') as f:
+			writer = csv.writer(f, delimiter='\t')
+			for geneset in gmt: writer.writerow(geneset)
+
+	elif axis == 'annotations':
+		print('b')
+	else: raise ValueError('axis must be genes or annotations')
+
+dtc = fread('original_drug-gene_libs/DtcDrugTargetInteractions.csv')
+dtc$activity_comment = tolower(dtc$activity_comment)
+dtc = dtc[grepl('inconclusive|not determined|not active'), dtc$activity_comment]
+dtc = subset(dtc, activity_comment 'inconclusive')
+dtc = subset(dtc, activity_comment!='not determined')
+dtc = dtc[,c('compound_id','target_id','target_pref_name','gene_names','pubmed_id')]
+
+#only need compound id and gene names
+
+lowercase the comment first
+
+
+not active|compound not obtained|could not be accurately determined due to low solubility|inactive|inconclusive|ineffective|is not a...|no action|no activity|no activity detected|no binding|no block|no change|no data|no delta cs|no detectable activity|no displacement|no effect|no effect at 1 mm|no enzyme activity|no evidence for binding|no inactivation|no incorporation|no increase|no inhibition...|no inhibitory action|no interactions|no loss in activity|no measureable reactivation observed|no reaction|no reactivation|no reproducible apparent ki data|no significant...|no substrate detected|no time-dependent inhibition...|no turn over|non valid test|none|none observed|not a substrate|not active...|not detectable|not detected|not determined|not estimated accurately|not evaluated|not examined|not measureable |not...|unstable|unspecified|unable to be measured|the compound was too insoluble to obtain reliable datas
+
+up = UniProt.ws(taxId=9606)
+hgnc_to_uniprotkb = select(up, keys=x, columns='HGNC', keytype='UNIPROTKB')
+
+ds <- parse.gctx("original_drug-gene_libs/CD_signatures_full_42809x22268.gctx", rid=1:10, cid=1:10)
+
+Below is a comparison of how the gene set sizes changed after expansion.
+
+```{r size_comparison, include=TRUE}
+gvm_fnames_cleaned = c('DrugBank','TargetCentral','DGIdb','DrugRepHub','DrugCentral')
+
+for(i in 1:length(gvm_fnames)){
+  old_gvm_fname = gvm_fnames[[i]]
+  old_gvm = fread(paste0('original_drug-gene_libs/', old_gvm_fname, '_gvm.csv'))
+  
+  ngenes = data.frame(Original=log(colSums(old_gvm==TRUE, na.rm=TRUE), base=10)[-1])
+  
+  for(j in 1:length(expansion_libs)){
+    expansion_lib_name = expansion_libs_names[[j]]
+    new_gvm_fname = paste0('expanded_drug-gene_libs/', gvm_libnames[i], '_expanded_with_', expansion_lib_name, '_gvm.csv')
+    new_gvm = fread(new_gvm_fname, header=FALSE, showProgress=FALSE)
+    ngenes[[expansion_lib_name]] = log(colSums(new_gvm==TRUE, na.rm=TRUE), base=10)[-1]
+  }
+  ngenes[ngenes==-Inf]=0
+
+  print(ggplot(data=melt(ngenes, measure.vars=c('Original', expansion_libs_names)), aes(x=value, fill=variable)) + geom_histogram(bins=150) + facet_grid(variable~.) + labs(x='log 10 of gene set size', y='count', title=gvm_fnames_cleaned[[i]]))
+  
+}
+```

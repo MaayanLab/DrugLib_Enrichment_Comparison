@@ -57,9 +57,12 @@ get_top_n_coexpressed = function(expansion_library_fname, output_fname, n=100){
 
   hu.MAP_top_n = function(fname, n){
     hu.MAP = read.table(fname)
+
     colnames(hu.MAP) = c('gene1', 'gene2', 'p')
+    hu.MAP['gene1'] = toupper(hu.MAP[['gene1']])
+    hu.MAP['gene2'] = toupper(hu.MAP[['gene2']])
     
-    #Remove rows with p-value == 0.
+    #Remove rows with probability score  == 0.
     hu.MAP = subset(hu.MAP, p > 0)
     
     #Get a vector with all the genes in this expansion library...
@@ -100,6 +103,8 @@ get_top_n_coexpressed = function(expansion_library_fname, output_fname, n=100){
     biogrid = fread(fname)
     biogrid = biogrid[Throughput == 'Low Throughput', c('Official Symbol Interactor A','Official Symbol Interactor B')]
     colnames(biogrid) = c('gene1','gene2')
+    biogrid[,'gene1'] = toupper(unlist(biogrid[,'gene1']))
+    biogrid[,'gene2'] = toupper(unlist(biogrid[,'gene2']))
 
     #Get a vector with all the genes in this expansion library...
     genes = union(biogrid[['gene1']], biogrid[['gene2']])
@@ -138,16 +143,18 @@ get_top_n_coexpressed = function(expansion_library_fname, output_fname, n=100){
     return(top_n)
   }
 
-  if(expansion_library_fname %in% c('ppi_libs\\human_correlation.rda', 'ppi_libs\\mouse_correlation.rda')){
+  if(expansion_library_fname %in% c('ppi-coexp_libs\\human_correlation.rda', 'ppi-coexp_libs\\mouse_correlation.rda')){
     top_n = ARCHS4_top_n(expansion_library_fname, n)
-  } else if(expansion_library_fname == 'ppi_libs\\genename_pairsWprob.txt') {
+  } else if(expansion_library_fname == 'ppi-coexp_libs\\genename_pairsWprob.txt') {
     top_n = hu.MAP_top_n(expansion_library_fname, n)
-  } else if(expansion_library_fname == 'ppi_libs\\BIOGRID-ORGANISM-Homo_sapiens-3.4.156.tab2.txt'){
+  } else if(expansion_library_fname == 'ppi-coexp_libs\\BIOGRID-ORGANISM-Homo_sapiens-3.4.160.tab2.txt'){
     top_n = BioGRID_top_n(expansion_library_fname, n)
-  }
+  } else { stop(c('Unknown expansion library file name ', expansion_library_fname)) }
+
+  colnames(top_n) = c('gene', paste0('int-coexp_', as.character(1:n)))
 
   #Save the coexpression data.frame to file and return.
-  write.table(top_n, output_fname, row.names=FALSE, sep='\t')
+  write.table(top_n, output_fname, sep = '\t', quote = FALSE, row.names = FALSE)
   return(top_n)
   
 }

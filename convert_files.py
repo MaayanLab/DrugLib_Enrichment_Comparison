@@ -53,16 +53,16 @@ elif lib_to_convert == 'STITCH':
 
 		#5 or more targets.
 		gmt_fname = 'gmts/' + prefix + 'cutoff_5OrMoreTargets_gmt.csv'
-		get_gmt_and_gvm(remove_few_targets(gslist), gmt_fname)
+		get_gmt_and_gvm(remove_small_genesets(gslist), gmt_fname)
 		#5 or more targets and no ENSP.
 		gmt_fname = 'gmts/' + prefix + 'cutoff_5OrMoreTargets_noENSP_gmt.csv'
-		get_gmt_and_gvm(remove_few_targets(gslist_noENSP), gmt_fname)
+		get_gmt_and_gvm(remove_small_genesets(gslist_noENSP), gmt_fname)
 
 elif lib_to_convert == 'DTCommons':
 	gslist = get_genesetlist(
 		get_interactionlist('intermediate_files/DTCommons_interactionlist.txt'), item_type='ilist')
 	convert_genesetlist(gslist, to='gmt', output_fname='gmts/DTCommons_gmt.csv')
-	get_gmt_and_gvm(remove_few_targets(gslist), 'gmts/DTCommons_5OrMoreTargets_gmt.csv')
+	get_gmt_and_gvm(remove_small_genesets(gslist), 'gmts/DTCommons_5OrMoreTargets_gmt.csv')
 
 elif lib_to_convert == 'pertlibs':
 	CREEDS_up = get_genesetlist(
@@ -91,5 +91,22 @@ elif lib_to_convert == 'LINCS2':
 	if not all(LINCS.index.values == LINCS_identifiers['sample']): raise ValueError('Mismatched annotations.')
 	LINCS.index = LINCS_identifiers['gvm']
 	get_gmt_and_gvm(LINCS, 'gmts/LINCS_gmt.csv')
+
+elif lib_to_convert == 'expanded_libs':
+	gvm_fnames = [fname for fname in os.listdir('gvms') if 'gvm.csv' in fname]
+	gvm_fnames = [fname for fname in gvm_fnames if (('CREEDS' not in fname) and ('LINCS' not in fname))]
+	expansion_fnames = ['ARCHS4_human_top_100.csv', 'BioGRID_top_100.csv', 'huMAP_top_100.csv']
+
+	for gvm_fname in gvm_fnames:
+		gvm = open_gvm('gvms//' + gvm_fname)
+		for expansion_fname in expansion_fnames:
+			expansion = pd.read_csv('ppi-coexp_libs//' + expansion_fname, sep='\t')
+			expansion = expansion.set_index('gene').transpose()
+			output_fname = 'gvms//expanded//' + gvm_fname.partition('_gvm.')[0] + '_expanded_with_' + expansion_fname.partition('_top')[0] + '_gvm.csv'
+			print(output_fname)
+			#expand_gvm(gvm, expansion, output_fname)
+			#convert_genesetlist(get_genesetlist(output_fname, 'gvm_fname'), to='gmt', output_fname=output_fname.replace('gvm','gmt'))
+			
+			gslist = get_genesetlist(gvm, 'gvm')
 
 else: raise ValueError('Invalid library to convert argument.')

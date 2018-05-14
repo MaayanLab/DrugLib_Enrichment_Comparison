@@ -12,60 +12,9 @@ from sklearn.svm import LinearSVC
 from xgboost import XGBClassifier
 from random import uniform as rand
 import scipy.stats as stats
+from convert_files_scripts import open_gvm
 #from get_classifiers import get_classifiers #REMOVED. the script was put in the old or unused scripts folder.
 import h5py
-
-def list_of_drug_libs_fnames():
-	'''Generates and returns a tuple of drug library file names.'''
-	expanded_drug_libs = (
-		'stitch_500cutoff_noENSP',
-		'stitch_600cutoff_noENSP',
-		'stitch_700cutoff_noENSP',
-		'stitch_800cutoff_noENSP',
-		'drugtargetcommons_5ormoretargets')
-	ppi_libs = (
-		'huMAP',
-		'BioGRID',
-		'ARCHS4')
-
-	non_expanded_drug_libs = (
-		'CREEDS',
-		'LINCS_L1000_Chem_Pert')
-
-	drug_libs = tuple(
-		'expanded_drug-gene_libs\\' + edl + '_expanded_with_' + ppi + '_gvm.csv' 
-		for edl in expanded_drug_libs for ppi in ppi_libs) + tuple(
-		'original_drug-gene_libs\\' + drug_lib + '_pcids_gvm.csv' 
-		for drug_lib in non_expanded_drug_libs)
-
-	drug_libs2 = tuple(
-		'original_drug-gene_libs\\' + edl + '_gvm.csv' 
-		for edl in expanded_drug_libs) + tuple(
-		'original_drug-gene_libs\\' + drug_lib + '_pcids_gvm.csv' 
-		for drug_lib in non_expanded_drug_libs)
-
-	return drug_libs2
-
-def open_gvm(fname, already_have_LINCS=True):
-	print('opening', fname)
-	#Read in chunks if the file is too big.
-	if 'interactions' in fname or 'LINCS' in fname:
-		file_chunks = pd.read_csv(fname, keep_default_na = False, sep='\t', 
-			low_memory=False, encoding='Latin-1', index_col=0, chunksize=1000)
-		gvm = pd.concat(file_chunks)
-		gvm = gvm.replace(to_replace='',value=False).astype(bool)
-	else:
-		gvm = pd.read_csv(fname, keep_default_na = False, na_values=('',), sep='\t', 
-			low_memory=False, encoding='Latin-1', index_col=0)
-		##Workaroud from bug which raised error if keep_default_na=False and index_col=0 are both used.
-		#gvm = pd.read_csv(fname, keep_default_na = False, na_values=('',), sep='\t', low_memory=False, encoding='Latin-1')
-		#lib_name = fname.partition('_gvm.csv')[0]
-		#gvm.set_index(gvm[lib_name], inplace=True)
-		#gvm.drop([lib_name], axis=1, inplace=True)
-
-		#Convert blank cells to False, and ensure bool type. 
-		gvm = gvm.fillna(False).astype(bool)
-	return gvm
 
 def clean(annot):
 	'''Extracts drug synonym from annotation.'''
@@ -126,8 +75,9 @@ def enrichment(pair):
 		(input library fname, search library fname)
 	'''
 	ilib_fname, slib_fname = pair
-	ilib_name, slib_name = (fname.rpartition('\\')[2].partition('_gvm')[0] for fname in pair)
+	ilib_name, slib_name = (fname.rpartition('/')[2].partition('_gvm')[0] for fname in pair)
 	prefix = 'input_' + ilib_name + '_into_' + slib_name
+	print(prefix)
 
 	script_dir = os.path.dirname(os.path.abspath(__file__))
 	results_dir = os.path.join(script_dir, 'results\\')
@@ -210,20 +160,21 @@ def enrichment(pair):
 	return
 
 if __name__ == '__main__':
+	gvm_fnames = ['gvms//' + fname for fname in os.listdir('gvms') if 'gvm.csv' in fname]
+	gvm_fnames = gvm_fnames + ['gvms//expanded//' + fname for fname in os.listdir('gvms//expanded') 
+		if 'gvm.csv' in fname]
+	gvm_fnames = [i for i in gvm_fnames if ('STITCH' not in i and 'DTCommons' not in i)]
+	print(gvm_fnames)
 
-	libs = list_of_drug_libs_fnames()
-	target_libs = libs[:-2]
-	perturb_libs = libs[-2:]
+	target_libs = [fname for fname in gvm_fnames if ('CREEDS' not in fname and 'LINCS' not in fname)]
+	perturb_libs = [fname for fname in gvm_fnames if ('CREEDS' in fname or 'LINCS' in fname)]
 
-	#fwd_pairs = [(a,b) for a in target_libs for b in perturb_libs]
-	#bck_pairs = [(a,b) for a in perturb_libs for b in target_libs]
-
-	fwd_pairs = [(a,b) for a in target_libs for b in perturb_libs]
-	bck_pairs = [(b,a) for a in target_libs for b in perturb_libs]
+	fwd_pairs = [(target,perturb) for target in target_libs for perturb in perturb_libs]
+	bck_pairs = [(perturb,target) for target in target_libs for perturb in perturb_libs]
 
 	if not os.path.isdir('results'): os.makedirs('results')
 
 	#Iterate over each gmt pair.
 	lib_df_pairs = fwd_pairs + bck_pairs
 	#Parallel(n_jobs=1, verbose=0)(delayed(enrichment)(pair) for pair in lib_df_pairs)
-	for pair in reversed(lib_df_pairs): enrichment(pair)
+	for pair in lib_df_pairs: enrichment(pair)
