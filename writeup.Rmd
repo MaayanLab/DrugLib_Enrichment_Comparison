@@ -632,7 +632,7 @@ t1 = read.csv('intermediate_files/lib_summary_table.csv', sep='\t')
 t1 = as.data.frame(t1)
 links = t1$link
 t1 = t1[-match('link', names(t1))]
-colnames(t1) = c('Name', 'Library Type', 'Description','Number of samples', 'Number of unique drugs', 'Average number of genes per annotation', 'Data preprocessing')
+colnames(t1) = c('Name', 'Library Type', 'Description','Number of samples', 'Number of unique drugs', 'Number of genes', 'Average number of genes per annotation', 'Data preprocessing')
 
 t1[,'Name'] = paste0("[", as.character(t1[,'Name']), "](http://", links, ")")
 
