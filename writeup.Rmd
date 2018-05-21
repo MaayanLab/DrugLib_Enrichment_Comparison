@@ -159,7 +159,7 @@ for(i in 1:length(fivedtlibs_fnames)){
   multimapped_rows = lib[lib$DrugID_PC %in% multimapped, c('DrugName', 'DrugID_ChEMBL','DrugID_PC')]
   multimapped_rows = unique(multimapped_rows[order(multimapped_rows$DrugID_PC)])
   if(nrow(multimapped_rows)>1){
-    print(knitr::kable(multimapped_rows, caption=fivedtlibs_libnames[[i]], 'html') %>% kable_styling())
+    knitr::kable(multimapped_rows, caption=fivedtlibs_libnames[[i]], 'html') %>% kable_styling()
   }
   
   write_table(lib, fname=gsub('original_drug-gene_libs','intermediate_files', 
@@ -187,7 +187,7 @@ The chemical names are given as PubChem CIDs, so I kept them as is.
 The proteins are given as ENSP IDs, so I converted as many as possible to HGNC format using the biomaRt R package. 
 
 ```{r eval = TRUE}
-STITCH = fread('original_drug-gene_libs/9606.protein_chemical.links.v5.0.tsv')
+STITCH = fread('original_drug-gene_libs/9606.protein_chemical.links.v5.0.tsv', showProgress = FALSE)
 
 #Ignore the distinction between single and multiple compounds.
 STITCH$chemical = gsub('CIDs','pc',STITCH$chemical)
@@ -370,7 +370,7 @@ if(file.exists(PCID_fname)){
 }
 ```
 
-I was not able to convert ```{r length(unique(names(PCIDs)[is.na(PCIDs)]))}``` out of ```{r length(unique(names(PCIDs)))}``` genes.
+I was not able to convert ```r length(unique(names(PCIDs)[is.na(PCIDs)]))``` out of ```r length(unique(names(PCIDs)))``` genes.
 
 ```{r}
 rm(activity_comments, uniprot_to_hgnc, up, no_activity, uncertain, PCID_fname, unique_target_ids)
@@ -418,7 +418,7 @@ The next step was to obtain the PubChem IDs.
 ```{r CREEDS_clean_sample_name}
 CREEDS.annotations.fname = 'intermediate_files/CREEDS_original_annotations.csv'
 #Extract drug names and the DrugBank IDs. 
-CREEDS.samples = fread(CREEDS.annotations.fname, sep='\n')$annotations
+CREEDS.samples = fread(CREEDS.annotations.fname, sep='\n', showProgress=FALSE)$annotations
 CREEDS.drugs = CREEDS.samples
 CREEDS.DB_ID = vector(mode='character', length=length(CREEDS.drugs))
 for(i in 1:length(CREEDS.drugs)){
@@ -608,7 +608,7 @@ write_table(LINCS_identifiers, 'synonyms/LINCS_identifiers.csv', na='')
 ```
 
 ```{r eval=TRUE}
-LINCS_identifiers = read_table('synonyms/LINCS_identifiers.csv', showProgress = FALSE)
+LINCS_identifiers = read_table('synonyms/LINCS_identifiers.csv')
 ```
 
 Out of `r length(LINCS_identifiers$PCIDs)` unique drugs, I was unable to obtain `r sum(is.na(LINCS_identifiers$PCIDs))` PCIDs. 
@@ -627,7 +627,7 @@ rm(list = setdiff(ls(), lsf.str()))
 
 Here is a table summarizing each drug library.
 
-```{r table_1, include=TRUE}
+```{r table_1, eval=TRUE}
 t1 = read.csv('intermediate_files/lib_summary_table.csv', sep='\t')
 t1 = as.data.frame(t1)
 links = t1$link
@@ -643,7 +643,7 @@ kable(t1, 'html', caption='Table 1: Dataset summary') %>%
 
 Here are the number of unique matching drugs between each pair of libraries.
 
-```{r}
+```{r eval=TRUE}
 t1 = read.csv('intermediate_files/lib_summary_matches.csv', sep='\t')
 t1 = as.data.frame(t1)
 rownames(t1) = colnames(t1)

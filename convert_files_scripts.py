@@ -154,7 +154,7 @@ def get_genesetlist(item, item_type):
 		genes = np.asarray(gvm.index.values)
 		annotations = gvm.columns.values
 		masks = [gvm[annot] == True for annot in annotations]
-		d = {annot:sorted(set(genes[mask])) for (annot, mask) in zip(annotations,masks)}
+		d = {annot:sorted(set(genes[list(mask)])) for (annot, mask) in zip(annotations,masks)}
 		return pd.Series(d).sort_index()
 
 	elif item_type in ['interactionlist', 'ilist']: 

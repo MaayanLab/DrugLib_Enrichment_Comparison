@@ -205,3 +205,20 @@ for(i in 1:length(gvm_fnames)){
   
 }
 ```
+
+Here is a summary of how each of the libraries changed.
+
+```{r summarize_expanded_gvms}
+libs = c('DrugBank_5OrMoreTargets', 'TargetCentral_5OrMoreTargets', 'DGIdb_5OrMoreTargets', 
+	'RepurposeHub_5OrMoreTargets', 'DrugCentral_5OrMoreTargets', 'DTCommons_5OrMoreTargets',
+	'STITCH_500cutoff_5OrMoreTargets_noENSP', 'STITCH_600cutoff_5OrMoreTargets_noENSP', 
+	'STITCH_700cutoff_5OrMoreTargets_noENSP', 'STITCH_800cutoff_5OrMoreTargets_noENSP', 'CREEDS',
+	'LINCS')
+
+for(lib in libs){
+  geneset_sizes = read.csv('intermediate_files/lib_summary_geneset_sizes_' + lib + '.csv')
+  ggplot(gather(geneset_sizes), aes(value)) + 
+    geom_histogram(bins = 50) + 
+    facet_wrap(~key, scales = 'free_x')
+}
+```

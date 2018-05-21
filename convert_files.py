@@ -93,7 +93,7 @@ elif lib_to_convert == 'LINCS2':
 	get_gmt_and_gvm(LINCS, 'gmts/LINCS_gmt.csv')
 
 elif lib_to_convert == 'expanded_libs':
-	gvm_fnames = [fname for fname in os.listdir('gvms') if 'gvm.csv' in fname]
+	gvm_fnames = [fname for fname in os.listdir('gvms') if 'gvm.' in fname]
 	gvm_fnames = [fname for fname in gvm_fnames if (('CREEDS' not in fname) and ('LINCS' not in fname))]
 	expansion_fnames = ['ARCHS4_human_top_100.csv', 'BioGRID_top_100.csv', 'huMAP_top_100.csv']
 
@@ -103,10 +103,9 @@ elif lib_to_convert == 'expanded_libs':
 			expansion = pd.read_csv('ppi-coexp_libs//' + expansion_fname, sep='\t')
 			expansion = expansion.set_index('gene').transpose()
 			output_fname = 'gvms//expanded//' + gvm_fname.partition('_gvm.')[0] + '_expanded_with_' + expansion_fname.partition('_top')[0] + '_gvm.csv'
+			if 'csv' not in gvm_fname: output_fname = output_fname.replace('.csv','.pkl')
 			print(output_fname)
-			#expand_gvm(gvm, expansion, output_fname)
-			#convert_genesetlist(get_genesetlist(output_fname, 'gvm_fname'), to='gmt', output_fname=output_fname.replace('gvm','gmt'))
-			
-			gslist = get_genesetlist(gvm, 'gvm')
+			expand_gvm(gvm, expansion, output_fname)
+			convert_genesetlist(get_genesetlist(output_fname, 'gvm_fname'), to='gmt', output_fname=output_fname.replace('gvm','gmt'))
 
 else: raise ValueError('Invalid library to convert argument.')

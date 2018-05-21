@@ -3,7 +3,7 @@ import numpy as np
 import pandas as pd
 from convert_files_scripts import *
 
-fnames = ['DrugBank_5OrMoreTargets', 'TargetCentral_5OrMoreTargets', 'DGIdb_5OrMoreTargets', 
+libs = ['DrugBank_5OrMoreTargets', 'TargetCentral_5OrMoreTargets', 'DGIdb_5OrMoreTargets', 
 	'RepurposeHub_5OrMoreTargets', 'DrugCentral_5OrMoreTargets', 'DTCommons_5OrMoreTargets',
 	'STITCH_500cutoff_5OrMoreTargets_noENSP', 'STITCH_600cutoff_5OrMoreTargets_noENSP', 
 	'STITCH_700cutoff_5OrMoreTargets_noENSP', 'STITCH_800cutoff_5OrMoreTargets_noENSP', 'CREEDS', 'LINCS']
@@ -15,7 +15,7 @@ names = ['DrugBank','Target Central Resource Database', 'Drug Gene Interaction D
 	'CRowd Extracted Expression of Differential Signatures',
 	'Library of Integrated Network-Based Cellular Signatures']
 
-abbrevs = [i.replace('_5OrMoreTargets','').replace('_noENSP','') for i in fnames]
+abbrevs = [i.replace('_5OrMoreTargets','').replace('_noENSP','') for i in libs]
 
 link = ['drugbank.ca', 'juniper.health.unm.edu/tcrd', 'dgidb.org', 'clue.io/repurposing',
 	'drugcentral.org', 'drugtargetcommons.fimm.fi', 'STITCH.embl.de', 'STITCH.embl.de', 
@@ -47,10 +47,10 @@ preprocessing = ['Edgelist. Removed samples missing the ChEMBL_ID, or with less 
 
 all_drugs = pd.Series(index=abbrevs)
 
-for i in range(len(fnames)):
-	fname = fnames[i]
-	print(fname)
-	fname = 'gvms/' + fname + '_gvm.csv'
+for i in range(len(libs)):
+	lib = libs[i]
+	print(lib)
+	fname = 'gvms/' + lib + '_gvm.csv'
 	if not os.path.isfile(fname): fname = fname.replace('.csv','.pkl')
 	if not os.path.isfile(fname): raise ValueError('Unknown file', fname)
 	gvm = open_gvm(fname)
@@ -71,3 +71,20 @@ for a in abbrevs:
 	for b in abbrevs:
 		matches.at[a,b] = len(all_drugs[a].intersection(all_drugs[b]))
 matches.to_csv('intermediate_files/lib_summary_matches.csv', sep='\t', index=False)
+
+ppi_coexp_libs = ['Original','ARCHS4_human','BioGRID','huMAP']
+for lib in libs:
+	if lib == 'CREEDS' or lib == 'LINCS': continue
+	geneset_size_fname = 'intermediate_files/lib_summary_' + lib + '_geneset_sizes.csv'
+	for ppi_coexp_lib in ppi_coexp_libs:
+		if ppi_coexp_lib == 'Original': 
+			fname = 'gvms/' + lib + '_gvm.csv'
+		else: fname = 'gvms/expanded/' + lib + '_expanded_with_' + ppi_coexp_lib + '_gvm.csv'
+		if not os.path.isfile(fname): fname = fname.replace('.csv','.pkl')
+		if not os.path.isfile(fname): raise ValueError('Unknown file', fname)
+		gvm = open_gvm(fname)
+		if ppi_coexp_lib == 'Original': geneset_sizes = pd.DataFrame(index = ppi_coexp_libs, columns = gvm.columns)
+		if type(gvm) == pd.core.sparse.frame.SparseDataFrame: geneset_sizes.loc[ppi_coexp_lib,:] = gvm.to_dense().sum()
+		else: geneset_sizes.loc[ppi_coexp_lib,:] = gvm.sum()
+	geneset_sizes.to_csv('intermediate_files/lib_summary_geneset_sizes_' + lib + '.csv', sep='\t', index=False)
+

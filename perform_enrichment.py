@@ -21,6 +21,27 @@ def clean(annot):
 	#This handles duplicate column names.
 	return str(annot).partition('.')[0]
 
+def relabel_duplicates(l):
+	def relabel(old_label, count):
+		return old_label + '.' + str(count)
+
+	l = list(l)
+	counts = {}
+	for elem in l:
+		if elem in counts: counts[elem] += 1
+		else: counts[elem] = 1
+	duplicates = [k for k in counts.keys() if counts[k] > 1]
+
+	counts = {}
+	for i in range(len(l)):
+		elem = l[i]
+		if elem in duplicates:
+			if elem in counts: counts[elem] += 1
+			else: counts[elem] = 1
+			l[i] = relabel(elem, counts[elem])
+			
+	return(l)
+
 def get_common_ilib_annots(ilib_name, ilib_annots, slib_name, slib_annots):
 	'''Return the annotations in the input library which have matches in the search library.'''
 	cleaned_ilib_annots = {clean(annot) for annot in ilib_annots}
@@ -106,8 +127,8 @@ def enrichment(pair):
 	print('Beginning enrichment analysis inputting', ilib_name, 'into', slib_name)
 	ilib_gvm, slib_gvm = (open_gvm(fname) for fname in pair)
 
-	#Get the algorithms with which to perform enrichment. 
-	enrichment_algorithms = get_enrichment_algorithms(ilib_gvm, ilib_name, slib_gvm, slib_name)
+	ilib_gvm.columns = relabel_duplicates(ilib_gvm.columns)
+	slib_gvm.columns = relabel_duplicates(slib_gvm.columns)
 
 	#Get the input library annotations whose corresponding tf/drug also corresponds to 
 	#	at least one search library annotation.
@@ -117,6 +138,9 @@ def enrichment(pair):
 	print(str(len(common_ilib_annots)), 'overlaps')
 
 	ilib_gvm = ilib_gvm.loc[:,common_ilib_annots]
+
+	#Get the algorithms with which to perform enrichment. 
+	enrichment_algorithms = get_enrichment_algorithms(ilib_gvm, ilib_name, slib_gvm, slib_name)
 
 	#Iterate over each algorithm (i.e. each column).
 	for algorithm_name in enrichment_algorithms:
@@ -144,7 +168,11 @@ def enrichment(pair):
 		score_dfs = [pd.DataFrame() for n in range(len(output_fnames))]
 		for annot in common_ilib_annots:
 			print(algorithm_name, annot) #for checking progress.
-			input_geneset = ilib_gvm.index[ilib_gvm[annot]]
+
+			if type(ilib_gvm) == pd.core.sparse.frame.SparseDataFrame: 
+				vec = ilib_gvm[annot].to_dense()
+			else: vec = ilib_gvm[annot]
+			input_geneset = ilib_gvm.index[vec]
 			#Get scores for all the slib annotations.
 			result = algorithm['func'](input_geneset, *algorithm['params'])
 			for x in range(len(score_dfs)): 
@@ -160,10 +188,9 @@ def enrichment(pair):
 	return
 
 if __name__ == '__main__':
-	gvm_fnames = ['gvms//' + fname for fname in os.listdir('gvms') if 'gvm.csv' in fname]
+	gvm_fnames = ['gvms//' + fname for fname in os.listdir('gvms') if 'gvm.' in fname]
 	gvm_fnames = gvm_fnames + ['gvms//expanded//' + fname for fname in os.listdir('gvms//expanded') 
 		if 'gvm.csv' in fname]
-	gvm_fnames = [i for i in gvm_fnames if ('STITCH' not in i and 'DTCommons' not in i)]
 	print(gvm_fnames)
 
 	target_libs = [fname for fname in gvm_fnames if ('CREEDS' not in fname and 'LINCS' not in fname)]
