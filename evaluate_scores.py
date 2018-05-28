@@ -2,40 +2,28 @@ import os
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
-from perform_enrichment import clean, list_of_drug_libs_fnames
+from perform_enrichment import clean
 from sklearn.metrics import auc
 from joblib import Parallel, delayed
 from collections import Counter
 
 GET_DTARGET_LIBNAME = {
-	'1_DrugBank_Column_5OrMoreTargets_MissingChEMBL_IDsRemoved_1-14-18':'DrugBank',
-	'2_TargetCentral_Column_5OrMoreTargets_MissingChEMBL_IDsRemoved_1-14-18':'TargetCentral', 
-	'3_RepurposeHub_Column_5OrMoreTargets_MissingChEMBL_IDsRemoved_1-14-18':'RepurposeHub', 
-	'4_DGIdb_Column_5OrMoreTargets_MissingChEMBL_IDsRemoved_1-14-18':'DGIdb', 
-	'5b_DrugCentral_Column_5OrMoreTargets_MissingChEMBL_IDsRemoved_Human_1-14-18':'DrugCentral',
-	'3_EdgeLists_Union_10-05-17':'DBTC Union',
-	'4_EdgeLists_Intersection_10-05-17':'DBTC Intersect'
+	'DrugBank_5OrMoreTargets':'DrugBank',
+	'TargetCentral_5OrMoreTargets':'TargetCentral', 
+	'RepurposeHub_5OrMoreTargets':'RepurposeHub', 
+	'DGIdb_5OrMoreTargets':'DGIdb', 
+	'DrugCentral_5OrMoreTargets':'DrugCentral',
+	'STITCH_500Cutoff_5OrMoreTargets_noENSP':'STITCH_500Cutoff',
+	'STITCH_600Cutoff_5OrMoreTargets_noENSP':'STITCH_600Cutoff',
+	'STITCH_700Cutoff_5OrMoreTargets_noENSP':'STITCH_700Cutoff',
+	'STITCH_800Cutoff_5OrMoreTargets_noENSP':'STITCH_800Cutoff',
+	'DTCommons_5OrMoreTargets':'DTCommons',
 	}
 
 def open_csv(fname):
 	return pd.read_csv(fname, index_col=0, sep='\t', low_memory=False, encoding='Latin-1')
 
-def shorten_libnames(str_with_libnames):
-	str_with_libnames = str_with_libnames.replace(
-		'Single_Gene_Perturbations_from_GEO_up', 'CREEDS_sep').replace(
-		'ENCODE_TF_ChIP-seq_2015', 'ENCODE').replace(
-		'_2016','').replace(
-		'repurposing_drugs_20170327', 'DrugRepHub').replace(
-		'interactions', 'DGIdb').replace(
-		'1_DrugBank_Edgelist_10-05-17','DrugBank').replace(
-		'2_TargetCentral_Edgelist_10-05-17','TargetCentral').replace(
-		'3_Edgelists_Union_10-05-17','DBTC_Union').replace(
-		'4_EdgeLists_Intersection_10-05-17','DBTC_Intersect').replace(
-		'CREEDS_Drugs','CREEDS').replace(
-		'DrugMatrix_Union','DrugMatrix')
-	return str_with_libnames
-
-def plot_curve(df, alg_info, prefix):
+def plot_curve(df, alg_info):
 	'''
 	This helper function plots a single bridge plot curve.
 	df : pandas.DataFrame
@@ -46,7 +34,6 @@ def plot_curve(df, alg_info, prefix):
 		Prefix of the file for the algorithm result being plotted, e.g. "input_ChEA_2016_into_CREEDS_tfs". 
 	'''
 	print('plotting')
-	prefix = shorten_libnames(prefix)
 	algorithm = alg_info.partition(',')[0] 
 	#Scale the x_vals here.
 	x_vals = [a/len(df[algorithm + ',x']) for a in df[algorithm + ',x']]
@@ -58,10 +45,6 @@ def plot_curve(df, alg_info, prefix):
 	linewidth=2
 	#==========
 
-	#if algorithm in color_dict:
-	#	plt.plot(x_vals, y_vals, label=prefix + algorithm + '    ' + 'AUC: ' 
-	#		+ str(np.round(auc(x_vals, y_vals), 4)), color=color_dict[algorithm], linewidth=linewidth)
-	#else: 
 	print('plotting', algorithm)
 	plt.plot(x_vals, y_vals, label=str(np.round(auc(x_vals, y_vals), 4)), linewidth=linewidth)
 
@@ -132,8 +115,10 @@ def pairwise_plots(pair):
 			coords[x] = coords[x - 1] + matches[x] / vert_scale - down_const
 		return coords.index.values, coords.values, matches, coords
 
-	prefix = 'input_' + pair['i'] + '_into_' + pair['s']
+	ilib_fname, slib_fname = pair
+	prefix = 'input_' + ilib_fname + '_into_' + slib_fname
 	rank_fname = 'rankings_' + prefix + '.csv'
+	print(rank_fname)
 	
 	#all_coords will the contain all the different methods' bridge plot coordinates for this library pair.
 
@@ -179,8 +164,8 @@ def pairwise_plots(pair):
 			algorithm_name, axis = (alg_info.partition(',')[0], alg_info.partition(',')[2])
 			#Filter for only certain enrichment methods here using the below if statement.
 			if axis == 'x':
-				plot_curve(all_coords, alg_info, '')
-		plt.title(pair['i'].replace('_up', '_up/dn') + ' to ' + pair['s'].replace('_up', '_up/dn') + ' Bridge Plot')
+				plot_curve(all_coords, alg_info)
+		plt.title(ilib_fname.replace('_up', '_up/dn') + ' to ' + slib_fname.replace('_up', '_up/dn') + ' Bridge Plot')
 		plt.xlabel('Rank')
 		#Uncomment the line below to view only the first few ranks.
 		#plt.gca().set_xlim([0,.10])
@@ -189,20 +174,23 @@ def pairwise_plots(pair):
 	return
 
 def druglib_target_comparison(top_pct=None):
-
-	dtarget_libs = ('1_DrugBank_Column_5OrMoreTargets_MissingChEMBL_IDsRemoved_1-14-18',
-		'2_TargetCentral_Column_5OrMoreTargets_MissingChEMBL_IDsRemoved_1-14-18', 
-		'3_RepurposeHub_Column_5OrMoreTargets_MissingChEMBL_IDsRemoved_1-14-18', 
-		'4_DGIdb_Column_5OrMoreTargets_MissingChEMBL_IDsRemoved_1-14-18', 
-		'5b_DrugCentral_Column_5OrMoreTargets_MissingChEMBL_IDsRemoved_Human_1-14-18',
-		#'3_EdgeLists_Union_10-05-17',
-		#'4_EdgeLists_Intersection_10-05-17'
+	dtarget_libs = (
+		'DrugBank_5OrMoreTargets',
+		'TargetCentral_5OrMoreTargets', 
+		'RepurposeHub_5OrMoreTargets', 
+		'DGIdb_5OrMoreTargets', 
+		'DrugCentral_5OrMoreTargets',
+		'STITCH_800Cutoff_5OrMoreTargets_noENSP',
+		'STITCH_700Cutoff_5OrMoreTargets_noENSP',
+		'STITCH_600Cutoff_5OrMoreTargets_noENSP',
+		'STITCH_500Cutoff_5OrMoreTargets_noENSP',
+		'DTCommons_5OrMoreTargets'
 		)
 	ppi_libs = (
-		'hu.MAP',
+		'huMAP',
 		'BioGRID',
-		'ARCHS4')
-	dperturb_libs = ('CREEDS_Drugs', 'CREEDS_Drugs', 'LINCS_L1000_Chem_Pert', 'LINCS_L1000_Chem_Pert')
+		'ARCHS4_human')
+	dperturb_libs = ('CREEDS', 'CREEDS', 'LINCS', 'LINCS')
 	dperturb_lib_titles = ('CREEDS as search', 'CREEDS as input', 'LINCS as search', 'LINCS as input')
 
 	f, axarr = plt.subplots(nrows=len(ppi_libs),ncols=len(dperturb_libs), figsize=(30,20))
@@ -230,6 +218,7 @@ def druglib_target_comparison(top_pct=None):
 				else:
 					prefix = 'input_' + dperturb_lib + '_into_' + dtarget_lib + '_expanded_with_' + ppi_lib
 				rank_fname = 'rankings_' + prefix + '.csv'
+				print(rank_fname)
 				if os.path.isfile(rank_fname): 
 					all_coords = open_csv(rank_fname)
 					for alg_info in all_coords:
@@ -265,28 +254,31 @@ def druglib_target_comparison(top_pct=None):
 	#Title the plot.
 	if top_pct is not None: plt.suptitle('Drug library bridge plots, top ' + 
 		str(top_pct).partition('.')[2] + ' percentile of ranks', fontsize=35)
-	else: plt.suptitle('Drug library bride plots', fontsize=35)
+	else: plt.suptitle('Drug library bridge plots', fontsize=35)
 	#Save and display results.
-	if top_pct is None: plt.savefig('DRAFT_druglib_bridgeplot.png',bbox_inches='tight')
-	else: plt.savefig('DRAFT_druglib_bridgeplot_' + str(top_pct).partition('.')[2] + 'th_pctile.png', bbox_inches='tight')
+	if top_pct is None: plt.savefig('druglib_bridgeplot.png',bbox_inches='tight')
+	else: plt.savefig('druglib_bridgeplot_' + str(top_pct).partition('.')[2] + 'th_pctile.png', bbox_inches='tight')
 	plt.show()
 	return 
 
 def druglib_target_just_one_column(column, top_pct=None):
-
-	dtarget_libs = ('1_DrugBank_Column_5OrMoreTargets_MissingChEMBL_IDsRemoved_1-14-18',
-		'2_TargetCentral_Column_5OrMoreTargets_MissingChEMBL_IDsRemoved_1-14-18', 
-		'3_RepurposeHub_Column_5OrMoreTargets_MissingChEMBL_IDsRemoved_1-14-18', 
-		'4_DGIdb_Column_5OrMoreTargets_MissingChEMBL_IDsRemoved_1-14-18', 
-		'5b_DrugCentral_Column_5OrMoreTargets_MissingChEMBL_IDsRemoved_Human_1-14-18',
-		#'3_EdgeLists_Union_10-05-17',
-		#'4_EdgeLists_Intersection_10-05-17'
+	dtarget_libs = (
+		'DrugBank_5OrMoreTargets',
+		'TargetCentral_5OrMoreTargets', 
+		'RepurposeHub_5OrMoreTargets', 
+		'DGIdb_5OrMoreTargets', 
+		'DrugCentral_5OrMoreTargets',
+		'STITCH_500Cutoff_5OrMoreTargets_noENSP',
+		'STITCH_600Cutoff_5OrMoreTargets_noENSP',
+		'STITCH_700Cutoff_5OrMoreTargets_noENSP',
+		'STITCH_800Cutoff_5OrMoreTargets_noENSP',
+		'DTCommons_5OrMoreTargets'
 		)
 	ppi_libs = (
-		'hu.MAP',
+		'huMAP',
 		'BioGRID',
 		'ARCHS4')
-	dperturb_lib = 'LINCS_L1000_Chem_Pert'
+	dperturb_lib = 'LINCS'
 	dperturb_lib_title = column
 	if 'as input' in dperturb_lib_title: enrichment_direction = 'rev'
 	elif 'as search' in dperturb_lib_title: enrichment_direction = 'fwd'
@@ -368,11 +360,18 @@ def combined_plot(file_patterns):
 	font = {'size': 25}
 	plt.rc('font', **font)
 
-	for dtarget_lib in ('2_TargetCentral_Column_5OrMoreTargets_MissingChEMBL_IDsRemoved_1-14-18',
-		'5b_DrugCentral_Column_5OrMoreTargets_MissingChEMBL_IDsRemoved_Human_1-14-18',
-		'1_DrugBank_Column_5OrMoreTargets_MissingChEMBL_IDsRemoved_1-14-18', 
-		'3_RepurposeHub_Column_5OrMoreTargets_MissingChEMBL_IDsRemoved_1-14-18', 
-		'4_DGIdb_Column_5OrMoreTargets_MissingChEMBL_IDsRemoved_1-14-18'):
+	for dtarget_lib in (
+		'DrugBank_5OrMoreTargets',
+		'TargetCentral_5OrMoreTargets', 
+		'RepurposeHub_5OrMoreTargets', 
+		'DGIdb_5OrMoreTargets', 
+		'DrugCentral_5OrMoreTargets',
+		'STITCH_500Cutoff_5OrMoreTargets_noENSP',
+		'STITCH_600Cutoff_5OrMoreTargets_noENSP',
+		'STITCH_700Cutoff_5OrMoreTargets_noENSP',
+		'STITCH_800Cutoff_5OrMoreTargets_noENSP',
+		'DTCommons_5OrMoreTargets'
+	):
 
 		fname = 'rankings_input_LINCS_L1000_Chem_Pert_into_' + dtarget_lib + '_expanded_with_BioGRID.csv'
 		prefix = fname.partition('rankings')[2].partition('.csv')[0]
@@ -402,17 +401,27 @@ def combined_plot(file_patterns):
 
 if __name__ == '__main__':
 
-	libs = list_of_drug_libs_fnames()
-	libs = [x.partition('_gvm2.csv')[0].partition('\\')[2] for x in libs]
-	lib_pairs = [{'i':a, 's':b} for a in libs for b in libs if a != b]
+	gvm_fnames = ['gvms//' + fname for fname in os.listdir('gvms') if 'gvm.' in fname]
+	gvm_fnames = gvm_fnames + ['gvms//expanded//' + fname for fname in os.listdir('gvms//expanded') 
+		if 'gvm.' in fname]
+	gvm_fnames = [i.rpartition('/')[2].partition('_gvm.')[0] for i in gvm_fnames]
+
+	target_libs = [fname for fname in gvm_fnames if ('CREEDS' not in fname and 'LINCS' not in fname)]
+	perturb_libs = [fname for fname in gvm_fnames if ('CREEDS' in fname or 'LINCS' in fname)]
+
+	fwd_pairs = [(target,perturb) for target in target_libs for perturb in perturb_libs]
+	bck_pairs = [(perturb,target) for target in target_libs for perturb in perturb_libs]
+	lib_pairs = fwd_pairs + bck_pairs
+
 	os.chdir('results')
 
+	#for pair in lib_pairs: pairwise_plots(pair)
 	#Parallel(n_jobs=1, verbose=0)(delayed(pairwise_plots)(pair) for pair in lib_pairs)
 
 	#druglib_target_comparison(top_pct=None)
-	#druglib_target_comparison(top_pct=.15)
+	druglib_target_comparison(top_pct=.15)
 	
 	#druglib_target_just_one_column(top_pct=.50, column = 'LINCS as input')
 	#druglib_target_just_one_column(top_pct=None, column = 'LINCS as input')
 
-	combined_plot(['input_LINCS','_expanded_with_BioGRID'])
+	#combined_plot(['input_LINCS','_expanded_with_BioGRID'])

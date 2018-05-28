@@ -222,3 +222,75 @@ for(lib in libs){
     facet_wrap(~key, scales = 'free_x')
 }
 ```
+expand_gvm = function(gvm, expansion, output_fname){
+  #This function creates and saves, if not already done, a gvm file with expanded gene sets
+  ##based on an expansion file with gene-gene coexpression data. 
+  
+  if(file.exists(output_fname)){
+    print(paste0(output_fname, ' already created.'))
+    return(NULL)
+  }
+  
+  #Get all the genes in either the gvm or the expansion file (or both).
+  gene_union = union(as.character(unlist(gvm[,1])), as.character(unlist(expansion)))
+  
+  #Initialize a matrix to store the expanded gvm.
+  expanded_gvm = matrix(NA, ncol=ncol(gvm)-1, nrow=length(gene_union))
+  colnames(expanded_gvm) = colnames(gvm)[-1]
+  rownames(expanded_gvm) = gene_union
+  
+  #For each gene set from the old gvm,
+  for(c in colnames(expanded_gvm)[-1]){
+    #print(c)
+    
+    #Get all the genes in the original gene set...
+    gene_indices = which(gvm[[c]]==TRUE)
+    genes = as.character(unlist(gvm[gene_indices,1]))
+    
+    #and for each of these genes, lookup the corresponding top-n-coexpressed-genes. Combine these sets into a single set.
+    e_genes_with_na = as.character(unlist(expansion[genes]))
+    
+    #Remove NA values.
+    e_genes = e_genes_with_na[!is.na(e_genes_with_na)]
+    
+    #Combine this set with the original genes (some might not have been a lookup value in the expansion file)
+    genes_to_add = union(genes, e_genes)
+
+    #And now save this set to the expanded gvm.
+    expanded_gvm[genes_to_add, c] = 'True'
+  }
+  #Save the expanded gvm. 
+  write.table(expanded_gvm, output_fname, na='', sep='\t', quote=FALSE) #, row.names=FALSE
+}
+
+compare_expanded_gmt = function(old_gmt_fname, expanded_gmt_fname){
+  old_gmt = read.csv(old_gmt_fname, sep='\t', colClasses='character', row.names=1)
+  expanded_gmt = read.csv(expanded_gmt_fname, sep='\t', colClasses='character', row.names=1)
+  
+  #Create histograms comparing the distributions of gene set sizes before and after expansion. 
+  ngenes = data.frame(old_ngenes=colSums(old_gmt=='True'))
+  ngenes$expanded_ngenes = colSums(expanded_gmt=='True')
+  print(ggplot(data=melt(ngenes, measure.vars=c('old_ngenes','expanded_ngenes')), aes(x=value, fill=variable)) + geom_histogram(bins=150) + facet_grid(variable~.) + labs(x='gene set size', y='count', title=strsplit(expanded_gmt_fname, '_transformed')[[1]]))
+}
+
+# setwd('C:\\Users\\damon\\Desktop\\drug benchmarking\\ppi_libs')
+# for(file in c('human_correlation.rda', 'mouse_correlation.rda', 'genename_pairsWprob.txt',
+#   'BIOGRID-ORGANISM-Homo_sapiens-3.4.156.tab2.txt')){
+#   print(file)
+#   get_top_n_coexpressed(file, paste0(strsplit(file, '.', fixed=TRUE)[[1]], '_top_100.csv'))
+# }
+# setwd('..')
+
+# library(ggplot2)
+# library(reshape2)
+
+# for(gmt in c('1_DrugBank_EdgeList_10-05-17', '2_TargetCentral_EdgeList_10-05-17', '3_EdgeLists_Union_10-05-17', '4_EdgeLists_Intersection_10-05-17')){
+#   for(expansion in c('genename_pairsWprob_top_100', 'human_correlation_top_100')){
+#     if(expansion=='genename_pairsWprob_top_100'){exp_libname='hu.MAP'}
+#     else{exp_libname='ARCHS4'}
+#     output_fname = paste0('libs\\', gmt, '_expanded_with_', exp_libname, '_transformed.csv')
+#     print(output_fname)
+#     expand_gmt(gmt_fname=paste0('libs\\', gmt, '_transformed.csv'), expansion_fname=paste0('ppi_libs\\', expansion, '.csv'), output_fname=output_fname)
+#     compare_expanded_gmt(old_gmt_fname=paste0('libs\\', gmt, '_transformed.csv'), expanded_gmt_fname=output_fname)
+#   }
+# }

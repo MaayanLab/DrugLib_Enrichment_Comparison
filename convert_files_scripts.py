@@ -194,7 +194,7 @@ def convert_genesetlist(gslist, to, output_fname = None, verbose = False):
 		if file_exists(output_fname): 
 			return open_gvm(output_fname)
 		elif file_exists(output_fname.replace('gvm.csv','gvm.pkl')):
-			return pickle.load(open(output_fname.replace('gvm.csv','gvm.pkl'), 'rb'))
+			return open_gvm(output_fname.replace('gvm.csv','gvm.pkl'))
 
 		#Otherwise, create it.
 		all_genes_set = {item for sublist in gslist for item in sublist}
@@ -215,9 +215,10 @@ def convert_genesetlist(gslist, to, output_fname = None, verbose = False):
 		#Format.
 		gvm.index = all_genes
 		gvm.columns = gslist.index
-		gvm = gvm.replace(to_replace=False, value='')
 		if output_fname is not None: 
-			if gvm.shape[1] < 10000: gvm.to_csv(output_fname, sep='\t')
+			if gvm.shape[1] < 10000: 
+				gvm = gvm.replace(to_replace=False, value='')
+				gvm.to_csv(output_fname, sep='\t')
 			else: gvm.to_pickle(output_fname.replace('gvm.csv','gvm.pkl'))
 		return gvm
 	else: raise ValueError('The desired representation (`to`) is unsupported: ' + to)
@@ -316,6 +317,7 @@ def expand_gvm(gvm, expansion, output_fname):
 		expanded_gvm.loc[genes_to_add, annot] = True
 
 	#Save the gvm file as a csv, or as a pickled pandas.SparseDataFrame if it is too large.
-	expanded_gvm = expanded_gvm.replace(to_replace=False, value='')
-	if expanded_gvm.shape[1] < 10000: expanded_gvm.to_csv(output_fname, sep='\t')
-	else: pd.SparseDataFrame(expanded_gvm, default_fill_value='').to_pickle(output_fname.replace('gvm.csv','gvm.pkl'))
+	if expanded_gvm.shape[1] < 10000: 
+		expanded_gvm = expanded_gvm.replace(to_replace=False, value='')
+		expanded_gvm.to_csv(output_fname, sep='\t')
+	else: pd.SparseDataFrame(expanded_gvm, default_fill_value=False).to_pickle(output_fname.replace('gvm.csv','gvm.pkl'))

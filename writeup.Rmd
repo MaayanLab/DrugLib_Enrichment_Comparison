@@ -34,24 +34,24 @@ I measured agreement using enrichment analysis--specifically, the Fisher's exact
 
 ## Setup
 
-In order to perform enrichment analysis, I needed to do two things:
+In order to perform enrichment analysis, I needed to do three things:
 
 1. Convert all libraries to gene vector matrix (gvm) format. In this format, each drug annotation is a column label, and each gene, represented by its HGNC symbol, is a row label. Cell values are TRUE or FALSE depending on whether the column annotation is associated with the row gene. For completeness, I also obtained gmt files for each of the libraries.
 
-2. Identify matching annotations, i.e. drug synonyms, among the libraries. I accomplished this by renaming annotations to their corresponding drug's PubChem Compound ID. This was performed by accessing PubChem's synonym database through the webchem R package. If the PubChem Compound ID was not available, I instead used the drug's lowest alphabetical synonym, with alphanumeric characters only, and all letters in lowercase. 
+2. Identify matching annotations, i.e. drug synonyms, among the libraries. I accomplished this by renaming each annotation to its corresponding drug's PubChem Compound ID. This was done by using the webchem R package to query PubChem's synonym database with the drug name(s) or different database ID(s) for each annotation. If I could not obtain a PubChem Compound ID, I instead used the drug's common name, with alphanumeric characters only, and all letters in lowercase.
 
-* In the future, I might also access the Chemical Translation Service through webchem to recover any IDs PubChem was able to obtain.
+3. Expand the gene sets of the drug target libraries. Each drug only targets a few genes directly, but through gene-gene interactions they often indirectly regulate the expression of many more genes. I tried to capture the net effect of each drug by adding to its gene set the 100 most interacting or co-expressed genes, for each gene in the original set.
 
-These steps are described below, for each library. 
+These steps are described below. I first complete steps (1) and (2) for each library. Then, I summarize their properties and complete step (3) before performing enrichment analysis. 
 
 #### DrugBank, TCRD, DrugRepHub, DGIdb, and DrugCentral
 
-These five drug target libraries have a name and ChEMBL ID (always present), as well as a DrugBank ID (sometimes missing) for each drug. I began by aggregating all drugs across these libraries. Then, I tried to obtain the PubChem IDs by using, in this order:
+For each drug, these five drug target libraries have a name and ChEMBL ID (always present), as well as a DrugBank ID and SMILES (sometimes missing). I began by aggregating all drugs across these libraries. Then, I tried to obtain the PubChem IDs by using, in this order:
 
 * the ChEMBL ID
 * the Drug Name
-* the DrugBank ID
-* the SMILES
+* the DrugBank ID, if any
+* the SMILES, if any
 * the cleaned Drug Name (alphanumeric characters only)
 
 ```{r five_dtarget_libs, eval = TRUE}
@@ -140,9 +140,9 @@ fivedtlibs_identifiers$DrugID_PC = PCIDs
 write_table(fivedtlibs_identifiers, fname='synonyms/fivedtlibs_identifiers.csv')
 ```
 
-`r sum(is.na(PCIDs))` out of `r length(PCIDs)` PCIDs were unable to be converted.
+I was unable to obtain PCIDs for `r sum(is.na(PCIDs))` out of `r length(PCIDs)` annotations.
 
-Next, for each library, I added a column of the PCIDs, and checked for compounds which have different ChEMBL IDs but were assigned the same PubChem ID.
+Next, for each library, I checked for compounds which have different ChEMBL IDs but were assigned the same PubChem ID.
 
 ```{r fivedtlibs_rename_to_PCID, eval = TRUE}
 for(i in 1:length(fivedtlibs_fnames)){
@@ -170,7 +170,7 @@ rm(lib, multimapped, multimapped_rows, subset, i, lib_fname)
 
 This issue only occured in the Drug-Gene Interaction database. Here, Su-014813 is identical to su-14813. Pergolide is administered as a mesylate salt. Me-344 is a metabolite of nv-128. Enoxaparin and heparin are similar: enoxaparin is often called "low-molecular-weight heparin." I decided to allow these compounds to be equated. 
 
-Now that I have the PubChem IDs, I transformed the libraries into gene vector matrices and used the PubChem IDs (or the ChEMBL ID if the PubChem ID was not found) as the column annotation names. 
+Now that I obtained the PubChem IDs, I transformed the libraries into gene vector matrices and used the PubChem IDs (or the drug's common name if the PubChem ID was not found) as the column annotation names. 
 
 ```{r}
 system('python convert_files.py fivedtlibs')
@@ -259,14 +259,14 @@ for(gvm_fname in old_gvm_fnames){
 This library has many interactions. I filtered on the following columns:
 
 * `wildtype_or_mutant`: removing interactions for mutated cell lines.
-* `activity_comments`: only keeping interactions with comments that confirmed activity, or which I was unsure how to interpret. This means I removed interactions with negative or inconclusive activity, or which were blank. Tables for activity comments before and after filtering are below.
+* `activity_comments`: only keeping interactions with comments that confirmed activity, or which I was unsure how to interpret. This means I removed interactions with negative or inconclusive activity, or which were blank.
 
 This library is actually a protein-drug interaction database, so I also converted the UniProt protein IDs to HGNC symbols using the UniProt.ws R package. I removed interactions for which the protein ID could not be converted.
 
-```{r}
+```{r dtcommons_table, eval=TRUE}
 DTCommons_intermediate.fname = 'intermediate_files/DTCommons_intermediate.txt'
 if(!file.exists(DTCommons_intermediate.fname)){
-  DTCommons = fread('original_drug-gene_libs/DtcDrugTargetInteractions.csv')
+  DTCommons = fread('original_drug-gene_libs/DtcDrugTargetInteractions.csv', showProgress=FALSE)
   
   DTCommons = subset(DTCommons, wildtype_or_mutant!='mutated')
   
@@ -304,7 +304,7 @@ if(!file.exists(DTCommons_intermediate.fname)){
   DTCommons = subset(DTCommons, gene_names != '')
   write.table(DTCommons, file=DTCommons_intermediate.fname, sep='\t', quote=FALSE, row.names=FALSE)  
 }
-DTCommons = fread(DTCommons_intermediate.fname, sep='\t')
+DTCommons = fread(DTCommons_intermediate.fname, sep='\t', showProgress=FALSE)
 ```
 
 ```{r}
@@ -370,13 +370,13 @@ if(file.exists(PCID_fname)){
 }
 ```
 
-I was not able to convert ```r length(unique(names(PCIDs)[is.na(PCIDs)]))``` out of ```r length(unique(names(PCIDs)))``` genes.
+I was unable to obtain PCIDs for `r length(unique(names(PCIDs)[is.na(PCIDs)]))` out of `r length(unique(names(PCIDs)))` annotations.
 
 ```{r}
 rm(activity_comments, uniprot_to_hgnc, up, no_activity, uncertain, PCID_fname, unique_target_ids)
 ```
 
-For the final gvm name I used the PCID, and the drug name if that is unavailable, and the ChEMBL ID if both are unavailable.
+For the final gvm name I used the PCID, or the drug name if that was unavailable, or the ChEMBL ID if both were unavailable.
 
 ```{r}
 DTCommons$pc_id = PCIDs
@@ -413,7 +413,7 @@ system('python convert_files.py pertlibs')
 
 The next step was to obtain the PubChem IDs.
 
-*CREEDS*: In CREEDS, each sample is described by both a name and a DrugBank ID. In addition, some names contain a symnonym in parentheses. I began by extracting and scrubbing the drug name and DrugBank ID. I then removed embedded synonyms from the drug name.
+*CREEDS*: In CREEDS, the annotation of each sample contains both a name and a DrugBank ID. In addition, some names have a synonym in parentheses. I began by extracting and scrubbing the drug name and DrugBank ID. I then removed embedded synonyms from the drug name.
 
 ```{r CREEDS_clean_sample_name}
 CREEDS.annotations.fname = 'intermediate_files/CREEDS_original_annotations.csv'
@@ -454,7 +454,7 @@ CREEDS_identifiers$syn[match(CREEDS.synonyms[,1], CREEDS.drugs)] = CREEDS.synony
 rm(CREEDS.drugs, CREEDS.synonyms, CREEDS.DB_ID, embedded, drug, i)
 ```
 
-I tried to obtain the PubChem IDs first by using the following information, in this order:
+I tried to obtain the PubChem IDs by using the following information, in this order:
 
 * the Drug Name
 * the DrugBank ID
@@ -515,7 +515,7 @@ CREEDS_unique = unique(colnames(fread('gvms/CREEDS_gvm.csv', showProgress = FALS
 CREEDS_noPCID = CREEDS_unique[!grepl('pc', CREEDS_unique)]
 ```
 
-Out of `r length(CREEDS_unique)` unique drugs, I was unable to obtain  `length(CREEDS_noPCID) ` PCIDs. 
+Out of `r length(CREEDS_unique)` unique drugs, I was unable to obtain  `r length(CREEDS_noPCID)` PCIDs. I used the drug name if the PCID could not be found. 
 
 ```{r replace_CREEDS_names}
 CREEDS.old = fread('intermediate_files/CREEDS_noPCIDs_gvm.csv')
@@ -530,7 +530,7 @@ write_table(CREEDS_identifiers, fname='synonyms/CREEDS_identifiers.csv', na='')
 rm(list = setdiff(ls(), lsf.str()))
 ```
 
-*LINCS*: I extracted the drug names from the sample names. I then added and removed embedded synonyms.
+*LINCS*: I extracted the drug names from the sample annotations. I then removed embedded synonyms.
 
 ```{r, results='hide'}
 LINCS.annotations.fname = 'intermediate_files/LINCS_original_annotations.csv'
@@ -567,7 +567,7 @@ LINCS_identifiers$PCIDs = fivedtlibs_identifiers$DrugID_PC[match(
 LINCS_identifiers$PCIDs = as.integer(LINCS_identifiers$PCIDs)
 ```
 
-I tried to obtain the PubChem IDs first by using the following information, in this order:
+I tried to obtain the PubChem IDs by using the following information, in this order:
 
 * the Drug Name
 * the synonym, if any
@@ -611,7 +611,7 @@ write_table(LINCS_identifiers, 'synonyms/LINCS_identifiers.csv', na='')
 LINCS_identifiers = read_table('synonyms/LINCS_identifiers.csv')
 ```
 
-Out of `r length(LINCS_identifiers$PCIDs)` unique drugs, I was unable to obtain `r sum(is.na(LINCS_identifiers$PCIDs))` PCIDs. 
+I was unable to obtain PCIDs for `r sum(is.na(LINCS_identifiers$PCIDs))` out of `r length(LINCS_identifiers$PCIDs)` annotations. I used the drug name if the PCID could not be found.
 
 ```{r replace_LINCS_names}
 #LINCS was too big to save as a csv--it is a pickled pandas DataFrame file.
@@ -652,12 +652,11 @@ kable_styling(kable(t1, 'html', caption='Number of matches'))
 
 #### Expansion with coexpression or PPI data
 
-From the "average number of genes per sample" column in Table 1, it is apparent that the average gene set sizes for the drug target libraries (DrugBank, TargetCentral, DGIdb, DrugRepHub, DrugCentral, DTCommons, and STITCH) are too small for enrichment analysis. These libraries were expanded using data from three sources: ARCHS4 (a coexpression database), hu.MAP, and BioGRID (both PPI databases). 
+From the "average number of genes per sample" column in Table 1, it is apparent that the average gene set sizes for the drug target libraries (DrugBank, TargetCentral, DGIdb, DrugRepHub, DrugCentral, DTCommons, and STITCH) are too small for enrichment analysis. These libraries were expanded using data from three sources: ARCHS4 (a gene coexpression database), hu.MAP, and BioGRID (both PPI databases). 
 
-To do this, gene coexpression/interaction sets were extracted from each library by taking the top 100 coexpressed/interacting genes/proteins for each gene/protein. (For BioGRID, since interaction scores are not provided, the first 100 entries for each gene/protein, from top to bottom in the original file, were kept.) Then, each gene set in the drug libraries is expanded by adding to it the coexpression set of each gene/protein it contains. For example, the gene set {CTPS, MLLT11} becomes the union of: (1) {CTPS, MLLT11}, (2) the coexpression set for CTPS, and (3) the coexpression set for MLLT11. (If a gene does not appear in the expansion library, the coexpression set is interpreted as just the gene itself.) The result is three new drug target libraries for each original drug target library: one for each expansion library.
+To do this, coexpression/interaction sets were extracted from each library by taking the top 100 coexpressed/interacting genes/proteins for each gene/protein. (For BioGRID, since interaction scores are not provided, the first 100 entries for each protein, from top to bottom in the original file, were kept.) Then, each gene set in the drug libraries is expanded by adding to it the coexpression/interaction set of each gene in the original set. For example, the gene set {CTPS, MLLT11} becomes the union of: (1) {CTPS, MLLT11}, (2) the coexpression/interaction set for CTPS, and (3) the coexpression/interaction set for MLLT11. (If a gene does not appear in the expansion library, the coexpression/intereaction set is interpreted as just the gene itself.) The result is three new drug target libraries for each original drug target library: one for each expansion library.
 
 ```{r get_top_n_for_ppi_libs, results='hide'}
-source('expand_gvms.R')
 ppi.coexp_files = c('ppi-coexp_libs\\human_correlation.rda', 
                     'ppi-coexp_libs\\mouse_correlation.rda',
                     'ppi-coexp_libs\\genename_pairsWprob.txt',
@@ -677,4 +676,6 @@ After creating the expanded libraries, I performed enrichment analysis, using th
 
 See https://github.com/MaayanLab/Enrichment_Sandbox for an explanation of how enrichment analysis is used to measure the agreement between different gene set libraries, and how to interpret the bridge plots.
 
-(Still working on obtaining the results.)
+Here are the results I obtained so far:
+
+![](figures/druglib_bridgeplot.png)
