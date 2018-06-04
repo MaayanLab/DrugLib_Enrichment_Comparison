@@ -57,7 +57,7 @@ for i in range(len(libs)):
 	samples = [x.partition('.')[0] for x in gvm.columns.values]
 	n_samples.append(str(len(samples)))
 	drugs = set(samples)
-	all_drugs.iloc[i] = drugs
+	all_drugs.iloc[i] = '|'.join(drugs)
 	n_unique_drugs.append(str(len(drugs)))
 	n_genes.append(str(gvm.shape[0]))
 	avg_n_genes_per_annot.append(str(round(sum(sum(gvm.values))/int(n_samples[-1]), 2)))
@@ -66,11 +66,7 @@ table = pd.DataFrame([names, link, lib_type, description, n_samples, n_unique_dr
 table.columns = ['name', 'link', 'lib_type', 'description', 'n_samples', 'n_unique_drugs', 'n_genes', 'avg_n_genes_per_annot', 'preprocessing']
 table.to_csv('intermediate_files/lib_summary_table.csv', sep='\t', index=False)
 
-matches = pd.DataFrame(index = abbrevs, columns = abbrevs)
-for a in abbrevs:
-	for b in abbrevs:
-		matches.at[a,b] = len(all_drugs[a].intersection(all_drugs[b]))
-matches.to_csv('intermediate_files/lib_summary_matches.csv', sep='\t', index=False)
+all_drugs.to_csv('intermediate_files/lib_summary_drugs.csv', sep='\t', index=True)
 
 ppi_coexp_libs = ['Original','ARCHS4_human','BioGRID','huMAP']
 for lib in libs:

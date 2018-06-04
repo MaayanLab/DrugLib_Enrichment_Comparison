@@ -13,7 +13,7 @@ output:
 #biocLite("UniProt.ws")
 #devtools::install_github("cmap/cmapR")
 
-list.of.packages <- c('kableExtra', 'knitr', 'ggplot2', 'cmapR', 'stringi', 'data.table','gridExtra','reshape2','grid', 'biomaRt', 'webchem', 'httr', 'jsonlite','UniProt.ws', 'magrittr', 'VennDiagram')
+list.of.packages <- c('kableExtra', 'knitr', 'ggplot2', 'cmapR', 'stringi', 'data.table','gridExtra','reshape2','grid', 'biomaRt', 'webchem', 'httr', 'jsonlite','UniProt.ws', 'magrittr', 'gplots', 'UpSetR')
 new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"Package"])]
 if(length(new.packages)) install.packages(new.packages)
 lapply(list.of.packages, require, character.only = TRUE)
@@ -215,7 +215,7 @@ STITCH$protein_symbol = gene_symbol_lookup$hgnc_symbol[match(
 
 `r sum(grepl('ENSP', gene_symbol_lookup$hgnc_symbol))` out of `r nrow(gene_symbol_lookup)` ENSP IDs were unable to be converted.
 
-Drug-protein interactions are given a score from 150 to 1000, with higher numbers indicating higher probability of intereaction. Here is a table with the number of protein interactions per drug, with different cutoff levels.
+Drug-protein interactions are given a Confidence Score from 150 to 1000, with higher numbers indicating higher probability of intereaction. Here is a table summarizing the drug sets in STITCH after applying different cutoffs for interaction Confidence Scores.
 
 ```{r eval = TRUE}
 cutoffs = c(300,400,500,600,700,800,900)
@@ -227,14 +227,14 @@ for(i in 1:length(cutoffs)){
 
 info = as.data.frame(do.call(rbind, info))
 info = cbind(cutoffs, info)
-colnames(info) = c('Combined score cutoff', 'Number of unique chemicals','Average number of protein interactions per chemical')
+colnames(info) = c('Combined Score cutoff', 'Number of unique chemicals','Average number of protein interactions per chemical')
 
-kable_styling(kable(info, 'html'))
+kable_styling(kable(info, 'html', caption='Table 1: Summary statistics for STITCH interactions with different combined score cutoffs', digits=2, font_size=10))
 
 rm(STITCH, gene_symbol_lookup, gene_symbol_lookup_fname, info, s, cutoffs)
 ```
 
-I made gmts and gvms for cutoff levels 500, 600, 700 and 800. To be consistent with the five previous libraries, I only kept chemicals with at least five interactions afer applying the cutoff. I also made gmts and gvms with proteins whose ENSP ID could not be converted to a HGNC name removed. These are what I will use for enrichment analysis.
+I decided to make gmts and gvms for cutoff levels 500, 600, 700 and 800. To be consistent with the five previous libraries, I only kept chemicals with at least five interactions afer applying the cutoff. I also made gmts and gvms with proteins whose ENSP ID could not be converted to a HGNC name removed. These are what I will use for enrichment analysis.
 
 ```{r}
 system('python convert_files.py STITCH')
@@ -609,6 +609,7 @@ write_table(LINCS_identifiers, 'synonyms/LINCS_identifiers.csv', na='')
 
 ```{r eval=TRUE}
 LINCS_identifiers = read_table('synonyms/LINCS_identifiers.csv')
+LINCS_identifiers = unique(LINCS_identifiers[,-1])
 ```
 
 I was unable to obtain PCIDs for `r sum(is.na(LINCS_identifiers$PCIDs))` out of `r length(LINCS_identifiers$PCIDs)` annotations. I used the drug name if the PCID could not be found.
@@ -623,36 +624,83 @@ system('python convert_files.py LINCS2')
 rm(list = setdiff(ls(), lsf.str()))
 ```
 
-# Summary
+#### Comparison of libraries
 
-Here is a table summarizing each drug library.
+*Summary statistics*: Here is a table summarizing the features of each drug library.
 
 ```{r table_1, eval=TRUE}
 t1 = read.csv('intermediate_files/lib_summary_table.csv', sep='\t')
 t1 = as.data.frame(t1)
 links = t1$link
 t1 = t1[-match('link', names(t1))]
-colnames(t1) = c('Name', 'Library Type', 'Description','Number of samples', 'Number of unique drugs', 'Number of genes', 'Average number of genes per annotation', 'Data preprocessing')
+colnames(t1) = c('Name', 'Library Type', 'Description','Samples', 'Unique drugs', 'Targets', 'Average targets per annotation', 'Data preprocessing')
 
+t1[1:10,'Samples'] = NA
 t1[,'Name'] = paste0("[", as.character(t1[,'Name']), "](http://", links, ")")
 
-kable(t1, 'html', caption='Table 1: Dataset summary') %>%
+kable(t1, 'html', caption='Table 2: Summary of all drug libraries') %>%
   kable_styling(bootstrap_options=c('striped', 'condensed', full_width=F, font_size=10))
 
 ```
 
-Here are the number of unique matching drugs between each pair of libraries.
+*Comparison of drug sets*: Each library measures different populations of drugs. I first looked at the size of the intersection between each drug target library with each drug perturbation library, to see if my enrichment analysis benchmarking method would be feasible.
 
 ```{r eval=TRUE}
-t1 = read.csv('intermediate_files/lib_summary_matches.csv', sep='\t')
-t1 = as.data.frame(t1)
-rownames(t1) = colnames(t1)
-kable_styling(kable(t1, 'html', caption='Number of matches'))
+t2 = read.csv('intermediate_files/lib_summary_drugs.csv', sep='\t', header=FALSE, colClasses=c('character','character'))
+
+t2.list = strsplit(t2[,2], split='\\|')
+names(t2.list) = t2[,1]
+t2.list = t2.list[-match(c('STITCH_600cutoff','STITCH_700cutoff'), names(t2.list))]
+
+all.drugs = vector(mode='character')
+for(i in 1:length(t2.list)){
+  all.drugs = union(all.drugs, t2.list[[i]])
+}
+
+overlaps = matrix(nrow = length(t2.list) - 2, ncol = 2)
+colnames(overlaps) = c('LINCS','CREEDS')
+row.names(overlaps) = names(t2.list)[-match(c('LINCS','CREEDS'), names(t2.list))]
+for(i in 1:nrow(overlaps)){
+  for(j in 1:ncol(overlaps)){
+    overlaps[i,j] = length(intersect(t2.list[[row.names(overlaps)[i]]], t2.list[[colnames(overlaps)[j]]]))
+  }
+}
+
+t2.list = t2.list[-match(c('STITCH_500cutoff'), names(t2.list))]
+
+t2.grid = matrix(0, nrow = length(all.drugs), ncol=length(t2.list))
+row.names(t2.grid) = all.drugs
+colnames(t2.grid) = names(t2.list)
+for(i in 1:length(t2.list)){
+  t2.grid[,i] = ifelse(all.drugs %in% t2.list[[i]], 1, 0)
+}
 ```
+
+```{r}
+kable_styling(kable(overlaps, 'html', font_size=10, caption='Size of drug set intersections between drug target libraries and drug perturbation libraries'))
+```
+
+In my opinion, only the intersection set between TargetCentral and CREEDS is small enough to raise concern.
+
+In addition to looking at these pairwise intersection sizes, I also looked at the overall similarities of each library using a heatmap with hierarchical clustering.
+
+```{r fig.cap='Figure 1: Heatmap and hierarchical clustering of drug libraries', eval=TRUE}
+heatmap.2(t2.grid[rowSums(t2.grid) > 1,], labRow=rep('', length(t2.list)), margins=c(10,1))
+```
+
+STITCH and Drug Target Commons, the largest two libraries, share many drugs which are not represented in the other libaries. TargetCentral, CREEDS and LINCS seem to be similar to each other, with DGIdb, DrugCentral, DrugBank and RepurposeHub forming the other cluster. 
+
+Finally, I used the UpSet R package to visualize the frequency of set memberships between the libraries. Here are the top 40 set memberships:
+
+```{r fig.cap='Figure 2: Largest intersection sets between the drug libraries', eval=TRUE}
+upset(fromList(t2.list), nsets=length(t2.list), nintersects=40, scale.intersections='log2', order.by = 'freq')
+```
+
+It is most common for drugs to be included in only one of the larger libraries. For drugs that belong to multiple libraries, one of the libraries they belong to is often either STITCH or DTCommons. TargetCentral, and CREEDS to a lesser extent, is not well represented within the largest intersection sets. 
 
 #### Expansion with coexpression or PPI data
 
-From the "average number of genes per sample" column in Table 1, it is apparent that the average gene set sizes for the drug target libraries (DrugBank, TargetCentral, DGIdb, DrugRepHub, DrugCentral, DTCommons, and STITCH) are too small for enrichment analysis. These libraries were expanded using data from three sources: ARCHS4 (a gene coexpression database), hu.MAP, and BioGRID (both PPI databases). 
+The average gene set sizes for the drug target libraries (DrugBank, TargetCentral, DGIdb, DrugRepHub, DrugCentral, DTCommons, and STITCH) are too small for enrichment analysis. These libraries were expanded using data from three sources: ARCHS4 (a gene coexpression database), hu.MAP, and BioGRID (both PPI databases). 
 
 To do this, coexpression/interaction sets were extracted from each library by taking the top 100 coexpressed/interacting genes/proteins for each gene/protein. (For BioGRID, since interaction scores are not provided, the first 100 entries for each protein, from top to bottom in the original file, were kept.) Then, each gene set in the drug libraries is expanded by adding to it the coexpression/interaction set of each gene in the original set. For example, the gene set {CTPS, MLLT11} becomes the union of: (1) {CTPS, MLLT11}, (2) the coexpression/interaction set for CTPS, and (3) the coexpression/interaction set for MLLT11. (If a gene does not appear in the expansion library, the coexpression/intereaction set is interpreted as just the gene itself.) The result is three new drug target libraries for each original drug target library: one for each expansion library.
 
@@ -678,4 +726,4 @@ See https://github.com/MaayanLab/Enrichment_Sandbox for an explanation of how en
 
 Here are the results I obtained so far:
 
-![](figures/druglib_bridgeplot.png)
+![Figure 3: Enrichment analysis results](figures/druglib_bridgeplot.png)
