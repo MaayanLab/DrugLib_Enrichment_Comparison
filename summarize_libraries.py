@@ -82,5 +82,5 @@ for lib in libs:
 		if ppi_coexp_lib == 'Original': geneset_sizes = pd.DataFrame(index = ppi_coexp_libs, columns = gvm.columns)
 		if type(gvm) == pd.core.sparse.frame.SparseDataFrame: geneset_sizes.loc[ppi_coexp_lib,:] = gvm.to_dense().sum()
 		else: geneset_sizes.loc[ppi_coexp_lib,:] = gvm.sum()
-	geneset_sizes.to_csv('intermediate_files/lib_summary_geneset_sizes_' + lib + '.csv', sep='\t', index=False)
+	geneset_sizes.to_csv('intermediate_files/lib_summary_geneset_sizes_' + lib + '.csv', sep='\t', index=True)
 

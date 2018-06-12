@@ -1,0 +1,906 @@
+tretinoin	444795
+morphine	5288826
+cytarabine	6253
+estradiol	5757
+curcumin	969516
+cytarabine	6253
+neocarzinostatin	
+etanercept	
+retinoic acid	444795
+celecoxib	2662
+bisphenol a	6623
+methamphetamine	66124
+vemurafenib	42611257
+angiotensin ii	172198
+mepenzolate bromide	6461
+heroin	5462328
+sodium arsenite	443495
+cadmium	23973
+lubiprostone	157920
+ascorbyl-2-phosphate	54679073
+rosiglitazone	77999
+lung cancer	9444
+formaldehyde	712
+cisplatin	
+lipopolysaccharide	11970143
+perfluorooctanoic acid	9554
+genistein	5280961
+cadmium	23973
+methylprednisolone	6741
+resveratrol	445154
+quercetin	5280343
+pristane	15979
+formaldehyde	712
+imatinib	5291
+quercetin	5280343
+deta nonoate	1606
+cisplatin	
+dmnq  	3136
+vemurafenib	42611257
+retinoic acid	444795
+hypochlorous acid	24341
+vemurafenib	42611257
+heregulin	
+cisplatin	
+epz004777	56962336
+phosgene	6371
+bisphenol a	6623
+ubiquinol	
+androstanolone	10635
+estradiol	5757
+2,3,7,8-tetrachlorodibenzo-p-dioxin	15625
+plx4032	42611257
+trichloroethylene	6575
+arc	444637
+vitamin c	54670067
+mk-886	3651377
+methylphenidate	4158
+adenosine triphosphate	5957
+cisplatin	
+phenytoin	1775
+coenzyme q10	5281915
+sodium arsenite	443495
+imatinib	5291
+quercetin	5280343
+hydrocortisone	5754
+carboplatin	38904
+1-[3-(trifluoromethyl)phenyl]piperazine	4296
+resveratrol	445154
+cigarette smoke	
+resveratrol	445154
+cadmium dichloride	24947
+vitamin c	54670067
+bisphenol a	6623
+bexarotene	82146
+trichloroethylene	6575
+vemurafenib	42611257
+trichloroethylene	6575
+quercetin	5280343
+cocaine	446220
+cobalt dichloride hexahydrate	24643
+formaldehyde	712
+creatine	586
+zinc acetate	11192
+lysophosphatidic acid	5497152
+d-serine	71077
+isoflurane	3763
+lipopolysaccharide	11970143
+ifn-alphacon1	
+fluticasone	5311101
+troglitazone	5591
+quercetin	5280343
+gamma-tocotrienol	5282349
+azacitidine	9444
+trichloroethylene	6575
+doxycycline	54671203
+methylprednisolone	6741
+imatinib	5291
+estradiol	5757
+etanercept	
+lung cancer	9444
+perfluorooctanoic acid	9554
+irinotecan	60838
+ascorbic acid	54670067
+phenol	996
+estradiol	5757
+estradiol	5757
+hypochlorous acid	24341
+doxorubicin	31703
+retinoic acid	444795
+cediranib	9933475
+carbidopa	34359
+tretinoin	444795
+bleomycin	5460769
+mln4924	16720766
+decitabine	451668
+bpde	41322
+acrylamide	6579
+imatinib	5291
+sevoflurane	5206
+hydrogen peroxide	784
+4-hydroxynonenal	5283344
+retinoic acid	444795
+phosgene	6371
+vanadium pentoxide	14814
+estradiol	5757
+cytarabine	6253
+isoflurane	3763
+puromycin	439530
+quercetin	5280343
+dexamethasone	5743
+soman	7305
+rosiglitazone	77999
+diclofenac	3033
+methamphetamine	66124
+colorectal adenocarcinoma	2662
+pioglitazone	4829
+heroin	5462328
+2,3,7,8-tetrachlorodibenzo-p-dioxin	15625
+caerulein	16129675
+imatinib	5291
+formaldehyde	712
+4-hydroxynonenal	5283344
+doxorubicin	31703
+dexamethasone	5743
+retinoic acid	444795
+sapphyrin pci-2050	9855235
+corticosterone	5753
+estradiol	5757
+cisplatin	
+4-hydroxynonenal	5283344
+trichloroethylene	6575
+heroin	5462328
+titanium dioxide	439196
+trichloroethylene	6575
+4-hydroxynonenal	5283344
+imatinib	5291
+ubiquinol	
+resveratrol	445154
+5-fluorouracil	3385
+etanercept	
+troglitazone	5591
+ubiquinol	
+bpde	41322
+permethrin	40326
+genistein	5280961
+alfacalcidol	5282181
+pyrazinamide	1046
+fenretinide	5288209
+doxycycline	54671203
+methylprednisolone	6741
+ethanol	702
+estradiol	5757
+laminin	
+cisplatin	
+imatinib	5291
+4-hydroxytamoxifen	449459
+doxycycline	54671203
+epz004777	56962336
+estradiol	5757
+mehp	20393
+alfacalcidol	5282181
+mln4924	16720766
+levetiracetam	5284583
+alitretinoin	449171
+halothane	3562
+dexamethasone	5743
+rosiglitazone	77999
+bicalutamide	2375
+5-aza-2'-deoxycytidine	451668
+plx4032	42611257
+methamphetamine	66124
+vitamin c	54670067
+quercetin	5280343
+decitabine	451668
+imatinib	5291
+quercetin	5280343
+cisplatin	
+5-fluorouracil	3385
+bisphenol a	6623
+colchicine	2833
+sodium arsenite	443495
+rosiglitazone	77999
+propofol	4943
+cadmium	23973
+vitamin c	54670067
+formaldehyde	712
+2,2',4,4',5,5'-hexachlorobiphenyl  	37034
+letrozole	3902
+cisplatin	
+doxycycline	54671203
+retinoic acid	444795
+n-methylformamide	31254
+retinoic acid	444795
+harman	5281404
+pristane	15979
+bisphenol a	6623
+ascorbic acid	54670067
+cadmium	23973
+alitretinoin	449171
+dexamethasone	5743
+coenzyme q10	5281915
+alpha-tocopherol	14985
+carboplatin	38904
+hodgkin lymphoma	
+4-hydroxytamoxifen	449459
+trichloroethylene	6575
+sodium butyrate	104775
+imatinib	5291
+androstanolone	10635
+ethanol	702
+perfluorooctanoic acid	9554
+hydrogen peroxide	784
+monuron	8800
+estradiol	5757
+deta nonoate	1606
+deferasirox	5493381
+bleomycin	5460769
+doxorubicin	31703
+motexafin gadolinium	12047567
+methylprednisolone	6741
+hypochlorous acid	24341
+interferon beta-1b	
+promegestone	36709
+imatinib	5291
+vitamin c	54670067
+aldosterone	5839
+interferon beta-1a	
+estradiol	5757
+angiotensin ii	172198
+quercetin	5280343
+ethanol	702
+2,3,7,8-tetrachlorodibenzo-p-dioxin	15625
+rosiglitazone	77999
+phorbol ester 12-o-tetradecanoylphorbol-13-acetate	
+bisphenol a	6623
+bexarotene	82146
+bisphenol a	6623
+triiodothyronine-[13c6] hydrochloride	
+vemurafenib	42611257
+puromycin	439530
+nickel	935
+cobalt dichloride hexahydrate	24643
+doxycycline	54671203
+sunitinib	5329102
+phorbol ester 12-o-tetradecanoylphorbol-13-acetate	
+dexamethasone	5743
+d-serine	71077
+retinoic acid	444795
+resveratrol	445154
+imatinib	5291
+rosiglitazone	77999
+grepafloxacin	72474
+r1881	261000
+d-serine	71077
+retinoic acid	444795
+luteolin	5280445
+phenytoin	1775
+dexamethasone	5743
+cadmium	23973
+adenosine triphosphate	5957
+pertuzumab	
+curcumin	969516
+1-(4-methoxyphenyl)piperazine	269722
+ursodeoxycholic acid	31401
+cyfluthrin	104926
+heroin	5462328
+interferon beta-1a	
+nickel chloride	24385
+hypochlorous acid	24341
+quercetin	5280343
+gatifloxacin	5379
+mek inhibitor	23507698
+formaldehyde	712
+methamphetamine	66124
+rosiglitazone	77999
+cisplatin	
+chromium(iii) nicotinate	9909912
+etanercept	
+decitabine	451668
+nickel chloride	24385
+folic acid	6037
+sodium arsenite	443495
+calcitonin	44388547
+5-fluorouracil	3385
+formaldehyde	712
+retinoic acid	444795
+bisphenol a	6623
+heroin	5462328
+triiodothyronine-[13c6] hydrochloride	
+y15	78260
+2,3,7,8-tetrachlorodibenzo-p-dioxin	15625
+doxorubicin	31703
+coenzyme q10	5281915
+arachidonic acid	444899
+ubiquinol	
+plx4720	24180719
+triiodothyronine-[13c6] hydrochloride	
+cyclophosphamide	2907
+hypochlorous acid	24341
+methylprednisolone	6741
+cadmium chloride	24947
+bleomycin	5460769
+acrylamide	6579
+d-serine	71077
+candesartan	2540
+acrylamide	6579
+casiigly	
+formaldehyde	712
+mehp	20393
+acetaminophen	1983
+insulin	
+calcitriol	5280453
+phenobarbital sodium	23674889
+cycloheximide	6197
+interferon beta-1a	
+cadmium dichloride	24947
+etanercept	
+clinafloxacin	60063
+alpha-tocopherol	14985
+phorbol 12-myristate 13-acetate	27924
+trichloroethylene	6575
+quercetin	5280343
+estradiol	5757
+metoprolol	4171
+cadmium	23973
+vanadium pentoxide	14814
+permethrin	40326
+pyrazinamide	1046
+estradiol	5757
+formaldehyde	712
+carboplatin	38904
+carboplatin	38904
+methoxychlor	4115
+ifn-alphacon1	
+hypochlorous acid	24341
+bisphenol a	6623
+nvp-tnks656	71227201
+azacitidine	9444
+morphine	5288826
+azathioprine	2265
+estradiol	5757
+resveratrol	445154
+soman	7305
+perfluorooctanoic acid	9554
+ubiquinol	
+plx4720	24180719
+celecoxib	2662
+soman	7305
+phosgene	6371
+cisplatin	
+rosiglitazone	77999
+imatinib	5291
+1-piperonylpiperazine	94426
+oprelvekin	
+vemurafenib	42611257
+etanercept	
+4-hydroxynonenal	5283344
+estradiol	5757
+dexamethasone	5743
+bleomycin	5460769
+doxycycline	54671203
+rituximab	
+cisplatin	
+quercetin	5280343
+progesterone	5994
+dactinomycin	457193
+vanadium pentoxide	14814
+monuron	8800
+rosiglitazone	77999
+methamphetamine	66124
+morphine	5288826
+rosiglitazone	77999
+cisplatin	
+apratoxin a	6326668
+colistin	5311054
+mehp	20393
+2,3,7,8-tetrachlorodibenzo-p-dioxin	15625
+methylprednisolone	6741
+cisplatin	
+doxycycline	54671203
+levetiracetam	5284583
+deltamethrin	40585
+pbde 47	95170
+vitamin c	54670067
+cytarabine	6253
+ribavirin	37542
+estradiol	5757
+imatinib	5291
+lapatinib	208908
+formaldehyde	712
+bexarotene	82146
+cadmium dichloride	24947
+bisphenol a	6623
+morphine	5288826
+estradiol	5757
+morphine	5288826
+paclitaxel	36314
+plx4032	42611257
+pbde 47	95170
+streptozotocin	29327
+clozapine	2818
+fenretinide	5288209
+coenzyme q10	5281915
+bleomycin	5460769
+ethinyl estradiol	5991
+estradiol	5757
+torcetrapib	159325
+calcitriol	5280453
+dapt	5311272
+estradiol	5757
+formaldehyde	712
+hydrogen peroxide	784
+capsaicin	1548943
+methylprednisolone	6741
+fenretinide	5288209
+nickel	935
+y15	78260
+estradiol	5757
+pd173074	1401
+chlorambucil	2708
+actinomycin d	457193
+sodium arsenite	443495
+decitabine	451668
+cisplatin	
+2,3,7,8-tetrachlorodibenzo-p-dioxin	15625
+mt19c	
+estradiol	5757
+bleomycin	5460769
+monuron	8800
+doxycycline	54671203
+etanercept	
+rosiglitazone	77999
+estradiol	5757
+bisphenol a	6623
+motexafin gadolinium	12047567
+metformin	4091
+methylprednisolone	6741
+atorvastatin	60823
+etanercept	
+rosiglitazone	77999
+diethylstilbestrol	448537
+metoprolol	4171
+laccaic acid	5355255
+methotrexate	126941
+tamoxifen	2733526
+vitamin e	14985
+acetaminophen	1983
+antimony	5354495
+formaldehyde	712
+methylprednisolone	6741
+anastrozole	2187
+diclofenac	3033
+decitabine	451668
+plx4032	42611257
+pimecrolimus	6509979
+thapsigargin	446378
+cisplatin	
+doxycycline	54671203
+methylphenidate	4158
+triiodothyronine-[13c6] hydrochloride	
+testosterone	5701998
+mek inhibitor	23507698
+ifn-gamma1b	
+vancomycin	
+5-fluorouracil	3385
+arsenic	5359596
+formaldehyde	712
+metformin	4091
+apratoxin a	6326668
+cisplatin	
+insulin	118984375
+trichloroethylene	6575
+rituximab	
+soman	7305
+etanercept	
+sb 216763	176158
+pioglitazone	4829
+monuron	8800
+5-fluorouracil	3385
+lung cancer	9444
+menadione	4055
+azacitidine	9444
+4-vinylcyclohexene diepoxide	7833
+halothane	3562
+methylprednisolone	6741
+lipopolysaccharide	11970143
+coenzyme q10	5281915
+fasudil	3547
+carboplatin	38904
+diclofenac	3033
+valproic acid	3121
+quercetin	5280343
+alfacalcidol	5282181
+bleomycin	5460769
+mln4924	16720766
+dexamethasone	5743
+lapatinib	208908
+abiraterone	132971
+soman	7305
+troglitazone	5591
+etanercept	
+formaldehyde	712
+diclofenac	3033
+trovafloxacin	62959
+quercetin	5280343
+doxycycline	54671203
+arachidonic acid	444899
+rosiglitazone	77999
+aminolevulinic acid	137
+adenosine triphosphate	5957
+cisplatin	
+bleomycin	5460769
+resveratrol	445154
+imatinib	5291
+methylprednisolone	6741
+ethanol	702
+cisplatin	
+mycophenolic acid	446541
+lysophosphatidic acid	5497152
+formaldehyde	712
+soman	7305
+pioglitazone	4829
+methamphetamine	66124
+isotretinoin	5282379
+lapatinib	208908
+fasudil	3547
+irinotecan	60838
+dexamethasone	5743
+phosgene	6371
+vitamin c	54670067
+etanercept	
+haloperidol	3559
+5-fluorouracil	3385
+nvp-tnks656	71227201
+sodium dichromate	25408
+nicotinamide riboside	439924
+resveratrol	445154
+pioglitazone	4829
+1-benzylpiperazine	75994
+isoflurane	3763
+soman	7305
+puromycin	439530
+formaldehyde	712
+chromium	23976
+bisphenol a	6623
+cyclophosphamide	2907
+2,2',4,4',5,5'-hexachlorobiphenyl  	37034
+nsc319726	5351307
+3,3',4,4'-tetrachlorobiphenyl	36187
+vemurafenib	42611257
+coenzyme q10	5281915
+trovafloxacin	62959
+r1881	261000
+rosiglitazone	77999
+hypochlorous acid	24341
+captopril	44093
+quercetin	5280343
+imatinib	5291
+adenosine triphosphate	5957
+cisplatin	
+phenytoin	1775
+carboplatin	38904
+simvastatin	54454
+nilotinib	644241
+decitabine	451668
+vanadium pentoxide	14814
+doxorubicin	31703
+soman	7305
+lapatinib	208908
+perfluorooctanoic acid	9554
+argyrin a	
+resveratrol	445154
+cisplatin	
+sodium butyrate	104775
+morphine	5288826
+lipopolysaccharide	11970143
+soman	7305
+cetuximab	
+apratoxin a	6326668
+motexafin gadolinium	12047567
+cobalt dichloride hexahydrate	24643
+tamoxifen	2733526
+resveratrol	445154
+cytarabine	6253
+imatinib	5291
+hypochlorous acid	24341
+morphine	5288826
+lipopolysaccharide	11970143
+lipopolysaccharide	11970143
+lipopolysaccharide	11970143
+cholestyramine	70695641
+curcumin	969516
+3h-1,2-dithiole-3-thione	68296
+medroxyprogesterone acetate	6279
+perfluorooctanoic acid	9554
+lipopolysaccharide	11970143
+isoflurane	3763
+trastuzumab	
+pioglitazone	4829
+curcumin	969516
+hypochlorous acid	24341
+trichloroethylene	6575
+bortezomib	387447
+nickel	935
+permethrin	40326
+plx4032	42611257
+etanercept	
+doxorubicin	31703
+vitamin c	54670067
+sodium butyrate	104775
+adriamycin	31703
+lapatinib	208908
+telapristone acetate	9806190
+fluoxetine	3386
+apratoxin a	6326668
+decitabine	451668
+cisplatin	
+3,3',4,4'-tetrachlorobiphenyl	36187
+doxorubicin	31703
+estradiol	5757
+5-aminosalicylic acid	4075
+vx	39793
+torcetrapib	159325
+lapatinib	208908
+sodium pyruvate	23662274
+pbde 47	95170
+phenytoin	1775
+ciprofloxacin	2764
+hydrogen peroxide	784
+sorafenib	216239
+cetuximab	
+plx4032	42611257
+estradiol	5757
+bpde	41322
+trichloroethylene	6575
+sodium dichromate	25408
+cetuximab	
+isotretinoin	5282379
+methylprednisolone	6741
+temozolomide	5394
+2,3,7,8-tetrachlorodibenzo-p-dioxin	15625
+mercury	23931
+estradiol	5757
+pioglitazone	4829
+estradiol	5757
+bisphenol a	6623
+paclitaxel	36314
+cyclosporine	5284373
+deltamethrin	40585
+mln4924	16720766
+lapatinib	208908
+cisplatin	
+tibolone	444008
+levofloxacin	149096
+apratoxin a	6326668
+doxorubicin	31703
+vincristine	5978
+mt19c	
+insulin	
+l-arginine	6322
+tamoxifen	2733526
+diethylstilbestrol	448537
+carboplatin	38904
+nicotinamide riboside	439924
+bisphenol a	6623
+chlorpyrifos	2730
+estradiol	5757
+curcumin	969516
+methamphetamine	66124
+arsenic	5359596
+decitabine	451668
+resveratrol	445154
+vitamin a	445354
+sulforaphane	5350
+bisphenol a	6623
+trichostatin a	444732
+trovafloxacin	62959
+doxorubicin	31703
+doxycycline	54671203
+nicotinamide riboside	439924
+cobalt dichloride hexahydrate	24643
+rapamycin	5284616
+mln4924	16720766
+bexarotene	82146
+caerulein	16129675
+angiotensin ii	172198
+levetiracetam	5284583
+imatinib	5291
+ubiquinol	
+pbde 85	177368
+lysophosphatidic acid	5497152
+motexafin gadolinium	12047567
+atorvastatin	60823
+epz004777	56962336
+glipizide	3478
+pristane	15979
+phosgene	6371
+promyelocytic leukemia	444795
+vitamin d3	5280453
+ubiquinol	
+cytarabine	6253
+alitretinoin	449171
+hypochlorous acid	24341
+caerulein	16129675
+methylprednisolone	6741
+coenzyme q10	5281915
+cytarabine	6253
+nicotinamide riboside	439924
+bexarotene	82146
+interferon beta-1b	
+methotrexate	126941
+resveratrol	445154
+deltamethrin	40585
+cisplatin	
+methamphetamine	66124
+2,3-dimethoxy-1,4-naphtoquinone	
+vemurafenib	42611257
+mehp	20393
+genistein	5280961
+retinoic acid	444795
+vancomycin	14969
+type ii ifn	
+curcumin	969516
+triiodothyronine-[13c6] hydrochloride	
+hypochlorous acid	24341
+leptin	90470904
+foretinib	42642645
+heroin	5462328
+sodium arsenite	443495
+concanavalin a	
+dexamethasone	5743
+plx4032	42611257
+etanercept	
+tamoxifen	2733526
+etanercept	
+trichloroethylene	6575
+cetuximab	
+trichloroethylene	6575
+quercetin	5280343
+mk-886	3651377
+quercetin	5280343
+all-trans retinoic acid	444795
+ethanol	702
+perfluorooctanoic acid	9554
+vancomycin	14969
+doxorubicin	31703
+methotrexate	126941
+troglitazone	5591
+imatinib	5291
+atorvastatin	60823
+vancomycin	14969
+ethanol	702
+fasudil	3547
+pristane	15979
+morphine	5288826
+phosgene	6371
+nicotine	89594
+mepenzolate	4057
+triiodothyronine-[13c6] hydrochloride	
+sapphyrin pci-2050	9855235
+olanzapine	4585
+methamphetamine	66124
+rosiglitazone	77999
+zinc acetate	11192
+tretinoin	444795
+diethylstilbestrol	448537
+heroin	5462328
+cisplatin	
+d-serine	71077
+carboplatin	38904
+vancomycin	14969
+4-hydroxynonenal	5283344
+apratoxin a	6326668
+dasatinib	3062316
+imatinib	5291
+monuron	8800
+quercetin	5280343
+vanadium pentoxide	14814
+trichloroethylene	6575
+cadmium chloride	24947
+argyrin a	
+methylprednisolone	6741
+rosiglitazone	77999
+estradiol	5757
+progesterone	5994
+rosiglitazone	77999
+estradiol	5757
+calcitonin	44388547
+pioglitazone	4829
+deferasirox	5493381
+haloperidol	3559
+retinoic acid	444795
+streptozocin	29327
+sangivamycin	14978
+1-naphthyl isothiocyanate	11080
+1,2,4-benzenetriol	10787
+nickel	935
+streptozocin	29327
+estradiol	5757
+fgfr-specific pd173074 inhibitor	
+dexamethasone	5743
+2,2',4,4',5,5'-hexachlorobiphenyl  	37034
+palmitic acid	985
+pristane	15979
+phosgene	6371
+mesalazine	4075
+vx	39793
+lipopolysaccharide	11970143
+titanium dioxide	439196
+dactinomycin	457193
+interferon-&icirc;&sup2;-1b	
+estradiol	5757
+vemurafenib	42611257
+concanavalin a	
+imiquimod	57469
+sodium arsenite	443495
+rpi-1	907426
+aplidin	9812534
+carboplatin	38904
+bleomycin	5460769
+methotrexate	126941
+ubiquinol	
+amoxicillin	33613
+resveratrol	445154
+lipopolysaccharide	11970143
+atarax	3658
+lmp-420	497668
+ubiquinol	
+carboplatin	38904
+citalopram	2771
+irinotecan	60838
+fasudil	3547
+fluoxetine	3386
+deta nonoate	1606
+plx4720	24180719
+formoterol	3410
+fenretinide	5288209
+estradiol	5757
+pioglitazone	4829
+1,25 dihydroxyvitamin d	
+2,3-dimethoxy-1,4-naphtoquinone	
+doxorubicin	31703
+diethylstilbestrol	448537
+hypochlorous acid	24341
+trichloroethylene	6575
+nickel chloride	24385
+amoxicillin	33613
+amoxicillin	33613
+cisplatin	
+cyclophosphamide	2907
+puromycin	439530
+lipopolysaccharide	11970143
+trichloroethylene	6575
+formaldehyde	712
+2,3,7,8-tetrachlorodibenzo-p-dioxin	15625
+nitric oxide	145068
+methotrexate	126941
+2,2',4,4',5,5'-hexachlorobiphenyl  	37034
+decitabine	451668
+mehp	20393
+plx4720	24180719
+vancomycin	14969
+morphine	5288826
+gefitinib	123631
+phosgene	6371
+quercetin	5280343
+zinc sulfate	24424
+methylprednisolone	6741
+perfluorooctanoic acid	9554
+concanavalin a	
+curcumin	969516
+plx4032	42611257
+coenzyme q10	5281915
+heroin	5462328
+ubiquinol	
+decitabine	451668
+methylprednisolone	6741
+clozapine	2818
+3,3',4,4'-tetrachlorobiphenyl	36187
+puromycin	439530
+plx4032	42611257
+ethanol	702
+hypochlorous acid	24341
+angiotensin ii	172198
+n-nitrosodimethylamine	6124
+lapatinib	208908

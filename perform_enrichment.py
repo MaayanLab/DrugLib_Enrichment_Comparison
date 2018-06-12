@@ -192,7 +192,7 @@ if __name__ == '__main__':
 	gvm_fnames = ['gvms//' + fname for fname in os.listdir('gvms') if 'gvm.' in fname]
 	gvm_fnames = gvm_fnames + ['gvms//expanded//' + fname for fname in os.listdir('gvms//expanded') 
 		if 'gvm.' in fname]
-	gvm_fnames = [i for i in gvm_fnames if ('STITCH' not in i)]
+	#gvm_fnames = [i for i in gvm_fnames if ('LINCS' in i) or ('CREEDS' in i) or ('DTCommons' in i)]
 	print(gvm_fnames)
 
 	target_libs = [fname for fname in gvm_fnames if ('CREEDS' not in fname and 'LINCS' not in fname)]

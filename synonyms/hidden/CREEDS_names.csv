@@ -1,0 +1,907 @@
+sample	drug	dbID	syn	pcID	gvm
+tretinoin DB00755 mouse GSE31280 sample 2829	tretinoin	db00755		444795	pc444795
+morphine 5288826 mouse GSE7762 sample 3489	morphine	db5288826		5288826	pc5288826
+cytarabine, 2xEC50, 3 d 6253 human GSE6930 sample 3423	cytarabine	db6253		6253	pc6253
+estradiol 5757 mouse GSE2889 sample 3608	estradiol	db5757		5757	pc5757
+curcumin 969516 human GSE10896 sample 3408	curcumin	db969516		969516	pc969516
+cytarabine, EC50, 5 d 6253 human GSE6930 sample 3375	cytarabine	db6253		6253	pc6253
+neocarzinostatin 5282473 human GSE1676 sample 3113	neocarzinostatin	db5282473			neocarzinostatin
+Etanercept DB00005 human GSE36177 sample 2596	etanercept	db00005			etanercept
+Retinoic acid 444795 human GSE32161 sample 3237	retinoic acid	db444795		444795	pc444795
+celecoxib DB00482 human GSE11237 sample 3296	celecoxib	db00482		2662	pc2662
+Bisphenol A 6623 human GSE17624 sample 2654	bisphenol a	db6623		6623	pc6623
+methamphetamine 10836 mouse GSE30305 sample 2619	methamphetamine	db10836		66124	pc66124
+vemurafenib DB08881 human GSE37441 sample 2564	vemurafenib	db08881		42611257	pc42611257
+angiotensin II 172198 mouse GSE29145 sample 3216	angiotensin ii	db172198		172198	pc172198
+mepenzolate bromide CID 6461 mouse GSE50836 sample 2502	mepenzolate bromide	db6461		6461	pc6461
+heroin 5462328 mouse GSE30305 sample 2613	heroin	db5462328		5462328	pc5462328
+SODIUM ARSENITE 443495 mouse GSE11056 sample 3356	sodium arsenite	db443495		443495	pc443495
+CADMIUM 23973 human GSE9951 sample 3402	cadmium	db23973		23973	pc23973
+lubiprostone DB01046 mouse GSE18327 sample 2778	lubiprostone	db01046		157920	pc157920
+Ascorbyl-2-phosphate 54679073 human GSE11919 sample 3191	ascorbyl-2-phosphate	db54679073		54679073	pc54679073
+rosiglitazone 77999 mouse GSE11343 sample 2672	rosiglitazone	db77999		77999	pc77999
+lung cancer DB00928 human GSE29077 sample 2534	lung cancer	db00928		9444	pc9444
+formaldehyde 712 rat GSE7002 sample 3541	formaldehyde	db712		712	pc712
+cisplatin DB00515 human GSE47856 sample 3153	cisplatin	db00515			cisplatin
+Lipopolysaccharide 11970143 human GSE5504 sample 3484	lipopolysaccharide	db11970143		11970143	pc11970143
+Perfluorooctanoic Acid 9554 mouse GSE13044 sample 3520	perfluorooctanoic acid	db9554		9554	pc9554
+genistein 5280961 mouse GSE2889 sample 3606	genistein	db5280961		5280961	pc5280961
+CADMIUM 23973 human GSE6907 sample 3530	cadmium	db23973		23973	pc23973
+methylprednisolone 6741 rat GSE490 sample 3670	methylprednisolone	db6741		6741	pc6741
+resveratrol DB02709 human GSE25412 sample 3501	resveratrol	db02709		445154	pc445154
+quercetin DB04216 mouse GSE38136 sample 3436	quercetin	db04216		5280343	pc5280343
+PRISTANE 15979 mouse GSE17297 sample 3228	pristane	db15979		15979	pc15979
+formaldehyde 712 rat GSE7002 sample 3539	formaldehyde	db712		712	pc712
+imatinib DB00619 human GSE1922 sample 2513	imatinib	db00619		5291	pc5291
+quercetin DB04216 mouse GSE4262 sample 3431	quercetin	db04216		5280343	pc5280343
+DETA NONOate 24890998 mouse GSE22087 sample 3212	deta nonoate	db24890998		1606	pc1606
+cisplatin DB00515 human GSE47856 sample 3147	cisplatin	db00515			cisplatin
+Dmnq   (2,3-Dimethoxy-1,4-naphthoquinone) 3136 human GSE6907 sample 3527	dmnq  	db3136		3136	pc3136
+vemurafenib DB08881 human GSE37441 sample 2562	vemurafenib	db08881		42611257	pc42611257
+Retinoic acid 444795 mouse GSE1588 sample 3631	retinoic acid	db444795		444795	pc444795
+HYPOCHLOROUS ACID 24341 mouse GSE15457 sample 3384	hypochlorous acid	db24341		24341	pc24341
+vemurafenib DB08881 human GSE37441 sample 2563	vemurafenib	db08881		42611257	pc42611257
+Heregulin 56310950 human GSE22288 sample 3215	heregulin	db56310950			heregulin
+cisplatin DB00515 human GSE47856 sample 3150	cisplatin	db00515			cisplatin
+EPZ004777 56962336 human GSE29828 sample 2650	epz004777	db56962336		56962336	pc56962336
+Phosgene 6371 mouse GSE2565 sample 3614	phosgene	db6371		6371	pc6371
+Bisphenol A 6623 human GSE17624 sample 2656	bisphenol a	db6623		6623	pc6623
+ubiquinol 9962735 mouse GSE15129 sample 3461	ubiquinol	db9962735			ubiquinol
+Androstanolone 10635 human GSE7868 sample 3411	androstanolone	db10635		10635	pc10635
+estradiol DB00783 human GSE4668 sample 2727	estradiol	db00783		5757	pc5757
+2,3,7,8-tetrachlorodibenzo-p-dioxin 10852289 rat GSE48100 sample 3112	2,3,7,8-tetrachlorodibenzo-p-dioxin	db10852289		15625	pc15625
+PLX4032 DB05238 human GSE24862 sample 2570	plx4032	db05238		42611257	pc42611257
+TRICHLOROETHYLENE 6575 mouse GSE24278 sample 3310	trichloroethylene	db6575		6575	pc6575
+ARC (NSC 188491) 302576 human GSE13477 sample 2503	arc	db302576		444637	pc444637
+vitamin c DB00126 mouse GSE32994 sample 3508	vitamin c	db00126		54670067	pc54670067
+MK-886 CID 3651377 human GSE3202 sample 3193	mk-886	db3651377		3651377	pc3651377
+methylphenidate DB00422 human GSE52889 sample 3307	methylphenidate	db00422		4158	pc4158
+adenosine triphosphate 5957 human GSE30903 sample 3220	adenosine triphosphate	db5957		5957	pc5957
+cisplatin DB00515 human GSE47856 sample 3155	cisplatin	db00515			cisplatin
+phenytoin DB00252 rat GSE2880 sample 3291	phenytoin	db00252		1775	pc1775
+coenzyme Q10 5281915 mouse GSE15129 sample 3464	coenzyme q10	db5281915		5281915	pc5281915
+SODIUM ARSENITE 443495 mouse GSE11056 sample 3361	sodium arsenite	db443495		443495	pc443495
+imatinib DB00619 human GSE28698 sample 2524	imatinib	db00619		5291	pc5291
+quercetin DB04216 mouse GSE4262 sample 3432	quercetin	db04216		5280343	pc5280343
+hydrocortisone DB00741 human GSE7890 sample 2751	hydrocortisone	db00741		5754	pc5754
+carboplatin DB00958 human GSE49577 sample 3176	carboplatin	db00958		38904	pc38904
+1-[3-(Trifluoromethyl)phenyl]piperazine 4296 rat GSE68785 sample 3688	1-[3-(trifluoromethyl)phenyl]piperazine	db4296		4296	pc4296
+resveratrol DB02709 human GSE25412 sample 3500	resveratrol	db02709		445154	pc445154
+Cigarette Smoke 57288536 human GSE8823 sample 2478	cigarette smoke	db57288536			cigarettesmoke
+resveratrol DB02709 mouse GSE62194 sample 3467	resveratrol	db02709		445154	pc445154
+Cadmium dichloride 24947 rat GSE31503 sample 3281	cadmium dichloride	db24947		24947	pc24947
+vitamin c DB00126 mouse GSE32994 sample 3510	vitamin c	db00126		54670067	pc54670067
+Bisphenol A 6623 human GSE17624 sample 2655	bisphenol a	db6623		6623	pc6623
+bexarotene 82146 rat GSE3952 sample 3564	bexarotene	db82146		82146	pc82146
+TRICHLOROETHYLENE 6575 mouse GSE24278 sample 3309	trichloroethylene	db6575		6575	pc6575
+vemurafenib DB08881 human GSE63790 sample 2508	vemurafenib	db08881		42611257	pc42611257
+TRICHLOROETHYLENE 6575 mouse GSE24278 sample 3316	trichloroethylene	db6575		6575	pc6575
+quercetin DB04216 mouse GSE4262 sample 3433	quercetin	db04216		5280343	pc5280343
+cocaine 446220 human GSE54839 sample 2472	cocaine	db446220		446220	pc446220
+Cobalt dichloride hexahydrate 24643 rat GSE51207 sample 3115	cobalt dichloride hexahydrate	db24643		24643	pc24643
+formaldehyde 712 rat GSE7002 sample 3547	formaldehyde	db712		712	pc712
+creatine 586 mouse GSE5140 sample 3205	creatine	db586		586	pc586
+ZINC ACETATE 11192 human GSE2964 sample 3589	zinc acetate	db11192		11192	pc11192
+lysophosphatidic acid 3988 human GSE26309 sample 3225	lysophosphatidic acid	db3988		5497152	pc5497152
+d-serine 71077 rat GSE10748 sample 3388	d-serine	db71077		71077	pc71077
+isoflurane 3763 rat GSE6433 sample 3653	isoflurane	db3763		3763	pc3763
+Lipopolysaccharide 11970143 human GSE3140 sample 3595	lipopolysaccharide	db11970143		11970143	pc11970143
+IFN-alphacon1 DB05258 human GSE5542 sample 2473	ifn-alphacon1	db05258			ifnalphacon1
+fluticasone 5311101 human GSE15823 sample 3090	fluticasone	db5311101		5311101	pc5311101
+troglitazone DB00197 rat GSE21329 sample 2834	troglitazone	db00197		5591	pc5591
+quercetin DB04216 mouse GSE4262 sample 3430	quercetin	db04216		5280343	pc5280343
+gamma-Tocotrienol 5282349 human GSE21946 sample 3242	gamma-tocotrienol	db5282349		5282349	pc5282349
+azacitidine DB00928 human GSE29077 sample 2544	azacitidine	db00928		9444	pc9444
+TRICHLOROETHYLENE 6575 mouse GSE24278 sample 3323	trichloroethylene	db6575		6575	pc6575
+doxycycline DB00254 human GSE41035 sample 3040	doxycycline	db00254		54671203	pc54671203
+methylprednisolone 6741 rat GSE490 sample 3659	methylprednisolone	db6741		6741	pc6741
+imatinib DB00619 human GSE1418 sample 2521	imatinib	db00619		5291	pc5291
+estradiol 5757 mouse GSE2195 sample 3619	estradiol	db5757		5757	pc5757
+Etanercept DB00005 human GSE36177 sample 2597	etanercept	db00005			etanercept
+lung cancer DB00928 human GSE29077 sample 2536	lung cancer	db00928		9444	pc9444
+Perfluorooctanoic Acid 9554 mouse GSE13044 sample 3523	perfluorooctanoic acid	db9554		9554	pc9554
+irinotecan DB00762 rat GSE11722 sample 2769	irinotecan	db00762		60838	pc60838
+Ascorbic acid 54670067 mouse GSE37676 sample 3132	ascorbic acid	db54670067		54670067	pc54670067
+phenol 996 human GSE6907 sample 3528	phenol	db996		996	pc996
+estradiol 5757 human GSE53394 sample 2652	estradiol	db5757		5757	pc5757
+estradiol DB00783 human GSE1153 sample 2735	estradiol	db00783		5757	pc5757
+HYPOCHLOROUS ACID 24341 human GSE11630 sample 3200	hypochlorous acid	db24341		24341	pc24341
+doxorubicin, EC50, 5 d 31703 human GSE6930 sample 3262	doxorubicin	db31703		31703	pc31703
+Retinoic acid 444795 mouse GSE1588 sample 3633	retinoic acid	db444795		444795	pc444795
+cediranib 9933475 human GSE32569 sample 2642	cediranib	db9933475		9933475	pc9933475
+carbidopa DB00190 mouse GSE47099 sample 3293	carbidopa	db00190		34359	pc34359
+tretinoin DB00755 mouse GSE484 sample 2826	tretinoin	db00755		444795	pc444795
+bleomycin DB00290 mouse GSE485 sample 2685	bleomycin	db00290		5460769	pc5460769
+MLN4924 73014187 human GSE30531 sample 2645	mln4924	db73014187		16720766	pc16720766
+decitabine DB01262 human GSE9118 sample 2703	decitabine	db01262		451668	pc451668
+BPDE 41322 human GSE19510 sample 3378	bpde	db41322		41322	pc41322
+acrylamide 6579 rat GSE29004 sample 3109	acrylamide	db6579		6579	pc6579
+imatinib DB00619 human GSE20876 sample 2510	imatinib	db00619		5291	pc5291
+sevoflurane DB01236 human GSE4386 sample 2816	sevoflurane	db01236		5206	pc5206
+Hydrogen Peroxide 784 mouse GSE3078 sample 3596	hydrogen peroxide	db784		784	pc784
+4-Hydroxynonenal 5283344 human GSE2397 sample 3078	4-hydroxynonenal	db5283344		5283344	pc5283344
+Retinoic acid 444795 human GSE54464 sample 3141	retinoic acid	db444795		444795	pc444795
+Phosgene 6371 mouse GSE2565 sample 3613	phosgene	db6371		6371	pc6371
+VANADIUM PENTOXIDE 14814 human GSE5339 sample 3556	vanadium pentoxide	db14814		14814	pc14814
+estradiol 5757 human GSE4668 sample 3063	estradiol	db5757		5757	pc5757
+cytarabine, EC50, 1 d 6253 human GSE6930 sample 3373	cytarabine	db6253		6253	pc6253
+isoflurane DB00753 rat GSE1779 sample 2771	isoflurane	db00753		3763	pc3763
+puromycin, EC50, 1 d 439530 human GSE6930 sample 3268	puromycin	db439530		439530	pc439530
+quercetin DB04216 human GSE15162 sample 3444	quercetin	db04216		5280343	pc5280343
+dexamethasone DB01234 human GSE22152 sample 2488	dexamethasone	db01234		5743	pc5743
+soman 7305 rat GSE13428 sample 2633	soman	db7305		7305	pc7305
+rosiglitazone DB00412 rat GSE21329 sample 2845	rosiglitazone	db00412		77999	pc77999
+diclofenac DB00586 human GSE39192 sample 3056	diclofenac	db00586		3033	pc3033
+methamphetamine 10836 mouse GSE30305 sample 2614	methamphetamine	db10836		66124	pc66124
+Colorectal Adenocarcinoma DB00482 human GSE11237 sample 2458	colorectal adenocarcinoma	db00482		2662	pc2662
+pioglitazone DB01132 rat GSE21329 sample 2843	pioglitazone	db01132		4829	pc4829
+heroin 5462328 mouse GSE30305 sample 2620	heroin	db5462328		5462328	pc5462328
+2,3,7,8-tetrachlorodibenzo-p-dioxin 10852289 mouse GSE2812 sample 3602	2,3,7,8-tetrachlorodibenzo-p-dioxin	db10852289		15625	pc15625
+Caerulein 16132921 mouse GSE3644 sample 3585	caerulein	db16132921		16129675	pc16129675
+imatinib DB00619 mouse GSE35559 sample 2525	imatinib	db00619		5291	pc5291
+formaldehyde 712 rat GSE7002 sample 3542	formaldehyde	db712		712	pc712
+4-Hydroxynonenal 5283344 human GSE2397 sample 3079	4-hydroxynonenal	db5283344		5283344	pc5283344
+doxorubicin, 2xEC50, 3 d 31703 human GSE6930 sample 3264	doxorubicin	db31703		31703	pc31703
+dexamethasone DB01234 rat GSE15563 sample 2713	dexamethasone	db01234		5743	pc5743
+Retinoic acid 444795 human GSE54464 sample 3139	retinoic acid	db444795		444795	pc444795
+sapphyrin PCI-2050 (1.25 &Icirc;&frac14;M) 9855235 human GSE6400 sample 3101	sapphyrin pci-2050	db9855235		9855235	pc9855235
+corticosterone 5753 rat GSE37618 sample 3094	corticosterone	db5753		5753	pc5753
+estradiol DB00783 human GSE11506 sample 2730	estradiol	db00783		5757	pc5757
+cisplatin DB00515 human GSE47856 sample 3148	cisplatin	db00515			cisplatin
+4-Hydroxynonenal 5283344 human GSE2397 sample 3082	4-hydroxynonenal	db5283344		5283344	pc5283344
+TRICHLOROETHYLENE 6575 mouse GSE24278 sample 3322	trichloroethylene	db6575		6575	pc6575
+heroin 5462328 mouse GSE30305 sample 2615	heroin	db5462328		5462328	pc5462328
+titanium dioxide NA mouse GSE7475 sample 2824	titanium dioxide			439196	pc439196
+TRICHLOROETHYLENE 6575 mouse GSE24278 sample 3317	trichloroethylene	db6575		6575	pc6575
+4-Hydroxynonenal 5283344 human GSE2397 sample 3080	4-hydroxynonenal	db5283344		5283344	pc5283344
+imatinib DB00619 human GSE22433 sample 2526	imatinib	db00619		5291	pc5291
+ubiquinol 9962735 mouse GSE15129 sample 3455	ubiquinol	db9962735			ubiquinol
+resveratrol DB02709 human GSE41168 sample 3495	resveratrol	db02709		445154	pc445154
+5-Fluorouracil 3385 mouse GSE1559 sample 3640	5-fluorouracil	db3385		3385	pc3385
+etanercept DB00005 human GSE47751 sample 2594	etanercept	db00005			etanercept
+troglitazone DB00197 rat GSE21329 sample 2833	troglitazone	db00197		5591	pc5591
+ubiquinol 9962735 human GSE19627 sample 3449	ubiquinol	db9962735			ubiquinol
+BPDE 41322 human GSE19510 sample 3377	bpde	db41322		41322	pc41322
+permethrin DB04930 rat GSE7955 sample 3418	permethrin	db04930		40326	pc40326
+genistein 5280961 mouse GSE2889 sample 3605	genistein	db5280961		5280961	pc5280961
+alfacalcidol 5282181 human GSE15947 sample 3363	alfacalcidol	db5282181		5282181	pc5282181
+pyrazinamide 1046 mouse GSE48027 sample 3326	pyrazinamide	db1046		1046	pc1046
+fenretinide 5288209 rat GSE3952 sample 3561	fenretinide	db5288209		5288209	pc5288209
+doxycycline DB00254 human GSE2624 sample 3076	doxycycline	db00254		54671203	pc54671203
+methylprednisolone 6741 rat GSE490 sample 3665	methylprednisolone	db6741		6741	pc6741
+ethanol DB00898 human GSE3846 sample 2738	ethanol	db00898		702	pc702
+estradiol DB00783 rat GSE5315 sample 2537	estradiol	db00783		5757	pc5757
+laminin 44342165 human GSE24716 sample 3502	laminin	db44342165			laminin
+cisplatin DB00515 human GSE47856 sample 3149	cisplatin	db00515			cisplatin
+imatinib DB00619 human GSE19567 sample 2527	imatinib	db00619		5291	pc5291
+4-Hydroxytamoxifen 449459 human GSE26298 sample 3239	4-hydroxytamoxifen	db449459		449459	pc449459
+doxycycline DB00254 human GSE2624 sample 3077	doxycycline	db00254		54671203	pc54671203
+EPZ004777 56962336 human GSE29828 sample 2651	epz004777	db56962336		56962336	pc56962336
+estradiol 5757 human GSE4668 sample 3062	estradiol	db5757		5757	pc5757
+Mehp 20393 rat GSE4514 sample 3577	mehp	db20393		20393	pc20393
+alfacalcidol 5282181 human GSE15947 sample 3362	alfacalcidol	db5282181		5282181	pc5282181
+MLN4924 73014187 human GSE30531 sample 2647	mln4924	db73014187		16720766	pc16720766
+levetiracetam 5284583 rat GSE2880 sample 2671	levetiracetam	db5284583		5284583	pc5284583
+alitretinoin DB00523 rat GSE3952 sample 2674	alitretinoin	db00523		449171	pc449171
+halothane 3562 rat GSE6433 sample 3651	halothane	db3562		3562	pc3562
+dexamethasone DB01234 mouse GSE11056 sample 3358	dexamethasone	db01234		5743	pc5743
+rosiglitazone 77999 mouse GSE1458 sample 2588	rosiglitazone	db77999		77999	pc77999
+bicalutamide DB01128 human GSE7708 sample 3088	bicalutamide	db01128		2375	pc2375
+5-aza-2'-deoxycytidine DB01262 human GSE5230 sample 2497	5-aza-2'-deoxycytidine	db01262		451668	pc451668
+PLX4032 DB05238 human GSE24862 sample 2568	plx4032	db05238		42611257	pc42611257
+methamphetamine 10836 mouse GSE30305 sample 2665	methamphetamine	db10836		66124	pc66124
+vitamin c DB00126 mouse GSE19379 sample 3513	vitamin c	db00126		54670067	pc54670067
+quercetin DB04216 mouse GSE38136 sample 3437	quercetin	db04216		5280343	pc5280343
+decitabine 451668 mouse GSE4768 sample 3105	decitabine	db451668		451668	pc451668
+imatinib DB00619 human GSE1922 sample 2516	imatinib	db00619		5291	pc5291
+quercetin 5280343 human GSE7259 sample 3416	quercetin	db5280343		5280343	pc5280343
+cisplatin DB00515 human GSE47856 sample 3154	cisplatin	db00515			cisplatin
+5-Fluorouracil 3385 mouse GSE1559 sample 3636	5-fluorouracil	db3385		3385	pc3385
+Bisphenol A 6623 human GSE17624 sample 2661	bisphenol a	db6623		6623	pc6623
+colchicine DB01394 human GSE4090 sample 2696	colchicine	db01394		2833	pc2833
+SODIUM ARSENITE 443495 mouse GSE11056 sample 3360	sodium arsenite	db443495		443495	pc443495
+rosiglitazone DB00412 human GSE5679 sample 2809	rosiglitazone	db00412		77999	pc77999
+propofol DB00818 human GSE4386 sample 2804	propofol	db00818		4943	pc4943
+CADMIUM 23973 human GSE9951 sample 3405	cadmium	db23973		23973	pc23973
+vitamin c DB00126 mouse GSE19379 sample 3512	vitamin c	db00126		54670067	pc54670067
+formaldehyde 712 rat GSE7002 sample 3546	formaldehyde	db712		712	pc712
+2,2',4,4',5,5'-Hexachlorobiphenyl   (PCB-153) 37034 human GSE6878 sample 3349	2,2',4,4',5,5'-hexachlorobiphenyl  	db37034		37034	pc37034
+letrozole 3902 human GSE5462 sample 3097	letrozole	db3902		3902	pc3902
+cisplatin DB00515 human GSE47856 sample 3156	cisplatin	db00515			cisplatin
+doxycycline DB00254 mouse GSE29848 sample 3208	doxycycline	db00254		54671203	pc54671203
+Retinoic acid 444795 human GSE23702 sample 3231	retinoic acid	db444795		444795	pc444795
+N-METHYLFORMAMIDE 31254 rat GSE5509 sample 3570	n-methylformamide	db31254		31254	pc31254
+Retinoic acid 444795 human GSE23702 sample 3232	retinoic acid	db444795		444795	pc444795
+Harman 5281404 human GSE5080 sample 3482	harman	db5281404		5281404	pc5281404
+PRISTANE 15979 mouse GSE17297 sample 3230	pristane	db15979		15979	pc15979
+Bisphenol A 6623 human GSE17624 sample 2657	bisphenol a	db6623		6623	pc6623
+ascorbic acid 54670067 human GSE11919 sample 3190	ascorbic acid	db54670067		54670067	pc54670067
+CADMIUM 23973 human GSE9951 sample 3404	cadmium	db23973		23973	pc23973
+alitretinoin DB00523 rat GSE3952 sample 2675	alitretinoin	db00523		449171	pc449171
+dexamethasone DB01234 mouse GSE7683 sample 3524	dexamethasone	db01234		5743	pc5743
+Coenzyme Q10 5281915 mouse GSE15129 sample 3452	coenzyme q10	db5281915		5281915	pc5281915
+alpha-Tocopherol 14985 mouse GSE8150 sample 3477	alpha-tocopherol	db14985		14985	pc14985
+carboplatin (36 h) 10339178 human GSE13525 sample 3032	carboplatin	db10339178		38904	pc38904
+Hodgkin lymphoma CID 148177 human GSE31059 sample 2494	hodgkin lymphoma	db148177			hodgkinlymphoma
+4-Hydroxytamoxifen 449459 human GSE26298 sample 3240	4-hydroxytamoxifen	db449459		449459	pc449459
+TRICHLOROETHYLENE 6575 mouse GSE24278 sample 3313	trichloroethylene	db6575		6575	pc6575
+SODIUM BUTYRATE 5222465 mouse GSE4410 sample 3584	sodium butyrate	db5222465		104775	pc104775
+imatinib DB00619 human GSE1922 sample 2457	imatinib	db00619		5291	pc5291
+Androstanolone 10635 human GSE7868 sample 3410	androstanolone	db10635		10635	pc10635
+ethanol 702 rat GSE55243 sample 3107	ethanol	db702		702	pc702
+Perfluorooctanoic Acid 9554 mouse GSE13044 sample 3522	perfluorooctanoic acid	db9554		9554	pc9554
+Hydrogen Peroxide 784 mouse GSE3078 sample 3597	hydrogen peroxide	db784		784	pc784
+Monuron 8800 rat GSE51163 sample 2465	monuron	db8800		8800	pc8800
+estradiol 5757 mouse GSE2195 sample 3623	estradiol	db5757		5757	pc5757
+DETA NONOate 24890998 mouse GSE22087 sample 3211	deta nonoate	db24890998		1606	pc1606
+deferasirox DB01609 human GSE11670 sample 2571	deferasirox	db01609		5493381	pc5493381
+bleomycin DB00290 mouse GSE485 sample 2684	bleomycin	db00290		5460769	pc5460769
+doxorubicin, 2xEC50, 5 d 31703 human GSE6930 sample 3265	doxorubicin	db31703		31703	pc31703
+motexafin gadolinium (12 h) DB05428 human GSE2189 sample 3127	motexafin gadolinium	db05428		12047567	pc12047567
+methylprednisolone 6741 rat GSE490 sample 3661	methylprednisolone	db6741		6741	pc6741
+HYPOCHLOROUS ACID 24341 mouse GSE15457 sample 3383	hypochlorous acid	db24341		24341	pc24341
+Interferon beta-1b DB00068 human GSE26104 sample 3185	interferon beta-1b	db00068			interferonbeta1b
+Promegestone 36709 human GSE67561 sample 3694	promegestone	db36709		36709	pc36709
+imatinib DB00619 human GSE1922 sample 2512	imatinib	db00619		5291	pc5291
+vitamin c DB00126 mouse GSE32994 sample 3511	vitamin c	db00126		54670067	pc54670067
+aldosterone 5839 mouse GSE434 sample 3655	aldosterone	db5839		5839	pc5839
+Interferon beta-1a DB00060 human GSE26104 sample 3188	interferon beta-1a	db00060			interferonbeta1a
+estradiol 5757 mouse GSE2889 sample 3609	estradiol	db5757		5757	pc5757
+angiotensin II 172198 mouse GSE29145 sample 3217	angiotensin ii	db172198		172198	pc172198
+quercetin DB04216 mouse GSE38067 sample 3440	quercetin	db04216		5280343	pc5280343
+ethanol DB00898 mouse GSE52644 sample 3476	ethanol	db00898		702	pc702
+2,3,7,8-tetrachlorodibenzo-p-dioxin 10852289 mouse GSE2812 sample 3600	2,3,7,8-tetrachlorodibenzo-p-dioxin	db10852289		15625	pc15625
+rosiglitazone DB00412 mouse GSE2431 sample 2808	rosiglitazone	db00412		77999	pc77999
+phorbol ester 12-O-tetradecanoylphorbol-13-acetate (TPA) 27924 mouse GSE40849 sample 3256	phorbol ester 12-o-tetradecanoylphorbol-13-acetate	db27924			phorbolester12otetradecanoylphorbol13acetate
+Bisphenol A 6623 human GSE17624 sample 2653	bisphenol a	db6623		6623	pc6623
+bexarotene 82146 rat GSE3952 sample 3562	bexarotene	db82146		82146	pc82146
+Bisphenol A 6623 human GSE17624 sample 2663	bisphenol a	db6623		6623	pc6623
+Triiodothyronine-[13C6] hydrochloride (T3 thyronine) 53442265 human GSE29159 sample 3042	triiodothyronine-[13c6] hydrochloride	db53442265			triiodothyronine13c6hydrochloride
+vemurafenib DB08881 human GSE63790 sample 2509	vemurafenib	db08881		42611257	pc42611257
+puromycin, EC50, 3 d 439530 human GSE6930 sample 3269	puromycin	db439530		439530	pc439530
+NICKEL 935 human GSE6281 sample 3479	nickel	db935		935	pc935
+Cobalt dichloride hexahydrate 24643 rat GSE51207 sample 3114	cobalt dichloride hexahydrate	db24643		24643	pc24643
+doxycycline DB00254 mouse GSE29848 sample 3207	doxycycline	db00254		54671203	pc54671203
+sunitinib 5329102 rat GSE6929 sample 2491	sunitinib	db5329102		5329102	pc5329102
+phorbol ester 12-O-tetradecanoylphorbol-13-acetate (TPA) 27924 mouse GSE40849 sample 3257	phorbol ester 12-o-tetradecanoylphorbol-13-acetate	db27924			phorbolester12otetradecanoylphorbol13acetate
+dexamethasone DB01234 mouse GSE4165 sample 2710	dexamethasone	db01234		5743	pc5743
+d-serine 71077 rat GSE10748 sample 3391	d-serine	db71077		71077	pc71077
+Retinoic acid 444795 mouse GSE1588 sample 3634	retinoic acid	db444795		444795	pc444795
+resveratrol DB02709 human GSE36930 sample 3497	resveratrol	db02709		445154	pc445154
+imatinib DB00619 human GSE1922 sample 2517	imatinib	db00619		5291	pc5291
+rosiglitazone DB00412 mouse GSE35011 sample 3267	rosiglitazone	db00412		77999	pc77999
+grepafloxacin 72474 human GSE9166 sample 2627	grepafloxacin	db72474		72474	pc72474
+R1881 13766 human GSE22606 sample 3048	r1881	db13766		261000	pc261000
+d-serine 71077 rat GSE10748 sample 3387	d-serine	db71077		71077	pc71077
+Retinoic acid 444795 human GSE54464 sample 3140	retinoic acid	db444795		444795	pc444795
+luteolin 5280445 human GSE53180 sample 3473	luteolin	db5280445		5280445	pc5280445
+phenytoin 1775 rat GSE2880 sample 3033	phenytoin	db1775		1775	pc1775
+dexamethasone DB01234 human GSE34313 sample 3169	dexamethasone	db01234		5743	pc5743
+cadmium CID 23973 human GSE20320 sample 2550	cadmium	db23973		23973	pc23973
+adenosine triphosphate 5957 human GSE30903 sample 3219	adenosine triphosphate	db5957		5957	pc5957
+pertuzumab DB06366 human GSE31432 sample 3124	pertuzumab	db06366			pertuzumab
+Curcumin 969516 human GSE16160 sample 3425	curcumin	db969516		969516	pc969516
+1-(4-Methoxyphenyl)piperazine 269722 rat GSE68785 sample 3689	1-(4-methoxyphenyl)piperazine	db269722		269722	pc269722
+ursodeoxycholic acid 31401 mouse GSE21266 sample 2492	ursodeoxycholic acid	db31401		31401	pc31401
+CYFLUTHRIN 104926 human GSE5023 sample 3572	cyfluthrin	db104926		104926	pc104926
+heroin 5462328 mouse GSE30305 sample 2622	heroin	db5462328		5462328	pc5462328
+Interferon beta-1a DB00060 human GSE26104 sample 3186	interferon beta-1a	db00060			interferonbeta1a
+NICKEL CHLORIDE 24385 rat GSE31503 sample 3278	nickel chloride	db24385		24385	pc24385
+HYPOCHLOROUS ACID 24341 human GSE11630 sample 3198	hypochlorous acid	db24341		24341	pc24341
+quercetin 5280343 human GSE13899 sample 3182	quercetin	db5280343		5280343	pc5280343
+gatifloxacin 5379 human GSE9166 sample 2626	gatifloxacin	db5379		5379	pc5379
+MEK inhibitor (MEKi -AZD6244) 10127622 human GSE55624 sample 3250	mek inhibitor	db10127622		23507698	pc23507698
+formaldehyde 712 rat GSE7002 sample 3544	formaldehyde	db712		712	pc712
+methamphetamine DB01577 rat GSE46717 sample 3303	methamphetamine	db01577		66124	pc66124
+rosiglitazone DB00412 mouse GSE11343 sample 2815	rosiglitazone	db00412		77999	pc77999
+cisplatin DB00515 human GSE47856 sample 3158	cisplatin	db00515			cisplatin
+Chromium(III) nicotinate 56843898 mouse GSE4420 sample 2590	chromium(iii) nicotinate	db56843898		9909912	pc9909912
+etanercept DB00005 human GSE47751 sample 2593	etanercept	db00005			etanercept
+decitabine 451668 mouse GSE4768 sample 3108	decitabine	db451668		451668	pc451668
+NICKEL CHLORIDE 24385 rat GSE31503 sample 3280	nickel chloride	db24385		24385	pc24385
+folic acid DB00158 human GSE17635 sample 2748	folic acid	db00158		6037	pc6037
+SODIUM ARSENITE 443495 mouse GSE11056 sample 3354	sodium arsenite	db443495		443495	pc443495
+Calcitonin 16132288 mouse GSE60761 sample 3447	calcitonin	db16132288		44388547	pc44388547
+5-Fluorouracil 3385 mouse GSE1559 sample 3639	5-fluorouracil	db3385		3385	pc3385
+formaldehyde 712 rat GSE7002 sample 3551	formaldehyde	db712		712	pc712
+Retinoic acid 444795 mouse GSE1437 sample 3084	retinoic acid	db444795		444795	pc444795
+Bisphenol A 6623 human GSE17624 sample 2660	bisphenol a	db6623		6623	pc6623
+heroin 5462328 mouse GSE30305 sample 2617	heroin	db5462328		5462328	pc5462328
+Triiodothyronine-[13C6] hydrochloride (T3 thyronine) 53442265 human GSE29159 sample 3046	triiodothyronine-[13c6] hydrochloride	db53442265			triiodothyronine13c6hydrochloride
+Y15 23627197 human GSE43452 sample 2554	y15	db23627197		78260	pc78260
+2,3,7,8-tetrachlorodibenzo-p-dioxin 10852289 rat GSE48100 sample 3111	2,3,7,8-tetrachlorodibenzo-p-dioxin	db10852289		15625	pc15625
+doxorubicin, 2xEC50, 1 d 31703 human GSE6930 sample 3263	doxorubicin	db31703		31703	pc31703
+coenzyme Q10 5281915 mouse GSE15129 sample 3458	coenzyme q10	db5281915		5281915	pc5281915
+arachidonic acid 444899 human GSE3737 sample 3119	arachidonic acid	db444899		444899	pc444899
+ubiquinol 9962735 mouse GSE15129 sample 3457	ubiquinol	db9962735			ubiquinol
+PLX4720 24180719 human GSE34299 sample 3243	plx4720	db24180719		24180719	pc24180719
+Triiodothyronine-[13C6] hydrochloride (T3 thyronine) 53442265 human GSE29159 sample 3044	triiodothyronine-[13c6] hydrochloride	db53442265			triiodothyronine13c6hydrochloride
+cyclophosphamide 2907 mouse GSE2254 sample 3628	cyclophosphamide	db2907		2907	pc2907
+HYPOCHLOROUS ACID 24341 mouse GSE15457 sample 3382	hypochlorous acid	db24341		24341	pc24341
+methylprednisolone 6741 rat GSE490 sample 3671	methylprednisolone	db6741		6741	pc6741
+Cadmium Chloride 24947 rat GSE9480 sample 3414	cadmium chloride	db24947		24947	pc24947
+bleomycin DB00290 human GSE3598 sample 3588	bleomycin	db00290		5460769	pc5460769
+acrylamide 6579 rat GSE29004 sample 3110	acrylamide	db6579		6579	pc6579
+d-serine 71077 rat GSE10748 sample 3390	d-serine	db71077		71077	pc71077
+candesartan DB00796 rat GSE2739 sample 2687	candesartan	db00796		2540	pc2540
+acrylamide 6579 rat GSE29004 sample 3131	acrylamide	db6579		6579	pc6579
+CasIIgly 144221079 human GSE41827 sample 3130	casiigly	db144221079			casiigly
+formaldehyde 712 rat GSE7002 sample 3537	formaldehyde	db712		712	pc712
+Mehp 20393 rat GSE4514 sample 3580	mehp	db20393		20393	pc20393
+acetaminophen DB00316 mouse GSE37874 sample 3301	acetaminophen	db00316		1983	pc1983
+Insulin 3989 human GSE22309 sample 3370	insulin	db3989			insulin
+calcitriol 5280453 human GSE52819 sample 3126	calcitriol	db5280453		5280453	pc5280453
+phenobarbital sodium 23674889 mouse GSE6721 sample 2462	phenobarbital sodium	db23674889		23674889	pc23674889
+cycloheximide 6197 human GSE8597 sample 3059	cycloheximide	db6197		6197	pc6197
+Interferon beta-1a DB00060 human GSE26104 sample 3187	interferon beta-1a	db00060			interferonbeta1a
+Cadmium dichloride 24947 rat GSE31503 sample 3283	cadmium dichloride	db24947		24947	pc24947
+etanercept DB00005 human GSE11903 sample 2608	etanercept	db00005			etanercept
+clinafloxacin 60063 human GSE9166 sample 2625	clinafloxacin	db60063		60063	pc60063
+alpha-Tocopherol 14985 mouse GSE8146 sample 3478	alpha-tocopherol	db14985		14985	pc14985
+phorbol 12-myristate 13-acetate (PMA) 27924 human GSE45417 sample 3246	phorbol 12-myristate 13-acetate	db27924		27924	pc27924
+TRICHLOROETHYLENE 6575 mouse GSE24278 sample 3312	trichloroethylene	db6575		6575	pc6575
+quercetin DB04216 mouse GSE38067 sample 3441	quercetin	db04216		5280343	pc5280343
+estradiol DB00783 human GSE26834 sample 2733	estradiol	db00783		5757	pc5757
+metoprolol DB00264 human GSE11223 sample 3287	metoprolol	db00264		4171	pc4171
+CADMIUM 23973 human GSE9951 sample 3403	cadmium	db23973		23973	pc23973
+VANADIUM PENTOXIDE 14814 human GSE5339 sample 3557	vanadium pentoxide	db14814		14814	pc14814
+permethrin DB04930 rat GSE7955 sample 2792	permethrin	db04930		40326	pc40326
+pyrazinamide 1046 mouse GSE48027 sample 3325	pyrazinamide	db1046		1046	pc1046
+estradiol DB00783 human GSE24592 sample 2732	estradiol	db00783		5757	pc5757
+formaldehyde 712 rat GSE7002 sample 3548	formaldehyde	db712		712	pc712
+carboplatin DB00958 human GSE49577 sample 3177	carboplatin	db00958		38904	pc38904
+carboplatin (30 h) 10339178 human GSE13525 sample 3031	carboplatin	db10339178		38904	pc38904
+methoxychlor 4115 mouse GSE23725 sample 3235	methoxychlor	db4115		4115	pc4115
+IFN-alphacon1 DB05258 human GSE5542 sample 2474	ifn-alphacon1	db05258			ifnalphacon1
+HYPOCHLOROUS ACID 24341 mouse GSE15457 sample 3380	hypochlorous acid	db24341		24341	pc24341
+Bisphenol A 6623 mouse GSE4650 sample 3575	bisphenol a	db6623		6623	pc6623
+NVP-TNKS656 (tankyrase inhibitor) 71227201 human GSE55624 sample 3247	nvp-tnks656	db71227201		71227201	pc71227201
+azacitidine DB00928 human GSE29077 sample 2542	azacitidine	db00928		9444	pc9444
+morphine DB00295 mouse GSE50382 sample 3304	morphine	db00295		5288826	pc5288826
+azathioprine DB00993 human GSE38713 sample 3194	azathioprine	db00993		2265	pc2265
+estradiol 5757 human GSE26834 sample 3241	estradiol	db5757		5757	pc5757
+resveratrol DB02709 human GSE32357 sample 3499	resveratrol	db02709		445154	pc445154
+soman 7305 rat GSE13428 sample 2636	soman	db7305		7305	pc7305
+Perfluorooctanoic Acid 9554 mouse GSE13044 sample 3518	perfluorooctanoic acid	db9554		9554	pc9554
+ubiquinol 9962735 human GSE21351 sample 3448	ubiquinol	db9962735			ubiquinol
+PLX4720 CID 24180719 human GSE50791 sample 2507	plx4720	db24180719		24180719	pc24180719
+Celecoxib DB00482 human GSE54657 sample 2501	celecoxib	db00482		2662	pc2662
+soman 7305 rat GSE13428 sample 2632	soman	db7305		7305	pc7305
+Phosgene 6371 mouse GSE2565 sample 3615	phosgene	db6371		6371	pc6371
+cisplatin DB00515 human GSE6410 sample 2532	cisplatin	db00515			cisplatin
+Rosiglitazone effect on PRDM16-deficient inguinal white adipose tissue 77999 mouse GSE35011 sample 3099	rosiglitazone	db77999		77999	pc77999
+imatinib DB00619 mouse GSE30883 sample 2523	imatinib	db00619		5291	pc5291
+1-Piperonylpiperazine 94426 rat GSE68785 sample 3690	1-piperonylpiperazine	db94426		94426	pc94426
+Oprelvekin DB00038 human GSE8762 sample 3297	oprelvekin	db00038			oprelvekin
+vemurafenib DB08881 human GSE37441 sample 2559	vemurafenib	db08881		42611257	pc42611257
+Etanercept DB00005 human GSE7524 sample 3295	etanercept	db00005			etanercept
+4-Hydroxynonenal 5283344 human GSE2397 sample 3081	4-hydroxynonenal	db5283344		5283344	pc5283344
+estradiol 5757 mouse GSE2195 sample 3625	estradiol	db5757		5757	pc5757
+dexamethasone DB01234 human GSE54608 sample 3093	dexamethasone	db01234		5743	pc5743
+bleomycin DB00290 mouse GSE25640 sample 3122	bleomycin	db00290		5460769	pc5460769
+doxycycline DB00254 human GSE41035 sample 3039	doxycycline	db00254		54671203	pc54671203
+rituximab DB00073 human GSE24742 sample 2514	rituximab	db00073			rituximab
+cisplatin DB00515 mouse GSE6206 sample 3412	cisplatin	db00515			cisplatin
+quercetin DB04216 mouse GSE4262 sample 3429	quercetin	db04216		5280343	pc5280343
+progesterone 5994 rat GSE8238 sample 3526	progesterone	db5994		5994	pc5994
+dactinomycin DB00970 mouse GSE5324 sample 2701	dactinomycin	db00970		457193	pc457193
+VANADIUM PENTOXIDE 14814 human GSE5339 sample 3554	vanadium pentoxide	db14814		14814	pc14814
+Monuron 8800 rat GSE51163 sample 2470	monuron	db8800		8800	pc8800
+Rosiglitazone 77999 mouse GSE7193 sample 3091	rosiglitazone	db77999		77999	pc77999
+methamphetamine 10836 mouse GSE30305 sample 2667	methamphetamine	db10836		66124	pc66124
+morphine DB00295 human GSE7762 sample 3288	morphine	db00295		5288826	pc5288826
+rosiglitazone 77999 mouse GSE36875 sample 3100	rosiglitazone	db77999		77999	pc77999
+cisplatin DB00515 human GSE47856 sample 3152	cisplatin	db00515			cisplatin
+apratoxin A 6326668 human GSE2742 sample 3067	apratoxin a	db6326668		6326668	pc6326668
+colistin DB00803 mouse GSE46410 sample 2480	colistin	db00803		5311054	pc5311054
+Mehp 20393 rat GSE4514 sample 3579	mehp	db20393		20393	pc20393
+2,3,7,8-tetrachlorodibenzo-p-dioxin 10852289 human GSE24193 sample 3189	2,3,7,8-tetrachlorodibenzo-p-dioxin	db10852289		15625	pc15625
+methylprednisolone 6741 rat GSE490 sample 3658	methylprednisolone	db6741		6741	pc6741
+cisplatin DB00515 human GSE47856 sample 3144	cisplatin	db00515			cisplatin
+doxycycline DB00254 human GSE2624 sample 3075	doxycycline	db00254		54671203	pc54671203
+levetiracetam 5284583 rat GSE2880 sample 2669	levetiracetam	db5284583		5284583	pc5284583
+deltamethrin 40585 rat GSE7955 sample 3420	deltamethrin	db40585		40585	pc40585
+PBDE 47 CID 95170 rat GSE19868 sample 3392	pbde 47	db95170		95170	pc95170
+vitamin c DB00126 mouse GSE46319 sample 3506	vitamin c	db00126		54670067	pc54670067
+cytarabine, 2xEC50, 5 d 6253 human GSE6930 sample 3424	cytarabine	db6253		6253	pc6253
+ribavirin DB00811 human GSE23031 sample 2481	ribavirin	db00811		37542	pc37542
+estradiol DB00783 human GSE11352 sample 2729	estradiol	db00783		5757	pc5757
+imatinib DB00619 human GSE23743 sample 2763	imatinib	db00619		5291	pc5291
+lapatinib DB01259 human GSE16179 sample 2580	lapatinib	db01259		208908	pc208908
+formaldehyde 712 rat GSE7002 sample 3543	formaldehyde	db712		712	pc712
+bexarotene DB00307 human GSE6914 sample 2680	bexarotene	db00307		82146	pc82146
+Cadmium dichloride 24947 rat GSE31503 sample 3282	cadmium dichloride	db24947		24947	pc24947
+Bisphenol A 6623 mouse GSE4650 sample 3573	bisphenol a	db6623		6623	pc6623
+morphine 5288826 mouse GSE7762 sample 3487	morphine	db5288826		5288826	pc5288826
+estradiol 5757 human GSE24592 sample 3346	estradiol	db5757		5757	pc5757
+morphine 5288826 mouse GSE7762 sample 3493	morphine	db5288826		5288826	pc5288826
+paclitaxel 36314 human GSE12791 sample 3238	paclitaxel	db36314		36314	pc36314
+PLX4032 DB05238 human GSE54711 sample 2556	plx4032	db05238		42611257	pc42611257
+PBDE 47 95170 human GSE8588 sample 3050	pbde 47	db95170		95170	pc95170
+Streptozotocin effect on pancreas of offspring of protein-restricted dams 29327 mouse GSE38215 sample 3248	streptozotocin	db29327		29327	pc29327
+clozapine 2818 mouse GSE6467 sample 2464	clozapine	db2818		2818	pc2818
+FENRETINIDE 5288209 rat GSE3952 sample 3563	fenretinide	db5288209		5288209	pc5288209
+coenzyme Q10 5281915 mouse GSE15129 sample 3462	coenzyme q10	db5281915		5281915	pc5281915
+bleomycin DB00290 mouse GSE43695 sample 3106	bleomycin	db00290		5460769	pc5460769
+ethinyl estradiol DB00977 mouse GSE280 sample 2739	ethinyl estradiol	db00977		5991	pc5991
+estradiol 5757 human GSE4668 sample 3061	estradiol	db5757		5757	pc5757
+torcetrapib 159325 human GSE15918 sample 3172	torcetrapib	db159325		159325	pc159325
+calcitriol 5280453 human GSE52819 sample 3129	calcitriol	db5280453		5280453	pc5280453
+DAPT 5311272 rat GSE31668 sample 2648	dapt	db5311272		5311272	pc5311272
+estradiol 5757 mouse GSE2889 sample 3607	estradiol	db5757		5757	pc5757
+formaldehyde 712 rat GSE7002 sample 3549	formaldehyde	db712		712	pc712
+Hydrogen Peroxide 784 mouse GSE3078 sample 3598	hydrogen peroxide	db784		784	pc784
+Capsaicin 1548943 rat GSE59727 sample 3693	capsaicin	db1548943		1548943	pc1548943
+methylprednisolone 6741 rat GSE490 sample 3662	methylprednisolone	db6741		6741	pc6741
+fenretinide 5288209 rat GSE3952 sample 3559	fenretinide	db5288209		5288209	pc5288209
+NICKEL 935 human GSE6281 sample 3481	nickel	db935		935	pc935
+Y15 23627197 human GSE43452 sample 2553	y15	db23627197		78260	pc78260
+estradiol 5757 mouse GSE2195 sample 3622	estradiol	db5757		5757	pc5757
+PD173074 1401 human GSE52452 sample 2578	pd173074	db1401		1401	pc1401
+chlorambucil DB00291 human GSE8832 sample 2691	chlorambucil	db00291		2708	pc2708
+actinomycin D 2019 human GSE6400 sample 3098	actinomycin d	db2019		457193	pc457193
+SODIUM ARSENITE 443495 mouse GSE11056 sample 3355	sodium arsenite	db443495		443495	pc443495
+decitabine DB01262 human GSE29077 sample 2548	decitabine	db01262		451668	pc451668
+cisplatin DB00515 human GSE47856 sample 3160	cisplatin	db00515			cisplatin
+2,3,7,8-tetrachlorodibenzo-p-dioxin 10852289 mouse GSE2812 sample 3601	2,3,7,8-tetrachlorodibenzo-p-dioxin	db10852289		15625	pc15625
+MT19c compound SID 134222379 human GSE23616 sample 3353	mt19c	db134222379			mt19c
+estradiol DB00783 human GSE8597 sample 2731	estradiol	db00783		5757	pc5757
+bleomycin DB00290 mouse GSE43695 sample 3104	bleomycin	db00290		5460769	pc5460769
+Monuron 8800 rat GSE51163 sample 2468	monuron	db8800		8800	pc8800
+doxycycline DB00254 mouse GSE29848 sample 3209	doxycycline	db00254		54671203	pc54671203
+etanercept DB00005 human GSE47751 sample 2591	etanercept	db00005			etanercept
+Rosiglitazone DB00412 mouse GSE11343 sample 3255	rosiglitazone	db00412		77999	pc77999
+estradiol 5757 human GSE24592 sample 3344	estradiol	db5757		5757	pc5757
+Bisphenol A 6623 human GSE17624 sample 2658	bisphenol a	db6623		6623	pc6623
+motexafin gadolinium DB05428 human GSE2964 sample 3591	motexafin gadolinium	db05428		12047567	pc12047567
+metformin DB00331 mouse GSE35961 sample 3308	metformin	db00331		4091	pc4091
+methylprednisolone 6741 rat GSE490 sample 3673	methylprednisolone	db6741		6741	pc6741
+atorvastatin DB01076 human GSE11393 sample 3401	atorvastatin	db01076		60823	pc60823
+etanercept DB00005 human GSE11903 sample 2607	etanercept	db00005			etanercept
+rosiglitazone DB00412 human GSE7035 sample 2810	rosiglitazone	db00412		77999	pc77999
+diethylstilbestrol DB00255 rat GSE4028 sample 2716	diethylstilbestrol	db00255		448537	pc448537
+metoprolol DB00264 human GSE3356 sample 2786	metoprolol	db00264		4171	pc4171
+Laccaic Acid 5355255 human GSE45804 sample 2490	laccaic acid	db5355255		5355255	pc5355255
+methotrexate DB00563 human GSE23687 sample 2541	methotrexate	db00563		126941	pc126941
+tamoxifen DB00675 human GSE28645 sample 2822	tamoxifen	db00675		2733526	pc2733526
+vitamin e DB00163 mouse GSE42813 sample 3515	vitamin e	db00163		14985	pc14985
+acetaminophen DB00316 mouse GSE37874 sample 2482	acetaminophen	db00316		1983	pc1983
+ANTIMONY 5354495 human GSE6907 sample 3532	antimony	db5354495		5354495	pc5354495
+formaldehyde 712 rat GSE7002 sample 3552	formaldehyde	db712		712	pc712
+methylprednisolone 6741 rat GSE490 sample 3660	methylprednisolone	db6741		6741	pc6741
+anastrozole DB01217 human GSE33658 sample 3087	anastrozole	db01217		2187	pc2187
+diclofenac DB00586 human GSE54255 sample 3053	diclofenac	db00586		3033	pc3033
+decitabine DB01262 human GSE29077 sample 2538	decitabine	db01262		451668	pc451668
+PLX4032 DB05238 human GSE24862 sample 2567	plx4032	db05238		42611257	pc42611257
+pimecrolimus DB00337 human GSE32473 sample 2574	pimecrolimus	db00337		6509979	pc6509979
+thapsigargin 446378 human GSE19519 sample 3236	thapsigargin	db446378		446378	pc446378
+cisplatin DB00515 human GSE28274 sample 3254	cisplatin	db00515			cisplatin
+doxycycline DB00254 human GSE41035 sample 3041	doxycycline	db00254		54671203	pc54671203
+Methylphenidate DB00422 mouse GSE33619 sample 2499	methylphenidate	db00422		4158	pc4158
+Triiodothyronine-[13C6] hydrochloride (T3 thyronine) 53442265 human GSE29159 sample 3043	triiodothyronine-[13c6] hydrochloride	db53442265			triiodothyronine13c6hydrochloride
+testosterone 6013 human GSE5106 sample 3206	testosterone	db6013		5701998	pc5701998
+MEK inhibitor (MEKi -AZD6244) 10127622 human GSE55624 sample 3251	mek inhibitor	db10127622		23507698	pc23507698
+IFN-gamma1b DB00033 human GSE5542 sample 2476	ifn-gamma1b	db00033			ifngamma1b
+vancomycin DB14969 mouse GSE7793 sample 3397	vancomycin	db14969		14969	pc14969
+5-Fluorouracil 3385 mouse GSE1559 sample 3637	5-fluorouracil	db3385		3385	pc3385
+arsenic CID 5359596 human GSE20320 sample 2551	arsenic	db5359596		5359596	pc5359596
+formaldehyde 712 rat GSE7002 sample 3540	formaldehyde	db712		712	pc712
+metformin DB00331 human GSE33612 sample 2483	metformin	db00331		4091	pc4091
+apratoxin A 6326668 human GSE2742 sample 3071	apratoxin a	db6326668		6326668	pc6326668
+Cisplatin DB00515 human GSE28274 sample 3253	cisplatin	db00515			cisplatin
+Insulin Regular DB00030 mouse GSE39752 sample 3290	insulin	db00030		118984375	pc118984375
+TRICHLOROETHYLENE 6575 mouse GSE24278 sample 3315	trichloroethylene	db6575		6575	pc6575
+rituximab DB00073 human GSE15490 sample 2577	rituximab	db00073			rituximab
+soman 7305 rat GSE13428 sample 2637	soman	db7305		7305	pc7305
+etanercept DB00005 human GSE41663 sample 2603	etanercept	db00005			etanercept
+SB 216763 176158 human GSE19736 sample 3266	sb 216763	db176158		176158	pc176158
+pioglitazone DB01132 mouse GSE32536 sample 2797	pioglitazone	db01132		4829	pc4829
+Monuron 8800 rat GSE51163 sample 2467	monuron	db8800		8800	pc8800
+5-Fluorouracil 3385 mouse GSE1559 sample 3635	5-fluorouracil	db3385		3385	pc3385
+lung cancer DB00928 human GSE29077 sample 2535	lung cancer	db00928		9444	pc9444
+menadione DB00170 mouse GSE23725 sample 2780	menadione	db00170		4055	pc4055
+azacitidine DB00928 human GSE29077 sample 2545	azacitidine	db00928		9444	pc9444
+4-Vinylcyclohexene diepoxide 7833 mouse GSE23725 sample 3234	4-vinylcyclohexene diepoxide	db7833		7833	pc7833
+halothane 3562 rat GSE6433 sample 3652	halothane	db3562		3562	pc3562
+methylprednisolone 6741 rat GSE490 sample 3667	methylprednisolone	db6741		6741	pc6741
+Lipopolysaccharide 11970143 human GSE5504 sample 3485	lipopolysaccharide	db11970143		11970143	pc11970143
+coenzyme Q10 5281915 mouse GSE15129 sample 3456	coenzyme q10	db5281915		5281915	pc5281915
+Fasudil 3547 mouse GSE25829 sample 3276	fasudil	db3547		3547	pc3547
+carboplatin (24 h) 10339178 human GSE13525 sample 3030	carboplatin	db10339178		38904	pc38904
+diclofenac DB00586 human GSE28185 sample 3058	diclofenac	db00586		3033	pc3033
+valproic acid DB00313 mouse GSE9247 sample 2838	valproic acid	db00313		3121	pc3121
+quercetin DB04216 mouse GSE4262 sample 3427	quercetin	db04216		5280343	pc5280343
+alfacalcidol 5282181 human GSE15947 sample 3364	alfacalcidol	db5282181		5282181	pc5282181
+bleomycin DB00290 human GSE3598 sample 3587	bleomycin	db00290		5460769	pc5460769
+MLN4924 73014187 human GSE30531 sample 2644	mln4924	db73014187		16720766	pc16720766
+dexamethasone DB01234 mouse GSE7683 sample 2712	dexamethasone	db01234		5743	pc5743
+Lapatinib DB01259 human GSE38376 sample 3252	lapatinib	db01259		208908	pc208908
+abiraterone DB05812 human GSE49244 sample 3300	abiraterone	db05812		132971	pc132971
+soman 7305 rat GSE13428 sample 2634	soman	db7305		7305	pc7305
+troglitazone DB00197 rat GSE21329 sample 2832	troglitazone	db00197		5591	pc5591
+etanercept DB00005 human GSE41663 sample 2605	etanercept	db00005			etanercept
+formaldehyde 712 rat GSE7002 sample 3545	formaldehyde	db712		712	pc712
+diclofenac DB00586 human GSE28185 sample 3057	diclofenac	db00586		3033	pc3033
+trovafloxacin 62959 human GSE9166 sample 2623	trovafloxacin	db62959		62959	pc62959
+quercetin DB04216 mouse GSE4262 sample 3434	quercetin	db04216		5280343	pc5280343
+doxycycline DB00254 human GSE11422 sample 2573	doxycycline	db00254		54671203	pc54671203
+Arachidonic acid DB04557 human GSE3737 sample 3171	arachidonic acid	db04557		444899	pc444899
+rosiglitazone DB00412 rat GSE7193 sample 2811	rosiglitazone	db00412		77999	pc77999
+aminolevulinic acid DB00855 human GSE8920 sample 2575	aminolevulinic acid	db00855		137	pc137
+adenosine triphosphate 5957 human GSE30903 sample 3218	adenosine triphosphate	db5957		5957	pc5957
+cisplatin DB00515 human GSE42172 sample 3096	cisplatin	db00515			cisplatin
+bleomycin DB00290 mouse GSE2640 sample 2851	bleomycin	db00290		5460769	pc5460769
+resveratrol DB02709 mouse GSE11291 sample 3504	resveratrol	db02709		445154	pc445154
+imatinib (glivec) 123596 human GSE12211 sample 2518	imatinib	db123596		5291	pc5291
+methylprednisolone 6741 rat GSE490 sample 3663	methylprednisolone	db6741		6741	pc6741
+ethanol 702 human GSE44456 sample 3037	ethanol	db702		702	pc702
+cisplatin DB00515 human GSE47856 sample 3145	cisplatin	db00515			cisplatin
+mycophenolic acid DB01024 human GSE14630 sample 3302	mycophenolic acid	db01024		446541	pc446541
+lysophosphatidic acid 3988 human GSE26309 sample 3223	lysophosphatidic acid	db3988		5497152	pc5497152
+formaldehyde 712 rat GSE7002 sample 3536	formaldehyde	db712		712	pc712
+soman 7305 rat GSE13428 sample 2638	soman	db7305		7305	pc7305
+pioglitazone 4829 mouse GSE1458 sample 2587	pioglitazone	db4829		4829	pc4829
+methamphetamine 10836 mouse GSE30305 sample 2612	methamphetamine	db10836		66124	pc66124
+isotretinoin DB00982 human GSE10432 sample 2772	isotretinoin	db00982		5282379	pc5282379
+lapatinib DB01259 human GSE38376 sample 2586	lapatinib	db01259		208908	pc208908
+Fasudil 3547 mouse GSE25829 sample 3277	fasudil	db3547		3547	pc3547
+irinotecan DB00762 rat GSE11722 sample 2768	irinotecan	db00762		60838	pc60838
+dexamethasone DB01234 human GSE34313 sample 2714	dexamethasone	db01234		5743	pc5743
+Phosgene 6371 mouse GSE2565 sample 3617	phosgene	db6371		6371	pc6371
+vitamin c DB00126 mouse GSE32994 sample 3509	vitamin c	db00126		54670067	pc54670067
+etanercept DB00005 human GSE47751 sample 2592	etanercept	db00005			etanercept
+haloperidol 3559 mouse GSE6511 sample 2471	haloperidol	db3559		3559	pc3559
+5-Fluorouracil 3385 mouse GSE1559 sample 3638	5-fluorouracil	db3385		3385	pc3385
+NVP-TNKS656 27924 human GSE55624 sample 3249	nvp-tnks656	db27924		71227201	pc71227201
+Sodium dichromate 25408 rat GSE31503 sample 3285	sodium dichromate	db25408		25408	pc25408
+nicotinamide riboside 439924 mouse GSE62194 sample 3469	nicotinamide riboside	db439924		439924	pc439924
+resveratrol DB02709 mouse GSE11291 sample 3503	resveratrol	db02709		445154	pc445154
+pioglitazone DB01132 rat GSE20219 sample 2794	pioglitazone	db01132		4829	pc4829
+1-Benzylpiperazine 75994 rat GSE68785 sample 3687	1-benzylpiperazine	db75994		75994	pc75994
+isoflurane DB00753 rat GSE1779 sample 2770	isoflurane	db00753		3763	pc3763
+soman 7305 rat GSE13428 sample 2639	soman	db7305		7305	pc7305
+puromycin, EC50, 5 d 439530 human GSE6930 sample 3270	puromycin	db439530		439530	pc439530
+formaldehyde 712 rat GSE7002 sample 3538	formaldehyde	db712		712	pc712
+chromium 23976 human GSE6907 sample 3534	chromium	db23976		23976	pc23976
+Bisphenol A 6623 human GSE17624 sample 2664	bisphenol a	db6623		6623	pc6623
+cyclophosphamide 2907 mouse GSE2254 sample 3626	cyclophosphamide	db2907		2907	pc2907
+2,2',4,4',5,5'-Hexachlorobiphenyl   (PCB-153) 37034 human GSE6878 sample 3351	2,2',4,4',5,5'-hexachlorobiphenyl  	db37034		37034	pc37034
+NSC319726 5351307 human GSE35972 sample 2479	nsc319726	db5351307		5351307	pc5351307
+3,3',4,4'-Tetrachlorobiphenyl 36187 human GSE6878 sample 3271	3,3',4,4'-tetrachlorobiphenyl	db36187		36187	pc36187
+vemurafenib 42611257 human GSE42872 sample 2495	vemurafenib	db42611257		42611257	pc42611257
+coenzyme Q10 5281915 mouse GSE15129 sample 3460	coenzyme q10	db5281915		5281915	pc5281915
+trovafloxacin DB00685 human GSE9166 sample 3036	trovafloxacin	db00685		62959	pc62959
+R1881 13766 human GSE22606 sample 3049	r1881	db13766		261000	pc261000
+rosiglitazone DB00412 mouse GSE10192 sample 2812	rosiglitazone	db00412		77999	pc77999
+HYPOCHLOROUS ACID 24341 mouse GSE15457 sample 3381	hypochlorous acid	db24341		24341	pc24341
+captopril DB01197 mouse GSE19286 sample 2689	captopril	db01197		44093	pc44093
+quercetin DB04216 mouse GSE38141 sample 3435	quercetin	db04216		5280343	pc5280343
+imatinib DB00619 human GSE24493 sample 2764	imatinib	db00619		5291	pc5291
+adenosine triphosphate 5957 human GSE30903 sample 3221	adenosine triphosphate	db5957		5957	pc5957
+cisplatin DB00515 human GSE47856 sample 3159	cisplatin	db00515			cisplatin
+phenytoin 1775 rat GSE2880 sample 2670	phenytoin	db1775		1775	pc1775
+carboplatin DB00958 human GSE49577 sample 3178	carboplatin	db00958		38904	pc38904
+simvastatin 54454 mouse GSE1871 sample 3618	simvastatin	db54454		54454	pc54454
+nilotinib DB04868 human GSE19567 sample 2528	nilotinib	db04868		644241	pc644241
+decitabine DB01262 human GSE29077 sample 2547	decitabine	db01262		451668	pc451668
+VANADIUM PENTOXIDE 14814 human GSE5339 sample 3555	vanadium pentoxide	db14814		14814	pc14814
+doxorubicin DB00997 human GSE24460 sample 2533	doxorubicin	db00997		31703	pc31703
+soman 7305 rat GSE13428 sample 2640	soman	db7305		7305	pc7305
+Lapatinib DB01259 human GSE38376 sample 2584	lapatinib	db01259		208908	pc208908
+Perfluorooctanoic Acid 9554 mouse GSE13044 sample 3519	perfluorooctanoic acid	db9554		9554	pc9554
+Argyrin A 24978550 human GSE8565 sample 3054	argyrin a	db24978550			argyrina
+resveratrol DB02709 mouse GSE62194 sample 3466	resveratrol	db02709		445154	pc445154
+cisplatin DB00515 human GSE47856 sample 3146	cisplatin	db00515			cisplatin
+SODIUM BUTYRATE 5222465 mouse GSE4410 sample 3583	sodium butyrate	db5222465		104775	pc104775
+morphine 5288826 mouse GSE7762 sample 3492	morphine	db5288826		5288826	pc5288826
+Lipopolysaccharide 11970143 human GSE3140 sample 3594	lipopolysaccharide	db11970143		11970143	pc11970143
+soman 7305 rat GSE13428 sample 2635	soman	db7305		7305	pc7305
+cetuximab DB00002 human GSE61495 sample 3133	cetuximab	db00002			cetuximab
+apratoxin A 6326668 human GSE2742 sample 3070	apratoxin a	db6326668		6326668	pc6326668
+motexafin gadolinium (24 h) DB05428 human GSE2189 sample 3128	motexafin gadolinium	db05428		12047567	pc12047567
+Cobalt dichloride hexahydrate 24643 rat GSE51207 sample 3117	cobalt dichloride hexahydrate	db24643		24643	pc24643
+tamoxifen DB00675 human GSE4025 sample 2820	tamoxifen	db00675		2733526	pc2733526
+resveratrol DB02709 mouse GSE11291 sample 3505	resveratrol	db02709		445154	pc445154
+cytarabine, EC50, 3 d 6253 human GSE6930 sample 3374	cytarabine	db6253		6253	pc6253
+imatinib DB00619 human GSE1922 sample 2519	imatinib	db00619		5291	pc5291
+HYPOCHLOROUS ACID 24341 human GSE11630 sample 3201	hypochlorous acid	db24341		24341	pc24341
+morphine 5288826 mouse GSE7762 sample 3490	morphine	db5288826		5288826	pc5288826
+Lipopolysaccharide 11970143 human GSE5504 sample 3486	lipopolysaccharide	db11970143		11970143	pc11970143
+lipopolysaccharide 11970143 human GSE40885 sample 2475	lipopolysaccharide	db11970143		11970143	pc11970143
+lipopolysaccharide (LPS) 11970143 mouse GSE23639 sample 3443	lipopolysaccharide	db11970143		11970143	pc11970143
+Cholestyramine DB01432 human GSE11223 sample 3294	cholestyramine	db01432		70695641	pc70695641
+Curcumin CID 969516 human GSE10896 sample 3259	curcumin	db969516		969516	pc969516
+3H-1,2-Dithiole-3-thione 68296 rat GSE3173 sample 3593	3h-1,2-dithiole-3-thione	db68296		68296	pc68296
+medroxyprogesterone acetate DB00603 mouse GSE10392 sample 2779	medroxyprogesterone acetate	db00603		6279	pc6279
+Perfluorooctanoic Acid 9554 mouse GSE13044 sample 3516	perfluorooctanoic acid	db9554		9554	pc9554
+Lipopolysaccharide 11970143 human GSE5504 sample 3483	lipopolysaccharide	db11970143		11970143	pc11970143
+isoflurane 3763 rat GSE6433 sample 3654	isoflurane	db3763		3763	pc3763
+trastuzumab DB00072 human GSE31432 sample 3123	trastuzumab	db00072			trastuzumab
+pioglitazone DB01132 rat GSE21329 sample 2841	pioglitazone	db01132		4829	pc4829
+curcumin 969516 human GSE10896 sample 3406	curcumin	db969516		969516	pc969516
+HYPOCHLOROUS ACID 24341 human GSE11630 sample 3197	hypochlorous acid	db24341		24341	pc24341
+TRICHLOROETHYLENE 6575 mouse GSE24278 sample 3318	trichloroethylene	db6575		6575	pc6575
+bortezomib DB00188 human GSE30931 sample 2686	bortezomib	db00188		387447	pc387447
+NICKEL 935 human GSE6281 sample 3480	nickel	db935		935	pc935
+permethrin DB04930 rat GSE7955 sample 3417	permethrin	db04930		40326	pc40326
+PLX4032 DB05238 human GSE24862 sample 2566	plx4032	db05238		42611257	pc42611257
+etanercept DB00005 human GSE11903 sample 2610	etanercept	db00005			etanercept
+doxorubicin, EC50, 1 d 31703 human GSE6930 sample 3260	doxorubicin	db31703		31703	pc31703
+vitamin C DB00126 mouse GSE32994 sample 3507	vitamin c	db00126		54670067	pc54670067
+SODIUM BUTYRATE 5222465 mouse GSE4410 sample 3582	sodium butyrate	db5222465		104775	pc104775
+Adriamycin DB00997 mouse GSE44355 sample 2486	adriamycin	db00997		31703	pc31703
+Lapatinib DB01259 human GSE38376 sample 2583	lapatinib	db01259		208908	pc208908
+Telapristone Acetate 9806190 human GSE67561 sample 3695	telapristone acetate	db9806190		9806190	pc9806190
+fluoxetine DB00472 mouse GSE35765 sample 2500	fluoxetine	db00472		3386	pc3386
+apratoxin A 6326668 human GSE2742 sample 3066	apratoxin a	db6326668		6326668	pc6326668
+decitabine DB01262 human GSE29077 sample 2540	decitabine	db01262		451668	pc451668
+cisplatin DB00515 human GSE28274 sample 2531	cisplatin	db00515			cisplatin
+3,3',4,4'-Tetrachlorobiphenyl 36187 human GSE6878 sample 3272	3,3',4,4'-tetrachlorobiphenyl	db36187		36187	pc36187
+doxorubicin, EC50, 3 d 31703 human GSE6930 sample 3261	doxorubicin	db31703		31703	pc31703
+estradiol 5757 human GSE12446 sample 3203	estradiol	db5757		5757	pc5757
+5-aminosalicylic acid 4075 human GSE38713 sample 3195	5-aminosalicylic acid	db4075		4075	pc4075
+VX 39793 human GSE33606 sample 3376	vx	db39793		39793	pc39793
+torcetrapib 159325 human GSE15918 sample 3035	torcetrapib	db159325		159325	pc159325
+lapatinib 208908 human GSE38376 sample 3245	lapatinib	db208908		208908	pc208908
+SODIUM PYRUVATE 23662274 mouse GSE5497 sample 3565	sodium pyruvate	db23662274		23662274	pc23662274
+PBDE 47 95170 rat GSE19868 sample 3393	pbde 47	db95170		95170	pc95170
+phenytoin 1775 rat GSE2880 sample 3034	phenytoin	db1775		1775	pc1775
+ciprofloxacin 2764 human GSE9166 sample 2624	ciprofloxacin	db2764		2764	pc2764
+Hydrogen Peroxide 784 mouse GSE3078 sample 3599	hydrogen peroxide	db784		784	pc784
+sorafenib DB00398 human GSE39192 sample 3055	sorafenib	db00398		216239	pc216239
+cetuximab DB00002 human GSE61495 sample 3135	cetuximab	db00002			cetuximab
+PLX4032 DB05238 human GSE24862 sample 2565	plx4032	db05238		42611257	pc42611257
+estradiol DB00783 human GSE1153 sample 2734	estradiol	db00783		5757	pc5757
+BPDE 41322 human GSE19510 sample 3379	bpde	db41322		41322	pc41322
+TRICHLOROETHYLENE 6575 mouse GSE24278 sample 3324	trichloroethylene	db6575		6575	pc6575
+Sodium dichromate 25408 rat GSE31503 sample 3284	sodium dichromate	db25408		25408	pc25408
+cetuximab DB00002 human GSE61495 sample 3134	cetuximab	db00002			cetuximab
+isotretinoin 5282379 human GSE10433 sample 2498	isotretinoin	db5282379		5282379	pc5282379
+methylprednisolone 6741 rat GSE490 sample 3668	methylprednisolone	db6741		6741	pc6741
+temozolomide 5394 human GSE43452 sample 2555	temozolomide	db5394		5394	pc5394
+2,3,7,8-tetrachlorodibenzo-p-dioxin 15625 mouse GSE4873 sample 2595	2,3,7,8-tetrachlorodibenzo-p-dioxin	db15625		15625	pc15625
+Mercury 23931 human GSE6907 sample 3533	mercury	db23931		23931	pc23931
+estradiol 5757 mouse GSE2195 sample 3624	estradiol	db5757		5757	pc5757
+pioglitazone DB01132 rat GSE21329 sample 2842	pioglitazone	db01132		4829	pc4829
+estradiol 5757 human GSE16683 sample 3394	estradiol	db5757		5757	pc5757
+Bisphenol A 6623 human GSE17624 sample 2659	bisphenol a	db6623		6623	pc6623
+paclitaxel DB01229 human GSE19136 sample 2576	paclitaxel	db01229		36314	pc36314
+cyclosporine DB00091 mouse GSE1809 sample 3299	cyclosporine	db00091		5284373	pc5284373
+deltamethrin 40585 rat GSE7955 sample 3419	deltamethrin	db40585		40585	pc40585
+MLN4924 73014187 human GSE30531 sample 2646	mln4924	db73014187		16720766	pc16720766
+lapatinib DB01259 human GSE38376 sample 2585	lapatinib	db01259		208908	pc208908
+cisplatin DB00515 human GSE47856 sample 3151	cisplatin	db00515			cisplatin
+tibolone 444008 human GSE12446 sample 3204	tibolone	db444008		444008	pc444008
+levofloxacin 149096 human GSE9166 sample 2628	levofloxacin	db149096		149096	pc149096
+apratoxin A 6326668 human GSE2742 sample 3069	apratoxin a	db6326668		6326668	pc6326668
+doxorubicin DB00997 human GSE58074 sample 3180	doxorubicin	db00997		31703	pc31703
+Vincristine 5978 human GSE7556 sample 3092	vincristine	db5978		5978	pc5978
+MT19c compound SID 134222379 human GSE23616 sample 3352	mt19c	db134222379			mt19c
+Insulin 3989 human GSE22309 sample 3368	insulin	db3989			insulin
+l-arginine 6322 mouse GSE34874 sample 3214	l-arginine	db6322		6322	pc6322
+Tamoxifen DB00675 mouse GSE34232 sample 2579	tamoxifen	db00675		2733526	pc2733526
+diethylstilbestrol DB00255 mouse GSE1839 sample 2718	diethylstilbestrol	db00255		448537	pc448537
+Carboplatin DB00958 human GSE13525 sample 3089	carboplatin	db00958		38904	pc38904
+nicotinamide riboside 439924 mouse GSE62194 sample 3471	nicotinamide riboside	db439924		439924	pc439924
+Bisphenol A 6623 mouse GSE4650 sample 3574	bisphenol a	db6623		6623	pc6623
+Chlorpyrifos 2730 human GSE5023 sample 3571	chlorpyrifos	db2730		2730	pc2730
+estradiol DB00783 human GSE46924 sample 2487	estradiol	db00783		5757	pc5757
+curcumin 969516 human GSE10896 sample 3407	curcumin	db969516		969516	pc969516
+methamphetamine 10836 mouse GSE30305 sample 2621	methamphetamine	db10836		66124	pc66124
+ARSENIC 5359596 human GSE6907 sample 3529	arsenic	db5359596		5359596	pc5359596
+decitabine 451668 mouse GSE4768 sample 3103	decitabine	db451668		451668	pc451668
+resveratrol DB02709 human GSE41168 sample 3494	resveratrol	db02709		445154	pc445154
+vitamin a DB00162 rat GSE284 sample 2839	vitamin a	db00162		445354	pc445354
+sulforaphane 5350 human GSE28813 sample 3445	sulforaphane	db5350		5350	pc5350
+Bisphenol A 6623 human GSE17624 sample 2662	bisphenol a	db6623		6623	pc6623
+trichostatin A 444732 mouse GSE1437 sample 3085	trichostatin a	db444732		444732	pc444732
+trovafloxacin 62959 human GSE9166 sample 2629	trovafloxacin	db62959		62959	pc62959
+doxorubicin 31703 human GSE13477 sample 2641	doxorubicin	db31703		31703	pc31703
+doxycycline DB00254 human GSE2624 sample 3074	doxycycline	db00254		54671203	pc54671203
+nicotinamide riboside 439924 mouse GSE62194 sample 3468	nicotinamide riboside	db439924		439924	pc439924
+Cobalt dichloride hexahydrate 24643 rat GSE51207 sample 3116	cobalt dichloride hexahydrate	db24643		24643	pc24643
+Rapamycin DB00877 human GSE5824 sample 2459	rapamycin	db00877		5284616	pc5284616
+MLN4924 73014187 human GSE30531 sample 2643	mln4924	db73014187		16720766	pc16720766
+bexarotene 82146 rat GSE3952 sample 3560	bexarotene	db82146		82146	pc82146
+Caerulein 16132921 mouse GSE3644 sample 3586	caerulein	db16132921		16129675	pc16129675
+ANGIOTENSIN II 172198 mouse GSE17901 sample 3679	angiotensin ii	db172198		172198	pc172198
+levetiracetam DB01202 rat GSE2880 sample 2777	levetiracetam	db01202		5284583	pc5284583
+imatinib DB00619 human GSE1922 sample 2520	imatinib	db00619		5291	pc5291
+ubiquinol 9962735 mouse GSE15129 sample 3451	ubiquinol	db9962735			ubiquinol
+PBDE 85 177368 human GSE8588 sample 3051	pbde 85	db177368		177368	pc177368
+lysophosphatidic acid 3988 human GSE26309 sample 3224	lysophosphatidic acid	db3988		5497152	pc5497152
+motexafin gadolinium (4 h) DB05428 human GSE2189 sample 3125	motexafin gadolinium	db05428		12047567	pc12047567
+Atorvastatin DB01076 human GSE11393 sample 3196	atorvastatin	db01076		60823	pc60823
+EPZ004777 56962336 human GSE29828 sample 2649	epz004777	db56962336		56962336	pc56962336
+glipizide DB01067 mouse GSE2431 sample 2749	glipizide	db01067		3478	pc3478
+PRISTANE 15979 mouse GSE17297 sample 3229	pristane	db15979		15979	pc15979
+Phosgene 6371 mouse GSE2565 sample 3612	phosgene	db6371		6371	pc6371
+Promyelocytic leukemia DB00755 human GSE5007 sample 2461	promyelocytic leukemia	db00755		444795	pc444795
+Vitamin D3 DB00136 human GSE5145 sample 3170	vitamin d3	db00136		5280453	pc5280453
+ubiquinol 9962735 mouse GSE15129 sample 3463	ubiquinol	db9962735			ubiquinol
+cytarabine 6253 human GSE5681 sample 2599	cytarabine	db6253		6253	pc6253
+alitretinoin DB00523 rat GSE3952 sample 2673	alitretinoin	db00523		449171	pc449171
+HYPOCHLOROUS ACID 24341 human GSE11630 sample 3199	hypochlorous acid	db24341		24341	pc24341
+Caerulein 16132921 rat GSE5509 sample 3566	caerulein	db16132921		16129675	pc16129675
+methylprednisolone 6741 rat GSE490 sample 3672	methylprednisolone	db6741		6741	pc6741
+coenzyme Q10 5281915 mouse GSE15129 sample 3454	coenzyme q10	db5281915		5281915	pc5281915
+cytarabine, 2xEC50, 1 d 6253 human GSE6930 sample 3422	cytarabine	db6253		6253	pc6253
+nicotinamide riboside 439924 mouse GSE62194 sample 3470	nicotinamide riboside	db439924		439924	pc439924
+bexarotene DB00307 human GSE12791 sample 2681	bexarotene	db00307		82146	pc82146
+Interferon beta-1b DB00068 human GSE26104 sample 3184	interferon beta-1b	db00068			interferonbeta1b
+Methotrexate DB00563 human GSE11440 sample 3072	methotrexate	db00563		126941	pc126941
+resveratrol DB02709 human GSE36930 sample 3498	resveratrol	db02709		445154	pc445154
+deltamethrin 40585 rat GSE7955 sample 3421	deltamethrin	db40585		40585	pc40585
+cisplatin DB00515 human GSE47856 sample 3143	cisplatin	db00515			cisplatin
+methamphetamine 10836 mouse GSE30305 sample 2609	methamphetamine	db10836		66124	pc66124
+2,3-dimethoxy-1,4-naphtoquinone (DMNQ) 3136 human GSE39843 sample 3682	2,3-dimethoxy-1,4-naphtoquinone	db3136			23dimethoxy14naphtoquinone
+vemurafenib DB08881 human GSE37441 sample 2561	vemurafenib	db08881		42611257	pc42611257
+Mehp 20393 rat GSE4514 sample 3578	mehp	db20393		20393	pc20393
+genistein 5280961 mouse GSE2889 sample 3604	genistein	db5280961		5280961	pc5280961
+Retinoic acid 444795 mouse GSE1588 sample 3632	retinoic acid	db444795		444795	pc444795
+vancomycin DB14969 mouse GSE7793 sample 3396	vancomycin	db14969		14969	pc14969
+type II IFN (IFN-gamma1b) DB00033 human GSE5542 sample 2477	type ii ifn	db00033			typeiiifn
+Curcumin CID 969516 human GSE10896 sample 3258	curcumin	db969516		969516	pc969516
+Triiodothyronine-[13C6] hydrochloride (T3 thyronine) 53442265 human GSE29159 sample 3047	triiodothyronine-[13c6] hydrochloride	db53442265			triiodothyronine13c6hydrochloride
+HYPOCHLOROUS ACID 24341 mouse GSE15457 sample 3386	hypochlorous acid	db24341		24341	pc24341
+Leptin DB05098 mouse GSE3293 sample 3592	leptin	db05098		90470904	pc90470904
+foretinib 42642645 human GSE16179 sample 2582	foretinib	db42642645		42642645	pc42642645
+heroin 5462328 mouse GSE30305 sample 2666	heroin	db5462328		5462328	pc5462328
+SODIUM ARSENITE 443495 mouse GSE11056 sample 3359	sodium arsenite	db443495		443495	pc443495
+CONCANAVALIN A 596316 mouse GSE17184 sample 3366	concanavalin a	db596316			concanavalina
+dexamethasone DB01234 mouse GSE5463 sample 2709	dexamethasone	db01234		5743	pc5743
+PLX4032 DB05238 human GSE24862 sample 2569	plx4032	db05238		42611257	pc42611257
+etanercept DB00005 human GSE41663 sample 2602	etanercept	db00005			etanercept
+tamoxifen DB00675 human GSE28645 sample 2496	tamoxifen	db00675		2733526	pc2733526
+etanercept DB00005 human GSE11903 sample 2606	etanercept	db00005			etanercept
+TRICHLOROETHYLENE 6575 mouse GSE24278 sample 3321	trichloroethylene	db6575		6575	pc6575
+cetuximab DB00002 human GSE61495 sample 3136	cetuximab	db00002			cetuximab
+TRICHLOROETHYLENE 6575 mouse GSE24278 sample 3314	trichloroethylene	db6575		6575	pc6575
+quercetin 5280343 rat GSE7479 sample 3409	quercetin	db5280343		5280343	pc5280343
+MK-886 CID 3651377 human GSE3202 sample 3192	mk-886	db3651377		3651377	pc3651377
+quercetin DB04216 mouse GSE38136 sample 3438	quercetin	db04216		5280343	pc5280343
+All-trans retinoic acid DB00755 mouse GSE31280 sample 2460	all-trans retinoic acid	db00755		444795	pc444795
+ethanol DB00898 mouse GSE52644 sample 3475	ethanol	db00898		702	pc702
+Perfluorooctanoic Acid 9554 mouse GSE13044 sample 3517	perfluorooctanoic acid	db9554		9554	pc9554
+vancomycin DB14969 mouse GSE7793 sample 3400	vancomycin	db14969		14969	pc14969
+doxorubicin DB00997 human GSE12972 sample 2720	doxorubicin	db00997		31703	pc31703
+methotrexate DB00563 human GSE41831 sample 2601	methotrexate	db00563		126941	pc126941
+troglitazone 5591 mouse GSE1458 sample 2589	troglitazone	db5591		5591	pc5591
+imatinib DB00619 human GSE1922 sample 2515	imatinib	db00619		5291	pc5291
+atorvastatin DB01076 human GSE2450 sample 2484	atorvastatin	db01076		60823	pc60823
+vancomycin DB14969 mouse GSE7793 sample 3399	vancomycin	db14969		14969	pc14969
+ethanol DB00898 rat GSE3311 sample 2737	ethanol	db00898		702	pc702
+Fasudil 3547 mouse GSE25829 sample 3274	fasudil	db3547		3547	pc3547
+PRISTANE 15979 mouse GSE17297 sample 3227	pristane	db15979		15979	pc15979
+morphine DB00295 mouse GSE15774 sample 2787	morphine	db00295		5288826	pc5288826
+Phosgene 6371 mouse GSE2565 sample 3611	phosgene	db6371		6371	pc6371
+nicotine 942 human GSE6264 sample 3064	nicotine	db942		89594	pc89594
+Mepenzolate DB04843 mouse GSE50836 sample 2530	mepenzolate	db04843		4057	pc4057
+Triiodothyronine-[13C6] hydrochloride (T3 thyronine) 53442265 human GSE29159 sample 3045	triiodothyronine-[13c6] hydrochloride	db53442265			triiodothyronine13c6hydrochloride
+sapphyrin PCI-2050 (2.5 &Icirc;&frac14;M) 9855235 human GSE6400 sample 3102	sapphyrin pci-2050	db9855235		9855235	pc9855235
+olanzapine 4585 rat GSE2547 sample 2511	olanzapine	db4585		4585	pc4585
+methamphetamine 10836 mouse GSE30305 sample 2616	methamphetamine	db10836		66124	pc66124
+rosiglitazone 77999 rat GSE5509 sample 3567	rosiglitazone	db77999		77999	pc77999
+ZINC ACETATE 11192 human GSE2964 sample 3590	zinc acetate	db11192		11192	pc11192
+tretinoin DB00755 human GSE23702 sample 2828	tretinoin	db00755		444795	pc444795
+diethylstilbestrol DB00255 rat GSE4028 sample 2715	diethylstilbestrol	db00255		448537	pc448537
+heroin 5462328 mouse GSE30305 sample 2611	heroin	db5462328		5462328	pc5462328
+cisplatin DB00515 human GSE42172 sample 3095	cisplatin	db00515			cisplatin
+d-serine 71077 rat GSE10748 sample 3389	d-serine	db71077		71077	pc71077
+carboplatin DB00958 human GSE49577 sample 3175	carboplatin	db00958		38904	pc38904
+vancomycin DB14969 mouse GSE7793 sample 3395	vancomycin	db14969		14969	pc14969
+4-Hydroxynonenal 5283344 human GSE2397 sample 3083	4-hydroxynonenal	db5283344		5283344	pc5283344
+apratoxin A 6326668 human GSE2742 sample 3068	apratoxin a	db6326668		6326668	pc6326668
+dasatinib DB01254 human GSE59357 sample 3306	dasatinib	db01254		3062316	pc3062316
+imatinib DB00619 mouse GSE51698 sample 2522	imatinib	db00619		5291	pc5291
+Monuron 8800 rat GSE51163 sample 2463	monuron	db8800		8800	pc8800
+quercetin 5280343 human GSE7259 sample 3415	quercetin	db5280343		5280343	pc5280343
+VANADIUM PENTOXIDE 14814 human GSE5339 sample 3558	vanadium pentoxide	db14814		14814	pc14814
+TRICHLOROETHYLENE 6575 mouse GSE24278 sample 3311	trichloroethylene	db6575		6575	pc6575
+Cadmium Chloride 24947 rat GSE9480 sample 3413	cadmium chloride	db24947		24947	pc24947
+Argyrin A 24978550 human GSE8565 sample 3052	argyrin a	db24978550			argyrina
+methylprednisolone 6741 rat GSE490 sample 3669	methylprednisolone	db6741		6741	pc6741
+rosiglitazone DB00412 rat GSE21329 sample 2844	rosiglitazone	db00412		77999	pc77999
+estradiol 5757 human GSE24592 sample 3347	estradiol	db5757		5757	pc5757
+progesterone 5994 mouse GSE6440 sample 3686	progesterone	db5994		5994	pc5994
+rosiglitazone DB00412 mouse GSE35011 sample 2813	rosiglitazone	db00412		77999	pc77999
+estradiol 5757 mouse GSE2195 sample 3620	estradiol	db5757		5757	pc5757
+Calcitonin 16132288 mouse GSE60761 sample 3446	calcitonin	db16132288		44388547	pc44388547
+pioglitazone DB01132 rat GSE20219 sample 2795	pioglitazone	db01132		4829	pc4829
+deferasirox DB01609 human GSE11670 sample 2572	deferasirox	db01609		5493381	pc5493381
+haloperidol 3559 mouse GSE6467 sample 2466	haloperidol	db3559		3559	pc3559
+Retinoic acid 444795 human GSE23702 sample 3233	retinoic acid	db444795		444795	pc444795
+streptozocin DB00428 mouse GSE39752 sample 3065	streptozocin	db00428		29327	pc29327
+sangivamycin (NSC 65346) 14978 human GSE13477 sample 2504	sangivamycin	db14978		14978	pc14978
+1-Naphthyl isothiocyanate 11080 rat GSE5509 sample 3568	1-naphthyl isothiocyanate	db11080		11080	pc11080
+1,2,4-BENZENETRIOL 10787 human GSE7664 sample 3535	1,2,4-benzenetriol	db10787		10787	pc10787
+NICKEL 935 human GSE6907 sample 3531	nickel	db935		935	pc935
+streptozocin DB00428 mouse GSE38067 sample 3439	streptozocin	db00428		29327	pc29327
+estradiol 5757 mouse GSE52711 sample 3120	estradiol	db5757		5757	pc5757
+FGFR-specific PD173074 inhibitor 1401 human GSE52452 sample 3244	fgfr-specific pd173074 inhibitor	db1401			fgfrspecificpd173074inhibitor
+dexamethasone DB01234 mouse GSE484 sample 2711	dexamethasone	db01234		5743	pc5743
+2,2',4,4',5,5'-Hexachlorobiphenyl   (PCB-153) 37034 human GSE6878 sample 3348	2,2',4,4',5,5'-hexachlorobiphenyl  	db37034		37034	pc37034
+palmitic acid 985 mouse GSE6766 sample 3553	palmitic acid	db985		985	pc985
+PRISTANE 15979 mouse GSE17297 sample 3226	pristane	db15979		15979	pc15979
+Phosgene 6371 mouse GSE2565 sample 3616	phosgene	db6371		6371	pc6371
+mesalazine DB00244 human GSE38713 sample 3289	mesalazine	db00244		4075	pc4075
+VX 39793 human GSE33606 sample 3345	vx	db39793		39793	pc39793
+Lipopolysaccharide 11970143 mouse GSE2002 sample 3603	lipopolysaccharide	db11970143		11970143	pc11970143
+titanium dioxide NA mouse GSE7475 sample 2823	titanium dioxide			439196	pc439196
+dactinomycin DB00970 mouse GSE5324 sample 2700	dactinomycin	db00970		457193	pc457193
+Interferon-&Icirc;&sup2;-1b (Betaferon) DB00068 human GSE26104 sample 3343	interferon-&icirc;&sup2;-1b	db00068			interferonicircsup21b
+estradiol 5757 mouse GSE52711 sample 3118	estradiol	db5757		5757	pc5757
+vemurafenib DB08881 human GSE37441 sample 2560	vemurafenib	db08881		42611257	pc42611257
+CONCANAVALIN A 596316 mouse GSE17184 sample 3365	concanavalin a	db596316			concanavalina
+imiquimod DB00724 mouse GSE27628 sample 3073	imiquimod	db00724		57469	pc57469
+SODIUM ARSENITE 443495 mouse GSE11056 sample 3357	sodium arsenite	db443495		443495	pc443495
+RPI-1 1749978 human GSE49414 sample 3173	rpi-1	db1749978		907426	pc907426
+Aplidin 56928089 human GSE5681 sample 2598	aplidin	db56928089		9812534	pc9812534
+carboplatin DB00958 human GSE49577 sample 3174	carboplatin	db00958		38904	pc38904
+bleomycin DB00290 mouse GSE25640 sample 3121	bleomycin	db00290		5460769	pc5460769
+methotrexate DB00563 human GSE41831 sample 2600	methotrexate	db00563		126941	pc126941
+ubiquinol 9962735 mouse GSE15129 sample 3453	ubiquinol	db9962735			ubiquinol
+amoxicillin DB01060 rat GSE2354 sample 2678	amoxicillin	db01060		33613	pc33613
+resveratrol DB02709 mouse GSE7111 sample 3496	resveratrol	db02709		445154	pc445154
+Lipopolysaccharide 11970143 mouse GSE367 sample 3656	lipopolysaccharide	db11970143		11970143	pc11970143
+Atarax DB00557 human GSE31773 sample 2485	atarax	db00557		3658	pc3658
+LMP-420 497668 human GSE20211 sample 3222	lmp-420	db497668		497668	pc497668
+ubiquinol 9962735 mouse GSE15129 sample 3465	ubiquinol	db9962735			ubiquinol
+carboplatin DB00958 human GSE7035 sample 3060	carboplatin	db00958		38904	pc38904
+citalopram DB00215 human GSE7036 sample 3292	citalopram	db00215		2771	pc2771
+irinotecan DB00762 rat GSE11722 sample 2767	irinotecan	db00762		60838	pc60838
+Fasudil 3547 mouse GSE25829 sample 3275	fasudil	db3547		3547	pc3547
+fluoxetine 62857 mouse GSE6476 sample 2618	fluoxetine	db62857		3386	pc3386
+DETA NONOate 24890998 mouse GSE22087 sample 3210	deta nonoate	db24890998		1606	pc1606
+PLX4720 CID 24180719 human GSE50791 sample 2506	plx4720	db24180719		24180719	pc24180719
+formoterol DB00983 human GSE30242 sample 2631	formoterol	db00983		3410	pc3410
+fenretinide DB05076 human GSE17480 sample 2529	fenretinide	db05076		5288209	pc5288209
+estradiol 5757 mouse GSE2195 sample 3621	estradiol	db5757		5757	pc5757
+pioglitazone DB01132 human GSE8157 sample 2796	pioglitazone	db01132		4829	pc4829
+1,25 dihydroxyvitamin D 5280453 human GSE15947 sample 2493	1,25 dihydroxyvitamin d	db5280453			125dihydroxyvitamind
+2,3-dimethoxy-1,4-naphtoquinone (DMNQ) 3136 human GSE39843 sample 3681	2,3-dimethoxy-1,4-naphtoquinone	db3136			23dimethoxy14naphtoquinone
+doxorubicin DB00997 human GSE58074 sample 3179	doxorubicin	db00997		31703	pc31703
+diethylstilbestrol DB00255 rat GSE4028 sample 2717	diethylstilbestrol	db00255		448537	pc448537
+HYPOCHLOROUS ACID 24341 human GSE11630 sample 3202	hypochlorous acid	db24341		24341	pc24341
+TRICHLOROETHYLENE 6575 mouse GSE24278 sample 3320	trichloroethylene	db6575		6575	pc6575
+NICKEL CHLORIDE 24385 rat GSE31503 sample 3279	nickel chloride	db24385		24385	pc24385
+amoxicillin DB01060 rat GSE2354 sample 2677	amoxicillin	db01060		33613	pc33613
+amoxicillin DB01060 rat GSE2354 sample 2676	amoxicillin	db01060		33613	pc33613
+cisplatin DB00515 mouse GSE6206 sample 2692	cisplatin	db00515			cisplatin
+cyclophosphamide 2907 mouse GSE2254 sample 3627	cyclophosphamide	db2907		2907	pc2907
+puromycin, 2xEC50, 3 d 439530 human GSE6930 sample 3372	puromycin	db439530		439530	pc439530
+Lipopolysaccharide 11970143 mouse GSE367 sample 3657	lipopolysaccharide	db11970143		11970143	pc11970143
+TRICHLOROETHYLENE 6575 mouse GSE24278 sample 3319	trichloroethylene	db6575		6575	pc6575
+formaldehyde 712 rat GSE7002 sample 3550	formaldehyde	db712		712	pc712
+2,3,7,8-tetrachlorodibenzo-p-dioxin (TCDD) 15625 human GSE16160 sample 3426	2,3,7,8-tetrachlorodibenzo-p-dioxin	db15625		15625	pc15625
+nitric oxide 145068 human GSE13887 sample 3181	nitric oxide	db145068		145068	pc145068
+methotrexate DB00563 human GSE11440 sample 2543	methotrexate	db00563		126941	pc126941
+2,2',4,4',5,5'-Hexachlorobiphenyl   (PCB-153) 37034 human GSE6878 sample 3350	2,2',4,4',5,5'-hexachlorobiphenyl  	db37034		37034	pc37034
+decitabine DB01262 human GSE29077 sample 2546	decitabine	db01262		451668	pc451668
+Mehp 20393 rat GSE4514 sample 3576	mehp	db20393		20393	pc20393
+PLX4720 CID 24180719 human GSE50791 sample 2505	plx4720	db24180719		24180719	pc24180719
+vancomycin DB14969 mouse GSE7793 sample 3398	vancomycin	db14969		14969	pc14969
+morphine 5288826 mouse GSE7762 sample 3488	morphine	db5288826		5288826	pc5288826
+Gefitinib DB00317 human GSE53180 sample 3474	gefitinib	db00317		123631	pc123631
+Phosgene 6371 mouse GSE2565 sample 3610	phosgene	db6371		6371	pc6371
+quercetin DB04216 mouse GSE4262 sample 3428	quercetin	db04216		5280343	pc5280343
+zinc sulfate NA rat GSE11091 sample 2840	zinc sulfate			24424	pc24424
+methylprednisolone 6741 rat GSE490 sample 3666	methylprednisolone	db6741		6741	pc6741
+Perfluorooctanoic Acid 9554 mouse GSE13044 sample 3521	perfluorooctanoic acid	db9554		9554	pc9554
+CONCANAVALIN A 596316 mouse GSE17184 sample 3367	concanavalin a	db596316			concanavalina
+curcumin 969516 mouse GSE23639 sample 3442	curcumin	db969516		969516	pc969516
+PLX4032 DB05238 human GSE50649 sample 2557	plx4032	db05238		42611257	pc42611257
+coenzyme Q10 5281915 mouse GSE15129 sample 3450	coenzyme q10	db5281915		5281915	pc5281915
+heroin 5462328 mouse GSE30305 sample 2668	heroin	db5462328		5462328	pc5462328
+ubiquinol 9962735 mouse GSE15129 sample 3459	ubiquinol	db9962735			ubiquinol
+decitabine DB01262 human GSE29077 sample 2539	decitabine	db01262		451668	pc451668
+methylprednisolone 6741 rat GSE490 sample 3664	methylprednisolone	db6741		6741	pc6741
+clozapine 2818 mouse GSE6511 sample 2469	clozapine	db2818		2818	pc2818
+3,3',4,4'-Tetrachlorobiphenyl 36187 human GSE6878 sample 3273	3,3',4,4'-tetrachlorobiphenyl	db36187		36187	pc36187
+puromycin, 2xEC50, 1d 439530 human GSE6930 sample 3371	puromycin	db439530		439530	pc439530
+PLX4032 DB05238 human GSE50649 sample 2558	plx4032	db05238		42611257	pc42611257
+ethanol 702 human GSE44456 sample 3038	ethanol	db702		702	pc702
+HYPOCHLOROUS ACID 24341 mouse GSE15457 sample 3385	hypochlorous acid	db24341		24341	pc24341
+ANGIOTENSIN II 172198 mouse GSE17901 sample 3678	angiotensin ii	db172198		172198	pc172198
+N-NITROSODIMETHYLAMINE 6124 rat GSE5509 sample 3569	n-nitrosodimethylamine	db6124		6124	pc6124
+Lapatinib DB01259 human GSE16179 sample 2581	lapatinib	db01259		208908	pc208908

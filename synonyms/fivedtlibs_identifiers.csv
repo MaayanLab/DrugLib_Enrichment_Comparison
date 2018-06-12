@@ -1,0 +1,1821 @@
+DrugName	DrugID_ChEMBL	DrugID_DrugBank	DrugID_SMILES	DrugID_PC
+1-4-dithiothreitol	chembl406270	NA	o[c@@h](cs)[c@@h](o)cs	439196
+1d-myo-inositol 1-4-5-trisphosphate	chembl279107	NA	o[c@@h]1[c@h](o)[c@@h](op(o)(o)=o)[c@h](op(o)(o)=o)[c@@h](o)[c@@h]1op(o)(o)=o	439456
+2'-monophosphoadenosine 5'-diphosphoribose	chembl295069	db03461	[h][c@]1(cop([o-])(=o)op(o)(=o)oc[c@@]2([h])o[c@@]([h])([n+]3=cc=cc(=c3)c(o)=n)[c@]([h])(o)[c@]2([h])o)o[c@@]([h])(n2c=nc3=c(n)n=cn=c23)[c@]([h])(op(o)(o)=o)[c@]1([h])o	5885
+2-(1-1-dimethylethyl)9-fluoro-3-6-dihydro-7h-benz[h]-imidaz[4-5-f]isoquinolin-7-one	chembl21156	NA	cc(c)(c)c1=nc2=c3c=cc(f)=cc3=c3c(=o)nc=cc3=c2n1	5494425
+2-(n-morpholino)-ethanesulfonic acid	chembl1234276	db03814	[o-]s(=o)(=o)cc[nh+]1ccocc1	78165
+2-methoxyestradiol	chembl299613	NA	coc1=c(o)c=c2ccc3c4cc[c@h](o)[c@@]4(c)ccc3c2=c1	66414
+2-phosphoglycolic acid	chembl47181	db02726	oc(=o)cop(o)(o)=o	529
+3-4-methylenedioxymethamphetamine	chembl43048	NA	cnc(c)cc1=cc2=c(oco2)c=c1	1615
+3-isobutyl-1-methyl-7h-xanthine	chembl275084	db07954	cc(c)cn1c2=c(n=cn2)c(=o)n(c)c1=o	3758
+4-methoxyamphetamine	chembl278663	db01472	coc1=cc=c(cc(c)n)c=c1	31721
+5-amino-3-{[4-(aminosulfonyl)phenyl]amino}-n-(2-6-difluorophenyl)-1h-1-2-4-triazole-1-carbothioamide	chembl261720	NA	nc1=nc(nc2=cc=c(c=c2)s(n)(=o)=o)=nn1c(=s)nc1=c(f)c=cc=c1f	5330812
+5-hydroxymethyl-chonduritol	chembl1233349	db03092	[h][c@]1(o)c=c(co)[c@@]([h])(o)[c@]([h])(o)[c@@]1([h])o	5288564
+abciximab	chembl1201584	NA	not found	NA
+acamprosate	chembl1201293	db00659	cc(=o)ncccs(o)(=o)=o	71158
+acepromazine	chembl39560	db01614	cn(c)cccn1c2=cc=cc=c2sc2=c1c=c(c=c2)c(c)=o	6077
+acetazolamide	chembl20	db00819	cc(=o)nc1=nn=c(s1)s(n)(=o)=o	1986
+acetylcysteine	chembl600	db06151	cc(=o)n[c@@h](cs)c(o)=o	12035
+acetylsalicylic acid	chembl25	db00945	cc(=o)oc1=cc=cc=c1c(o)=o	2244
+acitretin	chembl1131	db00459	coc1=c(c)c(c)=c(\c=c\c(\c)=c\c=c\c(\c)=c\c(o)=o)c(c)=c1	5284513
+aclidinium	chembl1194325	db08897	oc(c(=o)o[c@h]1c[n+]2(cccoc3=cc=cc=c3)ccc1cc2)(c1=cc=cs1)c1=cc=cs1	11434515
+adalimumab	chembl1201580	NA	not found	NA
+adapalene	chembl1265	db00210	coc1=c(c=c(c=c1)c1=cc2=c(c=c1)c=c(c=c2)c(o)=o)c12cc3cc(cc(c3)c1)c2	60164
+ademetionine	chembl1088977	db00118	[h][c@](n)(cc[s+](c)c[c@@]1([h])o[c@@]([h])(n2c=nc3=c(n)n=cn=c23)[c@]([h])(o)[c@]1([h])o)c([o-])=o	34755
+adenine	chembl226345	db00173	nc1=c2nc=nc2=nc=n1	190
+adenosine-3'-5'-diphosphate	chembl574817	db01812	nc1=nc=nc2=c1n=cn2[c@@h]1o[c@h](cop(o)(o)=o)[c@@h](op(o)(o)=o)[c@h]1o	159296
+adenosine-5'-[beta- gamma-methylene]triphosphate	chembl133463	NA	[h][c@]1(cop(o)(=o)op(o)(=o)cp(o)(o)=o)o[c@@]([h])(n2c=nc3=c(n)n=cn=c23)[c@]([h])(o)[c@]1([h])o	91532
+adenosine 5'-[??-thio]triphosphate	chembl131890	NA	[h][c@]1(cop(o)(=o)op(o)(=o)op(o)(o)=s)o[c@@]([h])(n2c=nc3=c(n)n=cn=c23)[c@]([h])(o)[c@]1([h])o	440317
+adenosine monophosphate	chembl752	db00131	nc1=c2n=cn([c@@h]3o[c@h](cop(o)(o)=o)[c@@h](o)[c@h]3o)c2=nc=n1	6083
+adinazolam	chembl328250	db00546	cn(c)cc1=nn=c2cn=c(c3=cc=cc=c3)c3=c(c=cc(cl)=c3)n12	37632
+adipiplon	chembl2103791	db06579	cccc1=c(cn2c=cn=c2c2=c(f)c=cc=n2)n=cn2n=c(c)n=c12	11198924
+agmatine	chembl58343	db08838	nccccnc(n)=n	199
+alefacept	chembl1201571	NA	not found	NA
+alemtuzumab	chembl1201587	NA	not found	NA
+alendronic acid	chembl675	db00630	ncccc(o)(p(o)(o)=o)p(o)(o)=o	16760285
+alitretinoin	chembl705	db00523	c\c(\c=c\c1=c(c)cccc1(c)c)=c\c=c\c(\c)=c\c(o)=o	449171
+alpha-linolenic acid	chembl8739	db00132	cc\c=c/c\c=c/c\c=c/cccccccc(o)=o	5280934
+alprazolam	chembl661	db00404	cc1=nn=c2cn=c(c3=cc=cc=c3)c3=c(c=cc(cl)=c3)n12	2118
+alvocidib	chembl428690	db03496	cn1cc[c@@h]([c@h](o)c1)c1=c(o)c=c(o)c2=c1oc(=cc2=o)c1=cc=cc=c1cl	5287969
+amiloride	chembl945	db00594	nc(n)=nc(=o)c1=c(n)n=c(n)c(cl)=n1	16231
+amitriptyline	chembl629	db00321	cn(c)ccc=c1c2=cc=cc=c2ccc2=cc=cc=c12	2160
+amlodipine	chembl1491	db00381	ccoc(=o)c1=c(coccn)nc(c)=c(c1c1=cc=cc=c1cl)c(=o)oc	2162
+amobarbital	chembl267894	db01351	ccc1(ccc(c)c)c(=o)nc(=o)nc1=o	2164
+amoxapine	chembl1113	db00543	clc1=cc2=c(oc3=cc=cc=c3n=c2n2ccncc2)c=c1	2170
+amphetamine	chembl405	db00182	cc(n)cc1=cc=cc=c1	3007
+amuvatinib	chembl2103851	db12742	s=c(ncc1=cc=c2ococ2=c1)n1ccn(cc1)c1=nc=nc2=c1oc1=c2c=cc=c1	11282283
+andrographolide	chembl186141	db05767	[h]\c(c[c@]1([h])c(=c)cc[c@]2([h])[c@](c)(co)[c@]([h])(o)cc[c@@]12c)=c1/c(=o)oc[c@@]1([h])o	5318517
+anisomycin	chembl423192	db07374	[h][c@]1(o)cn[c@]([h])(cc2=cc=c(oc)c=c2)[c@]1([h])oc(c)=o	253602
+antihemophilic factor- human recombinant	chembl2108175	db00025	not found	NA
+apomorphine	chembl53	db00714	[h][c@]12cc3=c(c(o)=c(o)c=c3)c3=cc=cc(ccn1c)=c23	6005
+apremilast	chembl514800	db05676	[h][c@](cs(c)(=o)=o)(n1c(=o)c2=c(c1=o)c(=cc=c2)n=c(c)o)c1=cc(occ)=c(oc)c=c1	11561674
+aprobarbital	chembl7863	db01352	cc(c)c1(cc=c)c(=o)nc(=o)nc1=o	6464
+aripiprazole	chembl1112	db01238	clc1=cc=cc(n2ccn(ccccoc3=cc4=c(ccc(=o)n4)c=c3)cc2)=c1cl	60795
+arsenic trioxide	chembl1200978	db01169	o=[as]o[as]=o	261004
+asenapine	chembl504548	db06216	oc(=o)\c=c/c(o)=o.cn1cc2c(c1)c1=c(oc3=cc=cc=c23)c=cc(cl)=c1	3036780
+atomoxetine	chembl641	db00289	cncc[c@@h](oc1=cc=cc=c1c)c1=cc=cc=c1	54841
+atp	chembl14249	db00171	nc1=nc=nc2=c1n=cn2[c@@h]1o[c@h](cop(o)(=o)op(o)(=o)op(o)(o)=o)[c@@h](o)[c@h]1o	5957
+atropine	chembl517712	db00572	cn1[c@h]2cc[c@@h]1c[c@@h](c2)oc(=o)c(co)c1=cc=cc=c1	174174
+barbital	chembl444	db01483	ccc1(cc)c(=o)nc(=o)nc1=o	2294
+basiliximab	chembl1201439	db00074	not found	NA
+batimastat	chembl279786	db03880	[h][c@@](cc1=cc=cc=c1)(nc(=o)[c@]([h])(cc(c)c)[c@]([h])(csc1=cc=cs1)c(=o)no)c(=o)nc	5362422
+belinostat	chembl408513	db05015	onc(=o)\c=c\c1=cc=cc(=c1)s(=o)(=o)nc1=cc=cc=c1	6918638
+bendroflumethiazide	chembl1684	db00436	ns(=o)(=o)c1=cc2=c(nc(cc3=cc=cc=c3)ns2(=o)=o)c=c1c(f)(f)f	2315
+benzquinamide	chembl1200707	db00767	ccn(cc)c(=o)c1cn2ccc3=cc(oc)=c(oc)c=c3c2cc1oc(c)=o	101584
+benzthiazide	chembl1201039	db00562	ns(=o)(=o)c1=c(cl)c=c2nc(cscc3=cc=cc=c3)=ns(=o)(=o)c2=c1	2343
+bepridil	chembl1008	db01244	cc(c)cocc(cn(cc1=cc=cc=c1)c1=cc=cc=c1)n1cccc1	2351
+beta-d-glucose	chembl1614854	db02379	oc[c@h]1o[c@@h](o)[c@h](o)[c@@h](o)[c@@h]1o	64689
+beta-mercaptoethanol	chembl254951	db03345	occs	1567
+bethanidine	chembl1201260	db00217	cn\c(ncc1=cc=cc=c1)=n/c	2368
+bevacizumab	chembl1201583	db00112	not found	NA
+biotin	chembl857	db00121	[h][c@]12cs[c@@h](ccccc(o)=o)[c@@]1([h])nc(=o)n2	171548
+bopindolol	chembl357995	db08807	cc1=cc2=c(n1)c=cc=c2occ(cnc(c)(c)c)oc(=o)c1=cc=cc=c1	44112
+bosutinib	chembl288441	db06616	coc1=cc(nc2=c(c=nc3=cc(occcn4ccn(c)cc4)=c(oc)c=c23)c#n)=c(cl)c=c1cl	5328940
+brexpiprazole	chembl2105760	db09128	o=c1nc2=cc(occccn3ccn(cc3)c3=c4c=csc4=cc=c3)=cc=c2c=c1	11978813
+brivaracetam	chembl607400	db05541	ccc[c@h]1cn([c@@h](cc)c(n)=o)c(=o)c1	9837243
+bromazepam	chembl277062	db01558	brc1=cc2=c(nc(=o)cn=c2c2=cc=cc=n2)c=c1	2441
+bromocriptine	chembl493	db01200	[h][c@@]12cccn1c(=o)[c@h](cc(c)c)n1c(=o)[c@](nc(=o)[c@h]3cn(c)[c@]4([h])cc5=c(br)nc6=cc=cc(=c56)c4=c3)(o[c@@]21o)c(c)c	31101
+brompheniramine	chembl811	db00835	cn(c)ccc(c1=cc=c(br)c=c1)c1=cc=cc=n1	6834
+bumetanide	chembl1072	db00887	ccccnc1=c(oc2=cc=cc=c2)c(=cc(=c1)c(o)=o)s(n)(=o)=o	2471
+butabarbital	chembl449	db00237	ccc(c)c1(cc)c(=o)nc(=o)nc1=o	2479
+butalbital	chembl454	db00241	cc(c)cc1(cc=c)c(=o)nc(=o)nc1=o	2481
+butethal	chembl404422	db01353	ccccc1(cc)c(=o)nc(=o)nc1=o	6473
+cabergoline	chembl1201087	db00248	[h][c@@]12cc3=cnc4=cc=cc(=c34)[c@@]1([h])c[c@h](cn2cc=c)c(=o)n(cccn(c)c)c(=o)ncc	54746
+caffeine	chembl113	db00201	cn1c=nc2=c1c(=o)n(c)c(=o)n2c	2519
+calcium citrate	chembl2106123	db11093	[ca++].[ca++].[ca++].oc(cc([o-])=o)(cc([o-])=o)c([o-])=o.oc(cc([o-])=o)(cc([o-])=o)c([o-])=o	13136
+calcium phosphate	chembl2106566	db11348	[ca++].[ca++].[ca++].[o-]p([o-])([o-])=o.[o-]p([o-])([o-])=o	24456
+carfilzomib	chembl451887	db08889	cc(c)c[c@h](nc(=o)[c@h](ccc1=cc=cc=c1)nc(=o)cn1ccocc1)c(=o)n[c@@h](cc1=cc=cc=c1)c(=o)n[c@@h](cc(c)c)c(=o)[c@@]1(c)co1	11556711
+cariprazine	chembl2028019	db06016	cn(c)c(=o)n[c@h]1cc[c@h](ccn2ccn(cc2)c2=c(cl)c(cl)=cc=c2)cc1	11154555
+carvedilol	chembl723	db01136	coc1=cc=cc=c1occncc(o)coc1=cc=cc2=c1c1=cc=cc=c1n2	2585
+cefotaxime	chembl1730	db00493	[h][c@]12scc(coc(c)=o)=c(n1c(=o)[c@h]2nc(=o)c(=n/oc)\c1=csc(n)=n1)c(o)=o	5742673
+cetuximab	chembl1201577	db00002	not found	NA
+chlordiazepoxide	chembl451	db00475	cnc1=nc2=c(c=c(cl)c=c2)c(c2=cc=cc=c2)=n(=o)c1	2712
+chloroprocaine	chembl1179047	db01161	ccn(cc)ccoc(=o)c1=c(cl)c=c(n)c=c1	8612
+chlorpromazine	chembl71	db00477	cn(c)cccn1c2=cc=cc=c2sc2=c1c=c(cl)c=c2	2726
+chlorprothixene	chembl908	db01239	[h]c(ccn(c)c)=c1c2=cc(cl)=cc=c2sc2=c1c=cc=c2	667467
+cholic acid	chembl205596	db02659	[h][c@@](c)(ccc(o)=o)[c@@]1([h])cc[c@@]2([h])[c@]3([h])[c@]([h])(o)c[c@]4([h])c[c@]([h])(o)cc[c@]4(c)[c@@]3([h])c[c@]([h])(o)[c@]12c	221493
+choline	chembl920	db00122	c[n+](c)(c)cco	305
+cinnarizine	chembl43064	db00568	c(c=cc1=cc=cc=c1)n1ccn(cc1)c(c1=cc=cc=c1)c1=cc=cc=c1	1547484
+cinolazepam	chembl2104926	db01594	oc1n=c(c2=cc=cc=c2f)c2=c(c=cc(cl)=c2)n(ccc#n)c1=o	3033621
+cirazoline	chembl13852	db09202	[h]n1ccn=c1coc1=cc=cc=c1c1cc1	2765
+citric acid	chembl1261	db04272	oc(=o)cc(o)(cc(o)=o)c(o)=o	311
+cladribine	chembl1619	db00242	nc1=c2n=cn([c@h]3c[c@h](o)[c@@h](co)o3)c2=nc(cl)=n1	20279
+clenbuterol	chembl49080	db01407	cc(c)(c)ncc(o)c1=cc(cl)=c(n)c(cl)=c1	2783
+clobazam	chembl70418	db00349	cn1c2=c(c=c(cl)c=c2)n(c2=cc=cc=c2)c(=o)cc1=o	2789
+clomipramine	chembl415	db01242	cn(c)cccn1c2=cc=cc=c2ccc2=c1c=c(cl)c=c2	2801
+clonazepam	chembl452	db01068	[o-][n+](=o)c1=cc2=c(nc(=o)cn=c2c2=cc=cc=c2cl)c=c1	2802
+clonidine	chembl134	db00575	clc1=cc=cc(cl)=c1nc1=nccn1	2803
+clorazepate	chembl1213252	db00628	oc(=o)c1n=c(c2=cc=cc=c2)c2=c(nc1=o)c=cc(cl)=c2	2809
+clotiazepam	chembl1697737	db01559	ccc1=cc2=c(s1)n(c)c(=o)cn=c2c1=cc=cc=c1cl	2811
+clozapine	chembl42	db00363	cn1ccn(cc1)c1=nc2=cc(cl)=cc=c2nc2=cc=cc=c12	2818
+cocaine	chembl370805	db00907	[h][c@]12cc[c@]([h])([c@h]([c@h](c1)oc(=o)c1=cc=cc=c1)c(=o)oc)n2c	446220
+coenzyme a	chembl1213327	db01992	cc(c)(cop(o)(=o)op(o)(=o)oc[c@h]1o[c@h]([c@h](o)[c@@h]1op(o)(o)=o)n1c=nc2=c1n=cn=c2n)[c@@h](o)c(=o)nccc(=o)nccs	87642
+conestat alfa	chembl2108350	db09228	not found	NA
+creatine	chembl283800	db00148	cn(cc(o)=o)c(n)=n	586
+cyanocobalamin	chembl2110563	db00115	[c@h]1([c@@h]2[c@h]([c@@h](n3c4=cc(=c(c)c=c4[n+]([co-3]456(n7c8=c(c9=[n+]4c(c([c@@h]9ccc(n)=o)(c)c)=cc4=[n+]5c(=c(c5=[n+]6[c@@]([c@]7([c@@h]([c@@]8(c)ccc(=o)nc[c@@]([h])(c)op([o-])(=o)o2)cc(n)=o)[h])([c@@]([c@@h]5ccc(n)=o)(c)cc(n)=o)c)c)[c@@]([c@@h]4ccc(n)=o)(c)cc(n)=o)c)c#n)=c3)c)o1)o)co	5311498
+cyproheptadine	chembl516	db00434	cn1ccc(cc1)=c1c2=cc=cc=c2c=cc2=cc=cc=c12	2913
+cytisine	chembl497939	db09028	[h][c@@]12cnc[c@@]([h])(c1)c1=cc=cc(=o)n1c2	10235
+d-tartaric acid	chembl225983	db01694	o[c@@h]([c@@h](o)c(o)=o)c(o)=o	447315
+dabrafenib	chembl2028663	db08912	cc(c)(c)c1=nc(=c(s1)c1=nc(n)=nc=c1)c1=c(f)c(ns(=o)(=o)c2=c(f)c=cc=c2f)=cc=c1	44462760
+daclizumab	chembl1201605	db00111	not found	NA
+dalfampridine	chembl284348	db06637	n=c1c=cnc=c1	1727
+danazol	chembl1479	db01406	[h][c@@]12cc[c@@](o)(c#c)[c@@]1(c)cc[c@@]1([h])[c@@]2([h])ccc2=cc3=c(c[c@]12c)c=no3	28417
+darifenacin	chembl1346	db00496	nc(=o)c([c@@h]1ccn(ccc2=cc3=c(occ3)c=c2)c1)(c1=cc=cc=c1)c1=cc=cc=c1	444031
+dasatinib	chembl1421	db01254	cc1=nc(nc2=nc=c(s2)c(=o)nc2=c(c)c=cc=c2cl)=cc(=n1)n1ccn(cco)cc1	3062316
+desflurane	chembl1200733	db01189	fc(f)oc(f)c(f)(f)f	42113
+desipramine	chembl72	db01151	cncccn1c2=cc=cc=c2ccc2=cc=cc=c12	2995
+dexfosfoserine	chembl284377	db04522	n[c@@h](cop(o)(o)=o)c(o)=o	68841
+dexibuprofen	chembl175	db09213	[h][c@@](c)(c(o)=o)c1=cc=c(cc(c)c)c=c1	39912
+dextroamphetamine	chembl612	db01576	c[c@h](n)cc1=cc=cc=c1	5826
+dextromethorphan	chembl52440	db00514	[h][c@]12cc3=c(c=c(oc)c=c3)[c@@]3(cccc[c@]13[h])ccn2c	5360696
+diacerein	chembl41286	db11994	cc(=o)oc1=cc=cc2=c1c(=o)c1=c(oc(c)=o)c=c(c=c1c2=o)c(o)=o	26248
+diazepam	chembl12	db00829	cn1c2=c(c=c(cl)c=c2)c(=ncc1=o)c1=cc=cc=c1	3016
+diazoxide	chembl181	db01119	cc1=ns(=o)(=o)c2=c(n1)c=cc(cl)=c2	3019
+diclofenac	chembl139	db00586	oc(=o)cc1=cc=cc=c1nc1=c(cl)c=cc=c1cl	3033
+dihydromorphine	chembl1500	db01565	[h][c@@]12oc3=c(o)c=cc4=c3[c@@]11ccn(c)[c@]([h])(c4)[c@]1([h])cc[c@@h]2o	5359421
+dipivefrin	chembl1201262	db00449	cncc(o)c1=cc(oc(=o)c(c)(c)c)=c(oc(=o)c(c)(c)c)c=c1	3105
+disopyramide	chembl517	db00280	cc(c)n(ccc(c(n)=o)(c1=cc=cc=c1)c1=nc=cc=c1)c(c)c	3114
+docetaxel	chembl92	db01248	[h][c@@]12c[c@h](o)[c@@]3(c)c(=o)[c@h](o)c4=c(c)[c@h](c[c@@](o)([c@@h](oc(=o)c5=cc=cc=c5)[c@]3([h])[c@@]1(co2)oc(c)=o)c4(c)c)oc(=o)[c@h](o)[c@@h](nc(=o)oc(c)(c)c)c1=cc=cc=c1	148124
+doconexent	chembl367149	db03756	cc\c=c/c\c=c/c\c=c/c\c=c/c\c=c/c\c=c/ccc(o)=o	445580
+dopamine	chembl59	db00988	nccc1=cc(o)=c(o)c=c1	681
+dosulepin	chembl108947	db09167	cn(c)cc\c=c1/c2=cc=cc=c2csc2=cc=cc=c12	5282426
+doxazosin	chembl707	db00590	coc1=c(oc)c=c2c(n)=nc(=nc2=c1)n1ccn(cc1)c(=o)c1coc2=cc=cc=c2o1	3157
+doxepin	chembl860	db01142	[h]c(ccn(c)c)=c1c2=cc=cc=c2coc2=cc=cc=c12	667477
+dronedarone	chembl184412	db04855	ccccn(cccc)cccoc1=cc=c(c=c1)c(=o)c1=c(cccc)oc2=c1c=c(ns(c)(=o)=o)c=c2	208898
+droxidopa	chembl2103827	db06262	n[c@@h]([c@h](o)c1=cc(o)=c(o)c=c1)c(o)=o	92974
+dyphylline	chembl1752	db00651	cn1c2=c(n(cc(o)co)c=n2)c(=o)n(c)c1=o	3182
+efalizumab	chembl1201575	db00095	not found	NA
+eletriptan	chembl1510	db00216	cn1ccc[c@@h]1cc1=cnc2=c1c=c(ccs(=o)(=o)c1=cc=cc=c1)c=c2	77993
+ellagic acid	chembl6246	db08846	oc1=c(o)c2=c3c(=c1)c(=o)oc1=c3c(=cc(o)=c1o)c(=o)o2	5281855
+enflurane	chembl1257	db00228	fc(f)oc(f)(f)c(f)cl	3226
+enprofylline	chembl279898	db00824	cccn1c2=c(nc=n2)c(=o)nc1=o	1676
+epicept np-1	chembl609728	db05492	cc1=cc(=c(ncccn)c=c1)[n+]([o-])=o	5276854
+epinastine	chembl1106	db00751	nc1=ncc2n1c1=cc=cc=c1cc1=cc=cc=c21	3241
+epinephrine	chembl679	db00668	cnc[c@h](o)c1=cc(o)=c(o)c=c1	5816
+epothilone d	chembl96172	db01873	[h]\c(=c(\c)[c@]1([h])c\c([h])=c(c)/ccc[c@]([h])(c)[c@]([h])(o)[c@@]([h])(c)c(=o)c(c)(c)[c@@]([h])(o)cc(=o)o1)c1=csc(c)=n1	447865
+ergotamine	chembl442	db00696	[h][c@@]12cccn1c(=o)[c@h](cc1=cc=cc=c1)n1c(=o)[c@](c)(nc(=o)[c@h]3cn(c)[c@]4([h])cc5=cnc6=cc=cc(=c56)c4=c3)o[c@@]21o	8223
+escitalopram	chembl1508	db01175	cn(c)ccc[c@]1(occ2=c1c=cc(=c2)c#n)c1=cc=c(f)c=c1	146570
+esmirtazapine	chembl1366933	db06678	[h][c@]12cn(c)ccn1c1=c(cc3=cc=cc=c23)c=cc=n1	3085218
+estazolam	chembl285674	db01215	clc1=cc2=c(c=c1)n1c=nn=c1cn=c2c1=cc=cc=c1	3261
+eszopiclone	chembl1522	db00402	cn1ccn(cc1)c(=o)o[c@@h]1n(c(=o)c2=nc=cn=c12)c1=nc=c(cl)c=c1	969472
+etanercept	chembl1201572	db00005	not found	NA
+ethanol	chembl545	db00898	cco	702
+ethchlorvynol	chembl591	db00189	[h]c(cl)=cc(o)(cc)c#c	5281077
+etizolam	chembl1289779	db09166	ccc1=cc2=c(s1)n1c(c)=nn=c1cn=c2c1=cc=cc=c1cl	3307
+etomidate	chembl681	db00292	ccoc(=o)c1=cn=cn1[c@h](c)c1=cc=cc=c1	667484
+etretinate	chembl464	db00926	ccoc(=o)c=c(c)c=cc=c(c)c=cc1=c(c)c(c)=c(oc)c=c1c	5282375
+famoxadone	chembl10118	db07778	c[c@]1(oc(=o)n(nc2=cc=cc=c2)c1=o)c1=cc=c(oc2=cc=cc=c2)c=c1	446845
+farnesyl diphosphate	chembl69330	db07780	[h]op(=o)(o[h])op(=o)(o[h])oc\c=c(/c)cc\c=c(/c)ccc=c(c)c	445713
+felodipine	chembl1480	db01023	ccoc(=o)c1=c(c)nc(c)=c(c1c1=c(cl)c(cl)=cc=c1)c(=o)oc	3333
+fenoldopam	chembl588	db00800	oc1=cc=c(c=c1)c1cnccc2=c(cl)c(o)=c(o)c=c12	3341
+fesoterodine	chembl1201764	db06702	cc(c)n(cc[c@h](c1=cc=cc=c1)c1=c(oc(=o)c(c)c)c=cc(co)=c1)c(c)c	6918558
+flavin adenine dinucleotide	chembl1232653	db03147	cc1=cc2=c(c=c1c)n(c[c@h](o)[c@h](o)[c@h](o)co[p@](o)(=o)o[p@@](o)(=o)oc[c@h]1o[c@h]([c@h](o)[c@@h]1o)n1c=nc3=c1n=cn=c3n)c1=nc(=o)nc(=o)c1=n2	643975
+fludiazepam	chembl13291	db01567	cn1c2=c(c=c(cl)c=c2)c(=ncc1=o)c1=cc=cc=c1f	3369
+flumazenil	chembl407	db01205	ccoc(=o)c1=c2cn(c)c(=o)c3=c(c=cc(f)=c3)n2c=n1	3373
+flunitrazepam	chembl13280	db01544	cn1c2=c(c=c(c=c2)[n+]([o-])=o)c(=ncc1=o)c1=cc=cc=c1f	3380
+flupentixol	chembl54661	db00875	[h]\c(ccn1ccn(cco)cc1)=c1/c2=cc=cc=c2sc2=c1c=c(c=c2)c(f)(f)f	5281881
+flurazepam	chembl968	db00690	ccn(cc)ccn1c2=c(c=c(cl)c=c2)c(=ncc1=o)c1=cc=cc=c1f	3393
+formic acid	chembl116736	db01942	oc=o	284
+gabapentin	chembl940	db00996	ncc1(cc(o)=o)ccccc1	3446
+galantamine	chembl659	db00674	[h][c@]12c[c@@h](o)c=c[c@]11ccn(c)cc3=c1c(o2)=c(oc)c=c3	9651
+ganaxolone	chembl1568698	db05087	[h][c@@]12cc[c@h](c(c)=o)[c@@]1(c)cc[c@@]1([h])[c@@]2([h])cc[c@@]2([h])c[c@](c)(o)cc[c@]12c	6918305
+gavestinel	chembl44793	db06741	oc(=o)c1=c(\c=c\c(=o)nc2=cc=cc=c2)c2=c(cl)c=c(cl)c=c2n1	6450546
+gemtuzumab ozogamicin	chembl1201506	db00056	not found	NA
+genistein	chembl44	db01645	oc1=cc=c(c=c1)c1=coc2=cc(o)=cc(o)=c2c1=o	5280961
+glutamic acid	chembl76232	db00142	n[c@@h](ccc(o)=o)c(o)=o	23327
+glutathione	chembl1543	db00143	n[c@@h](ccc(=o)n[c@@h](cs)c(=o)ncc(o)=o)c(o)=o	124886
+glutethimide	chembl1102	db01437	ccc1(ccc(=o)nc1=o)c1=cc=cc=c1	3487
+glyburide	chembl472	db01016	coc1=c(c=c(cl)c=c1)c(=o)nccc1=cc=c(c=c1)s(=o)(=o)nc(=o)nc1ccccc1	3488
+glycerin	chembl692	db09462	occ(o)co	753
+glycine	chembl773	db00145	ncc(o)=o	750
+guanosine-5'-diphosphate	chembl384759	db04315	nc1=nc2=c(n=cn2[c@@h]2o[c@h](cop(o)(=o)op(o)(o)=o)[c@@h](o)[c@h]2o)c(=o)n1	8977
+guanosine-5'-monophosphate	chembl283807	db01972	nc1=nc2=c(n=cn2[c@@h]2o[c@h](cop(o)(o)=o)[c@@h](o)[c@h]2o)c(=o)n1	6804
+guanosine-5'-triphosphate	chembl1233147	db04137	nc1=nc2=c(n=cn2[c@@h]2o[c@h](cop(o)(=o)op(o)(=o)op(o)(o)=o)[c@@h](o)[c@h]2o)c(=o)n1	6830
+halazepam	chembl970	db00801	fc(f)(f)cn1c2=c(c=c(cl)c=c2)c(=ncc1=o)c1=cc=cc=c1	31640
+haloperidol	chembl54	db00502	oc1(ccn(cccc(=o)c2=cc=c(f)c=c2)cc1)c1=cc=c(cl)c=c1	3559
+halothane	chembl931	db01159	fc(f)(f)c(cl)br	3562
+heptabarbital	chembl468837	db01354	ccc1(c(=o)nc(=o)nc1=o)c1=cccccc1	10518
+hexobarbital	chembl7728	db01355	cn1c(=o)nc(=o)c(c)(c1=o)c1=ccccc1	3608
+homatropine methylbromide	chembl1200851	db00725	[br-].c[n+]1(c)c2ccc1cc(c2)oc(=o)c(o)c1=cc=cc=c1	10429215
+hyaluronic acid	chembl1697748	db08818	cc(=o)n[c@h]1[c@h](o)o[c@h](co)[c@@h](o)c1o[c@@h]1o[c@@h]([c@@h](o[c@@h]2o[c@h](co)[c@@h](o)c(o[c@@h]3o[c@@h]([c@@h](o)[c@h](o)[c@h]3o)c(o)=o)[c@h]2nc(c)=o)[c@h](o)[c@h]1o)c(o)=o	3084050
+hydrochlorothiazide	chembl435	db00999	ns(=o)(=o)c1=c(cl)c=c2ncns(=o)(=o)c2=c1	3639
+hydroflumethiazide	chembl1763	db00774	ns(=o)(=o)c1=cc2=c(ncns2(=o)=o)c=c1c(f)(f)f	3647
+hydroxocobalamin	chembl2103737	db00200	[h]o[co+]n1\c2=c(c)/c3=n/c(=c\c4=n\c(=c(c)/c5=n[c@@](c)([c@@]1([h])[c@h](cc(=o)n)[c@@]2(c)ccc(=o)nc[c@@h](c)op(=o)([o-])o[c@h]1[c@@h](o)[c@h](o[c@@h]1co)n1c=nc2=cc(c)=c(c)c=c12)[c@@](c)(cc(n)=o)[c@@h]5ccc(=o)n)\[c@@](c)(cc(=o)n)[c@@h]4ccc(=o)n)/c(c)(c)[c@@h]3ccc(=o)n	45357193
+ibritumomab tiuxetan	chembl1201606	db00078	not found	74890578
+ibudilast	chembl19449	db05266	cc(c)c(=o)c1=c2c=cc=cn2n=c1c(c)c	3671
+ibuprofen	chembl521	db01050	cc(c)cc1=cc=c(c=c1)c(c)c(o)=o	3672
+ibutilide	chembl533	db00308	cccccccn(cc)cccc(o)c1=cc=c(ns(c)(=o)=o)c=c1	60753
+icosapent	chembl460026	db00159	cc\c=c/c\c=c/c\c=c/c\c=c/c\c=c/cccc(o)=o	446284
+iloperidone	chembl14376	db04946	coc1=c(occcn2ccc(cc2)c2=noc3=c2c=cc(f)=c3)c=cc(=c1)c(c)=o	71360
+iloprost	chembl494	db01088	[h][c@]12c[c@@h](o)[c@h](\c=c\[c@@h](o)c(c)cc#cc)[c@@]1([h])c\c(c2)=c\cccc(o)=o	5311181
+imatinib	chembl941	db00619	cn1ccn(cc2=cc=c(c=c2)c(=o)nc2=cc(nc3=nc=cc(=n3)c3=cn=cc=c3)=c(c)c=c2)cc1	5291
+imidazole	chembl540	db03366	n1c=cn=c1	795
+imipramine	chembl11	db00458	cn(c)cccn1c2=cc=cc=c2ccc2=cc=cc=c12	3696
+indirubin-3'-monoxime	chembl216543	db02052	o\n=c1\c(\nc2=c\1c=cc=c2)=c1\c(=o)nc2=c1c=cc=c2	5326739
+indomethacin	chembl6	db00328	coc1=cc2=c(c=c1)n(c(=o)c1=cc=c(cl)c=c1)c(c)=c2cc(o)=o	3715
+inositol 1-3-4-5-tetrakisphosphate	chembl23552	db01863	o[c@h]1[c@@h](op(o)(o)=o)[c@h](o)[c@@h](op(o)(o)=o)[c@h](op(o)(o)=o)[c@h]1op(o)(o)=o	107758
+Regular human insulin	chembl1201540	db00030	not found	118984375
+insulin (bovine)	chembl1201539	db00071	not found	16131099
+iron dextran	chembl1201544	db00893	not found	105075
+isoflurane	chembl1256	db00753	fc(f)oc(cl)c(f)(f)f	3763
+isoprenaline	chembl434	db01064	cc(c)ncc(o)c1=cc(o)=c(o)c=c1	3779
+isopropyl alcohol	chembl582	db02325	cc(c)o	3776
+isradipine	chembl1648	db00270	coc(=o)c1=c(c)nc(c)=c(c1c1=cc=cc2=non=c12)c(=o)oc(c)c	3784
+ketamine	chembl742	db01221	cnc1(ccccc1=o)c1=cc=cc=c1cl	3821
+ketazolam	chembl2104356	db01587	cn1c2=c(c=c(cl)c=c2)c2(oc(c)=cc(=o)n2cc1=o)c1=cc=cc=c1	33746
+ketobemidone	chembl47072	db06738	ccc(=o)c1(ccn(c)cc1)c1=cc(o)=cc=c1	10101
+l-alanine	chembl279597	db00160	c[c@h](n)c(o)=o	5950
+l-arginine	chembl1485	db00125	n[c@@h](cccnc(n)=n)c(o)=o	6322
+l-asparagine	chembl58832	db00174	n[c@@h](cc(n)=o)c(o)=o	6267
+l-aspartic acid	chembl274323	db00128	n[c@@h](cc(o)=o)c(o)=o	5960
+l-carnitine	chembl1149	db00583	c[n+](c)(c)c[c@h](o)cc([o-])=o	10917
+l-citrulline	chembl444814	db00155	n[c@@h](cccnc(n)=o)c(o)=o	9750
+l-cysteine	chembl863	db00151	n[c@@h](cs)c(o)=o	5862
+l-isoleucine	chembl1233584	db00167	cc[c@h](c)[c@h](n)c(o)=o	6306
+l-leucine	chembl291962	db00149	cc(c)c[c@h](n)c(o)=o	6106
+l-lysine	chembl8085	db00123	ncccc[c@h](n)c(o)=o	5962
+l-methionine	chembl42336	db00134	cscc[c@h](n)c(o)=o	6137
+l-phenylalanine	chembl301523	db00120	n[c@@h](cc1=cc=cc=c1)c(o)=o	6140
+l-proline	chembl54922	db00172	oc(=o)[c@@h]1cccn1	145742
+l-serine	chembl11298	db00133	n[c@@h](co)c(o)=o	5951
+labetalol	chembl429	db00598	cc(ccc1=cc=cc=c1)ncc(o)c1=cc(c(n)=o)=c(o)c=c1	3869
+lauric acid	chembl108766	db03017	cccccccccccc(o)=o	3893
+lauryl dimethylamine-n-oxide	chembl1233973	db04147	cccccccccccc[n+](c)(c)[o-]	15433
+lenvatinib	chembl1289601	db09078	coc1=c(c=c2c(oc3=cc(cl)=c(nc(o)=nc4cc4)c=c3)=cc=nc2=c1)c(o)=n	9823820
+levodopa	chembl1009	db01235	n[c@@h](cc1=cc(o)=c(o)c=c1)c(o)=o	6047
+lindane	chembl15891	db00431	cl[c@h]1[c@h](cl)[c@@h](cl)[c@@h](cl)[c@h](cl)[c@h]1cl	727
+lisuride	chembl157138	db00589	[h][c@@]12cc3=cnc4=cc=cc(=c34)c1=c[c@@h](cn2c)nc(=o)n(cc)cc	28864
+loperamide	chembl841	db00836	cn(c)c(=o)c(ccn1ccc(o)(cc1)c1=cc=c(cl)c=c1)(c1=cc=cc=c1)c1=cc=cc=c1	3955
+lorazepam	chembl580	db00186	oc1n=c(c2=cc=cc=c2cl)c2=c(nc1=o)c=cc(cl)=c2	3958
+loxapine	chembl831	db00408	cn1ccn(cc1)c1=nc2=cc=cc=c2oc2=c1c=c(cl)c=c2	3964
+lurasidone	chembl1237021	db08815	o=c1[c@h]2[c@@h]3cc[c@@h](c3)[c@h]2c(=o)n1c[c@@h]1cccc[c@h]1cn1ccn(cc1)c1=nsc2=cc=cc=c12	213046
+magnesium acetate tetrahydrate	chembl1200691	db09409	o.o.o.o.[mg++].cc([o-])=o.cc([o-])=o	8896
+magnesium carbonate	chembl1200736	db09481	[mg++].[o-]c([o-])=o	11029
+magnesium sulfate	chembl1200456	db00653	[mg++].[o-]s([o-])(=o)=o	16211255
+maprotiline	chembl21731	db00934	cncccc12ccc(c3=cc=cc=c13)c1=cc=cc=c21	4011
+marimastat	chembl279785	db00786	cnc(=o)[c@@h](nc(=o)[c@h](cc(c)c)[c@h](o)c(=o)no)c(c)(c)c	119031
+meclofenamic acid	chembl509	db00939	cc1=c(cl)c(nc2=cc=cc=c2c(o)=o)=c(cl)c=c1	4037
+melatonin	chembl45	db01065	coc1=cc2=c(nc=c2ccnc(c)=o)c=c1	896
+memantine	chembl807	db01043	cc12cc3cc(c)(c1)cc(n)(c3)c2	4054
+menadione	chembl590	db00170	cc1=cc(=o)c2=cc=cc=c2c1=o	4055
+mephentermine	chembl1200996	db01365	cnc(c)(c)cc1=cc=cc=c1	5702236
+meprobamate	chembl979	db00371	cccc(c)(coc(n)=o)coc(n)=o	4064
+mesalazine	chembl704	db00244	nc1=cc(c(o)=o)=c(o)c=c1	4075
+methadone	chembl651	db00333	ccc(=o)c(cc(c)n(c)c)(c1=cc=cc=c1)c1=cc=cc=c1	4095
+methamphetamine	chembl1200952	db01577	cn[c@@h](c)cc1=cc=cc=c1	66124
+metharbital	chembl450	db00463	ccc1(cc)c(=o)nc(=o)n(c)c1=o	4099
+methotrimeprazine	chembl1764	db01403	coc1=cc2=c(sc3=c(c=cc=c3)n2c[c@h](c)cn(c)c)c=c1	72287
+methoxyflurane	chembl1341	db01028	coc(f)(f)c(cl)cl	4116
+methyl (2z)-2-(2-{[6-(2-cyanophenoxy)pyrimidin-4-yl]oxy}phenyl)-3-methoxyacrylate	chembl230001	db07401	co\c=c(\c(=o)oc)c1=cc=cc=c1oc1=nc=nc(oc2=cc=cc=c2c#n)=c1	3034285
+methylphenobarbital	chembl45029	db00849	ccc1(c(=o)nc(=o)n(c)c1=o)c1=cc=cc=c1	8271
+methyprylon	chembl1200790	db01107	ccc1(cc)c(=o)ncc(c)c1=o	4162
+methysergide	chembl1065	db00247	[h][c@@]12cc3=cn(c)c4=c3c(=cc=c4)c1=c[c@h](cn2c)c(=o)nc(cc)co	9681
+metixene	chembl1201342	db00340	cn1cccc(cc2c3=cc=cc=c3sc3=cc=cc=c23)c1	4167
+mianserin	chembl6437	db06148	cn1ccn2c(c1)c1=cc=cc=c1cc1=cc=cc=c21	4184
+mibefradil	chembl45816	db01388	cocc(=o)o[c@]1(ccn(c)cccc2=nc3=cc=cc=c3n2)ccc2=c(c=cc(f)=c2)[c@@h]1c(c)c	60663
+miconazole	chembl91	db01110	clc1=cc(cl)=c(coc(cn2c=cn=c2)c2=c(cl)c=c(cl)c=c2)c=c1	4189
+midazolam	chembl655	db00683	cc1=nc=c2cn=c(c3=cc=cc=c3f)c3=c(c=cc(cl)=c3)n12	4192
+midostaurin	chembl608533	db06595	co[c@@h]1[c@@h](c[c@h]2o[c@]1(c)n1c3=c(c=cc=c3)c3=c1c1=c(c4=c(c=cc=c4)n21)c1=c3cnc1=o)n(c)c(=o)c1=cc=cc=c1	9829523
+milnacipran	chembl252923	db04896	ccn(cc)c(=o)[c@@]1(c[c@@h]1cn)c1=cc=cc=c1	65833
+minaprine	chembl278819	db00805	cc1=cc(=nn=c1nccn1ccocc1)c1=cc=cc=c1	4199
+minocycline	chembl1434	db01017	[h][c@@]12cc3=c(c(o)=cc=c3n(c)c)c(=o)c1=c(o)[c@]1(o)c(=o)c(c(n)=o)=c(o)[c@@h](n(c)c)[c@]1([h])c2	54675783
+mirtazapine	chembl654	db00370	cn1ccn2c(c1)c1=cc=cc=c1cc1=c2n=cc=c1	4205
+mmda	chembl126506	db01442	coc1=cc(cc(c)n)=cc2=c1oco2	26175
+muromonab	chembl1201608	db00075	not found	NA
+myristic acid	chembl111077	db08231	cccccccccccccc(o)=o	11005
+n-(2-2-2-trifluoroethyl)-n-{4-[2-2-2-trifluoro-1-hydroxy-1-(trifluoromethyl)ethyl]phenyl}benzenesulfonamide	chembl62136	db07080	oc(c1=cc=c(c=c1)n(cc(f)(f)f)s(=o)(=o)c1=cc=cc=c1)(c(f)(f)f)c(f)(f)f	447912
+n-acetyl-alpha-neuraminic acid	chembl1234621	db03721	[h][c@]1(o[c@](o)(c[c@h](o)[c@h]1nc(c)=o)c(o)=o)[c@h](o)[c@h](o)co	444885
+n-acetylglucosamine	chembl447878	db00141	[h]c(=o)[c@h](nc(c)=o)[c@@h](o)[c@h](o)[c@h](o)co	24139
+nafamostat	chembl273264	db12598	nc(=n)nc1=cc=c(c=c1)c(=o)oc1=cc=c2c=c(c=cc2=c1)c(n)=n	4413
+naloxone	chembl80	db01183	[h][c@@]12oc3=c(o)c=cc4=c3[c@@]11ccn(cc=c)[c@]([h])(c4)[c@]1(o)ccc2=o	5284596
+natalizumab	chembl1201607	db00108	not found	NA
+nedocromil	chembl746	db00716	cccc1=c2n(cc)c(=cc(=o)c2=cc2=c1oc(=cc2=o)c(o)=o)c(o)=o	50294
+nefazodone	chembl623	db01149	ccc1=nn(cccn2ccn(cc2)c2=cc(cl)=cc=c2)c(=o)n1ccoc1=cc=cc=c1	4449
+nicardipine	chembl1484	db00622	coc(=o)c1=c(c)nc(c)=c(c1c1=cc(=cc=c1)[n+]([o-])=o)c(=o)occn(c)cc1=cc=cc=c1	4474
+nicotine	chembl3	db00184	cn1ccc[c@h]1c1=cn=cc=c1	89594
+nifedipine	chembl193	db01115	coc(=o)c1=c(c)nc(c)=c(c1c1=cc=cc=c1[n+]([o-])=o)c(=o)oc	4485
+niflumic acid	chembl63323	db04552	oc(=o)c1=c(nc2=cc=cc(=c2)c(f)(f)f)n=cc=c1	4488
+nilvadipine	chembl517427	db06712	coc(=o)c1=c(nc(c)=c(c1c1=cc(=cc=c1)[n+]([o-])=o)c(=o)oc(c)c)c#n	4494
+nimodipine	chembl1428	db00393	coccoc(=o)c1=c(c)nc(c)=c(c1c1=cc(=cc=c1)[n+]([o-])=o)c(=o)oc(c)c	4497
+nintedanib	chembl502835	db09079	coc(=o)c1=cc2=c(c=c1)\c(=c(\nc1=cc=c(c=c1)n(c)c(=o)cn1ccn(c)cc1)c1=cc=cc=c1)c(o)=n2	9809715
+nisoldipine	chembl1726	db00401	coc(=o)c1=c(c)nc(c)=c(c1c1=cc=cc=c1[n+]([o-])=o)c(=o)occ(c)c	4499
+nitrazepam	chembl13209	db01595	[o-][n+](=o)c1=cc2=c(nc(=o)cn=c2c2=cc=cc=c2)c=c1	4506
+nitrendipine	chembl475534	db01054	ccoc(=o)c1=c(c)nc(c)=c(c1c1=cc(=cc=c1)[n+]([o-])=o)c(=o)oc	4507
+nomifensine	chembl273575	db04821	cn1cc(c2=cc=cc=c2)c2=c(c1)c(n)=cc=c2	4528
+norepinephrine	chembl1437	db00368	nc[c@h](o)c1=cc(o)=c(o)c=c1	439260
+nortriptyline	chembl445	db00540	cnccc=c1c2=cc=cc=c2ccc2=cc=cc=c12	4543
+olanzapine	chembl715	db00334	cn1ccn(cc1)c1=nc2=cc=cc=c2nc2=c1c=c(c)s2	4585
+olopatadine	chembl1719	db00768	cn(c)cc\c=c1\c2=cc=cc=c2coc2=c1c=c(cc(o)=o)c=c2	5281071
+ondansetron	chembl46	db00904	cn1c2=c(c3=cc=cc=c13)c(=o)c(cn1c=cn=c1c)cc2	4595
+ornithine	chembl446143	db00129	nccc[c@h](n)c(o)=o	6262
+orphenadrine	chembl900	db01173	cn(c)ccoc(c1=cc=cc=c1)c1=cc=cc=c1c	4601
+oxazepam	chembl568	db00842	oc1n=c(c2=cc=cc=c2)c2=c(nc1=o)c=cc(cl)=c2	4616
+oxtriphylline	chembl190	db01303	c[n+](c)(c)cco.cn1c2=c([n-]c=n2)c(=o)n(c)c1=o	2153
+oxycodone	chembl656	db00497	[h][c@@]12oc3=c(oc)c=cc4=c3[c@@]11ccn(c)[c@]([h])(c4)[c@]1(o)ccc2=o	5284603
+oxymetazoline	chembl762	db00935	cc1=cc(=c(o)c(c)=c1cc1=nccn1)c(c)(c)c	4636
+paclitaxel	chembl428647	db01229	[h][c@]12[c@h](oc(=o)c3=cc=cc=c3)[c@]3(o)c[c@h](oc(=o)[c@h](o)[c@@h](nc(=o)c4=cc=cc=c4)c4=cc=cc=c4)c(c)=c([c@@h](oc(c)=o)c(=o)[c@]1(c)[c@@h](o)c[c@h]1oc[c@@]21oc(c)=o)c3(c)c	36314
+palifermin	chembl1201821	db00039	not found	NA
+paliperidone	chembl1621	db01267	cc1=c(ccn2ccc(cc2)c2=noc3=c2c=cc(f)=c3)c(=o)n2cccc(o)c2=n1	115237
+palivizumab	chembl1201586	db00110	not found	NA
+palmitic acid	chembl82293	db03796	cccccccccccccccc(o)=o	985
+panobinostat	chembl483254	db06603	[h]\c(=c(\[h])c1=cc=c(cnccc2=c(c)nc3=cc=cc=c23)c=c1)c(o)=no	6918837
+paroxetine	chembl490	db00715	fc1=cc=c(c=c1)[c@@h]1ccnc[c@h]1coc1=cc2=c(oco2)c=c1	43815
+patupilone	chembl94657	db03010	[h]\c(=c(\c)[c@]1([h])c[c@]2([h])o[c@]2(c)ccc[c@]([h])(c)[c@]([h])(o)[c@@]([h])(c)c(=o)c(c)(c)[c@@]([h])(o)cc(=o)o1)c1=csc(c)=n1	448013
+pazopanib	chembl477772	db06589	cn(c1=cc2=nn(c)c(c)=c2c=c1)c1=cc=nc(nc2=cc=c(c)c(=c2)s(n)(=o)=o)=n1	10113978
+pentobarbital	chembl448	db00312	cccc(c)c1(cc)c(=o)nc(=o)nc1=o	4737
+pentoxifylline	chembl628	db00806	cn1c=nc2=c1c(=o)n(ccccc(c)=o)c(=o)n2c	4740
+pergolide	chembl531	db01186	[h][c@@]12cc3=cnc4=cc=cc(=c34)[c@@]1([h])c[c@@h](csc)cn2ccc	47811
+perospirone	chembl1472975	db08922	[h][c@@]12cccc[c@]1([h])c(=o)n(ccccn1ccn(cc1)c1=nsc3=cc=cc=c13)c2=o	115368
+pethidine	chembl607	db00454	ccoc(=o)c1(ccn(c)cc1)c1=cc=cc=c1	4058
+phenelzine	chembl1089	db00780	nnccc1=cc=cc=c1	3675
+phenobarbital	chembl40	db01174	ccc1(c(=o)nc(=o)nc1=o)c1=cc=cc=c1	4763
+phenoxybenzamine	chembl753	db00925	cc(coc1=cc=cc=c1)n(cccl)cc1=cc=cc=c1	4768
+phentermine	chembl1574	db00191	cc(c)(n)cc1=cc=cc=c1	4771
+phenylpropanolamine	chembl61006	db00397	c[c@@h](n)[c@@h](o)c1=cc=cc=c1	4786
+pidolic acid	chembl397976	db03088	oc(=o)[c@@h]1ccc(=o)n1	7405
+ponatinib	chembl1171837	db08901	cn1ccn(cc2=cc=c(nc(=o)c3=cc(c#cc4=cn=c5c=cc=nn45)=c(c)c=c3)c=c2c(f)(f)f)cc1	24826799
+potassium chloride	chembl1200731	db00761	[cl-].[k+]	4873
+pramipexole	chembl301265	db00413	cccn[c@h]1ccc2=c(c1)sc(n)=n2	119570
+pranlukast	chembl21333	db01411	o=c(nc1=c2oc(=cc(=o)c2=cc=c1)c1=nnn=n1)c1=cc=c(occccc2=cc=cc=c2)c=c1	4887
+prasterone	chembl90593	db01708	[h][c@@]12ccc(=o)[c@@]1(c)cc[c@@]1([h])[c@@]2([h])cc=c2c[c@@]([h])(o)cc[c@]12c	5881
+prazepam	chembl969	db01588	clc1=cc2=c(c=c1)n(cc1cc1)c(=o)cn=c2c1=cc=cc=c1	4890
+prazosin	chembl2	db00457	coc1=c(oc)c=c2c(n)=nc(=nc2=c1)n1ccn(cc1)c(=o)c1=cc=co1	4893
+primidone	chembl856	db00794	ccc1(c(=o)ncnc1=o)c1=cc=cc=c1	4909
+procaine	chembl569	db00721	ccn(cc)ccoc(=o)c1=cc=c(n)c=c1	4914
+progesterone	chembl103	db00396	[h][c@@]12cc[c@h](c(c)=o)[c@@]1(c)cc[c@@]1([h])[c@@]2([h])ccc2=cc(=o)cc[c@]12c	5994
+promazine	chembl564	db00420	cn(c)cccn1c2=cc=cc=c2sc2=cc=cc=c12	4926
+promethazine	chembl643	db01069	cc(cn1c2=cc=cc=c2sc2=cc=cc=c12)n(c)c	4927
+propiomazine	chembl1201210	db00777	ccc(=o)c1=cc2=c(sc3=cc=cc=c3n2cc(c)n(c)c)c=c1	4940
+propofol	chembl526	db00818	cc(c)c1=cc=cc(c(c)c)=c1o	4943
+propranolol	chembl27	db00571	cc(c)ncc(o)coc1=cc=cc2=cc=cc=c12	4946
+pseudoephedrine	chembl1590	db00852	cn[c@@h](c)[c@@h](o)c1=cc=cc=c1	7028
+puromycin	chembl469912	db08437	[h][c@](n)(cc1=cc=c(oc)c=c1)c(=o)n[c@]1([h])[c@@]([h])(co)o[c@@]([h])(n2c=nc3=c(n=cn=c23)n(c)c)[c@]1([h])o	439530
+purvalanol	chembl23254	db02733	[h][c@@](co)(nc1=nc2=c(n=cn2c(c)c)c(nc2=cc=c(c(o)=o)c(cl)=c2)=n1)c(c)c	448991
+pyridoxal phosphate	chembl82202	db00114	cc1=nc=c(cop(o)(o)=o)c(c=o)=c1o	1051
+pyruvic acid	chembl1162144	db00119	cc(=o)c(o)=o	1060
+quazepam	chembl1200472	db01589	fc1=cc=cc=c1c1=ncc(=s)n(cc(f)(f)f)c2=c1c=c(cl)c=c2	4999
+quercetin	chembl50	db04216	oc1=cc2=c(c(o)=c1)c(=o)c(o)=c(o2)c1=cc=c(o)c(o)=c1	5280343
+quetiapine	chembl716	db01224	occoccn1ccn(cc1)c1=nc2=cc=cc=c2sc2=cc=cc=c12	5002
+quinethazone	chembl1532	db01325	ccc1nc(=o)c2=cc(=c(cl)c=c2n1)s(n)(=o)=o	6307
+regorafenib	chembl1946170	db08896	cnc(=o)c1=cc(oc2=cc(f)=c(nc(=o)nc3=cc=c(cl)c(=c3)c(f)(f)f)c=c2)=cc=n1	11167602
+remoxipride	chembl22242	db00409	ccn1ccc[c@h]1cnc(=o)c1=c(oc)c=cc(br)=c1oc	54477
+ribavirin	chembl1643	db00811	nc(=o)c1=nn(c=n1)[c@@h]1o[c@h](co)[c@@h](o)[c@h]1o	37542
+riboflavin monophosphate	chembl1201794	db03247	cc1=cc2=c(c=c1c)n(c[c@h](o)[c@h](o)[c@h](o)cop(o)(o)=o)c1=nc(=o)nc(=o)c1=n2	643976
+rifampicin	chembl374478	db01045	co[c@h]1\c=c\o[c@@]2(c)oc3=c(c2=o)c2=c(o)c(\c=n\n4ccn(c)cc4)=c(nc(=o)\c(c)=c/c=c/[c@h](c)[c@h](o)[c@@h](c)[c@@h](o)[c@@h](c)[c@h](oc(c)=o)[c@@h]1c)c(o)=c2c(o)=c3c	5458213
+risperidone	chembl85	db00734	cc1=c(ccn2ccc(cc2)c2=noc3=c2c=cc(f)=c3)c(=o)n2ccccc2=n1	5073
+rituximab	chembl1201576	db00073	not found	NA
+ropinirole	chembl589	db00268	cccn(ccc)ccc1=c2cc(=o)nc2=cc=c1	5095
+rotigotine	chembl1303	db05271	cccn(ccc1=cc=cs1)[c@h]1ccc2=c(o)c=cc=c2c1	59227
+s-adenosyl-l-homocysteine	chembl418052	db01752	n[c@@h](ccsc[c@h]1o[c@h]([c@h](o)[c@@h]1o)n1c=nc2=c(n)n=cn=c12)c(o)=o	439155
+s-hexylglutathione	chembl345292	db04132	[h][c@](n)(ccc(o)=n[c@@]([h])(cscccccc)c(o)=ncc(o)=o)c(o)=o	97536
+sargramostim	chembl1201670	db00020	not found	NA
+scopolamine	chembl569713	db00747	cn1[c@h]2c[c@@h](c[c@@h]1[c@h]1o[c@@h]21)oc(=o)[c@h](co)c1=cc=cc=c1	3000322
+secobarbital	chembl447	db00418	cccc(c)c1(cc=c)c(=o)nc(=o)nc1=o	5193
+sertindole	chembl12713	db06144	fc1=cc=c(c=c1)n1c=c(c2ccn(ccn3ccnc3=o)cc2)c2=c1c=cc(cl)=c2	60149
+setiptiline	chembl2104895	db09304	cn1ccc2=c(c1)c1=cc=cc=c1cc1=cc=cc=c21	5205
+sevoflurane	chembl1200694	db01236	fcoc(c(f)(f)f)c(f)(f)f	5206
+solifenacin	chembl1734	db01591	o=c(o[c@h]1cn2ccc1cc2)n1ccc2=cc=cc=c2[c@@h]1c1=cc=cc=c1	154059
+sorafenib	chembl1336	db00398	cnc(=o)c1=nc=cc(oc2=cc=c(nc(=o)nc3=cc(=c(cl)c=c3)c(f)(f)f)c=c2)=c1	216239
+spironolactone	chembl1393	db00421	[h][c@@]12cc[c@@]3(ccc(=o)o3)[c@@]1(c)cc[c@@]1([h])[c@@]2([h])[c@@]([h])(cc2=cc(=o)cc[c@]12c)sc(c)=o	5833
+staurosporine	chembl388978	db02010	[h][c@]1(c[c@@]2([h])o[c@](c)(n3c4=cc=cc=c4c4=c5cnc(=o)c5=c5c6=cc=cc=c6n2c5=c34)[c@]1([h])oc)nc	44259
+stiripentol	chembl1983350	db09118	cc(c)(c)c(o)\c=c\c1=cc2=c(oco2)c=c1	5311454
+succinic acid	chembl576	db00139	oc(=o)ccc(o)=o	1110
+sucralfate	chembl2029132	db00364	o[al](o)os(=o)(=o)oc[c@h]1o[c@@h](o[c@]2(cos(=o)(=o)o[al](o)o)o[c@h](os(=o)(=o)o[al](o)o)[c@@h](os(=o)(=o)o[al](o)o)[c@@h]2os(=o)(=o)o[al](o)o)[c@h](os(=o)(=o)o[al](o)o)[c@@h](os(=o)(=o)o[al](o)o)[c@@h]1os(=o)(=o)o[al](o)o	70789197
+sulfasalazine	chembl421	db00795	oc(=o)c1=cc(=cc=c1o)\n=n\c1=cc=c(c=c1)s(=o)(=o)nc1=nc=cc=c1	5353980
+sulindac	chembl15770	db00605	cc1=c(cc(o)=o)c2=cc(f)=cc=c2\c1=c/c1=cc=c(c=c1)s(c)=o	1548887
+sunitinib	chembl535	db01268	ccn(cc)ccnc(=o)c1=c(c)nc(\c=c2/c(=o)nc3=c2c=c(f)c=c3)=c1c	5329102
+suramin	chembl265502	db04786	cc1=c(nc(=o)c2=cc(nc(=o)nc3=cc=cc(=c3)c(=o)nc3=c(c)c=cc(=c3)c(=o)nc3=c4c(c=c(c=c4s(o)(=o)=o)s(o)(=o)=o)=c(c=c3)s(o)(=o)=o)=cc=c2)c=c(c=c1)c(=o)nc1=c2c(c=c(c=c2s(o)(=o)=o)s(o)(=o)=o)=c(c=c1)s(o)(=o)=o	5361
+talbutal	chembl1200802	db00306	ccc(c)c1(cc=c)c(=o)nc(=o)nc1=o	8275
+tamoxifen	chembl83	db00675	cc\c(=c(/c1=cc=cc=c1)c1=cc=c(occn(c)c)c=c1)c1=cc=cc=c1	2733526
+tapentadol	chembl1201776	db06204	cc[c@h]([c@@h](c)cn(c)c)c1=cc(o)=cc=c1	9838022
+temazepam	chembl967	db00231	cn1c2=c(c=c(cl)c=c2)c(=nc(o)c1=o)c1=cc=cc=c1	5391
+tenecteplase	chembl2108791	db00031	not found	NA
+tenocyclidine	chembl279676	db01520	c1ccn(cc1)c1(ccccc1)c1=cc=cs1	62751
+terazosin	chembl611	db01162	coc1=c(oc)c=c2c(n)=nc(=nc2=c1)n1ccn(cc1)c(=o)c1ccco1	5401
+terfenadine	chembl17157	db00342	cc(c)(c)c1=cc=c(c=c1)c(o)cccn1ccc(cc1)c(o)(c1=cc=cc=c1)c1=cc=cc=c1	5405
+tetrahydrofolic acid	chembl2021342	db00116	nc1=nc(=o)c2=c(ncc(cnc3=cc=c(c=c3)c(=o)n[c@@h](ccc(o)=o)c(o)=o)n2)n1	91443
+thalidomide	chembl468	db01041	o=c1n(c2ccc(=o)nc2=o)c(=o)c2=cc=cc=c12	5426
+thiocolchicoside	chembl213907	db11582	coc1=c(o[c@@h]2o[c@h](co)[c@@h](o)[c@h](o)[c@h]2o)c=c2cc[c@h](nc(c)=o)c3=cc(=o)c(sc)=cc=c3c2=c1oc	9915886
+thiopental	chembl441	db00599	cccc(c)c1(cc)c(=o)nc(=s)nc1=o	3000715
+thioproperazine	chembl609109	db01622	cn(c)s(=o)(=o)c1=cc2=c(sc3=cc=cc=c3n2cccn2ccn(c)cc2)c=c1	9429
+thioridazine	chembl479	db00679	csc1=cc2=c(sc3=cc=cc=c3n2ccc2ccccn2c)c=c1	5452
+tiapride	chembl84158	db13025	ccn(cc)ccn=c(o)c1=c(oc)c=cc(=c1)s(c)(=o)=o	5467
+tolazoline	chembl770	db00797	c(c1=nccn1)c1=cc=cc=c1	5504
+tolterodine	chembl1382	db01036	cc(c)n(cc[c@h](c1=cc=cc=c1)c1=c(o)c=cc(c)=c1)c(c)c	443879
+topiramate	chembl220492	db00273	[h][c@@]12co[c@@]3(cos(n)(=o)=o)oc(c)(c)o[c@@]3([h])[c@]1([h])oc(c)(c)o2	5284627
+tositumomab	chembl1201604	db00081	not found	NA
+tramadol	chembl1066	db00193	coc1=cc=cc(=c1)[c@@]1(o)cccc[c@@h]1cn(c)c	33741
+trapidil	chembl132767	db09283	ccn(cc)c1=cc(c)=nc2=nc=nn12	5531
+trastuzumab	chembl1201585	db00072	not found	NA
+trazodone	chembl621	db00656	clc1=cc=cc(=c1)n1ccn(cccn2n=c3c=cc=cn3c2=o)cc1	5533
+tretinoin	chembl38	db00755	cc(c=cc1=c(c)cccc1(c)c)=cc=cc(c)=cc(o)=o	444795
+triazolam	chembl646	db00897	cc1=nn=c2cn=c(c3=cc=cc=c3cl)c3=c(c=cc(cl)=c3)n12	5556
+trichlormethiazide	chembl1054	db01021	ns(=o)(=o)c1=c(cl)c=c2nc(ns(=o)(=o)c2=c1)c(cl)cl	5560
+trifluoperazine	chembl422	db00831	cn1ccn(cccn2c3=cc=cc=c3sc3=c2c=c(c=c3)c(f)(f)f)cc1	5566
+triflupromazine	chembl570	db00508	cn(c)cccn1c2=cc=cc=c2sc2=c1c=c(c=c2)c(f)(f)f	5568
+trihexyphenidyl	chembl1490	db00376	oc(ccn1ccccc1)(c1ccccc1)c1=cc=cc=c1	5572
+trimebutine	chembl190044	db09089	ccc(coc(=o)c1=cc(oc)=c(oc)c(oc)=c1)(n(c)c)c1=cc=cc=c1	5573
+trimipramine	chembl644	db00726	cc(cn(c)c)cn1c2=cc=cc=c2ccc2=cc=cc=c12	5584
+troglitazone	chembl408	db00197	cc1=c(c)c2=c(ccc(c)(coc3=cc=c(cc4sc(=o)nc4=o)c=c3)o2)c(c)=c1o	5591
+tromethamine	chembl1200391	db03754	nc(co)(co)co	6503
+ubiquinone-2	chembl1236595	db08690	coc1=c(oc)c(=o)c(c\c=c(/c)ccc=c(c)c)=c(c)c1=o	5280346
+umeclidinium	chembl1187833	db09076	oc(c1=cc=cc=c1)(c1=cc=cc=c1)c12cc[n+](ccocc3=cc=cc=c3)(cc1)cc2	11519070
+uridine-5'-diphosphate	chembl130266	db03435	o[c@h]1[c@@h](o)[c@@h](o[c@@h]1cop(o)(=o)op(o)(o)=o)n1c=cc(=o)nc1=o	6031
+uridine monophosphate	chembl214393	db03685	o[c@h]1[c@@h](o)[c@@h](o[c@@h]1cop(o)(o)=o)n1c=cc(=o)nc1=o	6030
+urokinase	chembl1201420	db00013	not found	NA
+valproic acid	chembl109	db00313	cccc(ccc)c(o)=o	3121
+vandetanib	chembl24828	db05294	coc1=c(occ2ccn(c)cc2)c=c2n=cn=c(nc3=c(f)c=c(br)c=c3)c2=c1	3081361
+varenicline	chembl1396	db01273	[h][c@]12c[c@]([h])(cnc1)c1=cc3=nc=cn=c3c=c21	170361
+verapamil	chembl1280	db00661	coc1=c(oc)c=c(ccn(c)cccc(c#n)(c(c)c)c2=cc(oc)=c(oc)c=c2)c=c1	62969
+vinblastine	chembl159	db00570	[h][c@@]12n(c)c3=cc(oc)=c(c=c3[c@@]11ccn3cc=c[c@](cc)([c@@]13[h])[c@@]([h])(oc(c)=o)[c@]2(o)c(=o)oc)[c@]1(c[c@@]2([h])cn(c[c@](o)(cc)c2)ccc2=c1nc1=cc=cc=c21)c(=o)oc	13342
+vitamin a	chembl986	db00162	c\c(=c/co)\c=c\c=c(/c)\c=c\c1=c(c)cccc1(c)c	445354
+vitamin c	chembl196	db00126	[h][c@@]1(oc(=o)c(o)=c1o)[c@@h](o)co	54670067
+vitamin e	chembl47	db00163	cc(c)ccc[c@@h](c)ccc[c@@h](c)ccc[c@]1(c)ccc2=c(o1)c(c)=c(c)c(o)=c2c	14985
+vorinostat	chembl98	db02546	onc(=o)ccccccc(=o)nc1=cc=cc=c1	5311
+vortioxetine	chembl2104993	db09068	cc1=cc(c)=c(sc2=cc=cc=c2n2cc[nh2+]cc2)c=c1	9966051
+xylometazoline	chembl312448	db06694	cc1=cc(=cc(c)=c1cc1=nccn1)c(c)(c)c	5709
+yohimbine	chembl15245	db01392	[h][c@@]12cc[c@h](o)[c@h](c(=o)oc)[c@@]1([h])c[c@]1([h])n(ccc3=c1nc1=cc=cc=c31)c2	8969
+ziprasidone	chembl708	db00246	clc1=c(ccn2ccn(cc2)c2=nsc3=cc=cc=c23)c=c2cc(=o)nc2=c1	60854
+zonisamide	chembl750	db00909	ns(=o)(=o)cc1=noc2=cc=cc=c12	5734
+zopiclone	chembl135400	db01198	cn1ccn(cc1)c(=o)oc1n(c(=o)c2=nc=cn=c12)c1=nc=c(cl)c=c1	5735
+zuclopenthixol	chembl53904	db01624	occn1ccn(cc\c=c2\c3=cc=cc=c3sc3=c2c=c(cl)c=c3)cc1	5311507
+acetyldigitoxin	chembl3545057	db00511	[h][c@@]1(c[c@h](o)[c@h](o[c@@]2([h])c[c@h](o)[c@h](o[c@@]3([h])c[c@h](oc(c)=o)[c@h](o)[c@@h](c)o3)[c@@h](c)o2)[c@@h](c)o1)o[c@h]1cc[c@@]2(c)[c@]([h])(cc[c@]3([h])[c@]2([h])cc[c@]2(c)[c@h](cc[c@]32o)c2=cc(=o)oc2)c1	5284512
+aclatonium	chembl2106580	NA	cc(oc(c)=o)c(=o)occ[n+](c)(c)c	6918580
+alprostadil	chembl495	NA	ccccc[c@h](o)\c=c\[c@h]1[c@h](o)cc(=o)[c@@h]1ccccccc(o)=o	5280723
+amantadine	chembl660	db00915	nc12cc3cc(cc(c3)c1)c2	2130
+amifampridine	chembl354077	NA	nc1=cc=nc=c1n	5918
+axitinib	chembl1289926	db06626	cnc(=o)c1=c(sc2=cc=c3c(nn=c3\c=c\c3=cc=cc=n3)=c2)c=cc=c1	6450551
+benzocaine	chembl278172	db01086	ccoc(=o)c1=cc=c(n)c=c1	2337
+boceprevir	chembl218394	db08873	cc(c)(c)nc(=o)n[c@h](c(=o)n1c[c@h]2[c@@h]([c@h]1c(=o)nc(cc1ccc1)c(=o)c(n)=o)c2(c)c)c(c)(c)c	10324367
+bortezomib	chembl325041	db00188	cc(c)c[c@h](nc(=o)[c@h](cc1=cc=cc=c1)nc(=o)c1=cn=cc=n1)b(o)o	387447
+brentuximab vedotin	chembl1742994	NA	NA	NA
+bufylline	chembl2104089	NA	NA	21850
+cabazitaxel	chembl1201748	db06772	[h][c@](o)(c(=o)o[c@@]1([h])c[c@@]2(o)[c@@]([h])(oc(=o)c3=cc=cc=c3)[c@]3([h])[c@@]4(co[c@]4([h])c[c@]([h])(oc)[c@@]3(c)c(=o)[c@]([h])(oc)c(=c1c)c2(c)c)oc(c)=o)[c@@]([h])(nc(=o)oc(c)(c)c)c1=cc=cc=c1	9854073
+cabozantinib	chembl2103868	db08875	coc1=cc2=nc=cc(oc3=cc=c(nc(=o)c4(cc4)c(=o)nc4=cc=c(f)c=c4)c=c3)=c2c=c1oc	25102846
+chlorhexidine	chembl790	db00878	clc1=cc=c(nc(=n)nc(=n)nccccccnc(=n)nc(=n)nc2=cc=c(cl)c=c2)c=c1	9552079
+choline theophyllinate	chembl1200434	db01303	c[n+](c)(c)cco.cn1c2=c(n=c[n-]2)c(=o)n(c)c1=o	656652
+ciclosporin	chembl160	db00091	[h][c@]1(nc(=o)[c@h](cc(c)c)n(c)c(=o)cn(c)c(=o)[c@h](cc)nc(=o)[c@]([h])([c@h](o)[c@h](c)c\c=c\c)n(c)c(=o)[c@]([h])(c(c)c)n(c)c(=o)[c@h](cc(c)c)n(c)c(=o)[c@h](cc(c)c)n(c)c(=o)[c@@h](c)nc(=o)[c@h](c)nc(=o)[c@h](cc(c)c)n(c)c1=o)c(c)c	5284373
+cisapride	chembl1729	db00604	[h]c1(ccn(cccoc2=cc=c(f)c=c2)cc1([h])oc)nc(=o)c1=c(oc)c=c(n)c(cl)=c1	2769
+crizotinib	chembl601719	db08865	[h][c@](c)(oc1=c(n)n=cc(=c1)c1=cn(n=c1)c1ccncc1)c1=c(cl)c=cc(f)=c1cl	11626560
+decamethonium	chembl1134	db01245	c[n+](c)(c)cccccccccc[n+](c)(c)c	2968
+deslanoside	chembl1614	db01078	[h][c@@]1(c[c@h](o)[c@h](o[c@@]2([h])c[c@h](o)[c@h](o[c@@]3([h])c[c@h](o)[c@h](o[c@]4([h])o[c@h](co)[c@@h](o)[c@h](o)[c@h]4o)[c@@h](c)o3)[c@@h](c)o2)[c@@h](c)o1)o[c@h]1cc[c@@]2(c)[c@]([h])(cc[c@]3([h])[c@]2([h])c[c@@h](o)[c@]2(c)[c@h](cc[c@]32o)c2=cc(=o)oc2)c1	28620
+digoxin	chembl1751	db00390	[h][c@@]1(c[c@h](o)[c@h](o[c@@]2([h])c[c@h](o)[c@h](o[c@@]3([h])c[c@h](o)[c@h](o)[c@@h](c)o3)[c@@h](c)o2)[c@@h](c)o1)o[c@h]1cc[c@@]2(c)[c@]([h])(cc[c@]3([h])[c@]2([h])c[c@@h](o)[c@]2(c)[c@h](cc[c@]32o)c2=cc(=o)oc2)c1	2724385
+dinoprostone	chembl548	db00917	ccccc[c@h](o)\c=c\[c@h]1[c@h](o)cc(=o)[c@@h]1c\c=c/cccc(o)=o	5280360
+dipyridamole	chembl932	db00975	occn(cco)c1=nc(n2ccccc2)=c2n=c(n=c(n3ccccc3)c2=n1)n(cco)cco	3108
+eribulin	chembl1683544	NA	[h][c@@]12cc(=c)[c@]([h])(cc[c@@]3([h])c[c@@h](c)c(=c)[c@@]([h])(c[c@]4([h])o[c@h](c[c@h](o)cn)[c@h](oc)[c@@]4([h])cc(=o)c[c@@]4([h])cc[c@]5([h])o[c@@]6([h])[c@@]7([h])o[c@@]8(c[c@@]7([h])o[c@@]6([h])[c@@]([h])(o8)[c@@]5([h])o4)cc1)o3)o2	17755248
+erlotinib	chembl553	db00530	coccoc1=cc2=c(c=c1occoc)c(nc1=cc=cc(=c1)c#c)=nc=n2	176870
+eslicarbazepine acetate	chembl87992	db09119	cc(=o)o[c@h]1cc2=c(c=cc=c2)n(c(n)=o)c2=cc=cc=c12	179344
+ethotoin	chembl1095	db00754	ccn1c(=o)nc(c1=o)c1=cc=cc=c1	3292
+ethoxzolamide	chembl18	db00311	ccoc1=cc2=c(c=c1)n=c(s2)s(n)(=o)=o	3295
+flavoxate	chembl1493	db01148	cc1=c(oc2=c(c=cc=c2c1=o)c(=o)occn1ccccc1)c1=cc=cc=c1	3354
+flufenamic acid	chembl23588	db02266	oc(=o)c1=c(nc2=cc(=cc=c2)c(f)(f)f)c=cc=c1	3371
+fospropofol	chembl1201766	db06716	cc(c)c1=cc=cc(c(c)c)=c1ocop(o)(o)=o	3038498
+gemcitabine	chembl888	db00441	nc1=nc(=o)n(c=c1)[c@@h]1o[c@h](co)[c@@h](o)c1(f)f	60750
+glycopyrronium bromide	chembl1201027	NA	c[n+]1(c)ccc(c1)oc(=o)c(o)(c1cccc1)c1=cc=cc=c1	11693
+guanidine	chembl821	db00536	nc(n)=n	3520
+ixabepilone	chembl1201752	db04845	[h][c@]12c[c@h](nc(=o)c[c@h](o)c(c)(c)c(=o)[c@h](c)[c@@h](o)[c@@h](c)ccc[c@@]1(c)o2)c(\c)=c\c1=csc(c)=n1	6445540
+lamotrigine	chembl741	db00555	nc1=nn=c(c(n)=n1)c1=c(cl)c(cl)=cc=c1	3878
+lidocaine	chembl79	db00281	ccn(cc)cc(=o)nc1=c(c)c=cc=c1c	3676
+mefenamic acid	chembl686	db00784	cc1=cc=cc(nc2=c(c=cc=c2)c(o)=o)=c1c	4044
+mephenytoin	chembl861	db00532	ccc1(nc(=o)n(c)c1=o)c1=cc=cc=c1	4060
+mepivacaine	chembl1087	db00961	[h]c1(ccccn1c)c(=o)nc1=c(c)c=cc=c1c	4062
+metformin	chembl1431	db00331	cn(c)c(=n)nc(n)=n	4091
+methanthelinium	chembl1201264	db00940	cc[n+](c)(cc)ccoc(=o)c1c2=cc=cc=c2oc2=c1c=cc=c2	4097
+metoclopramide	chembl86	db01233	ccn(cc)ccnc(=o)c1=c(oc)c=c(n)c(cl)=c1	4168
+mexiletine	chembl558	db00379	cc(n)coc1=c(c)c=cc=c1c	4178
+nilotinib	chembl255863	db04868	cc1=cn(c=n1)c1=cc(=cc(nc(=o)c2=cc(nc3=nc=cc(=n3)c3=cn=cc=c3)=c(c)c=c2)=c1)c(f)(f)f	644241
+octreotide	chembl1680	db00104	[h]n[c@@h](cc1=cc=cc=c1)c(=o)n[c@h]1cssc[c@h](nc(=o)[c@@h](nc(=o)[c@h](ccccn)nc(=o)[c@h](cc2=cnc3=c2c=cc=c3)nc(=o)[c@h](cc2=cc=cc=c2)nc1=o)[c@@h](c)o)c(=o)n[c@]([h])(co)[c@@]([h])(c)o	448601
+orlistat	chembl175247	db01083	ccccccccccc[c@@h](c[c@@h]1oc(=o)[c@h]1cccccc)oc(=o)[c@h](cc(c)c)nc=o	3034010
+pemetrexed	chembl225072	db00642	nc1=nc(=o)c2=c(nc=c2ccc2=cc=c(c=c2)c(=o)n[c@@h](ccc(o)=o)c(o)=o)n1	446556
+phenazopyridine	chembl1242	db01438	nc1=nc(n)=c(c=c1)\n=n\c1=cc=cc=c1	4756
+phentolamine	chembl597	db00692	cc1=cc=c(c=c1)n(cc1=nccn1)c1=cc(o)=cc=c1	5775
+phenytoin	chembl16	db00252	o=c1nc(=o)c(n1)(c1=cc=cc=c1)c1=cc=cc=c1	1775
+podophyllotoxin	chembl61	db01179	[h][c@]12coc(=o)[c@]1([h])[c@h](c1=cc(oc)=c(oc)c(oc)=c1)c1=cc3=c(oco3)c=c1[c@@h]2o	10607
+procainamide	chembl640	db01035	ccn(cc)ccnc(=o)c1=cc=c(n)c=c1	4913
+quinidine	chembl1294	db00908	[h][c@@]1(c[c@@h]2cc[n@]1c[c@@h]2c=c)[c@@h](o)c1=cc=nc2=cc=c(oc)c=c12	441074
+rapacuronium	chembl1201352	db04834	[h][c@@]12c[c@@h]([c@h](oc(=o)cc)[c@@]1(c)cc[c@@]1([h])[c@@]2([h])cc[c@@]2([h])c[c@h](oc(c)=o)[c@h](c[c@]12c)n1ccccc1)[n+]1(cc=c)ccccc1	5311399
+romidepsin	chembl343448	db06176	[h][c@]12cc(=o)n[c@]([h])(c(c)c)c(=o)n[c@]([h])(csscc\c=c\1)c(=o)n\c(=c/c)c(=o)n[c@@]([h])(c(c)c)c(=o)o2	5352062
+ropivacaine	chembl1077896	db00296	cccn1cccc[c@h]1c(=o)nc1=c(c)c=cc=c1c	175805
+rucaparib	chembl1173055	db12332	cncc1=cc=c(c=c1)c1=c2ccnc(=o)c3=cc(f)=cc(n1)=c23	9931954
+rufinamide	chembl1201754	db06201	nc(=o)c1=cn(cc2=c(f)c=cc=c2f)n=n1	129228
+sirolimus	chembl413	db00877	[h][c@@](c)(c[c@]1([h])cc[c@@]([h])(o)[c@@]([h])(c1)oc)[c@]1([h])cc(=o)[c@]([h])(c)\c=c(c)\[c@@]([h])(o)[c@@]([h])(oc)c(=o)[c@]([h])(c)c[c@]([h])(c)\c=c\c=c\c=c(c)\[c@]([h])(c[c@]2([h])cc[c@@]([h])(c)[c@@](o)(o2)c(=o)c(=o)n2cccc[c@@]2([h])c(=o)o1)oc	5284616
+somatostatin	chembl1823872	db09099	[h]n[c@@h](c)c(=o)ncc(=o)n[c@h]1cssc[c@h](nc(=o)[c@h](co)nc(=o)[c@@h](nc(=o)[c@h](cc2=cc=cc=c2)nc(=o)[c@@h](nc(=o)[c@h](ccccn)nc(=o)[c@h](cc2=cnc3=c2c=cc=c3)nc(=o)[c@h](cc2=cc=cc=c2)nc(=o)[c@h](cc2=cc=cc=c2)nc(=o)[c@h](cc(n)=o)nc(=o)[c@h](ccccn)nc1=o)[c@@h](c)o)[c@@h](c)o)c(o)=o	16129706
+suxamethonium	chembl703	db00202	c[n+](c)(c)ccoc(=o)ccc(=o)occ[n+](c)(c)c	5314
+tacrolimus	chembl269732	db00864	[h][c@]12o[c@](o)([c@h](c)c[c@@h]1oc)c(=o)c(=o)n1cccc[c@@]1([h])c(=o)o[c@@h]([c@@h](c)[c@@h](o)cc(=o)[c@h](cc=c)\c=c(c)\c[c@h](c)c[c@@h]2oc)c(\c)=c\[c@@h]1cc[c@@h](o)[c@@h](c1)oc	445643
+telaprevir	chembl231813	db05521	[h][c@@]12ccc[c@]1([h])[c@h](n(c2)c(=o)[c@@h](nc(=o)[c@@h](nc(=o)c1=cn=cc=n1)c1ccccc1)c(c)(c)c)c(=o)n[c@@h](ccc)c(=o)c(=o)nc1cc1	3010818
+tetracaine	chembl698	db09085	ccccnc1=cc=c(c=c1)c(=o)occn(c)c	5411
+tetryzoline	chembl1266	db06764	[h]c1(cccc2=cc=cc=c12)c1=nccn1	5419
+thiamylal	chembl440	db01154	cccc(c)c1(cc=c)c(=o)nc(=s)nc1=o	3032285
+tocainide	chembl1762	db01056	cc(n)c(=o)nc1=c(c)c=cc=c1c	38945
+tofacitinib	chembl221959	db08895	c[c@@h]1ccn(c[c@@h]1n(c)c1=c2c=cnc2=nc=n1)c(=o)cc#n	9926791
+trastuzumab emtansine	chembl1743082	NA	NA	NA
+triclofos	chembl1200789	NA	op(o)(=o)occ(cl)(cl)cl	23677832
+tubocurarine	chembl1687	db01199	[h][c@]12cc3=cc=c(oc4=c5c(cc[n+](c)(c)[c@]5([h])cc5=cc=c(o)c(oc6=cc1=c(ccn2c)c=c6oc)=c5)=cc(oc)=c4o)c=c3	9917490
+vincristine	chembl90555	db00541	[h][c@@]12n3cc[c@@]11c4=cc(=c(oc)c=c4n(c=o)[c@@]1([h])[c@](o)([c@h](oc(c)=o)[c@]2(cc)c=cc3)c(=o)oc)[c@]1(c[c@@]2([h])c[n@](c[c@](o)(cc)c2)ccc2=c1nc1=cc=cc=c21)c(=o)oc	5978
+vinflunine	chembl2110725	NA	[h][c@@]12n3cc[c@@]11c4=c(c=c(oc)c(=c4)[c@]4(c[c@]5([h])c[c@h](c[n@@](c5)cc5=c4nc4=c5c=cc=c4)c(c)(f)f)c(=o)oc)n(c)[c@@]1([h])[c@](o)([c@h](oc(c)=o)[c@]2(cc)c=cc3)c(=o)oc	10629256
+vinorelbine	chembl553025	db00361	[h][c@@]12n(c)c3=c(c=c(c(oc)=c3)[c@]3(c[c@@]4([h])c[n@](cc(cc)=c4)cc4=c3nc3=c4c=cc=c3)c(=o)oc)[c@@]11ccn3cc=c[c@@](cc)([c@@h](oc(c)=o)[c@]2(o)c(=o)oc)[c@@]13[h]	5311497
+zaleplon	chembl1521	db00962	ccn(c(c)=o)c1=cc(=cc=c1)c1=cc=nc2=c(c=nn12)c#n	5719
+zolpidem	chembl911	db00425	cn(c)c(=o)cc1=c(n=c2c=cc(c)=cn12)c1=cc=c(c)c=c1	5732
+(7s)-hydroxyl-staurosporine	chembl574737	db01933	c[c@@]12[c@@h]([c@@h](c[c@@h](o1)n3c4=cc=cc=c4c5=c6c(=c7c8=cc=cc=c8n2c7=c53)[c@@h](nc6=o)o)nc)oc	3078519
+4-damp	chembl76897	NA	c[n+]1(ccc(cc1)oc(=o)c(c2=cc=cc=c2)c3=cc=cc=c3)c.[i-]	1734
+4sc-203	chembl3545358	db12669	NA	44467821
+5-methoxytryptamine	chembl8165	NA	coc1=cc2=c(c=c1)nc=c2ccn	1833
+8-oh-dpat	chembl56	NA	cccn(ccc)c1ccc2=c(c1)c(=cc=c2)o	1220
+a-443654	chembl379300	db08073	cc1=c2c=c(c=cc2=nn1)c3=cc(=cn=c3)oc[c@h](cc4=cnc5=cc=cc=c54)n	10172943
+abemaciclib	chembl3301610	db12001	ccn1ccn(cc1)cc2=cn=c(c=c2)nc3=nc=c(c(=n3)c4=cc5=c(c(=c4)f)n=c(n5c(c)c)c)f	46220502
+abexinostat	chembl2103863	db12565	cn(c)cc1=c(oc2=cc=cc=c21)c(=o)nccoc3=cc=c(c=c3)c(=o)no	11749858
+acalabrutinib	chembl3707348	db11703	cc#cc(=o)n1ccc[c@h]1c2=nc(=c3n2c=cn=c3n)c4=cc=c(c=c4)c(=o)nc5=cc=cc=n5	71226662
+acamprosate calcium	chembl2068724	db00659	cc(=o)ncccs(=o)(=o)[o-].cc(=o)ncccs(=o)(=o)[o-].[ca+2]	155434
+acarbose	chembl1566	db00284	c[c@@h]1[c@h]([c@@h]([c@h]([c@h](o1)o[c@@h]2[c@h](o[c@@h]([c@@h]([c@h]2o)o)o[c@@h]3[c@h](o[c@h]([c@@h]([c@h]3o)o)o)co)co)o)o)n[c@h]4c=c([c@h]([c@@h]([c@h]4o)o)o)co	444254
+acetaminophen	chembl112	db00316	cc(=o)nc1=cc=c(c=c1)o	1983
+acetic acid	chembl539	db03166	cc(=o)o	176
+acetohexamide	chembl1589	db00414	cc(=o)c1=cc=c(c=c1)s(=o)(=o)nc(=o)nc2ccccc2	1989
+acetylcholine	chembl667	db03128	cc(=o)occ[n+](c)(c)c	187
+adenosine	chembl477	db00640	c1=nc2=c(c(=n1)n)n=cn2[c@h]3[c@@h]([c@@h]([c@h](o3)co)o)o	60961
+adenosine diphosphate	chembl14830	NA	c1=nc2=c(c(=n1)n)n=cn2[c@h]3[c@@h]([c@@h]([c@h](o3)cop(=o)(o)op(=o)(o)o)o)o	6022
+aee-788	chembl587723	db12558	ccn1ccn(cc1)cc2=cc=c(c=c2)c3=cc4=c(n3)n=cn=c4n[c@h](c)c5=cc=cc=c5	10297043
+afacifenacin	chembl3545165	NA	c1cn(ccc1n2c(c3=cc=cc=c3nc2=o)c4=cc=cc=c4)cc5=cc(=cc=c5)oc(f)(f)f	10188853
+afatinib	chembl1173655	db08916	cn(c)c/c=c/c(=o)nc1=c(c=c2c(=c1)c(=nc=n2)nc3=cc(=c(c=c3)f)cl)o[c@h]4ccoc4	10184653
+aflibercept	chembl1742982	db08885	NA	NA
+agomelatine	chembl10878	db06594	cc(=o)nccc1=cc=cc2=c1c=c(c=c2)oc	82148
+albumin human	chembl1201451	db00062	NA	NA
+alectinib	chembl1738797	db11363	ccc1=c(c=c2c(=c1)c(=o)c3=c(c2(c)c)nc4=c3c=cc(=c4)c#n)n5ccc(cc5)n6ccocc6	49806720
+alpelisib	chembl2396661	db12015	cc1=c(sc(=n1)nc(=o)n2ccc[c@h]2c(=o)n)c3=cc(=nc=c3)c(c)(c)c(f)(f)f	56649450
+alseroxylon	chembl1201454	db09363	NA	62816
+altiratinib	chembl3545365	NA	c1cc1c(=o)nc2=nc=cc(=c2)oc3=c(c=c(c(=c3)f)nc(=o)c4(cc4)c(=o)nc5=cc=c(c=c5)f)f	54576299
+amantadine hydrochloride	chembl1569	db00915	c1c2cc3cc1cc(c2)(c3)n.cl	64150
+amg-337	chembl3545212	NA	NA	44181686
+amg-900	chembl2140408	NA	cc1=csc(=c1)c2=nn=c(c3=cc=cc=c32)nc4=cc=c(c=c4)oc5=c(c=cc=n5)c6=nc(=nc=c6)n	24856041
+amifostine	chembl1006	db01143	c(cn)cnccsp(=o)(o)o	2141
+aminoglutethimide	chembl488	db00357	ccc1(ccc(=o)nc1=o)c2=cc=c(c=c2)n	2145
+amiodarone	chembl633	db01118	ccccc1=c(c2=cc=cc=c2o1)c(=o)c3=cc(=c(c(=c3)i)occn(cc)cc)i	2157
+amiselimod hydrochloride	chembl3707374	NA	cccccccoc1=c(c=c(c=c1)ccc(co)(co)n)c(f)(f)f.cl	67418070
+amlexanox	chembl1096	db01025	cc(c)c1=cc2=c(c=c1)oc3=nc(=c(c=c3c2=o)c(=o)o)n	2161
+amphotericin b	chembl267345	db00681	c[c@h]1/c=c/c=c/c=c/c=c/c=c/c=c/c=c/[c@@h](c[c@h]2[c@@h]([c@h](c[c@](o2)(c[c@h](c[c@h]([c@@h](cc[c@h](c[c@h](cc(=o)o[c@h]([c@@h]([c@@h]1o)c)c)o)o)o)o)o)o)o)c(=o)o)o[c@h]3[c@h]([c@h]([c@@h]([c@h](o3)c)o)n)o	118705500
+amsacrine	chembl43	db00276	coc1=c(c=cc(=c1)ns(=o)(=o)c)nc2=c3c=cc=cc3=nc4=cc=cc=c42	2179
+anakinra	chembl1201570	db00026	NA	NA
+anandamide	chembl15848	NA	ccccc/c=c\c/c=c\c/c=c\c/c=c\cccc(=o)ncco	5281969
+anastrozole	chembl1399	db01217	cc(c)(c#n)c1=cc(=cc(=c1)cn2c=nc=n2)c(c)(c)c#n	2187
+androstenedione	chembl274826	db01536	c[c@]12ccc(=o)c=c1cc[c@@h]3[c@@h]2cc[c@]4([c@h]3ccc4=o)c	2193
+anlotinib	chembl3545021	db11885	NA	25017411
+anthracene-9-carboxylic acid	chembl1513985	NA	c1=cc=c2c(=c1)c=c3c=cc=cc3=c2c(=o)o	2201
+antibiotic	chembl606111	NA	c[c@h](c(=o)n[c@@h](c)p(=o)(cc(ccc(=o)o)c(=o)o)o)oc1c(c(oc(c1o)co)op(=o)(o)op(=o)(o)oc[c@@h]2[c@h]([c@h](c(o2)n3c=c(c(=o)nc3=o)i)o)o)nc(=o)c	46874763
+apitolisib	chembl1922094	db12180	cc1=c(sc2=c1n=c(n=c2n3ccocc3)c4=cn=c(n=c4)n)cn5ccn(cc5)c(=o)[c@h](c)o	25254071
+arachidonic acid	chembl15594	db04557	ccccc/c=c\c/c=c\c/c=c\c/c=c\cccc(=o)o	444899
+arecaidine propargyl ester	chembl128365	NA	cn1ccc=c(c1)c(=o)occ#c	2229
+arq-087	chembl3545421	NA	NA	46834118
+arq-092	chembl3545422	NA	NA	53262401
+articaine hydrochloride	chembl1200819	db09009	cccnc(c)c(=o)nc1=c(sc=c1c)c(=o)oc.cl	32169
+asm-024	chembl3707249	NA	NA	117587641
+asparaginase	chembl2108989	db00023	NA	NA
+at-13148	chembl3544960	NA	c1=cc(=cc=c1c2=cnn=c2)[c@@](cn)(c3=cc=c(c=c3)cl)o	24905401
+at-7519	chembl445813	db08142	c1cnccc1nc(=o)c2=c(c=nn2)nc(=o)c3=c(c=cc=c3cl)cl	11338033
+at-9283	chembl495727	db05169	c1cc1nc(=o)nc\2=cnn/c2=c/3\n=c4c=cc(=cc4=n3)cn5ccocc5	11496629
+atagabalin	chembl593430	db12032	c[c@h]1cc(c[c@@h]1c)(cc(=o)o)cn	9794485
+atenolol	chembl24	db00335	cc(c)ncc(coc1=cc=c(c=c1)cc(=o)n)o	2249
+atezolizumab	chembl3707227	db11595	NA	NA
+atorvastatin	chembl1487	db01076	cc(c)c1=c(c(=c(n1cc[c@h](c[c@h](cc(=o)o)o)o)c2=cc=c(c=c2)f)c3=cc=cc=c3)c(=o)nc4=cc=cc=c4	60823
+atracurium	chembl1360	db00732	c[n+]1(ccc2=cc(=c(c=c2c1cc3=cc(=c(c=c3)oc)oc)oc)oc)ccc(=o)occcccoc(=o)cc[n+]4(ccc5=cc(=c(c=c5c4cc6=cc(=c(c=c6)oc)oc)oc)oc)c	47319
+atracurium besylate	chembl1200527	db00732	c[n+]1(ccc2=cc(=c(c=c2c1cc3=cc(=c(c=c3)oc)oc)oc)oc)ccc(=o)occcccoc(=o)cc[n+]4(ccc5=cc(=c(c=c5c4cc6=cc(=c(c=c6)oc)oc)oc)oc)c.c1=cc=c(c=c1)s(=o)(=o)[o-].c1=cc=c(c=c1)s(=o)(=o)[o-]	47320
+atropine sulfate	chembl2146146	db00572	cn1[c@@h]2cc[c@h]1cc(c2)oc(=o)c(co)c3=cc=cc=c3.os(=o)(=o)o	12310714
+av-101	chembl3545351	db12878	c1=cc(=c(c=c1cl)n)c(=o)cc(c(=o)o)n	173480
+avagacestat	chembl1090771	db11893	c1=cc(=cc=c1s(=o)(=o)n(cc2=c(c=c(c=c2)c3=noc=n3)f)[c@h](ccc(f)(f)f)c(=o)n)cl	46883536
+azacitidine	chembl1489	db00928	c1=nc(=nc(=o)n1[c@h]2[c@@h]([c@@h]([c@h](o2)co)o)o)n	9444
+azd-1775	chembl1976040	db11740	cc(c)(c1=nc(=cc=c1)n2c3=nc(=nc=c3c(=o)n2cc=c)nc4=cc=c(c=c4)n5ccn(cc5)c)o	24856436
+azd-4547	chembl3184679	db12247	cc1cn(cc(n1)c)c2=cc=c(c=c2)c(=o)nc3=nnc(=c3)ccc4=cc(=cc(=c4)oc)oc	57430866
+azd-5363	chembl2178577	db12218	ccn(c1ccn(cc1)cc[c@h](c2ccc(cc2)s(=o)(=o)c)c3=cc(=cc(=c3)f)f)c(=o)cc4=cc=c(c=c4)s(=o)(=o)c	71451877
+azd-5438	chembl488436	NA	cc1=nc=c(n1c(c)c)c2=nc(=nc=c2)nc3=cc=c(c=c3)s(=o)(=o)c	16747683
+azd-6482	chembl2165191	NA	cc1=cn2c(=o)c=c(n=c2c(=c1)[c@@h](c)nc3=cc=cc=c3c(=o)o)n4ccocc4	44137675
+azd-8055	chembl1801204	db12774	c[c@h]1coccn1c2=nc(=nc3=c2c=cc(=n3)c4=cc(=c(c=c4)oc)co)n5ccoc[c@@h]5c	25262965
+azd-8186	chembl3545424	NA	NA	52913813
+azd1305	chembl3545169	db11766	cc(c)(c)oc(=o)nccn1cc2cn(cc(c1)o2)ccoc3=c(c=c(c=c3)c#n)f	15605092
+azd8108	chembl3707355	NA	NA	NA
+azithromycin	chembl529	db00207	cc[c@@h]1[c@@]([c@@h]([c@h](n(c[c@@h](c[c@@]([c@@h]([c@h]([c@@h]([c@h](c(=o)o1)c)o[c@h]2c[c@@]([c@h]([c@@h](o2)c)o)(c)oc)c)o[c@h]3[c@@h]([c@h](c[c@h](o3)c)n(c)c)o)(c)o)c)c)c)o)(c)o	447043
+baclofen	chembl701	db00181	c1=cc(=cc=c1c(cc(=o)o)cn)cl	2284
+balanol	chembl60254	db04098	c1c[c@h]([c@@h](cnc1)nc(=o)c2=cc=c(c=c2)o)oc(=o)c3=cc(=c(c(=c3)o)c(=o)c4=c(c=cc=c4o)c(=o)o)o	5287736
+bardoxolone methyl	chembl1762621	NA	c[c@@]12cc[c@]3(ccc(c[c@h]3[c@h]1c(=o)c=c4[c@]2(cc[c@@h]5[c@@]4(c=c(c(=o)c5(c)c)c#n)c)c)(c)c)c(=o)oc	400769
+bay-1125976	chembl3545049	NA	NA	70817911
+becampanel	chembl2107735	NA	cscccnc(=o)c1=csc(=n1)c2=csc(=n2)ccnc(=o)ccc(=o)n3cc(c4=c3c=c(c5=cc=cc=c54)o)ccl	154082
+beclomethasone dipropionate	chembl1200500	db00394	ccc(=o)occ(=o)[c@]1([c@h](c[c@@h]2[c@@]1(c[c@@h]([c@]3([c@h]2ccc4=cc(=o)c=c[c@@]43c)cl)o)c)c)oc(=o)cc	21700
+begacestat	chembl463981	db12263	c1=c(sc(=c1)cl)s(=o)(=o)n[c@h](co)c(c(f)(f)f)c(f)(f)f	11269353
+belaperidone	chembl2105926	NA	c1[c@@h]2cn(c[c@@h]2[c@h]1c3=cc=c(c=c3)f)ccn4c(=o)c5=cc=cc=c5nc4=o	184841
+benoxinate hydrochloride	chembl1200654	db00892	ccccoc1=c(c=cc(=c1)c(=o)occn(cc)cc)n.cl	6420040
+benzonatate	chembl1374379	db00868	ccccnc1=cc=c(c=c1)c(=o)occoccoccoccoccoccoccoccoccoc	7699
+benztropine mesylate	chembl1200383	db00245	cn1[c@@h]2cc[c@h]1cc(c2)oc(c3=cc=cc=c3)c4=cc=cc=c4.cs(=o)(=o)o	3246155
+bepridil hydrochloride	chembl1200382	db01244	cc(c)cocc(cn(cc1=cc=cc=c1)c2=cc=cc=c2)n3cccc3.o.cl	91725
+betamethasone	chembl632	db00443	c[c@h]1c[c@h]2[c@@h]3ccc4=cc(=o)c=c[c@@]4([c@]3([c@h](c[c@@]2([c@]1(c(=o)co)o)c)o)f)c	9782
+betaxolol	chembl423	db00195	cc(c)ncc(coc1=cc=c(c=c1)ccocc2cc2)o	2369
+bexarotene	chembl1023	db00307	cc1=cc2=c(c=c1c(=c)c3=cc=c(c=c3)c(=o)o)c(ccc2(c)c)(c)c	82146
+bgb-283	chembl3545246	NA	NA	89670174
+bgt-226	chembl3545096	NA	cn1c2=cn=c3c=cc(=cc3=c2n(c1=o)c4=cc(=c(c=c4)n5ccncc5)c(f)(f)f)c6=cn=c(c=c6)oc.c(=c\c(=o)o)\c(=o)o	57336745
+bi-2536	chembl513909	NA	cc[c@@h]1c(=o)n(c2=cn=c(n=c2n1c3cccc3)nc4=c(c=c(c=c4)c(=o)nc5ccn(cc5)c)oc)c	11364421
+bicalutamide	chembl409	db01128	cc(cs(=o)(=o)c1=cc=c(c=c1)f)(c(=o)nc2=cc(=c(c=c2)c#n)c(f)(f)f)o	2375
+bicarbonate	chembl1161632	NA	c(=o)(o)o	767
+bicuculline	chembl417990	db11562	cn1ccc2=cc3=c(c=c2[c@h]1[c@h]4c5=c(c6=c(c=c5)oco6)c(=o)o4)oco3	10237
+bifeprunox	chembl218166	db04888	c1cn(ccn1cc2=cc=cc(=c2)c3=cc=cc=c3)c4=cc=cc5=c4oc(=o)n5	208951
+binimetinib	chembl3187723	db11967	cn1c=nc2=c1c=c(c(=c2f)nc3=c(c=c(c=c3)br)f)c(=o)nocco	10288191
+biochanin	chembl131921	NA	coc1=cc=c(c=c1)c2=coc3=cc(=cc(=c3c2=o)o)o	5280373
+biperiden (chembl1101)	chembl1101	db00810	c1ccn(cc1)ccc(c2cc3cc2c=c3)(c4=cc=cc=c4)o	2381
+bleomycin	chembl403664	db00290	cc1=c(n=c(n=c1n)[c@h](cc(=o)n)nc[c@@h](c(=o)n)n)c(=o)n[c@@h]([c@h](c2=cn=cn2)o[c@h]3[c@h]([c@h]([c@@h]([c@@h](o3)co)o)o)o[c@@h]4[c@h]([c@h]([c@@h]([c@h](o4)co)o)oc(=o)n)o)c(=o)n[c@h](c)[c@h]([c@h](c)c(=o)n[c@@h]([c@@h](c)o)c(=o)nccc5=nc(=cs5)c6=nc=c(s6)c(=o)nccc[s+](c)c)o	5460769
+blinatumomab	chembl1742992	db09052	NA	NA
+bms-690514	chembl3545396	db11665	coc1=cc=cc(=c1)nc2=nc=nn3c2=c(c=c3)cn4cc[c@h]([c@@h](c4)o)n	11349170
+bms-754807	chembl575448	NA	c[c@]1(cccn1c2=nn3c=cc=c3c(=n2)nc4=nnc(=c4)c5cc5)c(=o)nc6=cn=c(c=c6)f	24785538
+bms-777607	chembl460702	db12064	ccoc1=c(c(=o)n(c=c1)c2=cc=c(c=c2)f)c(=o)nc3=cc(=c(c=c3)oc4=c(c(=nc=c4)n)cl)f	24794418
+bretazenil	chembl366947	NA	cc(c)(c)oc(=o)c1=c2[c@@h]3cccn3c(=o)c4=c(n2c=n1)c=cc=c4br	107926
+brigatinib	chembl3545311	db12267	cn1ccn(cc1)c2ccn(cc2)c3=cc(=c(c=c3)nc4=nc=c(c(=n4)nc5=cc=cc=c5p(=o)(c)c)cl)oc	68165256
+brinzolamide	chembl220491	db01194	ccn[c@h]1cn(s(=o)(=o)c2=c1c=c(s2)s(=o)(=o)n)cccoc	68844
+brivanib	chembl377300	db11958	cc1=cc2=c(n1)c=cc(=c2f)oc3=nc=nn4c3=c(c(=c4)oc[c@@h](c)o)c	11234052
+brivanib alaninate	chembl270995	db11865	cc1=cc2=c(n1)c=cc(=c2f)oc3=nc=nn4c3=c(c(=c4)oc[c@@h](c)oc(=o)[c@h](c)n)c	11154925
+brl-15-572	chembl534232	NA	c1cn(ccn1cc(c(c2=cc=cc=c2)c3=cc=cc=c3)o)c4=cc(=cc=c4)cl	3654103
+bromoacetic acid	chembl60851	db02198	c(c(=o)o)br	6227
+brucine	chembl501756	NA	coc1=c(c=c2c(=c1)[c@]34ccn5[c@h]3c[c@@h]6[c@@h]7[c@@h]4n2c(=o)c[c@@h]7occ=c6c5)oc	442021
+bryostatin	chembl449158	db11752	ccc/c=c/c=c/c(=o)o[c@h]1/c(=c/c(=o)oc)/c[c@h]2c[c@@h](oc(=o)c[c@@h](c[c@@h]3c[c@@h](c([c@@](o3)(c[c@@h]4c/c(=c/c(=o)oc)/c[c@@h](o4)/c=c/c([c@@]1(o2)o)(c)c)o)(c)c)oc(=o)c)o)[c@@h](c)o	5280757
+buparlisib	chembl2017974	db11666	c1coccn1c2=nc(=nc(=c2)c3=cn=c(c=c3c(f)(f)f)n)n4ccocc4	16654980
+buparlisib hydrochloride	chembl2364604	db11666	c1coccn1c2=nc(=nc(=c2)c3=cn=c(c=c3c(f)(f)f)n)n4ccocc4.cl	66577015
+bupivacaine	chembl1098	db00297	ccccn1ccccc1c(=o)nc2=c(c=cc=c2c)c	2474
+busulfan	chembl820	db01008	cs(=o)(=o)occccos(=o)(=o)c	2478
+butabarbital sodium	chembl1200982	db00237	ccc(c)c1(c(=o)nc(=o)[n-]c1=o)cc.[na+]	23695352
+butanoic acid	chembl14227	db03568	cccc(=o)o	264
+buthionine sulfoximine	chembl1609891	db12870	ccccs(=n)(=o)cc[c@@h](c(=o)o)n	21157
+bx-795	chembl577784	NA	c1ccn(c1)c(=o)nc2=cc=cc(=c2)nc3=nc=c(c(=n3)ncccnc(=o)c4=cc=cs4)i	10077147
+ca2	chembl2109588	NA	NA	6102758
+caffeine- citrated	chembl1200569	db00201	cn1c=nc2=c1c(=o)n(c(=o)n2c)c.c(c(=o)o)c(cc(=o)o)(c(=o)o)o	6241
+calcitonin	chembl359713	db06773	cc1c(c(=o)cc(c(=o)c(c(c(=c)cc(cccnc(=o)cc(c1=c)c(c)c(=o)c(cc2=cc=cc=c2)nc)c(=o)c)cc3=cn=cn3)c)cc4=cc=cc=c4)ccccn	44388547
+calcitriol	chembl846	db00136	c[c@h](cccc(c)(c)o)[c@h]1cc[c@@h]\2[c@@]1(ccc/c2=c\c=c/3\c[c@h](c[c@@h](c3=c)o)o)c	5280453
+camptothecin	chembl65	db04690	cc[c@@]1(c2=c(coc1=o)c(=o)n3cc4=cc5=cc=cc=c5n=c4c3=c2)o	24360
+candicidin	chembl1200647	db01152	c[c@@h]1[c@h]([c@@h]([c@@h](c(o1)oc\2cc(c(c(cc(=o)cc(cc(cc(cc(=o)cccc(=o)cc(=o)oc(c(/c=c/c=c/c=c/c=c/c=c/c=c/c=c2)c)c(c)cc(c)c(cc(=o)c3=cc=c(c=c3)n)o)o)o)o)o)c(=o)o)o)o)n)o	10079874
+cannabidiol	chembl190461	db09061	cccccc1=cc(=c(c(=c1)o)[c@@h]2c=c(cc[c@h]2c(=c)c)c)o	644019
+capecitabine	chembl1773	db01101	cccccoc(=o)nc1=nc(=o)n(c=c1f)[c@h]2[c@@h]([c@@h]([c@h](o2)c)o)o	60953
+capeserod	chembl2027925	NA	c1cn(ccc1n2c(=o)oc(=n2)c3=cc(=c(c4=c3occo4)n)cl)ccc5=cc=cc=c5	9805719
+capsaicin	chembl294199	db06774	cc(c)/c=c/ccccc(=o)ncc1=cc(=c(c=c1)o)oc	1548943
+captopril	chembl1560	db01197	c[c@h](cs)c(=o)n1ccc[c@h]1c(=o)o	44093
+carbacyclin	chembl148319	NA	ccccc[c@@h](/c=c/[c@h]1[c@@h](c[c@h]2[c@@h]1c/c(=c\cccc(=o)o)/c2)o)o	5311242
+carbamazepine	chembl108	db00564	c1=cc=c2c(=c1)c=cc3=cc=cc=c3n2c(=o)n	2554
+carbenoxolone	chembl499915	db02329	c[c@]12cc[c@](c[c@h]1c3=cc(=o)[c@@h]4[c@]5(cc[c@@h](c([c@@h]5cc[c@]4([c@@]3(cc2)c)c)(c)c)oc(=o)ccc(=o)o)c)(c)c(=o)o	636403
+carboplatin	chembl1351	db00958	NA	38904
+carteolol	chembl839	db00521	cc(c)(c)ncc(coc1=cc=cc2=c1ccc(=o)n2)o	2583
+carvedilol phosphate	chembl1201167	db01136	coc1=cc=cc=c1occncc(coc2=cc=cc3=c2c4=cc=cc=c4n3)o.op(=o)(o)o	9827459
+cc-223	chembl3545151	NA	NA	58298316
+cediranib	chembl491473	db04849	cc1=cc2=c(n1)c=cc(=c2f)oc3=nc=nc4=cc(=c(c=c43)oc)occcn5cccc5	9933475
+celecoxib	chembl118	db00482	cc1=cc=c(c=c1)c2=cc(=nn2c3=cc=c(c=c3)s(=o)(=o)n)c(f)(f)f	2662
+cep-11981	chembl2010872	NA	cc(c)cn1c2=c(c=c(c=c2)nc3=nc=cc=n3)c4=c5cnc(=o)c5=c6c(=c41)ccc7=nn(c=c76)c	11751922
+cep-1347	chembl290352	db05403	ccscc1=cc2=c(c=c1)n3[c@h]4c[c@@]([c@](o4)(n5c6=c(c=c(c=c6)cscc)c7=c8cnc(=o)c8=c2c3=c75)c)(c(=o)oc)o	9917013
+cep-2563	chembl3545332	NA	NA	9831755
+cerdulatinib	chembl3545284	NA	NA	44595079
+ceritinib	chembl2403108	db09063	cc1=cc(=c(c=c1c2ccncc2)oc(c)c)nc3=nc=c(c(=n3)nc4=cc=cc=c4s(=o)(=o)c(c)c)cl	57379345
+cgs-27023a	chembl514138	NA	cc(c)[c@h](c(=o)no)n(cc1=cn=cc=c1)s(=o)(=o)c2=cc=c(c=c2)oc.cl	9888897
+cgs-8216	chembl19732	NA	c1=cc=c(c=c1)n2c(=o)c3c=nc4=cc=cc=c4c3=n2	104916
+chembl100014	chembl100014	db05103	cccc(=o)ococ(=o)c(c)(c)c	60748
+chembl1081312	chembl1081312	db08052	c1ccc(c1)n2c3=c(c(=n2)c4=cn=c5c(=c4)c=cn5)c(=nc=n3)n	24905142
+chembl1086377 (ku-0060648)	chembl1086377	NA	ccn1ccn(cc1)cc(=o)nc2=c3c4=cc=cc=c4sc3=c(c=c2)c5=cc=cc6=c5oc(=cc6=o)n7ccocc7	11964036
+chembl11348	chembl11348	NA	ccn1c2=c(c(=o)n(c1=o)cc)nc(=n2)c3=cc=cc=c3	1328
+chembl116590	chembl116590	NA	cn1c2ccc1cc(c2)oc(c3=cc=cc=c3)c4=cc=cc=c4	2344
+chembl1179605 (pregnenolone sulfate sodium)	chembl1179605	NA	cc(=o)[c@h]1cc[c@@h]2[c@@]1(cc[c@h]3[c@h]2cc=c4[c@@]3(cc[c@@h](c4)os(=o)(=o)o)c)c	105074
+chembl1188853	chembl1188853	NA	c1cn(ccn1ccccnc(=o)c2=cc=cc=c2n)c3=nsc4=cc=cc=c43	127912
+chembl1213492	chembl1213492	db12645	ccn(cc)cc1=cc2=c(c=c1)c=c(c=c2)coc(=o)nc3=cc=c(c=c3)c(=o)no	9804992
+chembl1229592	chembl1229592	NA	cn1ccn(cc1)c2=cc(=c(c=c2)nc3=nc=c(c(=n3)oc4=cc=cc(=c4)nc(=o)c=c)cl)oc	44607530
+chembl1231206	chembl1231206	db07430	c[c@@h]1cnc2=c(c(=o)n1)sc3=c2c4=c(c=c3)n=c(c=c4)c5=cn=c(c=c5)c	44631903
+chembl1233686 (inosine-5'-triphosphate)	chembl1233686	NA	c1=nc(=o)c2=c(n1)n(c=n2)[c@h]3[c@@h]([c@@h]([c@h](o3)cop(=o)(o)op(=o)(o)op(=o)(o)o)o)o	8583
+chembl1236539	chembl1236539	db01933	c[c@@]12[c@@h]([c@@h](c[c@@h](o1)n3c4=cc=cc=c4c5=c6c(=c7c8=cc=cc=c8n2c7=c53)[c@h](nc6=o)o)nc)oc	72271
+chembl1255588 ((+)-butaclamol)	chembl1255588	NA	cc(c)(c)[c@]1(ccn2c[c@@h]3c4=cc=cc=c4ccc5=c3c(=cc=c5)[c@h]2c1)o	37461
+chembl1255648	chembl1255648	NA	c1ccn(cc1)c(=o)c2=cc3=c(c=c2)occo3	2890
+chembl1256682 (hexahydro-sila-difenidol hydrochloride)	chembl1256682	NA	c1ccc(cc1)[si](cccn2ccccc2)(c3=cc=c(c=c3)f)o	3603
+chembl139677 (n-chloromethyl brucine chloride)	chembl139677	NA	coc1=c(c=c2c(=c1)[c@]34cc[n+]5([c@h]3c[c@@h]6[c@@h]7[c@@h]4n2c(=o)c[c@@h]7occ=c6c5)ccl)oc	44358908
+chembl157769 (bay-507952)	chembl157769	NA	coc1=c(c(=c(c(=c1)o)csc[c@@h](c2=nocco2)nc3=nc(=cs3)c4=cc=c(c=c4)[n+](=o)[o-])c(=o)oc)br	9895647
+chembl1628262	chembl1628262	NA	cccc1(ccc1)[c@h](c/c=c/[c@h]2[c@@h](cc(=o)[c@@h]2ccccccc(=o)o)o)o	25886893
+chembl1628667	chembl1628667	NA	c1cn(ccn1c2=cc=nc=c2)c(=o)ccns(=o)(=o)c3=cc=cc4=nsn=c43	24768606
+chembl169233 (2-(diphenylboryloxy)ethanamine)	chembl169233	NA	b(c1=cc=cc=c1)(c2=cc=cc=c2)occn	1598
+chembl175543 (mrs-5358)	chembl175543	NA	cnc(=o)[c@@]12c[c@@h]1[c@h]([c@@h]([c@@h]2o)o)n3c=nc4=c3n=c(n=c4ncc5=cc(=cc=c5)cl)cl	11248240
+chembl1765740 (gsk-2334470)	chembl1765740	NA	c[c@@h]1cc[c@@h](cn1c2=nc(=nc(=c2)c3=cc4=c(c=c3)c(=nn4)n)nc)c(=o)nc5ccccc5	46215815
+chembl1801250 (chr-3996)	chembl1801250	NA	c1[c@@h]2[c@@h](c2ncc3=nc4=c(c=c3)c=c(c=c4)f)cn1c5=nc=c(c=n5)c(=o)no	49857317
+chembl1802728	chembl1802728	NA	ccn(cc)c(=o)c1=cc=c(c=c1)nc2=nc3=c(c(=n2)occ4ccccc4)nc=n3	10202471
+chembl1851943	chembl1851943	db05223	ccccc1=nc2=c(n1ccn(cc)cc)c=cc(=c2)/c=c/c(=o)no	49855250
+chembl191482	chembl191482	db12707	cc(c)[c@@h](c1=cc=cc=c1)c(=o)nc2=cc=c(c=c2)c(=o)no	6918848
+chembl197194	chembl197194	NA	coc1=cc=cc(=c1)c2=cc(=c(c=c2)nc(=o)c3=c(ccc3)c(=o)o)f	9820008
+chembl20963	chembl20963	NA	cc1=c(c=cc(=c1)c2=noc(=n2)c)c3=cc=c(c=c3)c(=o)nc4=cc(=c(c=c4)oc)occn(c)c	3292447
+chembl225155	chembl225155	NA	ccccccccccccc/c=c/[c@h]([c@h](cop(=o)(o)o)n)o	5283560
+chembl23094 (2'-3'-dideoxyadenosine)	chembl23094	NA	c1c[c@@h](o[c@@h]1co)n2c=nc3=c2n=cn=c3n	20039
+chembl247471 (bms-299897)	chembl247471	NA	c[c@h](c1=c(c=c(c=c1)f)cccc(=o)o)n(c2=c(c=cc(=c2)f)f)s(=o)(=o)c3=cc=c(c=c3)cl	11249248
+chembl266591	chembl266591	NA	cc1=c(c2=c(n1)c=cc(=c2)o)ccn	1574
+chembl267615	chembl267615	NA	ccc1=c(c2=c(n1)c=cc(=c2)oc)ccn(c)c	6918513
+chembl270497 (nsc-299588)	chembl270497	NA	cn1c(=nn=n1)scc2=c(n3c(c(c3=o)nc(=o)c(c4=cc=cc=c4)oc=o)sc2)c(=o)o	2615
+chembl274866	chembl274866	NA	c1cn(ccn1)c2=cc=cc(=c2)c(f)(f)f	4296
+chembl277120	chembl277120	NA	c1cn(ccn1)c2=cc=cc3=cc=cc=c32	1342
+chembl27885	chembl27885	NA	ccn(c/c=c/c#cc(c)(c)c)cc1=cc(=cc=c1)occ2=cc(=cs2)c3=csc=c3	6443223
+chembl279453 (af-dx-384)	chembl279453	NA	cccn(ccc)cc1ccccn1ccnc(=o)n2c3=cc=cc=c3c(=o)nc4=c2n=cc=c4	119357
+chembl306380	chembl306380	db01809	cc1=cc=c(c=c1)c2=nn(c3=c2c(=nc=n3)n)c(c)(c)c	1400
+chembl313417 (skf-86002-a2)	chembl313417	NA	c1csc2=nc(=c(n21)c3=cc=nc=c3)c4=cc=c(c=c4)f	5228
+chembl3186179	chembl3186179	NA	cn(c)c1ccc2=c(c1)c3=c(n2)c=cc(=c3)nc(=o)c4=cc=c(c=c4)f	18971832
+chembl3186227	chembl3186227	NA	cc(=o)occoc(=o)c	8121
+chembl3186849	chembl3186849	db12109	c1=cc=c(c=c1)csccc(ccccc(=o)o)scc2=cc=cc=c2	24770514
+chembl334533	chembl334533	db06444	ccccccc(c)(c)c1=cc2=c([c@h]3cc(=cc[c@@h]3c(o2)(c)c)co)c(=c1)o	107778
+chembl34155 (piperidine-4-sulfonic acid)	chembl34155	NA	c1cnccc1s(=o)(=o)o	4838
+chembl343357 (brucine n-oxide)	chembl343357	NA	coc1=c(c=c2c(=c1)[c@]34cc[n+]5([c@h]3c[c@@h]6[c@@h]7[c@@h]4n2c(=o)c[c@@h]7occ=c6c5)[o-])oc	11122452
+chembl343796 (n-benzyl brucine iodide)	chembl343796	NA	coc1=c(c=c2c(=c1)[c@]34cc[n+]5([c@h]3c[c@@h]6[c@@h]7[c@@h]4n2c(=o)c[c@@h]7occ=c6c5)cc8=cc=cc=c8)oc	44358893
+chembl34453	chembl34453	NA	c1c[c@](c[c@@h]1c(=o)o)(c(=o)o)n	104766
+chembl35482 (pd-98059)	chembl35482	NA	coc1=cc=cc(=c1n)c2=cc(=o)c3=cc=cc=c3o2	4713
+chembl357834 (u-46619)	chembl357834	NA	ccccc[c@@h](/c=c/[c@@h]1[c@h](c2cc1oc2)c/c=c\cccc(=o)o)o	16219283
+chembl376408 (abt-737)	chembl376408	NA	cn(c)cc[c@h](csc1=cc=cc=c1)nc2=c(c=c(c=c2)s(=o)(=o)nc(=o)c3=cc=c(c=c3)n4ccn(cc4)cc5=cc=cc=c5c6=cc=c(c=c6)cl)[n+](=o)[o-]	11228183
+chembl387187	chembl387187	NA	c1cc1c(=o)nc2=cc=cc(=c2)nc3=nc=nc(=c3)nc4=cc=cc(=c4)c(f)(f)f	9549299
+chembl395336	chembl395336	db02315	c1[c@@h]2[c@h]([c@h]([c@@h](o2)n3c=nc4=c3nc(=nc4=o)n)o)op(=o)(o1)o	24316
+chembl411250 (interleukin-8)	chembl411250	NA	c[c@h]([c@@h](c(=o)ncc(=o)n[c@@h](ccsc)c(=o)n1ccc[c@@h]1c(=o)n2ccc[c@@h]2c(=o)n[c@@h](c)c(=o)n[c@h](cc(=o)o)c(=o)n[c@h](ccc(=o)o)c(=o)n[c@h](cc(=o)o)c(=o)n[c@h](cc3=cc=c(c=c3)o)c(=o)n[c@h](co)c(=o)n4ccc[c@@h]4c(=o)n)nc(=o)[c@h](cc5=cc=cc=c5)nc(=o)[c@h](cc(=o)n)nc(=o)[c@h](cc(c)c)nc(=o)[c@h](cc(=o)o)nc(=o)[c@h](cc(=o)o)nc(=o)[c@h](cc6=cc=cc=c6)nc(=o)[c@h](cc(=o)o)nc(=o)[c@h](cc7=cnc8=cc=cc=c87)nc(=o)[c@h](ccsc)nc(=o)c)o	44357137
+chembl432038 (ly-341495)	chembl432038	NA	c1[c@@h]([c@h]1[c@@](cc2c3=cc=cc=c3oc4=cc=cc=c24)(c(=o)o)n)c(=o)o	9819927
+chembl435278 (gw-2433)	chembl435278	NA	cc(c)(c(=o)o)oc1=cc=c(c=c1)cccn(ccc2=c(c=cc=c2cl)f)c(=o)nc3=c(c(=cc=c3)cl)cl	1517
+chembl442494	chembl442494	NA	c[c@h]([c@@h]1c(=o)n[c@h](c(=o)n[c@@h](c(=o)n[c@h](c(=o)n[c@@h](cssc[c@h](c(=o)n[c@@h](c(=o)n[c@h](c(=o)n[c@@h](c(=o)n[c@h](c(=o)n[c@@h](c(=o)n[c@h](c(=o)n1)ccccn)cc2=cnc3=cc=cc=c32)cc4=cc=cc=c4)cc5=cc=cc=c5)cc(=o)n)ccccn)nc(=o)cnc(=o)[c@h](c)nc(=o)[c@h](ccccn)nc(=o)[c@h](cccn=c(n)n)nc(=o)[c@h](ccc(=o)o)nc(=o)[c@h](cccn=c(n)n)nc(=o)[c@@h]6cccn6c(=o)[c@h](c)nc(=o)[c@h](ccsc)nc(=o)[c@h](c)nc(=o)[c@@h]7cccn7c(=o)[c@h](cc(=o)n)nc(=o)[c@h](co)nc(=o)[c@h](cc(=o)n)nc(=o)[c@h](c)nc(=o)[c@h](co)n)c(=o)o)co)[c@@h](c)o)cc8=cc=cc=c8)o	NA
+chembl458997	chembl458997	db07460	cnc(=o)c1=cc=cc=c1nc2=nc(=nc=c2cl)nc3=c(c=c(c=c3)n4ccocc4)oc	9934347
+chembl480558	chembl480558	db12819	ccc(cc)[c@@h](co)ns(=o)(=o)c1=cc=c(s1)cl	11358855
+chembl50267	chembl50267	db01931	c1=c(c=c2c(=c1cl)c(=o)c=c(n2)c(=o)o)cl	1779
+chembl524266	chembl524266	db07149	c1[c@@h](c2=c(c=c(n2)c3=nc(=nc=c3)n)c(=o)n1)ccf	16757525
+chembl580785	chembl580785	NA	c1ccc(cc1)[si](cccn2ccccc2)(c3=cc=cc=c3)o.cl	13497285
+chembl605003	chembl605003	db08039	cn(c)s(=o)(=o)c1=cc\2=c(c=c1)nc(=o)/c2=c\c3=cc4=c(n3)cccc4	5312137
+chembl65280	chembl65280	NA	c1[c@@h]2coc3=c([c@h]2cn1ccccnc(=o)c4=cc=c(c=c4)c5=cc=cc=c5)c=c(c=c3)c#n	9868452
+chembl70176	chembl70176	db02071	cc1=cc=cc(=c1n(cc2=cn=cc=c2)s(=o)(=o)c3=cc=c(c=c3)oc)c(=o)no	4368
+chembl7318	chembl7318	NA	cn(c)ccc1=c(nc2=c1c=c(c=c2)oc)c3=cc=cc=c3	6918515
+chembl99521	chembl99521	NA	c1cn2ccc1c(c2)c3=nsn=c3occ#cc4=cc=cc=c4	10426487
+chembl99951	chembl99951	NA	c1=cc2=c(c=c1c(=n)n)nc(=n2)cc3=nc4=c(n3)c=c(c=c4)c(=n)n	2387
+chlorambucil	chembl515	db00291	c1=cc(=cc=c1cccc(=o)o)n(cccl)cccl	2708
+chlordiazepoxide hydrochloride	chembl1200703	db00475	cn=c1cn(c(=c2c=c(c=cc2=n1)cl)c3=cc=cc=c3)o.cl	9916
+chlorophenylpiperazine	chembl478	db12110	c1cn(ccn1)c2=cc(=cc=c2)cl	1355
+chloroprocaine hydrochloride	chembl944	db01161	ccn(cc)ccoc(=o)c1=c(c=c(c=c1)n)cl.cl	441348
+chlorothiazide	chembl842	db00880	c1=c2c(=cc(=c1cl)s(=o)(=o)n)s(=o)(=o)n=cn2	2720
+chlorpromazine hydrochloride	chembl1713	db00477	cn(c)cccn1c2=cc=cc=c2sc3=c1c=c(c=c3)cl.cl	6240
+chlorpropamide	chembl498	db00672	cccnc(=o)ns(=o)(=o)c1=cc=c(c=c1)cl	2727
+chlorthalidone	chembl1055	db00310	c1=cc=c2c(=c1)c(=o)nc2(c3=cc(=c(c=c3)cl)s(=o)(=o)n)o	2732
+chondroitin sulfate	chembl2303614	db09301	cc(=o)n[c@h]1[c@@h](o[c@@h]([c@@h]([c@@h]1coc[c@h]2[c@@h]([c@h]([c@@h]([c@h](o2)c(=o)o)co)o)o)cs(=o)(=o)o)co)co	71720239
+ci-1040	chembl105442	db12429	c1cc1conc(=o)c2=c(c(=c(c=c2)f)f)nc3=c(c=c(c=c3)i)cl	6918454
+cilengitide	chembl429876	db11890	cc(c)[c@h]1c(=o)n[c@h](c(=o)ncc(=o)n[c@h](c(=o)n[c@@h](c(=o)n1c)cc2=cc=cc=c2)cc(=o)o)cccn=c(n)n	176873
+cilmostim	chembl2108239	NA	NA	NA
+cilostazol	chembl799	db01166	c1ccc(cc1)n2c(=nn=n2)ccccoc3=cc4=c(c=c3)nc(=o)cc4	2754
+cimetidine	chembl30	db00501	cc1=c(n=cn1)csccnc(=nc)nc#n	2756
+cisatracurium besylate	chembl1200641	db00565	c[n@@+]1(ccc2=cc(=c(c=c2[c@h]1cc3=cc(=c(c=c3)oc)oc)oc)oc)ccc(=o)occcccoc(=o)cc[n@+]4(ccc5=cc(=c(c=c5[c@h]4cc6=cc(=c(c=c6)oc)oc)oc)oc)c.c1=cc=c(c=c1)s(=o)(=o)[o-].c1=cc=c(c=c1)s(=o)(=o)[o-]	62886
+cisplatin	chembl1386	db00515	NA	NA
+clarithromycin	chembl1741	db01211	cc[c@@h]1[c@@]([c@@h]([c@h](c(=o)[c@@h](c[c@@]([c@@h]([c@h]([c@@h]([c@h](c(=o)o1)c)o[c@h]2c[c@@]([c@h]([c@@h](o2)c)o)(c)oc)c)o[c@h]3[c@@h]([c@h](c[c@h](o3)c)n(c)c)o)(c)oc)c)c)o)(c)o	84029
+clevidipine	chembl1237132	db04920	cccc(=o)ococ(=o)c1=c(nc(=c(c1c2=c(c(=cc=c2)cl)cl)c(=o)oc)c)c	153994
+clofarabine	chembl1750	db00631	c1=nc2=c(n1[c@h]3[c@h]([c@@h]([c@h](o3)co)o)f)n=c(n=c2n)cl	119182
+clofibrate	chembl565	db00636	ccoc(=o)c(c)(c)oc1=cc=c(c=c1)cl	2796
+cloprostenol	chembl2220404	NA	c1c(c(c(c1o)/c=c/c(coc2=cc(=cc=c2)cl)o)c/c=c\cccc(=o)o)o	20838637
+clorazepate dipotassium	chembl2096631	db00628	c1=cc=c(c=c1)c2=nc(c(=o)nc3=c2c=c(c=c3)cl)c(=o)[o-].[oh-].[k+].[k+]	23706210
+clotrimazole	chembl104	db00257	c1=cc=c(c=c1)c(c2=cc=cc=c2)(c3=cc=cc=c3cl)n4c=cn=c4	2812
+cns-5161	chembl41306	db05824	cn(c1=cc(=cc=c1)sc)c(=nc2=c(c=cc(=c2)sc)cl)n	192711
+cobimetinib	chembl2146883	db05239	c1ccn[c@@h](c1)c2(cn(c2)c(=o)c3=c(c(=c(c=c3)f)f)nc4=c(c=c(c=c4)i)f)o	16222096
+colchicine	chembl87	db08117	cc(=o)n[c@h]1ccc2=cc(=c(c(=c2c3=cc=c(c(=o)c=c13)oc)oc)oc)oc	2833
+collagenase clostridium histolyticum	chembl2108709	db00048	NA	NA
+copanlisib	chembl3218576	db12483	coc1=c(c=cc2=c1n=c(n3c2=ncc3)nc(=o)c4=cn=c(n=c4)n)occcn5ccocc5	24989044
+cordycepin	chembl305686	db12156	c1[c@h](o[c@h]([c@@h]1o)n2c=nc3=c2n=cn=c3n)co	6303
+corticotropin	chembl1201609	db01285	NA	16132265
+cortistatin-14	chembl2448526	NA	c[c@h]([c@h]1c(=o)n[c@@h](c(=o)n[c@h](c(=o)n[c@h](c(=o)n[c@@h](cssc[c@@h](c(=o)n[c@h](c(=o)n[c@h](c(=o)n[c@h](c(=o)n[c@h](c(=o)n[c@h](c(=o)n[c@@h](c(=o)n1)ccccn)cc2=cnc3=cc=cc=c32)cc4=cc=cc=c4)cc5=cc=cc=c5)cc(=o)n)ccccn)nc(=o)[c@@h]6cccn6)c(=o)n[c@@h](ccccn)c(=o)o)co)co)cc7=cc=cc=c7)o	44565227
+cp-459632	chembl3545300	NA	NA	NA
+crenolanib	chembl2105728	db11832	cc1(coc1)coc2=cc3=c(c=c2)n(c=n3)c4=nc5=c(c=cc=c5n6ccc(cc6)n)c=c4	10366136
+crisaborole	chembl484785	db05219	b1(c2=c(co1)c=c(c=c2)oc3=cc=c(c=c3)c#n)o	44591583
+crolibulin	chembl2103852	db12925	coc1=c(c(=cc(=c1)[c@@h]2c3=c(c(=c(c=c3)n)n)oc(=c2c#n)n)br)oc	23649181
+cudc-101	chembl598797	db12174	coc1=c(c=c2c(=c1)n=cn=c2nc3=cc=cc(=c3)c#c)occccccc(=o)no	24756910
+cudc-907	chembl3545052	db11891	NA	54575456
+curcumin	chembl116438	db11672	coc1=c(c=cc(=c1)/c=c/c(=c/c(=o)/c=c/c2=cc(=c(c=c2)o)oc)/o)o	969516
+cyclopentolate	chembl1201338	db00979	cn(c)ccoc(=o)c(c1=cc=cc=c1)c2(cccc2)o	2905
+cyclophosphamide	chembl88	db00531	c1cnp(=o)(oc1)n(cccl)cccl	2907
+cyclothiazide	chembl61593	db00606	c1c2cc(c1c=c2)c3nc4=cc(=c(c=c4s(=o)(=o)n3)s(=o)(=o)n)cl	2910
+cytarabine	chembl803	db00987	c1=cn(c(=o)n=c1n)[c@h]2[c@h]([c@@h]([c@h](o2)co)o)o	6253
+dabrafenib mesylate	chembl2105729	db08912	cc(c)(c)c1=nc(=c(s1)c2=nc(=nc=c2)n)c3=c(c(=cc=c3)ns(=o)(=o)c4=c(c=cc=c4f)f)f.cs(=o)(=o)o	44516822
+dacarbazine	chembl476	db00851	cn(c)n/n=c\1/c(=nc=n1)c(=o)n	5351166
+dacinostat	chembl356066	NA	c1=cc=c2c(=c1)c(=cn2)ccn(cco)cc3=cc=c(c=c3)/c=c/c(=o)no	6445533
+dacomitinib	chembl2110732	db11963	coc1=c(c=c2c(=c1)n=cn=c2nc3=cc(=c(c=c3)f)cl)nc(=o)/c=c/cn4ccccc4	11511120
+dactinomycin	chembl1554	db00970	c[c@@h]1[c@@h](c(=o)n[c@@h](c(=o)n2ccc[c@h]2c(=o)n(cc(=o)n([c@h](c(=o)o1)c(c)c)c)c)c(c)c)nc(=o)c3=c4c(=c(c=c3)c)oc5=c(c(=o)c(=c(c5=n4)c(=o)n[c@h]6[c@h](oc(=o)[c@@h](n(c(=o)cn(c(=o)[c@@h]7cccn7c(=o)[c@h](nc6=o)c(c)c)c)c)c(c)c)c)n)c	457193
+dactolisib	chembl1879463	db11651	cc(c)(c#n)c1=cc=c(c=c1)n2c3=c4c=c(c=cc4=nc=c3n(c2=o)c)c5=cc6=cc=cc=c6n=c5	11977753
+daidzein	chembl8145	NA	c1=cc(=cc=c1c2=coc3=c(c2=o)c=cc(=c3)o)o	5281708
+danusertib	chembl402548	db11778	cn1ccn(cc1)c2=cc=c(c=c2)c(=o)nc3=nnc4=c3cn(c4)c(=o)[c@@h](c5=cc=cc=c5)oc	11442891
+darotropium bromide	chembl2103803	NA	c[n+]1([c@@h]2cc[c@h]1cc(c2)cc(c#n)(c3=cc=cc=c3)c4=cc=cc=c4)c.[br-]	46174144
+dasolampanel	chembl2103869	NA	c1c[c@h]2cn[c@@h](c[c@h]2c[c@h]1oc3=c(c(=cc=c3)cl)c4=nnn=n4)c(=o)o	51049972
+daunorubicin	chembl178	db00694	c[c@h]1[c@h]([c@h](c[c@@h](o1)o[c@h]2c[c@@](cc3=c(c4=c(c(=c23)o)c(=o)c5=c(c4=o)c=cc=c5oc)o)(c(=o)c)o)n)o	30323
+davunetide	chembl2103826	db12613	cc[c@h](c)[c@@h](c(=o)n1ccc[c@h]1c(=o)n[c@@h](ccc(=o)n)c(=o)o)nc(=o)[c@h](co)nc(=o)[c@h](c(c)c)nc(=o)[c@@h]2cccn2c(=o)[c@h](c)nc(=o)[c@h](cc(=o)n)n	9832404
+debrisoquin	chembl169901	db04840	c1cn(cc2=cc=cc=c21)c(=n)n	2966
+decitabine	chembl1201129	db01262	c1[c@@h]([c@h](o[c@h]1n2c=nc(=nc2=o)n)co)o	451668
+deferoxamine	chembl556	db00746	cc(=o)n(cccccnc(=o)ccc(=o)n(cccccnc(=o)ccc(=o)n(cccccn)o)o)o	2973
+delucemine	chembl2110814	NA	cnccc(c1=cc(=cc=c1)f)c2=cc(=cc=c2)f	156421
+denileukin diftitox	chembl1201550	db00004	NA	NA
+deserpidine	chembl1200515	db01089	co[c@h]1[c@@h](c[c@@h]2cn3ccc4=c([c@h]3c[c@@h]2[c@@h]1c(=o)oc)nc5=cc=cc=c45)oc(=o)c6=cc(=c(c(=c6)oc)oc)oc	8550
+desvenlafaxine	chembl1118	db06700	cn(c)cc(c1=cc=c(c=c1)o)c2(ccccc2)o	125017
+dexamethasone	chembl384467	db01234	c[c@@h]1c[c@h]2[c@@h]3ccc4=cc(=o)c=c[c@@]4([c@]3([c@h](c[c@@]2([c@]1(c(=o)co)o)c)o)f)c	5743
+dextran sulfate sodium	chembl2108952	NA	NA	NA
+di17e6	chembl2109621	db12775	NA	NA
+dicumarol	chembl1466	db00266	c1=cc=c2c(=c1)c(=c(c(=o)o2)cc3=c(c4=cc=cc=c4oc3=o)o)o	54676038
+didanosine	chembl1460	db00900	c1c[c@@h](o[c@@h]1co)n2c=nc3=c2nc=nc3=o	50599
+diethylstilbestrol	chembl411	db00255	cc/c(=c(/cc)\c1=cc=c(c=c1)o)/c2=cc=c(c=c2)o	448537
+digitoxin	chembl254219	db01396	c[c@@h]1[c@h]([c@h](c[c@@h](o1)o[c@@h]2[c@h](o[c@h](c[c@@h]2o)o[c@@h]3[c@h](o[c@h](c[c@@h]3o)o[c@h]4cc[c@]5([c@@h](c4)cc[c@@h]6[c@@h]5cc[c@]7([c@@]6(cc[c@@h]7c8=cc(=o)oc8)o)c)c)c)c)o)o	441207
+dihydroergotamine	chembl1732	db00320	c[c@@]1(c(=o)n2[c@h](c(=o)n3ccc[c@h]3[c@@]2(o1)o)cc4=cc=cc=c4)nc(=o)[c@@h]5c[c@h]6[c@@h](cc7=cnc8=cc=cc6=c78)n(c5)c	10531
+dimethyl sulfoxide	chembl504	db01093	cs(=o)c	679
+dinaciclib	chembl2103840	db12021	ccc1=c2n=c(c=c(n2n=c1)ncc3=c[n+](=cc=c3)[o-])n4cccc[c@h]4cco	46926350
+dinoprost	chembl815	db12789	ccccc[c@@h](/c=c/[c@h]1[c@@h](c[c@@h]([c@@h]1c/c=c\cccc(=o)o)o)o)o	5280363
+diphenidol	chembl936	db01231	c1ccn(cc1)cccc(c2=cc=cc=c2)(c3=cc=cc=c3)o	3055
+dipivefrin hydrochloride	chembl1200833	db00449	cc(c)(c)c(=o)oc1=c(c=c(c=c1)c(cnc)o)oc(=o)c(c)(c)c.cl	71486
+disopyramide phosphate	chembl1201020	db00280	cc(c)n(ccc(c1=cc=cc=c1)(c2=cc=cc=n2)c(=o)n)c(c)c.op(=o)(o)o	30928
+disulfiram	chembl964	db00822	ccn(cc)c(=s)ssc(=s)n(cc)cc	3117
+ditiocarb	chembl961	db02520	ccn(cc)c(=s)s	8987
+docetaxel hydrate	chembl3545252	db01248	cc1=c2[c@h](c(=o)[c@@]3([c@h](c[c@@h]4[c@]([c@h]3[c@@h]([c@@](c2(c)c)(c[c@@h]1oc(=o)[c@@h]([c@h](c5=cc=cc=c5)nc(=o)oc(c)(c)c)o)o)oc(=o)c6=cc=cc=c6)(co4)oc(=o)c)o)c)o.o.o.o	148123
+dofetilide	chembl473	db00204	cn(ccc1=cc=c(c=c1)ns(=o)(=o)c)ccoc2=cc=c(c=c2)ns(=o)(=o)c	71329
+dolasetron	chembl2368924	db00757	c1[c@@h]2cc(c[c@h]3n2cc(=o)c1c3)oc(=o)c4=cnc5=cc=cc=c54	6918119
+donitriptan	chembl1742428	NA	c1cn(ccn1c2=cc=c(c=c2)c#n)c(=o)coc3=cc4=c(c=c3)nc=c4ccn	197706
+doramapimod	chembl103667	db03044	cc1=cc=c(c=c1)n2c(=cc(=n2)c(c)(c)c)nc(=o)nc3=cc=c(c4=cc=cc=c43)occn5ccocc5	156422
+dorsomorphin	chembl478629	db08597	c1ccn(cc1)ccoc2=cc=c(c=c2)c3=cn4c(=c(c=n4)c5=cc=nc=c5)n=c3	11524144
+dorzolamide	chembl218490	db00869	ccn[c@h]1c[c@@h](s(=o)(=o)c2=c1c=c(s2)s(=o)(=o)n)c	5284549
+dothiepin (chembl1492500)	chembl1492500	db09167	cn(c)cc/c=c/1\c2=cc=cc=c2csc3=cc=cc=c31	5284550
+dovitinib	chembl522892	db05928	cn1ccn(cc1)c2=cc3=c(c=c2)n/c(=c\4/c(=c5c(=nc4=o)c=cc=c5f)n)/n3	9977819
+doxacurium chloride	chembl1237099	db01135	c[n+]1(ccc2=cc(=c(c(=c2c1cc3=cc(=c(c(=c3)oc)oc)oc)oc)oc)oc)cccoc(=o)ccc(=o)occc[n+]4(ccc5=cc(=c(c(=c5c4cc6=cc(=c(c(=c6)oc)oc)oc)oc)oc)oc)c.[cl-].[cl-]	60168
+doxorubicin	chembl53463	db00997	c[c@h]1[c@h]([c@h](c[c@@h](o1)o[c@h]2c[c@@](cc3=c(c4=c(c(=c23)o)c(=o)c5=c(c4=o)c=cc=c5oc)o)(c(=o)co)o)n)o	31703
+doxycycline	chembl1433	db00254	c[c@@h]1[c@h]2[c@@h]([c@h]3[c@@h](c(=o)c(=c([c@]3(c(=o)c2=c(c4=c1c=cc=c4o)o)o)o)c(=o)n)n(c)c)o	54671203
+droloxifene	chembl487	NA	cc/c(=c(/c1=cc=c(c=c1)occn(c)c)\c2=cc(=cc=c2)o)/c3=cc=cc=c3	3033767
+dronedarone hydrochloride	chembl1201729	db04855	ccccc1=c(c2=c(o1)c=cc(=c2)ns(=o)(=o)c)c(=o)c3=cc=c(c=c3)occcn(cccc)cccc.cl	219025
+droperidol	chembl1108	db00450	c1cn(cc=c1n2c3=cc=cc=c3nc2=o)cccc(=o)c4=cc=c(c=c4)f	3168
+ds-7423	chembl3545248	NA	NA	NA
+duloxetine	chembl1175	db00476	cncc[c@@h](c1=cc=cs1)oc2=cc=cc3=cc=cc=c32	60835
+durvalumab	chembl3301587	db11714	NA	NA
+duvelisib	chembl3039502	db11952	c[c@@h](c1=cc2=c(c(=cc=c2)cl)c(=o)n1c3=cc=cc=c3)nc4=nc=nc5=c4nc=n5	50905713
+dyclonine hydrochloride	chembl1200478	db00645	ccccoc1=cc=c(c=c1)c(=o)ccn2ccccc2.cl	68304
+e-6201	chembl1097999	db11687	ccnc1=cc(=c2c(=c1)/c=c/c[c@@h]([c@@h](c(=o)/c=c\[c@h]([c@@h](oc2=o)c)c)o)o)o	10172827
+edaravone	chembl290916	db12243	cc1=nn(c(=o)c1)c2=cc=cc=c2	4021
+edrophonium	chembl1104	db01010	cc[n+](c)(c)c1=cc(=cc=c1)o	3202
+elpetrigine	chembl29919	NA	c1=c(c=c(c(=c1cl)cl)c2=nc=c(n=c2n)n)cl	9926001
+emricasan	chembl197672	db05408	c[c@@h](c(=o)n[c@@h](cc(=o)o)c(=o)coc1=c(c(=cc(=c1f)f)f)f)nc(=o)c(=o)nc2=cc=cc=c2c(c)(c)c	12000240
+enalapril	chembl578	db00584	ccoc(=o)[c@h](ccc1=cc=cc=c1)n[c@@h](c)c(=o)n2ccc[c@h]2c(=o)o	5388962
+encorafenib	chembl3301612	db11718	c[c@@h](cnc1=nc=cc(=n1)c2=cn(n=c2c3=cc(=cc(=c3f)ns(=o)(=o)c)cl)c(c)c)nc(=o)oc	50922675
+enmd-2076	chembl482968	NA	cc1=cc(=nn1)nc2=nc(=nc(=c2)n3ccn(cc3)c)/c=c/c4=cc=cc=c4	16041424
+enmd-981693	chembl52885	NA	cn1c=c(c2=cc=cc=c21)c3=c(c(=o)nc3=o)c4=cn(c5=c4c=cc(=c5)[n+](=o)[o-])c	5327686
+enoxaparin	chembl1201685	db01225	NA	772
+entinostat	chembl27759	db11841	c1=cc=c(c(=c1)n)nc(=o)c2=cc=c(c=c2)cnc(=o)occ3=cn=cc=c3	4261
+entrectinib	chembl1983268	db11986	cn1ccn(cc1)c2=cc(=c(c=c2)c(=o)nc3=nnc4=c3c=c(c=c4)cc5=cc(=cc(=c5)f)f)nc6ccocc6	25141092
+enzastaurin	chembl300138	NA	cn1c=c(c2=cc=cc=c21)c3=c(c(=o)nc3=o)c4=cn(c5=cc=cc=c54)c6ccn(cc6)cc7=cc=cc=n7	176167
+epigalocatechin gallate	chembl297453	db12116	c1[c@h]([c@h](oc2=cc(=cc(=c21)o)o)c3=cc(=c(c(=c3)o)o)o)oc(=o)c4=cc(=c(c(=c4)o)o)o	65064
+epinephrine bitartrate	chembl1256958	db00668	cnc[c@@h](c1=cc(=c(c=c1)o)o)o.c(c(c(=o)o)o)(c(=o)o)o	6852374
+epirubicin	chembl417	db00445	c[c@h]1[c@@h]([c@h](c[c@@h](o1)o[c@h]2c[c@@](cc3=c(c4=c(c(=c23)o)c(=o)c5=c(c4=o)c=cc=c5oc)o)(c(=o)co)o)n)o	41867
+epoetin alfa	chembl1201565	db00016	NA	NA
+epoetin beta	chembl2109092	db00016	NA	NA
+ergoloid mesylates	chembl2311030	db01049	ccc(c)[c@h]1c(=o)n2ccc[c@h]2[c@]3(n1c(=o)[c@](o3)(c(c)c)nc(=o)[c@@h]4c[c@h]5[c@@h](cc6=cnc7=cc=cc5=c67)n(c4)c)o.cc(c)c[c@h]1c(=o)n2ccc[c@h]2[c@]3(n1c(=o)[c@](o3)(c(c)c)nc(=o)[c@@h]4c[c@h]5[c@@h](cc6=cnc7=cc=cc5=c67)n(c4)c)o.cc(c)[c@h]1c(=o)n2ccc[c@h]2[c@]3(n1c(=o)[c@](o3)(c(c)c)nc(=o)[c@@h]4c[c@h]5[c@@h](cc6=cnc7=cc=cc5=c67)n(c4)c)o.cc(c)[c@@]1(c(=o)n2[c@h](c(=o)n3ccc[c@h]3[c@@]2(o1)o)cc4=cc=cc=c4)nc(=o)[c@@h]5c[c@h]6[c@@h](cc7=cnc8=cc=cc6=c78)n(c5)c.cs(=o)(=o)o.cs(=o)(=o)o.cs(=o)(=o)o.cs(=o)(=o)o	71717894
+ergotamine tartrate	chembl2062265	db00696	c[c@@]1(c(=o)n2[c@h](c(=o)n3ccc[c@h]3[c@@]2(o1)o)cc4=cc=cc=c4)nc(=o)[c@h]5cn([c@@h]6cc7=cnc8=cc=cc(=c78)c6=c5)c.c(c(c(=o)o)o)(c(=o)o)o	16051995
+eribaxaban	chembl476186	db06920	co[c@@h]1c[c@@h](n(c1)c(=o)nc2=cc=c(c=c2)cl)c(=o)nc3=c(c=c(c=c3)n4c=cc=cc4=o)f	11634458
+erismodegib	chembl2105737	db09143	c[c@@h]1cn(c[c@@h](o1)c)c2=nc=c(c=c2)nc(=o)c3=cc=cc(=c3c)c4=cc=c(c=c4)oc(f)(f)f	24775005
+erythromycin	chembl532	db00199	cc[c@@h]1[c@@]([c@@h]([c@h](c(=o)[c@@h](c[c@@]([c@@h]([c@h]([c@@h]([c@h](c(=o)o1)c)o[c@h]2c[c@@]([c@h]([c@@h](o2)c)o)(c)oc)c)o[c@h]3[c@@h]([c@h](c[c@h](o3)c)n(c)c)o)(c)o)c)c)o)(c)o	12560
+esketamine	chembl395091	db11823	cn[c@@]1(ccccc1=o)c2=cc=cc=c2cl	182137
+esketamine hydrochloride	chembl2364609	db11823	cn[c@@]1(ccccc1=o)c2=cc=cc=c2cl.cl	44632368
+eslicarbazepine	chembl315985	NA	c1[c@@h](c2=cc=cc=c2n(c3=cc=cc=c31)c(=o)n)o	9881504
+esmirtazapine maleate	chembl2107339	db06678	cn1ccn2[c@h](c1)c3=cc=cc=c3cc4=c2n=cc=c4.c(=c\c(=o)o)\c(=o)o	6451144
+estradiol	chembl135	db00783	c[c@]12cc[c@h]3[c@h]([c@@h]1cc[c@@h]2o)ccc4=c3c=cc(=c4)o	5757
+estradiol benzoate	chembl282575	NA	c[c@]12cc[c@h]3[c@h]([c@@h]1cc[c@@h]2o)ccc4=c3c=cc(=c4)oc(=o)c5=cc=cc=c5	222757
+estrogens- conjugated	chembl1201649	db00286	NA	NA
+estrone	chembl1405	db00655	c[c@]12cc[c@h]3[c@h]([c@@h]1ccc2=o)ccc4=c3c=cc(=c4)o	5870
+etazolate	chembl356388	db05881	ccn1c2=nc=c(c(=c2c=n1)nn=c(c)c)c(=o)occ	3277
+ethacrynic acid	chembl456	db00903	ccc(=c)c(=o)c1=c(c(=c(c=c1)occ(=o)o)cl)cl	3278
+ether	chembl16264	NA	ccocc	3283
+ethinyl estradiol	chembl691	db00977	c[c@]12cc[c@h]3[c@h]([c@@h]1cc[c@]2(c#c)o)ccc4=c3c=cc(=c4)o	5991
+ethyl nitrosourea	chembl167667	NA	ccn(c(=o)n)n=o	12967
+etidocaine hydrochloride	chembl1200597	db08987	cccn(cc)c(cc)c(=o)nc1=c(c=cc=c1c)c.cl	9796823
+etidronic acid	chembl871	db01077	cc(o)(p(=o)(o)o)p(=o)(o)o	3305
+etilevodopa	chembl1823681	NA	ccoc(=o)[c@h](cc1=cc(=c(c=c1)o)o)n	170345
+etoposide	chembl44657	db00773	c[c@@h]1oc[c@@h]2[c@@h](o1)[c@@h]([c@h]([c@@h](o2)o[c@h]3[c@h]4coc(=o)[c@@h]4[c@@h](c5=cc6=c(c=c35)oco6)c7=cc(=c(c(=c7)oc)o)oc)o)o	36462
+everolimus	chembl1908360	db01590	c[c@@h]1cc[c@h]2c[c@@h](/c(=c/c=c/c=c/[c@h](c[c@h](c(=o)[c@@h]([c@@h](/c(=c/[c@h](c(=o)c[c@h](oc(=o)[c@@h]3ccccn3c(=o)c(=o)[c@@]1(o2)o)[c@h](c)c[c@@h]4cc[c@h]([c@@h](c4)oc)occo)c)/c)o)oc)c)c)/c)oc	6442177
+exemestane	chembl1200374	db00990	c[c@]12cc[c@h]3[c@h]([c@@h]1ccc2=o)cc(=c)c4=cc(=o)c=c[c@]34c	60198
+ezogabine	chembl41355	db04953	ccoc(=o)nc1=c(c=c(c=c1)ncc2=cc=c(c=c2)f)n	121892
+fadrozole	chembl9298	NA	c1cc(n2c=nc=c2c1)c3=cc=c(c=c3)c#n	59693
+famitinib	chembl3545026	db11741	NA	16662431
+famotidine	chembl902	db00927	c1=c(n=c(s1)n=c(n)n)cscc/c(=n/s(=o)(=o)n)/n	5353622
+fasudil	chembl38380	db08162	c1cnccn(c1)s(=o)(=o)c2=cc=cc3=c2c=cn=c3	3547
+fedratinib	chembl1287853	db12500	cc1=cn=c(n=c1nc2=cc(=cc=c2)s(=o)(=o)nc(c)(c)c)nc3=cc=c(c=c3)occn4cccc4	16722836
+felbamate	chembl1094	db00949	c1=cc=c(c=c1)c(coc(=o)n)coc(=o)n	3331
+fenofibrate	chembl672	db01039	cc(c)oc(=o)c(c)(c)oc1=cc=c(c=c1)c(=o)c2=cc=c(c=c2)cl	3339
+fenretinide	chembl7301	db05076	cc1=c(c(ccc1)(c)c)/c=c/c(=c/c=c/c(=c/c(=o)nc2=cc=c(c=c2)o)/c)/c	5288209
+fentanyl	chembl596	db00813	ccc(=o)n(c1ccn(cc1)ccc2=cc=cc=c2)c3=cc=cc=c3	3345
+filgrastim	chembl1201567	db00099	NA	NA
+finasteride	chembl710	db01216	c[c@]12cc[c@h]3[c@h]([c@@h]1cc[c@@h]2c(=o)nc(c)(c)c)cc[c@@h]4[c@@]3(c=cc(=o)n4)c	57363
+fingolimod hydrochloride	chembl544665	db08868	ccccccccc1=cc=c(c=c1)ccc(co)(co)n.cl	107969
+flavoxate hydrochloride	chembl1200875	db01148	cc1=c(oc2=c(c1=o)c=cc=c2c(=o)occn3ccccc3)c4=cc=cc=c4.cl	441345
+flibanserin	chembl231068	db04908	c1cn(ccn1ccn2c3=cc=cc=c3nc2=o)c4=cc=cc(=c4)c(f)(f)f	6918248
+flindokalner	chembl266510	NA	coc1=c(c=c(c=c1)cl)[c@]2(c3=c(c=c(c=c3)c(f)(f)f)nc2=o)f	214350
+floxuridine	chembl917	db00322	c1[c@@h]([c@h](o[c@h]1n2c=c(c(=o)nc2=o)f)co)o	5790
+fludarabine	chembl1568	db01073	c1=nc2=c(n1[c@h]3[c@h]([c@@h]([c@h](o3)co)o)o)n=c(n=c2n)f	657237
+flunarizine	chembl30008	db04841	c1cn(ccn1c/c=c/c2=cc=cc=c2)c(c3=cc=c(c=c3)f)c4=cc=c(c=c4)f	941361
+fluocinolone acetonide	chembl989	db00591	c[c@]12c[c@@h]([c@]3([c@h]([c@@h]1c[c@@h]4[c@]2(oc(o4)(c)c)c(=o)co)c[c@@h](c5=cc(=o)c=c[c@@]53c)f)f)o	6215
+fluorouracil	chembl185	db00544	c1=c(c(=o)nc(=o)n1)f	3385
+fluoxetine	chembl41	db00472	cnccc(c1=cc=cc=c1)oc2=cc=c(c=c2)c(f)(f)f	3386
+fluphenazine	chembl726	db00623	c1cn(ccn1cccn2c3=cc=cc=c3sc4=c2c=c(c=c4)c(f)(f)f)cco	3372
+flurazepam hydrochloride	chembl1200602	db00690	ccn(cc)ccn1c(=o)cn=c(c2=c1c=cc(=c2)cl)c3=cc=cc=c3f.cl	37368
+flurbiprofen	chembl563	db00712	cc(c1=cc(=c(c=c1)c2=cc=cc=c2)f)c(=o)o	3394
+fluspirilene	chembl46516	db04842	c1cn(ccc12c(=o)ncn2c3=cc=cc=c3)cccc(c4=cc=c(c=c4)f)c5=cc=c(c=c5)f	3396
+flutamide	chembl806	db00499	cc(c)c(=o)nc1=cc(=c(c=c1)[n+](=o)[o-])c(f)(f)f	3397
+fluticasone propionate	chembl1473	db00588	ccc(=o)o[c@@]1([c@@h](c[c@@h]2[c@@]1(c[c@@h]([c@]3([c@h]2c[c@@h](c4=cc(=o)c=c[c@@]43c)f)f)o)c)c)c(=o)scf	444036
+folic acid	chembl1622	db00158	c1=cc(=cc=c1c(=o)n[c@@h](ccc(=o)o)c(=o)o)ncc2=cn=c3c(=n2)c(=o)n=c(n3)n	6037
+foretinib	chembl1230609	db12307	coc1=cc2=c(c=cn=c2c=c1occcn3ccocc3)oc4=c(c=c(c=c4)nc(=o)c5(cc5)c(=o)nc6=cc=c(c=c6)f)f	42642645
+fosbretabulin disodium	chembl289351	db12577	coc1=c(c=c(c=c1)/c=c\c2=cc(=c(c(=c2)oc)oc)oc)op(=o)([o-])[o-].[na+].[na+]	6918309
+fosbretabulin tromethamine	chembl2105643	db12577	coc1=c(c=c(c=c1)/c=c\c2=cc(=c(c(=c2)oc)oc)oc)op(=o)(o)o.c(c(co)(co)n)o	10186184
+fosphenytoin sodium	chembl919	db01320	c1=cc=c(c=c1)c2(c(=o)n(c(=o)n2)cop(=o)([o-])[o-])c3=cc=cc=c3.[na+].[na+]	56338
+fulvestrant	chembl1358	db00947	c[c@]12cc[c@h]3[c@h]([c@@h]1cc[c@@h]2o)[c@@h](cc4=c3c=cc(=c4)o)cccccccccs(=o)cccc(c(f)(f)f)(f)f	104741
+furosemide	chembl35	db00695	c1=coc(=c1)cnc2=cc(=c(c=c2c(=o)o)s(=o)(=o)n)cl	3440
+gabapentin enacarbil	chembl1628502	db08872	cc(c)c(=o)oc(c)oc(=o)ncc1(ccccc1)cc(=o)o	9883933
+gabazine	chembl32503	NA	coc1=cc=c(c=c1)c2=nn(c(=n)c=c2)cccc(=o)o	107896
+gaboxadol	chembl312443	db06554	c1cncc2=c1c(=o)no2	3448
+gadobenate dimeglumine	chembl1200571	NA	NA	6918204
+gallamine triethiodide	chembl1200993	db00483	cc[n+](cc)(cc)ccoc1=c(c(=cc=c1)occ[n+](cc)(cc)cc)occ[n+](cc)(cc)cc.[i-].[i-].[i-]	6172
+gallium nitrate	chembl1200983	db05260	NA	61635
+ganciclovir	chembl182	db01004	c1=nc2=c(n1coc(co)co)nc(=nc2=o)n	3454
+ganetespib	chembl2103879	db12047	cc(c)c1=c/c(=c\2/nnc(=o)n2c3=cc4=c(c=c3)n(c=c4)c)/c(=o)c=c1o	23624255
+garlic	chembl2108463	db10532	NA	6850761
+gedatolisib	chembl592445	db11896	cn(c)c1ccn(cc1)c(=o)c2=cc=c(c=c2)nc(=o)nc3=cc=c(c=c3)c4=nc(=nc(=n4)n5ccocc5)n6ccocc6	44516953
+gefitinib	chembl939	db00317	coc1=c(c=c2c(=c1)n=cn=c2nc3=cc(=c(c=c3)f)cl)occcn4ccocc4	123631
+geldanamycin	chembl278315	db02424	c[c@h]1c[c@@h]([c@@h]([c@h](/c=c(/[c@@h]([c@h](/c=c\c=c(\c(=o)nc2=cc(=o)c(=c(c1)c2=o)oc)/c)oc)oc(=o)n)\c)c)o)oc	5288382
+gemcitabine hydrochloride	chembl1637	db00441	c1=cn(c(=o)n=c1n)[c@h]2c([c@@h]([c@h](o2)co)o)(f)f.cl	60749
+gemfibrozil	chembl457	db01241	cc1=cc(=c(c=c1)c)occcc(c)(c)c(=o)o	3463
+gentamicin	chembl329592	db00798	cc([c@@h]1cc[c@h]([c@h](o1)o[c@@h]2[c@h](c[c@h]([c@@h]([c@h]2o)o[c@@h]3[c@@h]([c@h]([c@@](co3)(c)o)nc)o)n)n)n)n.cc([c@@h]1cc[c@h]([c@h](o1)o[c@@h]2[c@h](c[c@h]([c@@h]([c@h]2o)o[c@@h]3[c@@h]([c@h]([c@@](co3)(c)o)nc)o)n)n)n)nc.c[c@@]1(co[c@@h]([c@@h]([c@h]1nc)o)o[c@h]2[c@@h](c[c@@h]([c@h]([c@@h]2o)o[c@@h]3[c@@h](cc[c@h](o3)cn)n)n)n)o	3467
+ginkgo	chembl2108466	NA	NA	NA
+glimepiride	chembl1481	db00222	ccc1=c(cn(c1=o)c(=o)nccc2=cc=c(c=c2)s(=o)(=o)nc(=o)nc3ccc(cc3)c)c	3476
+glipizide	chembl1073	db01067	cc1=nc=c(n=c1)c(=o)nccc2=cc=c(c=c2)s(=o)(=o)nc(=o)nc3ccccc3	3478
+glucagon	chembl266481	db00040	c[c@h]([c@@h](c(=o)n[c@@h](cc1=cc=cc=c1)c(=o)n[c@@h]([c@@h](c)o)c(=o)n[c@@h](co)c(=o)n[c@@h](cc(=o)o)c(=o)n[c@@h](cc2=cc=c(c=c2)o)c(=o)n[c@@h](co)c(=o)n[c@@h](ccccn)c(=o)n[c@@h](cc3=cc=c(c=c3)o)c(=o)n[c@@h](cc(c)c)c(=o)n[c@@h](cc(=o)o)c(=o)n[c@@h](co)c(=o)n[c@@h](cccn=c(n)n)c(=o)n[c@@h](cccn=c(n)n)c(=o)n[c@@h](c)c(=o)n[c@@h](ccc(=o)n)c(=o)n[c@@h](cc(=o)o)c(=o)n[c@@h](cc4=cc=cc=c4)c(=o)n[c@@h](c(c)c)c(=o)n[c@@h](ccc(=o)n)c(=o)n[c@@h](cc5=cnc6=cc=cc=c65)c(=o)n[c@@h](cc(c)c)c(=o)n[c@@h](ccsc)c(=o)n[c@@h](cc(=o)n)c(=o)n[c@@h]([c@@h](c)o)c(=o)o)nc(=o)cnc(=o)[c@h](ccc(=o)n)nc(=o)[c@h](co)nc(=o)[c@h](cc7=cnc=n7)n)o	44278361
+glufosfamide	chembl2107143	NA	c(ccl)np(=o)(ncccl)o[c@h]1[c@@h]([c@h]([c@@h]([c@h](o1)co)o)o)o	123628
+glutamine	chembl930	db00130	c(cc(=o)n)[c@@h](c(=o)o)n	5961
+glycopyrrolate	chembl1201335	db00986	c[n+]1(ccc(c1)oc(=o)c(c2cccc2)(c3=cc=cc=c3)o)c	11693
+glycyrrhizin	chembl441687	NA	c[c@]12cc[c@](c[c@h]1c3=cc(=o)[c@@h]4[c@]5(cc[c@@h](c([c@@h]5cc[c@]4([c@@]3(cc2)c)c)(c)c)o[c@@h]6[c@@h]([c@h]([c@@h]([c@h](o6)c(=o)o)o)o)o[c@h]7[c@@h]([c@h]([c@@h]([c@h](o7)c(=o)o)o)o)o)c)(c)c(=o)o	14982
+gonadotropin- chorionic	chembl1201509	db09126	NA	NA
+gossypol	chembl51483	db13044	cc1=c(c(=c2c(=c1)c(=c(c(=c2c=o)o)o)c(c)c)o)c3=c(c=c4c(=c3o)c(=c(c(=c4c(c)c)o)o)c=o)c	3503
+gr-127935	chembl15928	NA	cc1=c(c=cc(=c1)c2=noc(=n2)c)c3=cc=c(c=c3)c(=o)nc4=cc(=c(c=c4)oc)n5ccn(cc5)c	107780
+granisetron	chembl289469	db00889	cn1c2cccc1cc(c2)nc(=o)c3=nn(c4=cc=cc=c43)c	3510
+gsk-1059615	chembl3544966	db11962	c1=cc2=nc=cc(=c2c=c1/c=c\3/c(=o)nc(=o)s3)c4=cc=nc=c4	23582824
+gsk-2636771	chembl3188551	db11795	cc1=c(c=cc=c1c(f)(f)f)cn2c(=nc3=c2c=c(c=c3c(=o)o)n4ccocc4)c	56949517
+gsk-690693	chembl494089	db12745	ccn1c2=c(c(=nc=c2oc[c@h]3cccnc3)c#cc(c)(c)o)n=c1c4=non=c4n	16725726
+guanidine hydrochloride	chembl1200728	db00536	c(=n)(n)n.cl	5742
+gw468816	chembl1207366	db05417	c\1cn(c(=o)/c1=c/2\cc(nc3=c2c=cc(=c3)cl)c(=o)o)c4=cc=cc=c4	10303232
+halofuginone	chembl1197091	db04866	c1cc(c(nc1)cc(=o)cn2c=nc3=cc(=c(c=c3c2=o)cl)br)o	62894
+heparin	chembl1201513	db01109	NA	772
+herbimycin	chembl479533	NA	c[c@h]1c[c@@h]([c@@h]([c@h](/c=c(/[c@@h]([c@h](/c=c/c=c(/c(=o)nc2=cc(=o)c=c([c@@h]1oc)c2=o)\c)oc)oc(=o)n)\c)c)oc)oc	6436247
+hexamethylenebisacetamide	chembl291481	NA	cc(=o)nccccccnc(=o)c	3616
+hexylcaine hydrochloride	chembl1200715	db00473	cc(cnc1ccccc1)oc(=o)c2=cc=cc=c2.cl	102426
+himbacine	chembl277642	NA	c[c@h]1ccc[c@@h](n1c)/c=c/[c@@h]2[c@h]3cccc[c@@h]3c[c@h]4[c@@h]2[c@@h](oc4=o)c	6436265
+hydrochloric acid	chembl1231821	NA	cl	313
+hydrocortisone	chembl389621	db00741	c[c@]12ccc(=o)c=c1cc[c@@h]3[c@@h]2[c@h](c[c@]4([c@h]3cc[c@@]4(c(=o)co)o)c)o	5754
+hydrogen peroxide	chembl71595	db11091	oo	784
+hydroquinone	chembl537	db09526	c1=cc(=cc=c1o)o	785
+hydroxyamphetamine hydrobromide	chembl1200705	db09352	cc(cc1=cc=c(c=c1)o)n.br	9377
+hydroxychloroquine	chembl1535	db01611	ccn(cccc(c)nc1=c2c=cc(=cc2=nc=c1)cl)cco	3652
+hydroxyurea	chembl467	db01005	c(=o)(n)no	3657
+ibrutinib	chembl1873475	db09053	c=cc(=o)n1ccc[c@h](c1)n2c3=c(c(=n2)c4=cc=c(c=c4)oc5=cc=cc=c5)c(=nc=n3)n	24821094
+idelalisib	chembl2216870	db09054	cc[c@@h](c1=nc2=c(c(=cc=c2)f)c(=o)n1c3=cc=cc=c3)nc4=nc=nc5=c4nc=n5	11625818
+idronoxil	chembl1957038	db04915	c1c(=cc2=c(o1)c=c(c=c2)o)c3=cc=c(c=c3)o	219100
+ifosfamide	chembl1024	db01181	c1cn(p(=o)(oc1)ncccl)cccl	3690
+ilomastat	chembl19611	db02255	cc(c)c[c@h](cc(=o)no)c(=o)n[c@@h](cc1=cnc2=cc=cc=c21)c(=o)nc	132519
+ilorasertib	chembl1980297	db11694	c1=cc(=cc(=c1)f)nc(=o)nc2=cc=c(c=c2)c3=csc4=c3c(=nc=c4c5=cn(n=c5)cco)n	46207586
+imagabalin	chembl2103836	db12105	ccc[c@@h](c)c[c@@h](cc(=o)o)n	10236037
+imatinib mesylate	chembl1642	db00619	cc1=c(c=c(c=c1)nc(=o)c2=cc=c(c=c2)cn3ccn(cc3)c)nc4=nc=cc(=n4)c5=cn=cc=c5.cs(=o)(=o)o	123596
+indantadol	chembl3707400	db12664	NA	10192617
+indecainide hydrochloride	chembl1200341	db00192	cc(c)ncccc1(c2=cc=cc=c2c3=cc=cc=c31)c(=o)n.cl	52194
+indibulin	chembl49642	NA	c1=cc=c2c(=c1)c(=cn2cc3=cc=c(c=c3)cl)c(=o)c(=o)nc4=cc=nc=c4	2929
+indole-3-carbinol	chembl155625	db12881	c1=cc=c2c(=c1)c(=cn2)co	3712
+infigratinib	chembl1852688	db11886	ccn1ccn(cc1)c2=cc=c(c=c2)nc3=cc(=nc=n3)n(c)c(=o)nc4=c(c(=cc(=c4cl)oc)oc)cl	53235510
+infliximab	chembl1201581	db00065	NA	NA
+ingenol mebutate	chembl1863513	db05013	c/c=c(/c)\c(=o)o[c@h]1c(=c[c@@]23[c@@]1([c@@h](c(=c[c@h](c2=o)[c@h]4[c@h](c4(c)c)c[c@h]3c)co)o)o)c	6918670
+ink-128	chembl3545056	NA	NA	45375953
+inositol	chembl1222251	db03106	c1(c(c(c(c(c1o)o)o)o)o)o	892
+interferon alfa-2a	chembl2108508	db00034	NA	NA
+interferon alfa-2b	chembl1201558	db00105	NA	71306834
+interferon beta	chembl2108510	NA	NA	NA
+interferon beta-1a	chembl1201562	db00060	NA	NA
+interferon gamma-1b	chembl1201564	db00033	NA	NA
+intetumumab	chembl1743032	db12701	NA	NA
+ionomycin	chembl501617	NA	c[c@h](ccc(=o)o)c[c@h](c)c[c@h](c)c(=o)/c=c(/[c@h](c)c[c@h](c)c/c=c/[c@@h](c)[c@h]([c@@h](c)[c@h](c[c@@h]1cc[c@@](o1)(c)[c@h]2cc[c@@](o2)(c)[c@@h](c)o)o)o)\o	6912226
+ipatasertib	chembl2177390	db11743	c[c@@h]1c[c@h](c2=c1c(=nc=n2)n3ccn(cc3)c(=o)[c@h](cnc(c)c)c4=cc=c(c=c4)cl)o	24788740
+ipilimumab	chembl1789844	db06186	NA	NA
+ipratropium	chembl1464005	db00332	cc(c)[n+]1([c@@h]2cc[c@h]1cc(c2)oc(=o)c(co)c3=cc=cc=c3)c	657308
+irampanel	chembl29741	NA	cn(c)ccoc1=cc=cc=c1c2=nc(=no2)c3=cc=cc=c3	3038472
+irbesartan	chembl1513	db01029	ccccc1=nc2(cccc2)c(=o)n1cc3=cc=c(c=c3)c4=cc=cc=c4c5=nnn=n5	3749
+irinotecan	chembl481	db00762	ccc1=c2c=c(c=cc2=nc3=c1cn4c3=cc5=c(c4=o)coc(=o)[c@@]5(cc)o)oc(=o)n6ccc(cc6)n7ccccc7	60838
+isoflavone	chembl366460	db12007	c1=cc=c(c=c1)c2=coc3=cc=cc=c3c2=o	72304
+isoguvacine	chembl39071	NA	c1cncc=c1c(=o)o	3765
+isonipecotic acid	chembl279998	NA	c1cnccc1c(=o)o	3773
+isosorbide dinitrate	chembl6622	db00883	c1[c@h]([c@@h]2[c@h](o1)[c@h](co2)o[n+](=o)[o-])o[n+](=o)[o-]	6883
+isosorbide mononitrate	chembl1311	db01020	c1[c@@h]([c@@h]2[c@h](o1)[c@@h](co2)o[n+](=o)[o-])o	27661
+isotretinoin	chembl547	db00982	cc1=c(c(ccc1)(c)c)/c=c/c(=c/c=c/c(=c\c(=o)o)/c)/c	5282379
+iti-007	chembl3545044	NA	cc1=cc=c(c=c1)s(=o)(=o)[o-].cn1ccn2c3cc[nh+](cc3c4=c2c1=cc=c4)cccc(=o)c5=cc=c(c=c5)f	118753632
+itraconazole	chembl22587	db01167	ccc(c)n1c(=o)n(c=n1)c2=cc=c(c=c2)n3ccn(cc3)c4=cc=c(c=c4)oc[c@h]5co[c@](o5)(cn6c=nc=n6)c7=c(c=c(c=c7)cl)cl	55283
+ixazomib citrate	chembl3545432	db09570	b1(oc(=o)c(o1)(cc(=o)o)cc(=o)o)[c@h](cc(c)c)nc(=o)cnc(=o)c2=c(c=cc(=c2)cl)cl	56844015
+jnj-26483327	chembl3545133	NA	NA	11952856
+jnj-42756493	chembl3545376	db12147	cc(c)nccn(c1=cc2=nc(=cn=c2c=c1)c3=cn(n=c3)c)c4=cc(=cc(=c4)oc)oc	67462786
+k-252a	chembl281948	db02152	c[c@@]12[c@](c[c@@h](o1)n3c4=cc=cc=c4c5=c6c(=c7c8=cc=cc=c8n2c7=c53)cnc6=o)(c(=o)oc)o	3035817
+ketamine hydrochloride	chembl1714	db01221	cnc1(ccccc1=o)c2=cc=cc=c2cl.cl	15851
+ketanserin	chembl51	db12465	c1cn(ccc1c(=o)c2=cc=c(c=c2)f)ccn3c(=o)c4=cc=cc=c4nc3=o	3822
+ketoconazole	chembl75	db01026	cc(=o)n1ccn(cc1)c2=cc=c(c=c2)oc[c@@h]3co[c@@](o3)(cn4c=cn=c4)c5=c(c=c(c=c5)cl)cl	456201
+ketoprofen	chembl571	db01009	cc(c1=cc=cc(=c1)c(=o)c2=cc=cc=c2)c(=o)o	3825
+l-eflornithine	chembl222838	db03856	c(c[c@@](c(f)f)(c(=o)o)n)cn	6992039
+labetalol hydrochloride	chembl1200323	db00598	cc(ccc1=cc=cc=c1)ncc(c2=cc(=c(c=c2)o)c(=o)n)o.cl	71412
+lacosamide	chembl58323	db06218	cc(=o)n[c@h](coc)c(=o)ncc1=cc=cc=c1	219078
+lactose- anhydrous	chembl417016	db04465	c([c@@h]1[c@@h]([c@@h]([c@h]([c@@h](o1)o[c@@h]2[c@h](o[c@h]([c@@h]([c@h]2o)o)o)co)o)o)o)o	6134
+lamivudine	chembl141	db00709	c1[c@h](o[c@h](s1)co)n2c=cc(=nc2=o)n	3877
+lanicemine	chembl2107647	db11889	c1=cc=c(c=c1)c(cc2=cc=cc=n2)n	3038485
+lanreotide	chembl1201185	db06791	c[c@h]([c@@h](c(=o)n)nc(=o)[c@@h]1cssc[c@@h](c(=o)n[c@h](c(=o)n[c@@h](c(=o)n[c@h](c(=o)n[c@h](c(=o)n1)c(c)c)ccccn)cc2=cnc3=cc=cc=c32)cc4=cc=c(c=c4)o)nc(=o)[c@@h](cc5=cc6=cc=cc=c6c=c5)n)o	6918011
+lansoprazole	chembl480	db00448	cc1=c(c=cn=c1cs(=o)c2=nc3=cc=cc=c3n2)occ(f)(f)f	3883
+lapatinib	chembl554	db01259	cs(=o)(=o)ccncc1=cc=c(o1)c2=cc3=c(c=c2)n=cn=c3nc4=cc(=c(c=c4)occ5=cc(=cc=c5)f)cl	208908
+latrepirdine	chembl589390	db11725	cc1=cc2=c(c=c1)n(c3=c2cn(cc3)c)ccc4=cn=c(c=c4)c	197033
+lenalidomide	chembl848	db00480	c1cc(=o)nc(=o)c1n2cc3=c(c2=o)c=cc=c3n	216326
+lestaurtinib	chembl175105	NA	c[c@@]12[c@](c[c@@h](o1)n3c4=cc=cc=c4c5=c6c(=c7c8=cc=cc=c8n2c7=c53)cnc6=o)(co)o	9932888
+letrozole	chembl1444	db01006	c1=cc(=cc=c1c#n)c(c2=cc=c(c=c2)c#n)n3c=nc=n3	3902
+leucovorin	chembl1679	db00650	c1c(n(c2=c(n1)nc(=nc2=o)n)c=o)cnc3=cc=c(c=c3)c(=o)n[c@@h](ccc(=o)o)c(=o)o	6006
+levetiracetam	chembl1286	db01202	cc[c@@h](c(=o)n)n1cccc1=o	5284583
+levothyroxine	chembl1624	db00451	c1=c(c=c(c(=c1i)oc2=cc(=c(c(=c2)i)o)i)i)c[c@@h](c(=o)o)n	5819
+lexibulin	chembl552212	db05147	ccc[c@@h](c1=cn=cc=c1)nc2=nc(=nc=c2c)c3=cc(=c(c=c3)nc(=o)ncc)oc	11351021
+lidocaine hydrochloride hydrate	chembl1200409	NA	ccn(cc)cc(=o)nc1=c(c=cc=c1c)c.o.cl	16219577
+linifanib	chembl223360	db06080	cc1=cc(=c(c=c1)f)nc(=o)nc2=cc=c(c=c2)c3=c4c(=cc=c3)nn=c4n	11485656
+linoleic acid	chembl267476	NA	ccccc/c=c\c/c=c\cccccccc(=o)o	5280450
+linsitinib	chembl1091644	NA	cc1(cc(c1)c2=nc(=c3n2c=cn=c3n)c4=cc5=c(c=c4)c=cc(=n5)c6=cc=cc=c6)o	11640390
+liothyronine sodium	chembl1201119	db00279	c1=cc(=c(c=c1oc2=c(c=c(c=c2i)c[c@@h](c(=o)[o-])n)i)i)o.[na+]	23666110
+lithium	chembl1234004	db01356	[li]	28486
+lonafarnib	chembl298734	NA	c1cn(ccc1cc(=o)n2ccc(cc2)[c@@h]3c4=c(c=c(c=c4ccc5=cc(=cn=c35)br)cl)br)c(=o)n	148195
+loratadine	chembl998	db00455	ccoc(=o)n1ccc(=c2c3=c(ccc4=c2n=cc=c4)c=c(c=c3)cl)cc1	3957
+lorediplon	chembl3707317	NA	NA	12004146
+lorlatinib	chembl3286830	db12130	c[c@@h]1c2=c(c=cc(=c2)f)c(=o)n(cc3=nn(c(=c3c4=cc(=c(n=c4)n)o1)c#n)c)c	71731823
+lovastatin	chembl503	db00227	cc[c@h](c)c(=o)o[c@h]1c[c@h](c=c2[c@h]1[c@h]([c@h](c=c2)c)cc[c@@h]3c[c@h](cc(=o)o3)o)c	53232
+loxapine hydrochloride	chembl1201060	db00408	cn1ccn(cc1)c2=nc3=cc=cc=c3oc4=c2c=c(c=c4)cl.cl	71400
+lucitanib	chembl2220486	db11845	cnc(=o)c1=cc=cc2=c1c=cc(=c2)oc3=c4c=c(c(=cc4=nc=c3)occ5(cc5)n)oc	25031915
+ly-2780301	chembl3545134	NA	NA	NA
+ly-2874455	chembl3545264	db13022	cc(c1=c(c=nc=c1cl)cl)oc2=cc3=c(c=c2)nn=c3/c=c/c4=cn(n=c4)cco	66646528
+ly-294002	chembl98350	db02656	c1coccn1c2=cc(=o)c3=c(o2)c(=cc=c3)c4=cc=cc=c4	3973
+ly-3009120	chembl3545195	NA	NA	71721540
+ly-3023414	chembl3544999	db12167	NA	57519748
+lycopene	chembl501174	db11231	cc(=ccc/c(=c/c=c/c(=c/c=c/c(=c/c=c/c=c(/c=c/c=c(/c=c/c=c(/ccc=c(c)c)\c)\c)\c)/c)/c)/c)c	446925
+lysergide	chembl263881	db04829	ccn(cc)c(=o)[c@h]1cn([c@@h]2cc3=cnc4=cc=cc(=c34)c2=c1)c	5761
+magnesium	chembl2146125	db01378	[mg]	5462224
+mannitol	chembl689	db00742	c([c@h]([c@h]([c@@h]([c@@h](co)o)o)o)o)o	6251
+marizomib	chembl371405	db11762	c[c@]12[c@h](c(=o)n[c@]1(c(=o)o2)[c@h]([c@h]3cccc=c3)o)cccl	11347535
+masitinib	chembl1908391	NA	cc1=c(c=c(c=c1)nc(=o)c2=cc=c(c=c2)cn3ccn(cc3)c)nc4=nc(=cs4)c5=cn=cc=c5	10074640
+me-344	chembl3545320	db13062	NA	68026984
+medronic acid	chembl180570	NA	c(p(=o)(o)o)p(=o)(o)o	16124
+medroxyprogesterone acetate	chembl717	db00603	c[c@h]1c[c@@h]2[c@h](cc[c@]3([c@h]2cc[c@@]3(c(=o)c)oc(=o)c)c)[c@@]4(c1=cc(=o)cc4)c	6279
+megestrol acetate	chembl1201139	db00351	cc1=c[c@@h]2[c@h](cc[c@]3([c@h]2cc[c@@]3(c(=o)c)oc(=o)c)c)[c@@]4(c1=cc(=o)cc4)c	11683
+melevodopa	chembl1328898	NA	coc(=o)[c@h](cc1=cc(=c(c=c1)o)o)n	23497
+melphalan	chembl852	db01042	c1=cc(=cc=c1c[c@@h](c(=o)o)n)n(cccl)cccl	460612
+memantine hydrochloride	chembl1699	db01043	cc12cc3cc(c1)(cc(c3)(c2)n)c.cl	181458
+mepivacaine hydrochloride	chembl1200440	db00961	cc1=c(c(=cc=c1)c)nc(=o)c2ccccn2c.cl	66070
+mercaptopurine	chembl1425	db01033	c1=nc2=c(n1)c(=s)n=cn2	667490
+merethoxylline procaine	chembl1200443	NA	NA	45195
+mesoridazine	chembl1088	db00933	cn1ccccc1ccn2c3=cc=cc=c3sc4=c2c=c(c=c4)s(=o)c	4078
+mesulergine	chembl12314	NA	cn1c[c@h](c[c@h]2[c@h]1cc3=cn(c4=cc=cc2=c34)c)ns(=o)(=o)n(c)c	68848
+metaraminol	chembl1201319	db00610	c[c@@h]([c@@h](c1=cc(=cc=c1)o)o)n	5906
+metergoline	chembl19215	db13520	cn1c[c@@h](c[c@h]2[c@h]1cc3=cn(c4=cc=cc2=c34)c)cnc(=o)occ5=cc=cc=c5	28693
+metformin hydrochloride	chembl1703	db00331	cn(c)c(=n)n=c(n)n.cl	14219
+methazolamide	chembl19	db00703	cc(=o)n=c1n(n=c(s1)s(=o)(=o)n)c	4100
+methimazole	chembl1515	db00763	cn1c=cnc1=s	1349907
+methoctramine	chembl27673	NA	coc1=cc=cc=c1cnccccccnccccccccnccccccncc2=cc=cc=c2oc	4108
+methohexital sodium	chembl30219	db00474	ccc#cc(c)c1(c(=o)[n-]c(=o)n(c1=o)c)cc=c.[na+]	24834059
+methotrexate	chembl34259	db00563	cn(cc1=cn=c2c(=n1)c(=nc(=n2)n)n)c3=cc=c(c=c3)c(=o)n[c@@h](ccc(=o)o)c(=o)o	126941
+methyl nonyl ketone	chembl1236582	db08688	cccccccccc(=o)c	8163
+methylene blue	chembl191083	db08167	cn(c)c1=cc2=c(c=c1)n=c3c=cc(=[n+](c)c)c=c3s2	4139
+methylergonovine	chembl1201356	db00353	cc[c@@h](co)nc(=o)[c@h]1cn([c@@h]2cc3=cnc4=cc=cc(=c34)c2=c1)c	8226
+methylphenidate	chembl796	db00422	coc(=o)c(c1ccccn1)c2=cc=cc=c2	4158
+methylprednisolone	chembl650	db00959	c[c@h]1c[c@h]2[c@@h]3cc[c@@]([c@]3(c[c@@h]([c@@h]2[c@@]4(c1=cc(=o)c=c4)c)o)c)(c(=o)co)o	6741
+metitepine	chembl93240	NA	cn1ccn(cc1)c2cc3=cc=cc=c3sc4=c2c=c(c=c4)sc	4106
+metocurine iodide	chembl1739	db00416	c[n+]1(ccc2=cc(=c3c=c2[c@@h]1cc4=cc=c(c=c4)oc5=c6[c@@h](cc7=cc(=c(c=c7)oc)o3)[n+](ccc6=cc(=c5oc)oc)(c)c)oc)c.[i-].[i-]	24244
+mexiletine hydrochloride	chembl1200606	db00379	cc1=c(c(=cc=c1)c)occ(c)n.cl	21467
+mgcd-265	chembl254760	NA	cn1c=c(n=c1)c2=cc3=nc=cc(=c3s2)oc4=c(c=c(c=c4)nc(=s)nc(=o)cc5=cc=cc=c5)f	24901704
+midazolam hydrochloride	chembl1200420	db00683	cc1=nc=c2n1c3=c(c=c(c=c3)cl)c(=nc2)c4=cc=cc=c4f.cl	43032
+mifepristone	chembl1276308	db00834	cc#c[c@@]1(cc[c@@h]2[c@@]1(c[c@@h](c3=c4ccc(=o)c=c4cc[c@@h]23)c5=cc=c(c=c5)n(c)c)c)o	55245
+milciclib	chembl564829	NA	cc1(cc2=cn=c(n=c2c3=c1c(=nn3c)c(=o)nc)nc4=cc=c(c=c4)n5ccn(cc5)c)c	16718576
+milrinone	chembl189	db00235	cc1=c(c=c(c(=o)n1)c#n)c2=cc=nc=c2	4197
+miltefosine	chembl125	db09031	ccccccccccccccccop(=o)([o-])occ[n+](c)(c)c	3599
+minoxidil	chembl802	db00350	c1ccn(cc1)c2=nc(=n)n(c(=c2)n)o	4201
+mitomycin	chembl105	db00305	cc1=c(c(=o)c2=c(c1=o)n3c[c@h]4[c@@h]([c@@]3([c@@h]2coc(=o)n)oc)n4)n	5746
+mitoxantrone	chembl58	db01204	c1=cc(=c2c(=c1nccncco)c(=o)c3=c(c=cc(=c3c2=o)o)o)nccncco	4212
+mivacurium chloride	chembl984	db01226	c[n+]1(ccc2=cc(=c(c=c2[c@h]1cc3=cc(=c(c(=c3)oc)oc)oc)oc)oc)cccoc(=o)cc/c=c/ccc(=o)occc[n+]4(ccc5=cc(=c(c=c5[c@h]4cc6=cc(=c(c(=c6)oc)oc)oc)oc)oc)c.[cl-].[cl-]	5281080
+mk-2206	chembl1079175	NA	c1cc(c1)(c2=cc=c(c=c2)c3=c(c=c4c(=n3)c=cn5c4=nnc5=o)c6=cc=cc=c6)n	24964624
+mk-2461	chembl1822792	NA	cn1c=c(c=n1)c2=cn=c3c=cc4=c(c=c(c=c4)ns(=o)(=o)n(c)c[c@@h]5cocco5)c(=o)c3=c2	44137946
+mocetinostat	chembl272980	db11830	c1=cc=c(c(=c1)n)nc(=o)c2=cc=c(c=c2)cnc3=nc=cc(=n3)c4=cn=cc=c4	9865515
+modafinil	chembl1373	db00745	c1=cc=c(c=c1)c(c2=cc=cc=c2)s(=o)cc(=o)n	4236
+mofarotene	chembl146506	NA	c/c(=c\c1=cc=c(c=c1)occn2ccocc2)/c3=cc4=c(c=c3)c(ccc4(c)c)(c)c	5467732
+momelotinib	chembl1078178	db11763	c1coccn1c2=cc=c(c=c2)nc3=nc=cc(=n3)c4=cc=c(c=c4)c(=o)ncc#n	25062766
+moricizine hydrochloride	chembl1200334	db00680	ccoc(=o)nc1=cc2=c(c=c1)sc3=cc=cc=c3n2c(=o)ccn4ccocc4.cl	34632
+morphine	chembl70	db00295	cn1cc[c@]23[c@@h]4[c@h]1cc5=c2c(=c(c=c5)o)o[c@h]3[c@h](c=c4)o	5288826
+motesanib	chembl572881	NA	cc1(cnc2=c1c=cc(=c2)nc(=o)c3=c(n=cc=c3)ncc4=cc=nc=c4)c	11667893
+motexafin gadolinium	chembl3544910	db05428	NA	12047567
+msc-2363318a	chembl3545003	NA	NA	NA
+muscimol	chembl273481	db12458	c1=c(onc1=o)cn	4266
+mycophenolate mofetil	chembl1456	db00688	cc1=c(c(=c(c2=c1coc2=o)o)c/c=c(\c)/ccc(=o)occn3ccocc3)oc	5281078
+mycophenolic acid	chembl866	db01024	cc1=c(c(=c(c2=c1coc2=o)o)c/c=c(\c)/ccc(=o)o)oc	446541
+n-methyl-n-nitrosurea	chembl288958	NA	cn(c(=o)n)n=o	12699
+nafcillin	chembl1443	db00607	ccoc1=c(c2=cc=cc=c2c=c1)c(=o)n[c@h]3[c@@h]4n(c3=o)[c@h](c(s4)(c)c)c(=o)o	8982
+naltrexone	chembl19019	db00704	c1cc1cn2cc[c@]34[c@@h]5c(=o)cc[c@]3([c@h]2cc6=c4c(=c(c=c6)o)o5)o	5360515
+nandrolone phenpropionate	chembl1200412	db00984	c[c@]12cc[c@h]3[c@h]([c@@h]1cc[c@@h]2oc(=o)ccc4=cc=cc=c4)ccc5=cc(=o)cc[c@h]35	229455
+naphazoline hydrochloride	chembl1706	db06711	c1cn=c(n1)cc2=cc=cc3=cc=cc=c32.cl	4436
+naphthalene	chembl16293	NA	c1=cc=c2c=cc=cc2=c1	931
+naproxen	chembl154	db00788	c[c@@h](c1=cc2=c(c=c1)c=c(c=c2)oc)c(=o)o	156391
+naratriptan	chembl1278	db00952	cns(=o)(=o)ccc1=cc2=c(c=c1)nc=c2c3ccn(cc3)c	4440
+navitoclax	chembl443684	db12340	cc1(ccc(=c(c1)cn2ccn(cc2)c3=cc=c(c=c3)c(=o)ns(=o)(=o)c4=cc(=c(c=c4)n[c@h](ccn5ccocc5)csc6=cc=cc=c6)s(=o)(=o)c(f)(f)f)c7=cc=c(c=c7)cl)c	24978538
+neboglamine	chembl1255840	NA	cc1(ccc(cc1)nc(=o)[c@h](ccc(=o)o)n)c	3074827
+neramexane mesylate	chembl2106798	db04926	cc1(cc(cc(c1)(c)n)(c)c)c.cs(=o)(=o)o	11425584
+neratinib	chembl180022	db11828	ccoc1=c(c=c2c(=c1)n=cc(=c2nc3=cc(=c(c=c3)occ4=cc=cc=n4)cl)c#n)nc(=o)/c=c/cn(c)c	9915743
+nerispirdine	chembl2107762	db12714	cccn(c1=c(c=nc=c1)f)n2c=c(c3=cc=cc=c32)c	3081185
+niacin	chembl573	db00627	c1=cc(=cn=c1)c(=o)o	938
+nimesulide	chembl56367	db04743	cs(=o)(=o)nc1=c(c=c(c=c1)[n+](=o)[o-])oc2=cc=cc=c2	4495
+nintedanib esylate	chembl3039504	db09079	ccs(=o)(=o)o.cn1ccn(cc1)cc(=o)n(c)c2=cc=c(c=c2)n/c(=c\3/c4=c(c=c(c=c4)c(=o)oc)nc3=o)/c5=cc=cc=c5	9809714
+niraparib	chembl1094636	db11793	c1c[c@h](cnc1)c2=cc=c(c=c2)n3c=c4c=cc=c(c4=n3)c(=o)n	24958200
+nirogacestat	chembl1770916	db12005	ccc[c@@h](c(=o)nc1=cn(c=n1)c(c)(c)cncc(c)(c)c)n[c@h]2ccc3=cc(=cc(=c3c2)f)f	46224413
+nitric oxide	chembl1200689	db00435	[n]=o	145068
+nitroglycerin	chembl730	db00727	c(c(co[n+](=o)[o-])o[n+](=o)[o-])o[n+](=o)[o-]	4510
+nivolumab	chembl2108738	db09035	NA	NA
+nktr-171	chembl3545209	NA	NA	NA
+noradrenaline	chembl1356607	db00368	c1=cc(=c(c=c1[c@h](cn)o)o)o.c(c(c(=o)o)o)(c(=o)o)o	11957447
+nordihydroguaiaretic acid	chembl52	db00179	cc(cc1=cc(=c(c=c1)o)o)c(c)cc2=cc(=c(c=c2)o)o	4534
+norethindrone	chembl1162	db00717	c[c@]12cc[c@h]3[c@h]([c@@h]1cc[c@]2(c#c)o)ccc4=cc(=o)cc[c@h]34	6230
+nrx-1074	chembl3545230	db11784	NA	71249967
+nv-128	chembl3545135	NA	NA	68026984
+nvp-auy922	chembl252164	NA	ccnc(=o)c1=c(/c(=c/2\c=c(c(=cc2=o)o)c(c)c)/on1)c3=cc=c(c=c3)cn4ccocc4	10096043
+nw-3509	chembl3545207	NA	NA	NA
+obatoclax mesylate	chembl2107358	db12191	cc1=cc(=c(n1)/c=c\2/c(=c/c(=c/3\c=c4c=cc=cc4=n3)/n2)oc)c.cs(=o)(=o)o	16681698
+ocaperidone	chembl2104619	NA	cc1=cc=cn2c1=nc(=c(c2=o)ccn3ccc(cc3)c4=noc5=c4c=cc(=c5)f)c	71351
+ocinaplon	chembl2105199	NA	c1=cc=nc(=c1)c(=o)c2=c3n=cc=c(n3n=c2)c4=cc=nc=c4	216456
+ocriplasmin	chembl2095222	db08888	NA	NA
+octanol	chembl26215	db12452	cccccccco	957
+octreotide acetate	chembl1200480	db00104	c[c@h]([c@h]1c(=o)n[c@@h](cssc[c@@h](c(=o)n[c@h](c(=o)n[c@@h](c(=o)n[c@h](c(=o)n1)ccccn)cc2=cnc3=cc=cc=c32)cc4=cc=cc=c4)nc(=o)[c@@h](cc5=cc=cc=c5)n)c(=o)n[c@h](co)[c@@h](c)o)o.cc(=o)o	6917964
+ofloxacin	chembl4	db01165	cc1coc2=c3n1c=c(c(=o)c3=cc(=c2n4ccn(cc4)c)f)c(=o)o	4583
+olanzapine pamoate	chembl1201741	db00334	cc1=cc2=c(nc3=cc=cc=c3n=c2s1)n4ccn(cc4)c.c1=cc=c2c(=c1)c=c(c(=c2cc3=c(c(=cc4=cc=cc=c43)c(=o)o)o)o)c(=o)o	12085238
+olaparib	chembl521686	db09074	c1cc1c(=o)n2ccn(cc2)c(=o)c3=c(c=cc(=c3)cc4=nnc(=o)c5=cc=cc=c54)f	23725625
+olesoxime	chembl3545254	NA	c[c@h](cccc(c)c)[c@h]1cc[c@@h]2[c@@]1(cc[c@h]3[c@h]2ccc4=cc(=no)cc[c@]34c)c	76971721
+omecamtiv mecarbil	chembl1800955	db11816	cc1=nc=c(c=c1)nc(=o)nc2=cc=cc(=c2f)cn3ccn(cc3)c(=o)oc	11689883
+omeprazole	chembl1503	db00338	cc1=cn=c(c(=c1oc)c)cs(=o)c2=nc3=c(n2)c=c(c=c3)oc	4594
+omipalisib	chembl1236962	db12703	coc1=c(c=c(c=n1)c2=cc3=c(c=cn=c3c=c2)c4=cn=nc=c4)ns(=o)(=o)c5=c(c=c(c=c5)f)f	25167777
+oprozomib	chembl2103884	db11991	cc1=nc=c(s1)c(=o)n[c@@h](coc)c(=o)n[c@@h](coc)c(=o)n[c@@h](cc2=cc=cc=c2)c(=o)[c@]3(co3)c	25067547
+orantinib	chembl274654	db12072	cc1=c(nc(=c1ccc(=o)o)c)/c=c\2/c3=cc=cc=c3nc2=o	5329099
+orphenadrine (chloride)	chembl1201023	db01173	cc1=cc=cc=c1c(c2=cc=cc=c2)occn(c)c.cl	9568
+orphenadrine citrate	chembl1200395	db01173	cc1=cc=cc=c1c(c2=cc=cc=c2)occn(c)c.c(c(=o)o)c(cc(=o)o)(c(=o)o)o	83823
+osi-027	chembl3120215	db12387	coc1=cc=cc2=c/c(=c/3\c4=c(n=cnn4c(=n3)c5ccc(cc5)c(=o)o)n)/n=c21	44224160
+osi-930	chembl1614710	db05913	c1=cc=c2c(=c1)c(=cc=n2)cnc3=c(sc=c3)c(=o)nc4=cc=c(c=c4)oc(f)(f)f	9868037
+osimertinib	chembl3353410	db09330	cn1c=c(c2=cc=cc=c21)c3=nc(=nc=c3)nc4=c(c=c(c(=c4)nc(=o)c=c)n(c)ccn(c)c)oc	71496458
+otenzepad	chembl17045	NA	ccn(cc)cc1ccccn1cc(=o)n2c3=cc=cc=c3c(=o)nc4=c2n=cc=c4	107867
+oxaliplatin	chembl414804	db00526	NA	6857599
+oxcarbazepine	chembl1068	db00776	c1c2=cc=cc=c2n(c3=cc=cc=c3c1=o)c(=o)n	34312
+oxybutynin	chembl1231	db01062	ccn(cc)cc#ccoc(=o)c(c1ccccc1)(c2=cc=cc=c2)o	4634
+oxymetazoline hydrochloride	chembl1200791	db00935	cc1=cc(=c(c(=c1cc2=nccn2)c)o)c(c)(c)c.cl	66259
+oxytocin	chembl395429	db00107	cc[c@h](c)[c@h]1c(=o)n[c@h](c(=o)n[c@h](c(=o)n[c@@h](cssc[c@@h](c(=o)n[c@h](c(=o)n1)cc2=cc=c(c=c2)o)n)c(=o)n3ccc[c@h]3c(=o)n[c@@h](cc(c)c)c(=o)ncc(=o)n)cc(=o)n)ccc(=o)n	439302
+pa-799	chembl1684984	db13051	cs(=o)(=o)n1ccc2=c(n=c(n=c21)n3ccocc3)c4=cn=c(n=c4)n	49784945
+paclitaxel poliglumex	chembl2108628	NA	NA	NA
+palbociclib	chembl189963	db09073	cc1=c(c(=o)n(c2=nc(=nc=c12)nc3=nc=c(c=c3)n4ccncc4)c5cccc5)c(=o)c	5330286
+pamidronic acid	chembl834	db00282	c(cn)c(o)(p(=o)(o)o)p(=o)(o)o	4674
+pancuronium bromide	chembl1200757	db01337	cc(=o)o[c@h]1c[c@@h]2cc[c@@h]3[c@@h]([c@]2(c[c@@h]1[n+]4(ccccc4)c)c)cc[c@]5([c@h]3c[c@@h]([c@@h]5oc(=o)c)[n+]6(ccccc6)c)c.[br-].[br-]	27350
+panitumumab	chembl1201827	db01269	NA	NA
+panobinostat lactate	chembl3545368	db06603	cc1=c(c2=cc=cc=c2n1)ccncc3=cc=c(c=c3)/c=c/c(=o)no.cc(c(=o)o)o	23725423
+panulisib	chembl3545322	NA	NA	56947515
+papaverine	chembl19224	db01113	coc1=c(c=c(c=c1)cc2=nc=cc3=cc(=c(c=c32)oc)oc)oc	4680
+pardoprunox	chembl2103832	db12061	cn1ccn(cc1)c2=cc=cc3=c2oc(=o)n3	6918525
+pazopanib hydrochloride	chembl1201733	db06589	cc1=c(c=c(c=c1)nc2=nc=cc(=n2)n(c)c3=cc4=nn(c(=c4c=c3)c)c)s(=o)(=o)n.cl	11525740
+pd-0325901	chembl507361	db07101	c1=cc(=c(c=c1i)f)nc2=c(c=cc(=c2f)f)c(=o)noc[c@@h](co)o	9826528
+pd-173074	chembl189584	NA	ccn(cc)ccccnc1=nc2=nc(=c(c=c2c=n1)c3=cc(=cc(=c3)oc)oc)nc(=o)nc(c)(c)c	1401
+pegpleranib sodium	chembl3301576	NA	NA	NA
+pembrolizumab	chembl2364654	db09037	NA	NA
+penicillamine	chembl1430	db00859	cc(c)([c@h](c(=o)o)n)s	5852
+penicillin g sodium	chembl1126	db01053	cc1([c@@h](n2[c@h](s1)[c@@h](c2=o)nc(=o)cc3=cc=cc=c3)c(=o)[o-])c.[na+]	23668834
+pentobarbital sodium	chembl971	db00312	cccc(c)c1(c(=o)nc(=o)[n-]c1=o)cc.[na+]	14075609
+pentosan polysulfate sodium	chembl1201516	NA	NA	NA
+perfosfamide	chembl61511	db12727	c1cop(=o)(nc1oo)n(cccl)cccl	38347
+pergolide mesylate	chembl1275	db01186	cccn1c[c@@h](c[c@h]2[c@h]1cc3=cnc4=cc=cc2=c34)csc.cs(=o)(=o)o	47811
+perphenazine	chembl567	db00850	c1cn(ccn1cccn2c3=cc=cc=c3sc4=c2c=c(c=c4)cl)cco	4748
+pexmetinib	chembl3545297	NA	NA	24765037
+pf-00477736	chembl3545137	NA	cn1c=c(c=n1)c2=nc3=c4c2=cnnc(=o)c4=cc(=c3)nc(=o)c(c5ccccc5)n	23402305
+pf-04691502	chembl1234354	db11974	cc1=c2c=c(c(=o)n(c2=nc(=n1)n)c3ccc(cc3)occo)c4=cn=c(c=c4)oc	25033539
+pf-06372865	chembl3707402	NA	NA	76287260
+pha-665752	chembl450786	NA	cc1=c(nc(=c1c(=o)n2ccc[c@@h]2cn3cccc3)c)/c=c\4/c5=c(c=cc(=c5)s(=o)(=o)cc6=c(c=cc=c6cl)cl)nc4=o	10461815
+pha-793887	chembl1230607	db12686	cc(c)cc(=o)nc1=nnc2=c1cn(c2(c)c)c(=o)c3ccn(cc3)c	46191454
+phenacemide	chembl918	db01121	c1=cc=c(c=c1)cc(=o)nc(=o)n	4753
+phenazopyridine hydrochloride	chembl1201022	db01438	c1=cc=c(c=c1)n=nc2=c(n=c(c=c2)n)n.cl	8691
+phenmetrazine	chembl1201208	db00830	cc1c(occn1)c2=cc=cc=c2	4762
+phenothiazine	chembl828	NA	c1=cc=c2c(=c1)nc3=cc=cc=c3s2	7108
+phenoxybenzamine hydrochloride	chembl1200787	db00925	cc(coc1=cc=cc=c1)n(cccl)cc2=cc=cc=c2.cl	5284441
+phenprocoumon	chembl1465	db00946	ccc(c1=cc=cc=c1)c2=c(c3=cc=cc=c3oc2=o)o	54680692
+phentolamine mesylate	chembl1200873	db00692	cc1=cc=c(c=c1)n(cc2=nccn2)c3=cc(=cc=c3)o.cs(=o)(=o)o	91430
+phenylephrine	chembl1215	db00388	cnc[c@@h](c1=cc(=cc=c1)o)o	6041
+phenylthiourea	chembl263376	db03694	c1=cc=c(c=c1)nc(=s)n	676454
+phenytoin sodium	chembl1611	db00252	c1=cc=c(c=c1)c2(c(=o)nc(=n2)[o-])c3=cc=cc=c3.[na+]	23679632
+phorbol myristate acetate	chembl279115	NA	cccccccccccccc(=o)o[c@@h]1[c@h]([c@]2([c@@h](c=c(c[c@]3([c@h]2c=c(c3=o)c)o)co)[c@h]4[c@@]1(c4(c)c)oc(=o)c)o)c	27924
+pi-103	chembl573339	NA	c1coccn1c2=nc(=nc3=c2oc4=c3c=cc=n4)c5=cc(=cc=c5)o	9884685
+picrotoxin	chembl1908342	db00466	cc(=c)[c@@h]1[c@@h]2[c@@h]3[c@@]4([c@]([c@h]1c(=o)o2)(c[c@@h]5c4(o5)c(=o)o3)o)c.c[c@@]12[c@h]3[c@h]4[c@h]([c@@h]([c@@]1(c[c@@h]5c2(o5)c(=o)o3)o)c(=o)o4)c(c)(c)o	57402144
+picrotoxinin	chembl47244	NA	cc(=c)[c@@h]1[c@@h]2[c@@h]3[c@@]4([c@]([c@h]1c(=o)o2)(c[c@@h]5[c@]4(o5)c(=o)o3)o)c	442292
+pictilisib	chembl521851	db11663	cs(=o)(=o)n1ccn(cc1)cc2=cc3=c(s2)c(=nc(=n3)c4=c5c=nnc5=cc=c4)n6ccocc6	17755052
+pilaralisib	chembl3218575	db11772	cc1=cc=c(c=c1)s(=o)(=o)nc2=nc3=cc=cc=c3n=c2nc4=cc5=nsn=c5c=c4	1893730
+pilocarpine	chembl550	db01085	cc[c@h]1[c@h](coc1=o)cc2=cn=cn2c	5910
+pimasertib	chembl2107832	NA	c1=cc(=c(c=c1i)f)nc2=c(c=cn=c2)c(=o)nc[c@@h](co)o	44187362
+pimozide	chembl1423	db01100	c1cn(ccc1n2c3=cc=cc=c3nc2=o)cccc(c4=cc=c(c=c4)f)c5=cc=c(c=c5)f	16362
+pindolol	chembl500	db00960	cc(c)ncc(coc1=cc=cc2=c1c=cn2)o	4828
+pioglitazone	chembl595	db01132	ccc1=cn=c(c=c1)ccoc2=cc=c(c=c2)cc3c(=o)nc(=o)s3	4829
+pipamperone	chembl440294	db09286	c1ccn(cc1)c2(ccn(cc2)cccc(=o)c3=cc=c(c=c3)f)c(=o)n	4830
+pipecuronium bromide	chembl1200722	db01338	cc(=o)o[c@h]1c[c@@h]2cc[c@@h]3[c@@h]([c@]2(c[c@@h]1n4cc[n+](cc4)(c)c)c)cc[c@]5([c@h]3c[c@@h]([c@@h]5oc(=o)c)n6cc[n+](cc6)(c)c)c.[br-].[br-]	65332
+pirenzepine	chembl9967	db00670	cn1ccn(cc1)cc(=o)n2c3=cc=cc=c3c(=o)nc4=c2n=cc=c4	4848
+pirfenidone	chembl1256391	db04951	cc1=cn(c(=o)c=c1)c2=cc=cc=c2	40632
+piribedil (chembl1371770)	chembl1371770	db12478	c1cn(ccn1cc2=cc3=c(c=c2)oco3)c4=nc=cc=n4	4850
+piroxicam	chembl527	db00554	cn1c(=c(c2=cc=cc=c2s1(=o)=o)o)c(=o)nc3=cc=cc=n3	54676228
+plinabulin	chembl1096380	NA	cc(c)(c)c1=c(n=cn1)/c=c\2/c(=o)n/c(=c\c3=cc=cc=c3)/c(=o)n2	9949641
+plx-3397	chembl3545158	NA	NA	25151352
+plx-4720	chembl1230020	db06999	cccs(=o)(=o)nc1=c(c(=c(c=c1)f)c(=o)c2=cnc3=nc=c(c=c23)cl)f	24180719
+polyethylene glycol	chembl1201478	db09287	NA	174
+poziotinib	chembl3545154	db12114	coc1=c(c=c2c(=c1)n=cn=c2nc3=c(c(=c(c=c3)cl)cl)f)oc4ccn(cc4)c(=o)c=c	25127713
+pramlintide	chembl1201669	db01278	cc[c@h](c)[c@@h](c(=o)n[c@@h](cc(c)c)c(=o)n1ccc[c@h]1c(=o)n2ccc[c@h]2c(=o)n[c@@h]([c@@h](c)o)c(=o)n[c@@h](cc(=o)n)c(=o)n[c@@h](c(c)c)c(=o)ncc(=o)n[c@@h](co)c(=o)n[c@@h](cc(=o)n)c(=o)n[c@@h]([c@@h](c)o)c(=o)n[c@@h](cc3=cc=c(c=c3)o)c(=o)n)nc(=o)[c@@h]4cccn4c(=o)cnc(=o)[c@h](cc5=cc=cc=c5)nc(=o)[c@h](cc(=o)n)nc(=o)[c@h](cc(=o)n)nc(=o)[c@h](co)nc(=o)[c@h](co)nc(=o)[c@h](cc6=cnc=n6)nc(=o)[c@h](c(c)c)nc(=o)[c@h](cc(c)c)nc(=o)[c@h](cc7=cc=cc=c7)nc(=o)[c@h](cc(=o)n)nc(=o)[c@h](c)nc(=o)[c@h](cc(c)c)nc(=o)[c@h](cccnc(=n)n)nc(=o)[c@h](ccc(=o)n)nc(=o)[c@h]([c@@h](c)o)nc(=o)[c@h](c)nc(=o)[c@@h]8cssc[c@@h](c(=o)n[c@h](c(=o)n[c@h](c(=o)n[c@h](c(=o)n[c@h](c(=o)n8)[c@@h](c)o)c)[c@@h](c)o)cc(=o)n)nc(=o)[c@h](ccccn)n	NA
+prasugrel	chembl1201772	db06209	cc(=o)oc1=cc2=c(s1)ccn(c2)c(c3=cc=cc=c3f)c(=o)c4cc4	6918456
+pravastatin	chembl690	db00175	cc[c@h](c)c(=o)o[c@h]1c[c@@h](c=c2[c@h]1[c@h]([c@h](c=c2)c)cc[c@h](c[c@h](cc(=o)o)o)o)o	16759173
+prednisolone	chembl131	db00860	c[c@]12c[c@@h]([c@h]3[c@h]([c@@h]1cc[c@@]2(c(=o)co)o)ccc4=cc(=o)c=c[c@]34c)o	5755
+prednisone	chembl635	db00635	c[c@]12cc(=o)[c@h]3[c@h]([c@@h]1cc[c@@]2(c(=o)co)o)ccc4=cc(=o)c=c[c@]34c	5865
+pregabalin	chembl1059	db00230	cc(c)c[c@@h](cc(=o)o)cn	5486971
+pregnenolone	chembl77462	db02789	cc(=o)[c@h]1cc[c@@h]2[c@@]1(cc[c@h]3[c@h]2cc=c4[c@@]3(cc[c@@h](c4)o)c)c	5702134
+prexasertib	chembl3544911	db12008	coc1=c(c(=cc=c1)occcn)c2=cc(=nn2)nc3=nc=c(n=c3)c#n	46700756
+prilocaine	chembl1194	db00750	cccnc(c)c(=o)nc1=cc=cc=c1c	4906
+prilocaine hydrochloride	chembl1200586	db00750	cccnc(c)c(=o)nc1=cc=cc=c1c.cl	92163
+prinomastat	chembl75094	db05100	cc1([c@@h](n(ccs1)s(=o)(=o)c2=cc=c(c=c2)oc3=cc=nc=c3)c(=o)no)c	466151
+probenecid	chembl897	db01032	cccn(ccc)s(=o)(=o)c1=cc=c(c=c1)c(=o)o	4911
+procainamide hydrochloride	chembl605	db01035	ccn(cc)ccnc(=o)c1=cc=c(c=c1)n.cl	66068
+procaine hydrochloride	chembl1200841	db00721	ccn(cc)ccoc(=o)c1=cc=c(c=c1)n.cl	5795
+procarbazine	chembl1321	db01168	cc(c)nc(=o)c1=cc=c(c=c1)cnnc	4915
+prochlorperazine	chembl728	db00433	cn1ccn(cc1)cccn2c3=cc=cc=c3sc4=c2c=c(c=c4)cl	4917
+propafenone	chembl631	db01182	cccncc(coc1=cc=cc=c1c(=o)ccc2=cc=cc=c2)o	4932
+propafenone hydrochloride	chembl1201063	db01182	cccncc(coc1=cc=cc=c1c(=o)ccc2=cc=cc=c2)o.cl	36708
+proparacaine	chembl1196	db00807	cccoc1=c(c=c(c=c1)c(=o)occn(cc)cc)n	4935
+proparacaine hydrochloride	chembl1200464	db00807	cccoc1=c(c=c(c=c1)c(=o)occn(cc)cc)n.cl	517321
+propoxycaine hydrochloride	chembl1769	db09342	cccoc1=c(c=cc(=c1)n)c(=o)occn(cc)cc.cl	11078
+propoxyphene	chembl1213351	db00647	ccc(=o)o[c@](cc1=cc=cc=c1)(c2=cc=cc=c2)[c@h](c)cn(c)c	10100
+propylthiouracil	chembl1518	db00550	cccc1=cc(=o)nc(=s)n1	657298
+protriptyline	chembl668	db00344	cncccc1c2=cc=cc=c2c=cc3=cc=cc=c13	4976
+proxyphylline	chembl37390	NA	cc(cn1c=nc2=c1c(=o)n(c(=o)n2c)c)o	4977
+pumosetrag	chembl1643880	db12402	c1cn2ccc1[c@h](c2)nc(=o)c3=cnc4=c(c3=o)sc=c4	154104
+puquitinib	chembl3545088	NA	NA	NA
+pwt-33587	chembl3545006	NA	NA	NA
+pyrazinamide	chembl614	db00339	c1=cn=c(c=n1)c(=o)n	1046
+pyrimethamine	chembl36	db00205	ccc1=c(c(=nc(=n1)n)n)c2=cc=c(c=c2)cl	4993
+pyroxamide	chembl353581	db12847	c1=cc(=cn=c1)nc(=o)ccccccc(=o)no	4996
+quinidine gluconate	chembl1200437	db00908	coc1=cc2=c(c=cn=c2c=c1)[c@@h]([c@h]3c[c@@h]4ccn3c[c@@h]4c=c)o.c([c@h]([c@h]([c@@h]([c@h](c(=o)o)o)o)o)o)o	94328
+quinidine polygalacturonate	chembl1201486	NA	NA	64641
+quinidine sulfate	chembl3707183	db00908	coc1=cc2=c(c=cn=c2c=c1)[c@@h]([c@h]3c[c@@h]4ccn3c[c@@h]4c=c)o.coc1=cc2=c(c=cn=c2c=c1)[c@@h]([c@h]3c[c@@h]4ccn3c[c@@h]4c=c)o.o.o.os(=o)(=o)o	656862
+quinpirole	chembl240773	NA	cccn1ccc[c@h]2[c@h]1cc3=c(c2)nn=c3	54562
+quinuclidinyl benzilate	chembl12980	NA	c1cn2ccc1c(c2)oc(=o)c(c3=cc=cc=c3)(c4=cc=cc=c4)o	23056
+quisinostat	chembl2105763	db12985	cn1c=c(c2=cc=cc=c21)cncc3ccn(cc3)c4=nc=c(c=n4)c(=o)no	11538455
+quizartinib	chembl576982	db12874	cc(c)(c)c1=cc(=no1)nc(=o)nc2=cc=c(c=c2)c3=cn4c5=c(c=c(c=c5)occn6ccocc6)sc4=n3	24889392
+rabeprazole	chembl1219	db01129	cc1=c(c=cn=c1cs(=o)c2=nc3=cc=cc=c3n2)occcoc	5029
+ralfinamide	chembl2107771	NA	c[c@@h](c(=o)n)ncc1=cc=c(c=c1)occ2=cc=cc=c2f	5745207
+raloxifene	chembl81	db00481	c1ccn(cc1)ccoc2=cc=c(c=c2)c(=o)c3=c(sc4=c3c=cc(=c4)o)c5=cc=c(c=c5)o	5035
+raltitrexed	chembl225071	db00293	cc1=nc(=o)c2=c(n1)c=cc(=c2)cn(c)c3=cc=c(s3)c(=o)n[c@@h](ccc(=o)o)c(=o)o	104758
+ranitidine	chembl512	db00863	cnc(=c[n+](=o)[o-])nccscc1=cc=c(o1)cn(c)c	3001055
+rapacuronium bromide	chembl1200549	db04834	ccc(=o)o[c@h]1[c@h](c[c@@h]2[c@@]1(cc[c@h]3[c@h]2cc[c@@h]4[c@@]3(c[c@@h]([c@h](c4)oc(=o)c)n5ccccc5)c)c)[n+]6(ccccc6)cc=c.[br-]	5311398
+rapastinel	chembl3544917	db11801	c[c@h]([c@@h](c(=o)n1ccc[c@h]1c(=o)n2ccc[c@h]2c(=o)n[c@@h]([c@@h](c)o)c(=o)n)n)o	14539800
+rauwolfia serpentina	chembl3559672	db09363	NA	NA
+rauwolscine	chembl10347	NA	coc(=o)[c@@h]1[c@h](cc[c@h]2[c@@h]1c[c@h]3c4=c(ccn3c2)c5=cc=cc=c5n4)o	643606
+ravidasvir	chembl3121849	NA	cc(c)[c@@h](c(=o)n1ccc[c@h]1c2=nc3=c(n2)c=c(c=c3)c4=cc5=c(c=c4)c=c(c=c5)c6=cn=c(n6)[c@@h]7cccn7c(=o)[c@h](c(c)c)nc(=o)oc)nc(=o)oc	52918888
+recilisib	chembl2219421	NA	c1=cc(=cc=c1cs(=o)(=o)/c=c/c2=cc=c(c=c2)c(=o)o)cl	9884220
+refametinib	chembl2138601	NA	coc1=cc(=c(c(=c1ns(=o)(=o)c2(cc2)cc(co)o)nc3=c(c=c(c=c3)i)f)f)f	15985330
+regn-421	chembl2109383	NA	NA	NA
+regramostim	chembl2107881	NA	NA	NA
+renzapride	chembl159825	db04917	coc1=cc(=c(c=c1c(=o)nc2ccn3ccc2c3)cl)n	44374544
+resequinil	chembl2107801	NA	cc1=n/c(=c\2/c=c3c(=nc2=o)c=cn=c3c4=cc(=cc=c4)oc)/no1	9862502
+reserpine	chembl772	db00206	co[c@h]1[c@@h](c[c@@h]2cn3ccc4=c([c@h]3c[c@@h]2[c@@h]1c(=o)oc)nc5=c4c=cc(=c5)oc)oc(=o)c6=cc(=c(c(=c6)oc)oc)oc	5770
+resveratrol	chembl165	db02709	c1=cc(=cc=c1/c=c/c2=cc(=cc(=c2)o)o)o	445154
+rg-1530	chembl1980391	NA	cc1=c2c(=nc3=cc(=c(c=c3c(=n2)c4=cc=cc=c4cl)f)oc)nn1	11610113
+rg-547	chembl384304	db08094	coc1=c(c(=c(c=c1)f)f)c(=o)c2=cn=c(n=c2n)nc3ccn(cc3)s(=o)(=o)c	6918852
+rg-7666	chembl3545324	NA	NA	NA
+rg3487	chembl3544952	NA	NA	10380472
+rgb-286638	chembl3545083	NA	coccn1ccn(cc1)cc2=cc=c(c=c2)c3=nnc4=c3c(=o)c5=c4c=cc=c5nc(=o)nn6ccocc6	11285002
+ribociclib	chembl3545110	db11730	cn(c)c(=o)c1=cc2=cn=c(n=c2n1c3cccc3)nc4=nc=c(c=c4)n5ccncc5	44631912
+ricolinostat	chembl2364628	db12376	c1=cc=c(c=c1)n(c2=cc=cc=c2)c3=nc=c(c=n3)c(=o)nccccccc(=o)no	53340666
+rigosertib	chembl1241855	db12146	coc1=c(c=c(c=c1)cs(=o)(=o)/c=c/c2=c(c=c(c=c2oc)oc)oc)ncc(=o)o	6918736
+riluzole	chembl744	db00740	c1=cc2=c(c=c1oc(f)(f)f)sc(=n2)n	5070
+riociguat	chembl2107834	db08931	cn(c1=c(n=c(n=c1n)c2=nn(c3=c2c=cc=n3)cc4=cc=cc=c4f)n)c(=o)oc	11304743
+ritanserin	chembl267777	db12693	cc1=c(c(=o)n2c=csc2=n1)ccn3ccc(=c(c4=cc=c(c=c4)f)c5=cc=c(c=c5)f)cc3	5074
+ritonavir	chembl163	db00503	cc(c)c1=nc(=cs1)cn(c)c(=o)n[c@@h](c(c)c)c(=o)n[c@@h](cc2=cc=cc=c2)c[c@@h]([c@h](cc3=cc=cc=c3)nc(=o)occ4=cn=cs4)o	392622
+rizatriptan	chembl905	db00953	cn(c)ccc1=cnc2=c1c=c(c=c2)cn3c=nc=n3	5078
+ro-4987655	chembl1614766	db12933	c1cc(=o)n(oc1)cc2=c(c(=c(c(=c2)c(=o)nocco)nc3=c(c=c(c=c3)i)f)f)f	11548630
+rocuronium bromide	chembl1200648	db00728	cc(=o)o[c@h]1[c@h](c[c@@h]2[c@@]1(cc[c@h]3[c@h]2cc[c@@h]4[c@@]3(c[c@@h]([c@h](c4)o)n5ccocc5)c)c)[n+]6(cccc6)cc=c.[br-]	441351
+rofecoxib	chembl122	db00533	cs(=o)(=o)c1=cc=c(c=c1)c2=c(c(=o)oc2)c3=cc=cc=c3	5090
+rolipram	chembl63	db01954	coc1=c(c=c(c=c1)c2cc(=o)nc2)oc3cccc3	5092
+rolofylline (chembl52333)	chembl52333	db12670	cccn1c2=c(c(=o)n(c1=o)ccc)nc(=n2)c34cc5cc(c3)cc4c5	64627
+roniciclib	chembl3544942	db12974	NA	45380979
+ropivacaine hydrochloride	chembl1889140	db00296	cccn1cccc[c@h]1c(=o)nc2=c(c=cc=c2c)c.cl	175804
+rosiglitazone	chembl121	db00412	cn(ccoc1=cc=c(c=c1)cc2c(=o)nc(=o)s2)c3=cc=cc=n3	77999
+roxindole	chembl431367	NA	c1cn(cc=c1c2=cc=cc=c2)ccccc3=cnc4=c3c=c(c=c4)o	219050
+roxithromycin	chembl1214185	db00778	cc[c@@h]1[c@@]([c@@h]([c@h](/c(=n/ococcoc)/[c@@h](c[c@@]([c@@h]([c@h]([c@@h]([c@h](c(=o)o1)c)o[c@h]2c[c@@]([c@h]([c@@h](o2)c)o)(c)oc)c)o[c@h]3[c@@h]([c@h](c[c@h](o3)c)n(c)c)o)(c)o)c)c)o)(c)o	6915744
+ru-24969	chembl18785	NA	coc1=cc2=c(c=c1)nc=c2c3=ccncc3	108029
+ruboxistaurin	chembl91829	db11829	cn(c)c[c@@h]1ccn2c=c(c3=cc=cc=c32)c4=c(c5=cn(cco1)c6=cc=cc=c65)c(=o)nc4=o	153999
+ruthenium red	chembl2068405	NA	NA	NA
+rutin	chembl226335	db01698	c[c@h]1[c@@h]([c@h]([c@h]([c@@h](o1)oc[c@@h]2[c@h]([c@@h]([c@h]([c@@h](o2)oc3=c(oc4=cc(=cc(=c4c3=o)o)o)c5=cc(=c(c=c5)o)o)o)o)o)o)o)o	5280805
+ruxolitinib	chembl1789941	db08877	c1ccc(c1)[c@@h](cc#n)n2c=c(c=n2)c3=c4c=cnc4=nc=n3	25126798
+safinamide	chembl48582	db06654	c[c@@h](c(=o)n)ncc1=cc=c(c=c1)occ2=cc(=cc=c2)f	131682
+sagopilone	chembl2304041	db12391	c[c@h]1ccc[c@@]2([c@@h](o2)c[c@h](oc(=o)c[c@@h](c(c(=o)[c@@h]([c@h]1o)cc=c)(c)c)o)c3=cc4=c(c=c3)sc(=n4)c)c	11284169
+salicylic acid	chembl424	db00936	c1=cc=c(c(=c1)c(=o)o)o	338
+saracatinib	chembl217092	db11805	cn1ccn(cc1)ccoc2=cc(=c3c(=c2)n=cn=c3nc4=c(c=cc5=c4oco5)cl)oc6ccocc6	10302451
+sb-224289	chembl281350	NA	cc1=c(c=cc(=c1)c2=noc(=n2)c)c3=cc=c(c=c3)c(=o)n4ccc5=c4c=c6c(=c5)occ67ccn(cc7)c	3378093
+sb-243213	chembl14460	NA	cc1=c(c=c2c(=c1)ccn2c(=o)nc3=cn=c(c=c3)oc4=c(n=cc=c4)c)c(f)(f)f	443391
+sch-23390	chembl62	NA	cn1ccc2=cc(=c(c=c2[c@h](c1)c3=cc=cc=c3)o)cl	3036864
+scriptaid	chembl96051	NA	c1=cc2=c3c(=c1)c(=o)n(c(=o)c3=cc=c2)cccccc(=o)no	5186
+sebacic acid	chembl1232164	db07645	c(ccccc(=o)o)cccc(=o)o	5192
+secobarbital sodium	chembl1200903	db00418	cccc(c)c1(c(=o)nc(=o)[n-]c1=o)cc=c.[na+]	14148199
+seliciclib	chembl14762	NA	cc[c@h](co)nc1=nc2=c(c(=n1)ncc3=cc=cc=c3)n=cn2c(c)c	160355
+selumetinib	chembl1614701	db11689	cn1c=nc2=c1c=c(c(=c2f)nc3=c(c=c(c=c3)br)cl)c(=o)nocco	10127622
+selurampanel	chembl3545042	db12367	cc(c)c1=c(c=c2c(=c1)nc(=o)n(c2=o)ns(=o)(=o)c)c3=cc=nn3c	45381907
+semagacestat	chembl520733	db12463	c[c@@h](c(=o)n[c@h]1c2=cc=cc=c2ccn(c1=o)c)nc(=o)[c@h](c(c)c)o	9843750
+semapimod	chembl2107779	db12094	c/c(=n\n=c(n)n)/c1=cc(=cc(=c1)nc(=o)ccccccccc(=o)nc2=cc(=cc(=c2)/c(=n/n=c(n)n)/c)/c(=n/n=c(n)n)/c)/c(=n/n=c(n)n)/c	5745214
+semaxanib	chembl276711	db06436	cc1=cc(=c(n1)/c=c\2/c3=cc=cc=c3nc2=o)c	5329098
+senrebotase	chembl3137348	db12626	NA	5799
+serotonin	chembl39	NA	c1=cc2=c(c=c1o)c(=cn2)ccn	5202
+sf-1126	chembl2326966	db05210	c1cocc[n+]1(coc(=o)ccc(=o)n[c@@h](cccn=c(n)n)c(=o)ncc(=o)n[c@@h](cc(=o)o)c(=o)n[c@@h](co)c(=o)[o-])c2=cc(=o)c3=c(o2)c(=cc=c3)c4=cc=cc=c4	66577114
+sgi-1776	chembl1952329	db12494	cn1ccc(cc1)cnc2=nn3c(=nc=c3c4=cc(=cc=c4)oc(f)(f)f)c=c2	24795070
+silmitasertib	chembl1230165	NA	c1=cc(=cc(=c1)cl)nc2=c3c=cn=cc3=c4c=cc(=cc4=n2)c(=o)o	24748573
+simvastatin	chembl1064	db00641	ccc(c)(c)c(=o)o[c@h]1c[c@h](c=c2[c@h]1[c@h]([c@h](c=c2)c)cc[c@@h]3c[c@h](cc(=o)o3)o)c	54454
+sodium butyrate	chembl62381	NA	cccc(=o)[o-].[na+]	104775
+sodium chloride	chembl1200574	db09153	[na+].[cl-]	5234
+sodium phenylbutyrate	chembl1746	db06819	c1=cc=c(c=c1)cccc(=o)[o-].[na+]	5258
+sonolisib	chembl411907	db12601	cc(=o)o[c@@h]1c[c@]2([c@@h](ccc2=o)c3=c1[c@]4([c@h](oc(=o)/c(=c/n(cc=c)cc=c)/c4=c(c3=o)o)coc)c)c	9849735
+sorafenib tosylate	chembl1200485	db00398	cc1=cc=c(c=c1)s(=o)(=o)o.cnc(=o)c1=nc=cc(=c1)oc2=cc=c(c=c2)nc(=o)nc3=cc(=c(c=c3)cl)c(f)(f)f	406563
+sotrastaurin	chembl565612	db12369	cn1ccn(cc1)c2=nc3=cc=cc=c3c(=n2)c4=c(c(=o)nc4=o)c5=cnc6=cc=cc=c65	10296883
+soybean oil	chembl1201485	db09422	NA	NA
+spiperone	chembl267930	NA	c1cn(ccc12c(=o)ncn2c3=cc=cc=c3)cccc(=o)c4=cc=c(c=c4)f	5265
+spiroxatrine	chembl300555	NA	c1cn(ccc12c(=o)ncn2c3=cc=cc=c3)cc4coc5=cc=cc=c5o4	5268
+stanolone	chembl27769	db02901	c[c@]12ccc(=o)c[c@@h]1cc[c@@h]3[c@@h]2cc[c@]4([c@h]3cc[c@@h]4o)c	10635
+stavudine	chembl991	db00649	cc1=cn(c(=o)nc1=o)[c@h]2c=c[c@h](o2)co	18283
+streptozotocin	chembl1603	db00428	cn(c(=o)n[c@@h]1[c@h]([c@@h]([c@h](oc1o)co)o)o)n=o	29327
+strychnine	chembl227934	NA	c1cn2cc3=cco[c@h]4cc(=o)n5[c@h]6[c@h]4[c@h]3c[c@h]2[c@@]61c7=cc=cc=c75	441071
+su-014813	chembl1721885	NA	cc1=c(nc(=c1c(=o)nc[c@@h](cn2ccocc2)o)c)/c=c\3/c4=c(c=cc(=c4)f)nc3=o	10138259
+su-14813	chembl3545160	NA	NA	10138259
+succinylcholine chloride	chembl983	db00202	c[n+](c)(c)ccoc(=o)ccc(=o)occ[n+](c)(c)c.[cl-].[cl-]	22475
+sulfinpyrazone	chembl832	db01138	c1=cc=c(c=c1)n2c(=o)c(c(=o)n2c3=cc=cc=c3)ccs(=o)c4=cc=cc=c4	5342
+sulforaphane	chembl48802	db12422	cs(=o)ccccn=c=s	5350
+sulpiride	chembl26	db00391	ccn1cccc1cnc(=o)c2=c(c=cc(=c2)s(=o)(=o)n)oc	5355
+sumatriptan	chembl128	db00669	cns(=o)(=o)cc1=cc2=c(c=c1)nc=c2ccn(c)c	5358
+sunitinib malate	chembl1567	db01268	ccn(cc)ccnc(=o)c1=c(nc(=c1c)/c=c\2/c3=c(c=cc(=c3)f)nc2=o)c.c([c@@h](c(=o)o)o)c(=o)o	6456015
+t-butylbicyclophosphorothionate	chembl485673	NA	cc(c)(c)c12cop(=s)(oc1)oc2	104781
+tacedinaline	chembl235191	db12291	cc(=o)nc1=cc=c(c=c1)c(=o)nc2=cc=cc=c2n	2746
+tak-593	chembl2180604	db13093	cc1=c(c=c(c=c1)oc2=nn3c=c(n=c3c=c2)nc(=o)c4cc4)nc(=o)c5=cc(=nn5c)c	24767976
+tak-659	chembl3544931	NA	NA	53252276
+tak-733	chembl1615025	db12241	cn1c2=c(c(=c(c1=o)f)nc3=c(c=c(c=c3)i)f)c(=o)n(c=n2)c[c@h](co)o	24963252
+talampanel	chembl61872	db04982	c[c@@h]1cc2=cc3=c(c=c2c(=nn1c(=o)c)c4=cc=c(c=c4)n)oco3	164509
+talazoparib	chembl3137320	db11760	cn1c(=nc=n1)[c@@h]2[c@h](n=c3c=c(c=c4c3=c2nnc4=o)f)c5=cc=c(c=c5)f	44819241
+tandutinib	chembl124660	db05465	cc(c)oc1=cc=c(c=c1)nc(=o)n2ccn(cc2)c3=nc=nc4=cc(=c(c=c43)oc)occcn5ccccc5	3038522
+tanespimycin	chembl109480	db05134	c[c@h]1c[c@@h]([c@@h]([c@h](/c=c(/[c@@h]([c@h](/c=c\c=c(\c(=o)nc2=cc(=o)c(=c(c1)c2=o)ncc=c)/c)oc)oc(=o)n)\c)c)o)oc	6505803
+tarenflurbil	chembl190083	db05289	c[c@h](c1=cc(=c(c=c1)c2=cc=cc=c2)f)c(=o)o	92337
+taselisib	chembl2387080	db12108	cc1=nn(c(=n1)c2=cn3ccoc4=c(c3=n2)c=cc(=c4)c5=cn(n=c5)c(c)(c)c(=o)n)c(c)c	51001932
+tazarotene	chembl1657	db00799	ccoc(=o)c1=cn=c(c=c1)c#cc2=cc3=c(c=c2)sccc3(c)c	5381
+tedatioxetine	chembl2104986	db12641	cc1=cc=c(c=c1)sc2=cc=cc=c2c3ccncc3	9878913
+tedisamil	chembl113461	NA	c1ccc2(c1)c3cn(cc2cn(c3)cc4cc4)cc5cc5	65825
+telatinib	chembl2079588	NA	cnc(=o)c1=nc=cc(=c1)coc2=nn=c(c3=c2oc=c3)nc4=cc=c(c=c4)cl	9808844
+temozolomide	chembl810	db00853	cn1c(=o)n2c=nc(=c2n=n1)c(=o)n	5394
+temsirolimus	chembl1201182	db06287	c[c@@h]1cc[c@h]2c[c@@h](/c(=c/c=c/c=c/[c@h](c[c@h](c(=o)[c@@h]([c@@h](/c(=c/[c@h](c(=o)c[c@h](oc(=o)[c@@h]3ccccn3c(=o)c(=o)[c@@]1(o2)o)[c@h](c)c[c@@h]4cc[c@h]([c@@h](c4)oc)oc(=o)c(c)(co)co)c)/c)o)oc)c)c)/c)oc	6918289
+teniposide	chembl452231	db00444	coc1=cc(=cc(=c1o)oc)[c@h]2[c@@h]3[c@h](coc3=o)[c@@h](c4=cc5=c(c=c24)oco5)o[c@h]6[c@@h]([c@h]([c@h]7[c@h](o6)co[c@h](o7)c8=cc=cs8)o)o	452548
+terguride	chembl73151	NA	ccn(cc)c(=o)n[c@h]1c[c@h]2[c@@h](cc3=cnc4=cc=cc2=c34)n(c1)c	443951
+tesevatinib	chembl3544983	db11973	cn1c[c@h]2cc(c[c@h]2c1)coc3=c(c=c4c(=c3)n=cn=c4nc5=c(c(=c(c=c5)cl)cl)f)oc	10458325
+testosterone	chembl67934	db00624	c[c@]12cc[c@h]3[c@h]([c@@h]1cc[c@@h]2o)ccc4=cc(=o)cc[c@]34c	5701998
+tetracaine hydrochloride	chembl1255654	db09085	ccccnc1=cc=c(c=c1)c(=o)occn(c)c.cl	8695
+tetrahydrozoline hydrochloride	chembl1200413	db06764	c1cc(c2=cc=cc=c2c1)c3=nccn3.cl	10648
+tetrodotoxin	chembl507974	db05232	c([c@@]1([c@h]2[c@@h]3[c@h](n=c(n[c@@]34[c@@h]([c@@h]1o[c@]([c@h]4o)(o2)o)o)n)o)o)o	11174599
+tezampanel	chembl14935	NA	c1c[c@h]2cn[c@@h](c[c@h]2c[c@h]1ccc3=nnn=n3)c(=o)o	127894
+tg-02	chembl1944698	NA	cn1c/c=c/ccoc2=cc=cc(=c2)c3=nc(=nc=c3)nc4=cc=cc(=c4)c1	16739650
+tg100-801	chembl403989	db05075	cc1=c2c(=cc(=c1)c3=c(c=cc(=c3)oc(=o)c4=cc=cc=c4)cl)n=nc(=n2)nc5=cc=c(c=c5)occn6cccc6	11973736
+theophylline sodium glycinate	chembl1200578	db00277	cn1c2=c(c(=o)n(c1=o)c)nc=n2.c(c(=o)[o-])n.[na+]	23663537
+thiethylperazine	chembl1378	db00372	ccsc1=cc2=c(c=c1)sc3=cc=cc=c3n2cccn4ccn(cc4)c	5440
+thioguanine	chembl727	db00352	c1=nc2=c(n1)c(=s)n=c(n2)n	2723601
+thiopental sodium	chembl738	db00599	cccc(c)c1(c(=o)nc(=nc1=o)[s-])cc.[na+]	23665410
+thioridazine hydrochloride	chembl1200916	db00679	cn1ccccc1ccn2c3=cc=cc=c3sc4=c2c=c(c=c4)sc.cl	66062
+thrombin	chembl2108110	db11300	NA	90470996
+thymidine	chembl52609	db04485	cc1=cn(c(=o)nc1=o)[c@h]2c[c@@h]([c@h](o2)co)o	5789
+thyrotropin	chembl1201532	db00024	NA	NA
+thyroxine	chembl42115	NA	c1=c(c=c(c(=c1i)oc2=cc(=c(c(=c2)i)o)i)i)cc(c(=o)o)n	853
+tipifarnib	chembl289228	db04960	cn1c=nc=c1[c@@](c2=cc=c(c=c2)cl)(c3=cc4=c(c=c3)n(c(=o)c=c4c5=cc(=cc=c5)cl)c)n	159324
+tivozanib	chembl1289494	db11800	cc1=cc(=no1)nc(=o)nc2=c(c=c(c=c2)oc3=c4c=c(c(=cc4=nc=c3)oc)oc)cl	9911830
+tocainide hydrochloride	chembl1200773	db01056	cc1=c(c(=cc=c1)c)nc(=o)c(c)n.cl	108173
+tolazoline hydrochloride	chembl1689	db00797	c1cn=c(n1)cc2=cc=cc=c2.cl	6048
+topotecan	chembl84	db01030	cc[c@@]1(c2=c(coc1=o)c(=o)n3cc4=c(c3=c2)n=c5c=cc(=c(c5=c4)cn(c)c)o)o	60700
+toremifene	chembl1655	db00539	cn(c)ccoc1=cc=c(c=c1)/c(=c(/cccl)\c2=cc=cc=c2)/c3=cc=cc=c3	3005573
+tosedostat	chembl2103847	db11781	cc(c)c[c@h]([c@@h](c(=o)no)o)c(=o)n[c@@h](c1=cc=cc=c1)c(=o)oc2cccc2	15547703
+trametinib	chembl2103875	db08911	cc1=c2c(=c(n(c1=o)c)nc3=c(c=c(c=c3)i)f)c(=o)n(c(=o)n2c4=cc(=cc=c4)nc(=o)c)c5cc5	11707110
+treprostinil	chembl1237119	db00374	ccccc[c@@h](cc[c@h]1[c@@h](c[c@h]2[c@@h]1cc3=c(c2)c(=cc=c3)occ(=o)o)o)o	6918140
+triamcinolone	chembl1451	db00620	c[c@]12c[c@@h]([c@]3([c@h]([c@@h]1c[c@h]([c@@]2(c(=o)co)o)o)ccc4=cc(=o)c=c[c@@]43c)f)o	31307
+triamterene	chembl585	db00384	c1=cc=c(c=c1)c2=nc3=c(n=c2n)n=c(n=c3n)n	5546
+trichostatin	chembl99	db04297	c[c@h](/c=c(\c)/c=c/c(=o)no)c(=o)c1=cc=c(c=c1)n(c)c	444732
+trifluoperazine hydrochloride	chembl1710	db00831	cn1ccn(cc1)cccn2c3=cc=cc=c3sc4=c2c=c(c=c4)c(f)(f)f.cl	2913535
+trimethoprim	chembl22	db00440	coc1=cc(=cc(=c1oc)oc)cc2=cn=c(n=c2n)n	5578
+trimipramine maleate	chembl1200948	db00726	cc(cn1c2=cc=cc=c2ccc3=cc=cc=c31)cn(c)c.c(=c\c(=o)o)\c(=o)o	5282318
+tripitramine	chembl265256	NA	cn(ccccccccn(c)ccccccn(cc(=o)n1c2=cc=cc=c2c(=o)nc3=c1n=cc=c3)cc(=o)n4c5=cc=cc=c5c(=o)nc6=c4n=cc=c6)ccccccncc(=o)n7c8=cc=cc=c8c(=o)nc9=c7n=cc=c9	132947
+tropisetron	chembl56564	db11699	cn1[c@@h]2cc[c@h]1cc(c2)oc(=o)c3=cnc4=cc=cc=c43	656665
+tryptamine	chembl6640	db08653	c1=cc=c2c(=c1)c(=cn2)ccn	1150
+u-0126	chembl100473	NA	c1=cc=c(c(=c1)n)s/c(=c(\c#n)/c(=c(/n)\sc2=cc=cc=c2n)/c#n)/n	3006531
+uprosertib	chembl3137336	db11969	cn1c(=c(c=n1)cl)c2=c(oc(=c2)c(=o)n[c@@h](cc3=cc(=c(c=c3)f)f)cn)cl	51042438
+urea	chembl985	db03904	c(=o)(n)n	1176
+uridine	chembl100259	db02745	c1=cn(c(=o)nc1=o)[c@h]2[c@@h]([c@@h]([c@h](o2)co)o)o	6029
+uridine diphosphate glucose	chembl375951	db01861	c1=cn(c(=o)nc1=o)[c@h]2[c@@h]([c@@h]([c@h](o2)cop(=o)(o)op(=o)(o)o[c@@h]3[c@@h]([c@h]([c@@h]([c@h](o3)co)o)o)o)o)o	8629
+ursodiol	chembl1551	db01586	c[c@h](ccc(=o)o)[c@h]1cc[c@@h]2[c@@]1(cc[c@h]3[c@h]2[c@h](c[c@h]4[c@@]3(cc[c@h](c4)o)c)o)c	31401
+vantictumab	chembl2364652	db12956	NA	NA
+vasopressin	chembl373742	db00067	c1c[c@h](n(c1)c(=o)[c@@h]2cssc[c@@h](c(=o)n[c@h](c(=o)n[c@h](c(=o)n[c@h](c(=o)n[c@h](c(=o)n2)cc(=o)n)ccc(=o)n)cc3=cc=cc=c3)cc4=cc=c(c=c4)o)n)c(=o)n[c@@h](cccn=c(n)n)c(=o)ncc(=o)n	644077
+vasopressin tannate	chembl1201528	NA	NA	8230
+vatalanib	chembl101253	db04879	c1=cc=c2c(=c1)c(=nn=c2nc3=cc=c(c=c3)cl)cc4=cc=nc=c4	151194
+vecuronium bromide	chembl1200629	db01339	cc(=o)o[c@h]1c[c@@h]2cc[c@@h]3[c@@h]([c@]2(c[c@@h]1n4ccccc4)c)cc[c@]5([c@h]3c[c@@h]([c@@h]5oc(=o)c)[n+]6(ccccc6)c)c.[br-]	39764
+veliparib	chembl497608	db07232	c[c@@]1(cccn1)c2=nc3=c(c=cc=c3n2)c(=o)n	11842604
+vemurafenib	chembl1229517	db08881	cccs(=o)(=o)nc1=c(c(=c(c=c1)f)c(=o)c2=cnc3=nc=c(c=c23)c4=cc=c(c=c4)cl)f	42611257
+venetoclax	chembl3137309	db11581	cc1(ccc(=c(c1)c2=cc=c(c=c2)cl)cn3ccn(cc3)c4=cc(=c(c=c4)c(=o)ns(=o)(=o)c5=cc(=c(c=c5)ncc6ccocc6)[n+](=o)[o-])oc7=cn=c8c(=c7)c=cn8)c	49846579
+veratridine	chembl439496	NA	c[c@h]1cc[c@h]2[c@@]([c@]3([c@h](c[c@]4([c@@h]5cc[c@h]6[c@]7([c@]5(c[c@]4([c@@h]3cn2c1)o)o[c@@]6([c@h](cc7)oc(=o)c8=cc(=c(c=c8)oc)oc)o)c)o)o)o)(c)o	6280
+verubulin	chembl492399	NA	cc1=nc2=cc=cc=c2c(=n1)n(c)c3=cc=c(c=c3)oc	11414799
+vesnarinone	chembl17423	db12082	coc1=c(c=c(c=c1)c(=o)n2ccn(cc2)c3=cc4=c(c=c3)nc(=o)cc4)oc	5663
+vilazodone	chembl439849	db06684	c1cn(ccn1ccccc2=cnc3=c2c=c(c=c3)c#n)c4=cc5=c(c=c4)oc(=c5)c(=o)n	6918314
+vinblastine sulfate	chembl378544	db00570	cc[c@@]1(c[c@h]2c[c@@](c3=c(ccn(c2)c1)c4=cc=cc=c4n3)(c5=c(c=c6c(=c5)[c@]78ccn9[c@h]7[c@@](c=cc9)([c@h]([c@@]([c@@h]8n6c)(c(=o)oc)o)oc(=o)c)cc)oc)c(=o)oc)o.os(=o)(=o)o	5388983
+vincristine sulfate	chembl501867	db00541	cc[c@@]1(c[c@@h]2c[c@@](c3=c(ccn(c2)c1)c4=cc=cc=c4n3)(c5=c(c=c6c(=c5)[c@]78ccn9[c@h]7[c@@](c=cc9)([c@h]([c@@]([c@@h]8n6c=o)(c(=o)oc)o)oc(=o)c)cc)oc)c(=o)oc)o.os(=o)(=o)o	249332
+vinorelbin ditartrate	chembl538943	db00361	ccc1=c[c@h]2c[c@@](c3=c(cn(c2)c1)c4=cc=cc=c4n3)(c5=c(c=c6c(=c5)[c@]78ccn9[c@h]7[c@@](c=cc9)([c@h]([c@@]([c@@h]8n6c)(c(=o)oc)o)oc(=o)c)cc)oc)c(=o)oc.c(c(c(=o)o)o)(c(=o)o)o.c(c(c(=o)o)o)(c(=o)o)o	16051941
+vitamin b12	chembl2375172	db00115	NA	5311498
+vitamin k	chembl1201519	NA	NA	5280483
+volanesorsen sodium	chembl3544989	NA	NA	121494122
+voxtalisib	chembl3545366	db12400	ccn1c2=nc(=nc(=c2c=c(c1=o)c3=cc=nn3)c)n	16123056
+vs-5584	chembl1079593	db12986	c1coc2=c([c@@h]1n3c4=nc(=nc=c4nc3=o)n5c=nc6=c5c=c(c=c6)f)c=cc=c2f	45375955
+vx-970	chembl3545202	NA	NA	59472121
+warfarin	chembl1464	db00682	cc(=o)cc(c1=cc=cc=c1)c2=c(c3=cc=cc=c3oc2=o)o	54678486
+wortmannin	chembl428496	db08059	cc(=o)o[c@@h]1c[c@]2([c@@h](ccc2=o)c3=c1[c@]4([c@h](oc(=o)c5=coc(=c54)c3=o)coc)c)c	312145
+wx-037	chembl3545385	NA	NA	NA
+wx-554	chembl3545145	NA	NA	NA
+x-82	chembl3545401	NA	NA	NA
+xanomeline	chembl21536	NA	ccccccoc1=nsn=c1c2=cccn(c2)c	60809
+xl-228	chembl3545085	db05184	cc(c)c1=noc(=c1)cnc2=nc(=cc(=n2)nc3=nnc(=c3)c4cc4)n5ccn(cc5)c	59757974
+xl-418	chembl3544935	db05204	NA	56963011
+xl-820	chembl3545402	db05146	NA	NA
+xl-999	chembl3545285	db05014	NA	NA
+zidovudine	chembl129	db00495	cc1=cn(c(=o)nc1=o)[c@h]2c[c@@h]([c@h](o2)co)n=[n+]=[n-]	35370
+zinc chloride	chembl1200679	NA	[cl-].[cl-].[zn+2]	3007855
+zinc ion	chembl1236970	NA	[zn+2]	32051
+zinc sulfate	chembl1200929	db09322	[o-]s(=o)(=o)[o-].[zn+2]	24424
+zolmitriptan	chembl1185	db00315	cn(c)ccc1=cnc2=c1c=c(c=c2)c[c@h]3coc(=o)n3	60857
+zotepine	chembl285802	db09225	cn(c)ccoc1=cc2=cc=cc=c2sc3=c1c=c(c=c3)cl	5736
+zstk-474	chembl586701	db12904	cc1=cc=c(c=c1)c2c3=c(c4=cc=cc=c4c3=o)nc5=cc=cc=c5s2	3702043
+2-aminobenzenesulfonamide	chembl6705	NA	nc1ccccc1s(n)(=o)=o	72894
+2-bfi	chembl404505	NA	c1cn=c(n1)c1cc2ccccc2o1	3080926
+4-damp	chembl168067	NA	c[n+]1(c)ccc(cc1)oc(=o)c(c1ccccc1)c1ccccc1	1734
+5-carboxamidotryptamine	chembl18840	NA	nccc1c[nh]c2ccc(cc12)c(n)=o	1809
+aceclidine	chembl20835	NA	cc(=o)oc1cn2ccc1cc2	1979
+aceneuramic-acid	chembl165084	db04265	cc(=o)n[c@@h]1[c@@h](o)c[c@](o)(o[c@h]1[c@h](o)[c@h](o)co)c(o)=o	445063
+afimoxifene	chembl489	db04468	cc\c(c1ccccc1)=c(/c1ccc(o)cc1)c1ccc(occn(c)c)cc1	449459
+alanine	chembl12198	db00160	cc(n)c(o)=o	602
+alcuronium	chembl1180293	NA	oc\c=c1/c[n@+]2(cc=c)cc[c@@]34[c@@h]2c[c@@h]1\c1=c\n2c5[c@]6(cc[n@@+]7(cc=c)c\c(=c/co)[c@h](c[c@@h]67)\c5=c\n(c31)c1ccccc41)c1ccccc21	90659973
+alendronate	chembl870	db00630	ncccc(o)(p(o)(o)=o)p(o)(o)=o	2088
+alpha-methylserotonin	chembl275854	NA	cc(n)cc1c[nh]c2ccc(o)cc12	2107
+aminosalicylate	chembl1169	db00233	nc1ccc(c(o)=o)c(o)c1	4649
+aniracetam	chembl36994	db04599	coc1ccc(cc1)c(=o)n1cccc1=o	2196
+apigenin	chembl28	db07352	oc1ccc(cc1)-c1cc(=o)c2c(o)cc(o)cc2o1	5280443
+azd4547	chembl3348846	db12247	coc1cc(ccc2cc(nc(=o)c3ccc(cc3)n3c[c@h](c)n[c@h](c)c3)n[nh]2)cc(oc)c1	51039095
+baicalein	chembl8260	NA	oc1cc2oc(cc(=o)c2c(o)c1o)-c1ccccc1	5281605
+benfluralin	chembl1256668	NA	ccccn(cc)c1c(cc(cc1[n+]([o-])=o)c(f)(f)f)[n+]([o-])=o	2319
+benzamil	chembl212579	NA	n\c(ncc1ccccc1)=n/c(=o)c1nc(cl)c(n)nc1n	108107
+bilobalide	chembl133266	NA	cc(c)(c)[c@@]1(o)c[c@@h]2oc(=o)c[c@@]22c(=o)o[c@h]3oc(=o)[c@h](o)c123	44353155
+bisindolylmaleimide-ix	chembl6291	NA	cn1cc(c2=c(c(=o)nc2=o)c2cn(cccsc(n)=n)c3ccccc23)c2ccccc12	5083
+bisphenol-a	chembl418971	db06973	cc(c)(c1ccc(o)cc1)c1ccc(o)cc1	6623
+bms-536924	chembl401930	NA	cc1cc(cc2[nh]c(nc12)-c1c(nc[c@@h](o)c2cccc(cl)c2)cc[nh]c1=o)n1ccocc1	10390396
+bp-897	chembl25236	NA	coc1ccccc1n1ccn(ccccnc(=o)c2ccc3ccccc3c2)cc1	3038495
+bremelanotide	chembl2070241	db11653	cccc[c@h](nc(c)=o)c(=o)n[c@h]1cc(=o)ncccc[c@h](nc(=o)[c@h](cc2c[nh]c3ccccc23)nc(=o)[c@h](cccnc(n)=n)nc(=o)[c@@h](cc2ccccc2)nc(=o)[c@h](cc2cnc[nh]2)nc1=o)c(o)=o	9941379
+c11-acetate	chembl1354	NA	[y+3]	175
+carbachol	chembl14	db00411	c[n+](c)(c)ccoc(n)=o	2551
+carzenide	chembl414	NA	ns(=o)(=o)c1ccc(cc1)c(o)=o	8739
+cgp-54626	chembl1213187	NA	c[c@h](nc[c@h](o)cp(o)(=o)cc1ccccc1)c1ccc(cl)c(cl)c1	197584
+cgp-55845	chembl455185	NA	c[c@h](nc[c@h](o)cp(o)(=o)cc1ccccc1)c1ccc(cl)c(cl)c1	5311042
+cgp-57380	chembl1240885	NA	nc1ncnc2[nh]nc(nc3ccc(f)cc3)c12	11644425
+cgs-20625	chembl1087629	NA	coc1ccc(cc1)-n1nc2c3cccccc3[nh]cc2c1=o	46880048
+cipemastat	chembl115653	NA	cn1c(=o)n(c[c@@h]([c@@h](cc2cccc2)c(=o)n2ccccc2)c(=o)no)c(=o)c1(c)c	9824350
+ciproxifan	chembl14638	NA	o=c(c1cc1)c1ccc(occcc2c[nh]cn2)cc1	6422124
+cis-acpd	chembl1435977	NA	n[c@]1(cc[c@@h](c1)c(o)=o)c(o)=o.n[c@@]1(cc[c@h](c1)c(o)=o)c(o)=o	16760136
+cl-218872	chembl13662	NA	cc1nnc2ccc(nn12)-c1cccc(c1)c(f)(f)f	107950
+cloprostenol-(+/-)	chembl37853	NA	o[c@@h](coc1cccc(cl)c1)\c=c\[c@h]1[c@h](o)c[c@h](o)[c@@h]1c\c=c/cccc(o)=o	5311053
+clorotepine	chembl64249	NA	cn1ccn(cc1)c1cc2ccccc2sc2ccc(cl)cc12	1238
+coenzyme-i	chembl1234613	NA	nc(=o)c1=cn(c=cc1)[c@h]1o[c@@h](cop(o)(=o)op(o)(=o)oc[c@h]2o[c@h]([c@h](o)[c@@h]2o)n2cnc3c(n)ncnc23)[c@h](o)[c@@h]1o	5892
+coumarin	chembl6466	db04665	o=c1ccc2ccccc2o1	323
+cpp	chembl47277	NA	oc(=o)[c@h]1cn(cccp(o)(o)=o)ccn1	6603754
+cts-1027	chembl440498	db08490	onc(=o)c1(cs(=o)(=o)c2ccc(oc3ccc(cl)cc3)cc2)ccocc1	3342298
+cyclic-amp	chembl9871	db02527	nc1ncnc2n(cnc12)c1oc2cop(o)(=o)oc2c1o	274
+d-serine	chembl285123	db03929	n[c@h](co)c(o)=o	71077
+diclofenamide	chembl17	db01144	ns(=o)(=o)c1cc(cl)c(cl)c(c1)s(n)(=o)=o	3038
+dihydrexidine	chembl25856	db12890	oc1cc2cc[c@h]3ncc4ccccc4[c@@h]3c2cc1o	6603820
+dihydroergocristine	chembl601773	NA	cc(c)[c@@]1(nc(=o)[c@@h]2c[c@h]3[c@@h](cc4c[nh]c5cccc3c45)n(c)c2)o[c@@]2(o)[c@@h]3cccn3c(=o)[c@h](cc3ccccc3)n2c1=o	107715
+diltiazem	chembl23	db00343	coc1ccc(cc1)[c@@h]1sc2ccccc2n(ccn(c)c)c(=o)[c@@h]1oc(c)=o	39186
+dizocilpine-(+)	chembl284237	NA	c[c@]12n[c@h](cc3ccccc13)c1ccccc21	180081
+dnqx	chembl155265	db03759	[o-][n+](=o)c1cc2[nh]c(=o)c(=o)[nh]c2cc1[n+]([o-])=o	3899541
+dolutegravir	chembl1229211	db08930	c[c@h]1cco[c@h]2cn3cc(c(=o)ncc4ccc(f)cc4f)c(=o)c(o)c3c(=o)n12	54726191
+doxofylline	chembl1527608	db09273	cn1c2ncn(cc3occo3)c2c(=o)n(c)c1=o	50942
+econazole	chembl808	db01127	clc1ccc(coc(cn2ccnc2)c2ccc(cl)cc2cl)cc1	3198
+efavirenz	chembl223228	db00625	fc(f)(f)[c@]1(oc(=o)nc2ccc(cl)cc12)c#cc1cc1	64139
+eltanolone	chembl207538	db11859	cc(=o)[c@h]1cc[c@h]2[c@@h]3cc[c@h]4c[c@h](o)cc[c@]4(c)[c@h]3cc[c@]12c	92786
+enilconazole	chembl356918	NA	clc1ccc(c(cn2ccnc2)occ=c)c(cl)c1	37175
+ephedrine	chembl211456	db01364	cn[c@@h](c)[c@h](o)c1ccccc1	9294
+epoprostenol	chembl962	NA	ccccc[c@h](o)\c=c\[c@h]1[c@h](o)c[c@@h]2o\c(c[c@h]12)=c/cccc(o)=o	6364626
+erythromycin-estolate	chembl2220427	NA	cc[c@h]1oc(=o)[c@h](c)[c@@h](o[c@h]2c[c@@](c)(oc)[c@@h](o)[c@h](c)o2)[c@h](c)[c@@h](o[c@@h]2o[c@h](c)c[c@@h]([c@h]2oc(=o)cc)n(c)c)[c@](c)(o)c[c@@h](c)c(=o)[c@h](c)[c@@h](o)[c@]1(c)o	71277
+erythromycin-ethylsuccinate	chembl1200688	NA	ccoc(=o)ccc(=o)o[c@h]1[c@h](o[c@@h]2[c@@h](c)[c@h](o[c@h]3c[c@@](c)(oc)[c@@h](o)[c@h](c)o3)[c@@h](c)c(=o)o[c@h](cc)[c@@](c)(o)[c@h](o)[c@@h](c)c(=o)[c@h](c)c[c@@]2(c)o)o[c@h](c)c[c@@h]1n(c)c	443953
+ethanolamine-oleate	chembl1200394	db06689	ncco.cccccccc\c=c/cccccccc(o)=o	49799977
+ferulic-acid	chembl32749	db07767	coc1cc(\c=c\c(o)=o)ccc1o	445858
+flavin-adenine-dinucleotide	chembl3580425	db03147	cc1cc2nc3c(nc(=o)[nh]c3=o)n(cc(o)c(o)c(o)cop(o)(=o)op(o)(=o)occ3oc(c(o)c3o)n3cnc4c(n)ncnc34)c2cc1c	703
+fludarabine-phosphate	chembl1096882	NA	nc1nc(f)nc2n(cnc12)[c@@h]1o[c@h](cop(o)(o)=o)[c@@h](o)[c@@h]1o	30751
+fomepizole	chembl1308	db01213	cc1cn[nh]c1	3406
+gallic-acid	chembl288114	NA	oc(=o)c1cc(o)c(o)c(o)c1	370
+gamma-aminobutyric-acid	chembl96	db02530	ncccc(o)=o	119
+ginkgolide-b	chembl514432	db06744	c[c@@h]1c(=o)o[c@h]2[c@h](o)c34[c@h]5c[c@@h](c(c)(c)c)[c@@]33[c@@h](o)c(=o)o[c@h]3o[c@]4(c(=o)o5)[c@@]12o	6324617
+glucosamine	chembl234432	db01296	n[c@h]1[c@h](o)o[c@h](co)[c@@h](o)[c@@h]1o	441477
+go-6983	chembl261491	NA	coc1ccc2n(cccn(c)c)cc(c3=c(c(=o)nc3=o)c3c[nh]c4ccccc34)c2c1	3499
+gsk1070916	chembl1090479	NA	ccn1cc(c(n1)-c1ccc(nc(=o)n(c)c)cc1)-c1ccnc2[nh]c(cc12)-c1cccc(cn(c)c)c1	46885626
+hexylene-glycol	chembl2104293	NA	cc(o)cc(c)(c)o	7870
+hmn-214	chembl3545431	NA	coc1ccc(cc1)s(=o)(=o)n(c(c)=o)c1ccccc1\c=c\c1cc[n+]([o-])cc1	9888590
+homatropine-methylbromide	chembl1201235	db00725	c[n+]1(c)c2cc[c@h]1c[c@h](c2)oc(=o)c(o)c1ccccc1	5282592
+homoquinolinic-acid	chembl280828	NA	oc(=o)cc1cccnc1c(o)=o	3080554
+hyaluronic-acid	chembl2110674	db08818	cc(=o)n[c@@h]1c[c@h](o)[c@@h](co)o[c@h]1o[c@h]1[c@h](o)[c@@h](o)[c@h](o)o[c@@h]1c(o)=o	6852395
+ici-199441	chembl38576	NA	cn([c@h](cn1cccc1)c1ccccc1)c(=o)cc1ccc(cl)c(cl)c1	3082718
+indirubin-3-monoxime	chembl126077	db02052	o\n=c1c2ccccc2nc/1=c1\c(=o)nc2ccccc12	5326739
+indisulam	chembl77517	NA	ns(=o)(=o)c1ccc(cc1)s(=o)(=o)nc1cccc2c(cl)c[nh]c12	216468
+indoramin	chembl279516	db08950	o=c(nc1ccn(ccc2c[nh]c3ccccc23)cc1)c1ccccc1	33625
+isoniazid	chembl64	db00951	nnc(=o)c1ccncc1	3767
+kaempferol	chembl150	db01852	oc1ccc(cc1)-c1oc2cc(o)cc(o)c2c(=o)c1o	5280863
+kainic-acid	chembl275040	NA	cc(=c)[c@h]1cn[c@@h]([c@h]1cc(o)=o)c(o)=o	10255
+ketotifen	chembl534	db00920	cn1ccc(cc1)=c1c2ccsc2c(=o)cc2ccccc12	3827
+kn-62	chembl130321	NA	cn(c(cc1ccc(os(=o)(=o)c2cccc3cnccc23)cc1)c(=o)n1ccn(cc1)c1ccccc1)s(=o)(=o)c1cccc2cnccc12	3838
+l-689560	chembl287327	NA	oc(=o)[c@h]1c[c@h](nc(=o)nc2ccccc2)c2c(cl)cc(cl)cc2n1	6604749
+l-701324	chembl31741	NA	oc1c(-c2cccc(oc3ccccc3)c2)c(=o)[nh]c2cc(cl)ccc12	54682505
+l-745870	chembl267014	NA	clc1ccc(cc1)n1ccn(cc2c[nh]c3ncccc23)cc1	5311200
+l-arginine	chembl212301	db04027	n[c@h](cccnc(n)=n)c(o)=o	71070
+l-cysteinesulfinic-acid	chembl1160508	db02153	n[c@@h](cs(o)=o)c(o)=o	1549098
+l-glutamic-acid	chembl575060	db00142	n[c@@h](ccc(o)=o)c(o)=o	33032
+l-quisqualic-acid	chembl279956	db02999	n[c@@h](cn1oc(=o)[nh]c1=o)c(o)=o	40539
+laropiprant	chembl426559	NA	cs(=o)(=o)c1cc(f)cc2c3cc[c@h](cc(o)=o)c3n(cc3ccc(cl)cc3)c12	9867642
+levonordefrin	chembl677	db06707	c[c@h](n)[c@h](o)c1ccc(o)c(o)c1	164739
+levosulpiride	chembl267044	db00391	ccn1ccc[c@h]1cnc(=o)c1cc(ccc1oc)s(n)(=o)=o	688272
+lxr-623	chembl456237	NA	fc1ccc(cc1)-c1n(cc2ccc(f)cc2cl)nc2c(cccc12)c(f)(f)f	16734800
+ly2874455	chembl3828009	db13022	c[c@@h](oc1ccc2[nh]nc(\c=c\c3cnn(cco)c3)c2c1)c1c(cl)cncc1cl	46944259
+m-3m3fbs	chembl1394135	NA	cc1cc(c)c(c(c)c1)s(=o)(=o)nc1cccc(c1)c(f)(f)f	761523
+mafenide	chembl419	db06795	ncc1ccc(cc1)s(n)(=o)=o	3998
+mecamylamine	chembl267936	db00657	cnc1(c)c2ccc(c2)c1(c)c	4032
+medetomidine	chembl77921	NA	cc(c1c[nh]cn1)c1cccc(c)c1c	68602
+methoxsalen	chembl416	db00553	coc1c2occc2cc2ccc(=o)oc12	4114
+methyclothiazide	chembl1577	db00232	cn1c(ccl)nc2cc(cl)c(cc2s1(=o)=o)s(n)(=o)=o	4121
+molindone	chembl460	db01618	ccc1c(c)[nh]c2ccc(cn3ccocc3)c(=o)c12	23897
+morin	chembl28626	NA	oc1ccc(c(o)c1)-c1oc2cc(o)cc(o)c2c(=o)c1o	5281670
+n-methylquipazine	chembl288591	NA	cn1ccn(cc1)c1ccc2ccccc2n1	5013
+n6-cyclopentyladenosine	chembl68738	NA	oc[c@h]1o[c@h]([c@h](o)[c@@h]1o)n1cnc2c(nc3cccc3)ncnc12	657378
+nan-190	chembl8618	NA	coc1ccccc1n1ccn(ccccn2c(=o)c3ccccc3c2=o)cc1	4431
+naringenin	chembl9352	db03467	oc1ccc(cc1)[c@@h]1cc(=o)c2c(o)cc(o)cc2o1	439246
+nbqx	chembl222519	NA	ns(=o)(=o)c1cccc2c1c(cc1[nh]c(=o)c(=o)[nh]c21)[n+]([o-])=o	3272524
+neca	chembl464859	NA	ccnc(=o)[c@h]1o[c@h]([c@h](o)[c@@h]1o)n1cnc2c(n)ncnc12	448222
+nelfinavir	chembl584	db00220	cc1c(o)cccc1c(=o)n[c@@h](csc1ccccc1)[c@h](o)cn1c[c@h]2cccc[c@h]2c[c@h]1c(=o)nc(c)(c)c	64143
+nevirapine	chembl57	db00238	cc1ccnc2c1nc(=o)c1cccnc1n2c1cc1	4463
+nmda	chembl291278	db01221	cn[c@h](cc(o)=o)c(o)=o	22880
+pf-573228	chembl514554	NA	cs(=o)(=o)c1cccc(cnc2nc(nc3ccc4nc(=o)ccc4c3)ncc2c(f)(f)f)c1	11612883
+phenol	chembl14060	db03255	oc1ccccc1	996
+picrotin	chembl478523	NA	cc(c)(o)c1c2oc(=o)c1c1(o)cc3oc33c(=o)oc2c13c	442291
+pik-75	chembl393525	NA	cn(\n=c\c1cnc2ccc(br)cn12)s(=o)(=o)c1cc(ccc1c)[n+]([o-])=o	10275789
+piribedil	chembl1256997	db12478	c(n1ccn(cc1)c1ncccn1)c1ccc2ococ2c1	11957664
+pnu-22394	chembl6557	NA	cn1c2ccnccc2c2ccccc12	27559
+pp-2	chembl406845	NA	cc(c)(c)n1nc(-c2ccc(cl)cc2)c2c(n)ncnc12	4878
+propranolol-(s)	chembl452861	NA	cc(c)nc[c@h](o)coc1cccc2ccccc12	91536
+purvalanol-a	chembl23327	db04751	cc(c)[c@h](co)nc1nc(nc2cccc(cl)c2)c2ncn(c(c)c)c2n1	456214
+pyrazolanthrone	chembl7064	db01782	o=c1c2ccccc2-c2n[nh]c3cccc1c23	8515
+rebastinib	chembl1738757	db13005	cnc(=o)c1cc(oc2ccc(nc(=o)nc3cc(nn3-c3ccc4ncccc4c3)c(c)(c)c)c(f)c2)ccn1	25066467
+rki-1447	chembl3218011	NA	oc1cccc(cnc(=o)nc2nc(cs2)-c2ccncc2)c1	60138149
+ro-15-4513	chembl6597	NA	ccoc(=o)c1ncn-2c1cn(c)c(=o)c1cc(ccc-21)n=[n+]=[n-]	5081
+ro-20-1724	chembl18701	NA	ccccoc1cc(cc2cnc(=o)n2)ccc1oc	5087
+rolipram-r(-)	chembl430893	db04149	coc1ccc(cc1oc1cccc1)[c@@h]1cnc(=o)c1	448055
+rx-821002	chembl10332	NA	coc1(coc2ccccc2o1)c1=nccn1	108094
+saclofen	chembl312403	NA	ncc(cs(o)(=o)=o)c1ccc(cl)cc1	122150
+sb-202190	chembl278041	NA	oc1ccc(cc1)-c1nc(c([nh]1)-c1ccncc1)-c1ccc(f)cc1	5353940
+sb-203580	chembl10	NA	cs(=o)c1ccc(cc1)-c1nc(c([nh]1)-c1ccncc1)-c1ccc(f)cc1	176155
+sb-2343	chembl3393066	db12986	cc(c)n1c(c)nc2c(nc(nc12)n1ccocc1)-c1cnc(n)nc1	46912230
+sildenafil	chembl192	db00203	cccc1nn(c)c2c1nc([nh]c2=o)-c1cc(ccc1occ)s(=o)(=o)n1ccn(c)cc1	5212
+sipatrigine	chembl28854	NA	cn1ccn(cc1)c1ncc(c(n)n1)-c1cc(cl)cc(cl)c1cl	60803
+skf-96365	chembl258502	NA	coc1ccc(cccoc(cn2ccnc2)c2ccc(oc)cc2)cc1	104956
+snap-5089	chembl448620	NA	coc(=o)c1=c(c)nc(c)=c(c1c1ccc(cc1)[n+]([o-])=o)c(=o)ncccn1ccc(cc1)(c1ccccc1)c1ccccc1	5311437
+spermine	chembl23194	db00127	ncccnccccncccn	1103
+sulfanilamide	chembl21	db00259	nc1ccc(cc1)s(n)(=o)=o	5333
+sym-2081	chembl288166	NA	c[c@h](c[c@h](n)c(o)=o)c(o)=o	95883
+tartaric-acid	chembl1236315	db09459	o[c@h]([c@@h](o)c(o)=o)c(o)=o	444305
+telithromycin	chembl1136	db00976	cc[c@h]1oc(=o)[c@h](c)c(=o)[c@h](c)[c@@h](o[c@@h]2o[c@h](c)c[c@@h]([c@h]2o)n(c)c)[c@@](c)(c[c@@h](c)c(=o)[c@h](c)[c@h]2n(ccccn3cnc(c3)-c3cccnc3)c(=o)o[c@]12c)oc	3002190
+tetrazol-5-yl-glycine-(rs)	chembl140784	NA	nc(c(o)=o)c1nnn[nh]1	126383
+thioctic-acid	chembl33864	NA	oc(=o)ccccc1ccss1	864
+toceranib	chembl13608	NA	cc1[nh]c(\c=c2/c(=o)nc3ccc(f)cc23)c(c)c1c(=o)nccn1cccc1	5329106
+tofisopam	chembl404216	NA	ccc1=c(c)nn=c(c2ccc(oc)c(oc)c2)c2cc(oc)c(oc)cc12	5502
+tryptophan	chembl54976	db00150	n[c@@h](cc1c[nh]c2ccccc12)c(o)=o	6305
+u-0126	chembl34704	NA	n\c(sc1ccccc1n)=c(c#n)/c(c#n)=c(/n)sc1ccccc1n	3006531
+uridine-5'-triphosphate	chembl336296	db04005	o[c@@h]1[c@@h](cop(o)(=o)op(o)(=o)op(o)(o)=o)o[c@h]([c@@h]1o)n1ccc(=o)[nh]c1=o	6133
+urmc-099	chembl2436978	NA	cn1ccn(cc2ccc(cc2)-c2cnc3[nh]cc(-c4ccc5[nh]ccc5c4)c3c2)cc1	54764565
+voriconazole	chembl638	db00582	c[c@@h](c1ncncc1f)[c@](o)(cn1cncn1)c1ccc(f)cc1f	71616
+wb-4101	chembl25554	NA	coc1cccc(oc)c1occncc1coc2ccccc2o1	5685
+xe-991	chembl342375	NA	o=c1c2ccccc2c(cc2ccncc2)(cc2ccncc2)c2ccccc12	656732
+y-27632	chembl559147	db08756	c[c@@h](n)[c@h]1cc[c@@h](cc1)c(=o)nc1ccncc1	448042
+zaprinast	chembl28079	NA	cccoc1ccccc1-c1nc2[nh]nnc2c(=o)[nh]1	5722
+zk-93423	chembl1518572	NA	ccoc(=o)c1ncc2[nh]c3ccc(occ4ccccc4)cc3c2c1coc	121926
+aclidinium bromide	chembl551466	db08897	oc(c(=o)o[c@h]1c[n+]2(cccoc3=cc=cc=c3)ccc1cc2)(c1=cc=cs1)c1=cc=cs1	11434515
+alfaxalone	chembl190279	db11371	cc(=o)[c@h]1cc[c@h]2[c@@h]3cc[c@h]4c[c@h](o)cc[c@]4(c)[c@h]3c(=o)c[c@]12c	104845
+alpha-ergocryptine	chembl1403281	NA	cc(c)c[c@@h]1n2c(=o)[c@](nc(=o)[c@h]3cn(c)[c@@h]4cc5=cnc6=cc=cc(=c56)c4=c3)(o[c@@]2(o)[c@@h]2cccn2c1=o)c(c)c	134551
+amisulpride	chembl243712	db06288	ccn1cccc1cnc(=o)c1=c(oc)c=c(n)c(=c1)s(=o)(=o)cc	2159
+amrinone	chembl12856	db01427	nc1=cc(=cnc1=o)c1=cc=nc=c1	3698
+androstenediol	chembl440283	db01524	c[c@]12cc[c@h]3[c@@h](cc=c4c[c@@h](o)cc[c@]34c)[c@@h]1cc[c@@h]2o	10634
+anhydrovinblastine	chembl509507	db12586	ccc1=c[c@@h]2c[n@](c1)ccc1=c(nc3=cc=cc=c13)[c@@](c2)(c(=o)oc)c1=c(oc)c=c2n(c)[c@@h]3[c@]4(ccn5cc=c[c@](cc)([c@@h]45)[c@@h](oc(c)=o)[c@]3(o)c(=o)oc)c2=c1	443324
+apatinib	chembl3186534	NA	o=c(nc1=cc=c(c=c1)c1(cccc1)c#n)c1=cc=cn=c1ncc1=cc=nc=c1	11315474
+apraclonidine	chembl647	db00964	nc1=cc(cl)=c(nc2=nccn2)c(cl)=c1	2216
+aprindine	chembl1213033	db01429	ccn(cc)cccn(c1cc2=c(c1)c=cc=c2)c1=cc=cc=c1	2218
+aripiprazole lauroxil	chembl2219425	db01238	cccccccccccc(=o)ocn1c(=o)ccc2=cc=c(occccn3ccn(cc3)c3=c(cl)c(cl)=cc=c3)c=c12	49831411
+armodafinil	chembl1201192	db06413	nc(=o)c[s@@](=o)c(c1=cc=cc=c1)c1=cc=cc=c1	9690109
+astemizole	chembl296419	db00637	coc1=cc=c(ccn2ccc(cc2)nc2=nc3=c(c=cc=c3)n2cc2=cc=c(f)c=c2)c=c1	2247
+atazanavir	chembl1163	db01072	coc(=o)n[c@h](c(=o)n[c@@h](cc1=cc=cc=c1)[c@@h](o)cn(cc1=cc=c(c=c1)c1=cc=cc=n1)nc(=o)[c@@h](nc(=o)oc)c(c)(c)c)c(c)(c)c	148192
+auranofin	chembl1366	db00995	NA	70788951
+azathioprine	chembl1542	db00993	cn1c=nc(=c1sc1=nc=nc2=c1nc=n2)[n+]([o-])=o	2265
+azelastine	chembl639	db00972	cn1cccc(cc1)n1n=c(cc2=cc=c(cl)c=c2)c2=c(c=cc=c2)c1=o	2267
+baicalin	chembl485818	NA	o[c@@h]1[c@@h](o)[c@h](oc2=c(o)c(o)=c3c(=o)c=c(oc3=c2)c2=cc=cc=c2)o[c@@h]([c@h]1o)c(o)=o	64982
+bendamustine	chembl487253	db06769	cn1c(cccc(o)=o)=nc2=cc(=cc=c12)n(cccl)cccl	65628
+benperidol	chembl297302	db12867	fc1=cc=c(c=c1)c(=o)cccn1ccc(cc1)n1c(=o)nc2=c1c=cc=c2	16363
+benzatropine	chembl1201203	db00245	cn1[c@h]2cc[c@@h]1c[c@@h](c2)oc(c1=cc=cc=c1)c1=cc=cc=c1	1201549
+benzbromarone	chembl388590	db12319	ccc1=c(c(=o)c2=cc(br)=c(o)c(br)=c2)c2=c(o1)c=cc=c2	2333
+benzethonium	chembl1182210	db11125	cc(c)(c)cc(c)(c)c1=cc=c(occocc[n+](c)(c)cc2=cc=cc=c2)c=c1	2335
+betamethasone phosphate	chembl1200762	NA	c[c@h]1c[c@h]2[c@@h]3ccc4=cc(=o)c=c[c@]4(c)[c@@]3(f)[c@@h](o)c[c@]2(c)[c@@]1(o)c(=o)cop(o)(o)=o	65478
+bezafibrate	chembl264374	db01393	cc(c)(oc1=cc=c(ccnc(=o)c2=cc=c(cl)c=c2)c=c1)c(o)=o	39042
+bithionol	chembl290106	db04813	oc1=c(sc2=c(o)c(cl)=cc(cl)=c2)c=c(cl)c=c1cl	2406
+brimonidine	chembl844	db00484	brc1=c(nc2=nccn2)c=cc2=nc=cn=c12	2435
+bromperidol	chembl28218	db12401	oc1(ccn(cccc(=o)c2=cc=c(f)c=c2)cc1)c1=cc=c(br)c=c1	2448
+budesonide	chembl1370	db01222	cccc1o[c@@h]2c[c@h]3[c@@h]4ccc5=cc(=o)c=c[c@]5(c)[c@h]4[c@@h](o)c[c@]3(c)[c@@]2(o1)c(=o)co	5281004
+budipine	chembl334491	NA	cc(c)(c)n1ccc(cc1)(c1=cc=cc=c1)c1=cc=cc=c1	68778
+buflomedil	chembl188921	NA	coc1=cc(oc)=c(c(=o)cccn2cccc2)c(oc)=c1	2467
+buprenorphine	chembl511142	db00921	co[c@]12cc[c@@]3(c[c@@h]1[c@](c)(o)c(c)(c)c)[c@h]1cc4=cc=c(o)c5=c4[c@@]3(ccn1cc1cc1)[c@h]2o5	9848990
+bupropion	chembl894	db01156	cc(nc(c)(c)c)c(=o)c1=cc(cl)=cc=c1	444
+buspirone	chembl49	db00490	o=c1cc2(cccc2)cc(=o)n1ccccn1ccn(cc1)c1=nc=cc=n1	2477
+butenafine	chembl990	db01091	cn(cc1=cc=c(c=c1)c(c)(c)c)cc1=cc=cc2=cc=cc=c12	2484
+camostat	chembl590799	NA	cn(c)c(=o)coc(=o)cc1=cc=c(oc(=o)c2=cc=c(nc(n)=n)c=c2)c=c1	2536
+candesartan cilexetil	chembl1014	db00796	ccoc1=nc2=c(n1cc1=cc=c(c=c1)c1=c(c=cc=c1)c1=nn=nn1)c(=cc=c2)c(=o)oc(c)oc(=o)oc1ccccc1	2540
+cefapirin	chembl1599	db01139	cc(=o)occ1=c(n2[c@h](sc1)[c@h](nc(=o)csc1=cc=nc=c1)c2=o)c(o)=o	30699
+cefotetan	chembl474579	db01330	co[c@]1(nc(=o)c2sc(s2)=c(c(n)=o)c(o)=o)[c@h]2scc(csc3=nn=nn3c)=c(n2c1=o)c(o)=o	53025
+cevimeline	chembl168815	db00185	cc1oc2(cs1)cn1ccc2cc1	2684
+chlorphenamine	chembl505	db01114	cn(c)ccc(c1=cc=c(cl)c=c1)c1=cc=cc=n1	2725
+chlorzoxazone	chembl1371	db00356	clc1=cc2=c(oc(=o)n2)c=c1	2733
+cianidanol	chembl311498	NA	o[c@h]1cc2=c(o)c=c(o)c=c2o[c@@h]1c1=cc(o)=c(o)c=c1	9064
+cicaprost	chembl160629	NA	ccc#cc[c@h](c)[c@h](o)c#c[c@h]1[c@h](o)c[c@@h]2c\c(c[c@h]12)=c/cocc(o)=o	5311044
+cinchocaine	chembl1086	db00527	ccccoc1=nc2=cc=cc=c2c(=c1)c(=o)nccn(cc)cc	3025
+citalopram	chembl549	db00215	cn(c)cccc1(occ2=c1c=cc(=c2)c#n)c1=cc=c(f)c=c1	2771
+clebopride	chembl325109	NA	coc1=c(c=c(cl)c(n)=c1)c(=o)nc1ccn(cc2=cc=cc=c2)cc1	2780
+clemastine	chembl1626	db00283	cn1ccc[c@@h]1cco[c@](c)(c1=cc=cc=c1)c1=cc=c(cl)c=c1	26987
+clomifene	chembl954	db00882	ccn(cc)ccoc1=cc=c(c=c1)c(=c(cl)c1=cc=cc=c1)c1=cc=cc=c1	1548953
+colecalciferol	chembl1042	db00169	cc(c)ccc[c@@h](c)[c@h]1cc[c@h]2\c(ccc[c@]12c)=c\c=c1\c[c@@h](o)ccc1=c	5280795
+colistin	chembl499783	db00803	NA	5311054
+cortisone acetate	chembl1650	db01380	cc(=o)occ(=o)[c@@]1(o)cc[c@h]2[c@@h]3ccc4=cc(=o)cc[c@]4(c)[c@h]3c(=o)c[c@]12c	5745
+cyamemazine	chembl2104153	db09000	cc(cn(c)c)cn1c2=cc=cc=c2sc2=c1c=c(c=c2)c#n	62865
+cyclizine	chembl648	db01176	cn1ccn(cc1)c(c1=cc=cc=c1)c1=cc=cc=c1	6726
+cyclobenzaprine	chembl669	db00924	cn(c)ccc=c1c2=cc=cc=c2c=cc2=c1c=cc=c2	2895
+cycloserine	chembl771	db00260	n[c@@h]1conc1=o	6234
+dabigatran etexilate	chembl48361	db06695	ccccccoc(=o)nc(=n)c1=cc=c(ncc2=nc3=cc(=cc=c3n2c)c(=o)n(ccc(=o)occ)c2=nc=cc=c2)c=c1	216210
+dapiprazole	chembl1201044	db00298	cc1=c(c=cc=c1)n1ccn(ccc2=nn=c3ccccn23)cc1	6917787
+delorazepam	chembl268254	db01511	clc1=cc=c2nc(=o)cn=c(c2=c1)c1=c(cl)c=cc=c1	17925
+dequalinium	chembl333826	db04209	cc1=[n+](cccccccccc[n+]2=c(c)c=c(n)c3=cc=cc=c23)c2=cc=cc=c2c(n)=c1	2993
+desloratadine	chembl1172	db00967	clc1=cc=c2c(ccc3=c(n=cc=c3)c2=c2ccncc2)=c1	124087
+desoxycortone	chembl1498	NA	c[c@]12cc[c@h]3[c@@h](ccc4=cc(=o)cc[c@]34c)[c@@h]1cc[c@@h]2c(=o)co	6166
+dexchlorpheniramine	chembl1201353	db13679	cn(c)cc[c@@h](c1=cc=c(cl)c=c1)c1=cc=cc=n1	33036
+dexfenfluramine	chembl248702	db01191	ccn[c@@h](c)cc1=cc(=cc=c1)c(f)(f)f	66265
+dexmedetomidine	chembl778	db00633	c[c@h](c1=cnc=n1)c1=c(c)c(c)=cc=c1	5311068
+dexniguldipine	chembl2051956	db09239	coc(=o)c1=c(c)nc(c)=c([c@@h]1c1=cc(=cc=c1)[n+]([o-])=o)c(=o)occcn1ccc(cc1)(c1=cc=cc=c1)c1=cc=cc=c1	6918097
+dicloxacillin	chembl893	db00485	cc1=c(c(=o)n[c@h]2[c@h]3sc(c)(c)[c@@h](n3c2=o)c(o)=o)c(=no1)c1=c(cl)c=cc=c1cl	18381
+dicycloverine	chembl1123	db00804	ccn(cc)ccoc(=o)c1(ccccc1)c1ccccc1	3042
+diflunisal	chembl898	db00861	oc(=o)c1=c(o)c=cc(=c1)c1=c(f)c=c(f)c=c1	3059
+diiodohydroxyquinoline	chembl86754	db09115	oc1=c2n=cc=cc2=c(i)c=c1i	3728
+dimenhydrinate	chembl1200406	db00985	NA	10660
+dimethyltubocurarinium	chembl1259	NA	coc1=cc=c2c[c@@h]3c4=c(oc5=cc=c(c[c@h]6c7=c(cc[n+]6(c)c)c=c(oc)c(oc1=c2)=c7)c=c5)c(oc)=c(oc)c=c4cc[n+]3(c)c	21233
+dimetindene	chembl22108	db08801	cc(c1=c(ccn(c)c)cc2=c1c=cc=c2)c1=cc=cc=n1	21855
+diphenhydramine	chembl657	db01075	cn(c)ccoc(c1=cc=cc=c1)c1=cc=cc=c1	3100
+dobutamine	chembl926	db00841	cc(ccc1=cc=c(o)c=c1)nccc1=cc=c(o)c(o)=c1	36811
+domperidone	chembl219916	db01184	clc1=cc2=c(c=c1)n(c1ccn(cccn3c(=o)nc4=c3c=cc=c4)cc1)c(=o)n2	3151
+donepezil	chembl502	db00843	coc1=cc2=c(c=c1oc)c(=o)c(cc1ccn(cc3=cc=cc=c3)cc1)c2	3152
+doxacurium	chembl1237123	NA	coc1=cc(cc2c3=c(oc)c(oc)=c(oc)c=c3cc[n+]2(c)cccoc(=o)ccc(=o)occc[n+]2(c)ccc3=cc(oc)=c(oc)c(oc)=c3c2cc2=cc(oc)=c(oc)c(oc)=c2)=cc(oc)=c1oc	60169
+dronabinol	chembl465	db00470	cccccc1=cc(o)=c2[c@@h]3c=c(c)cc[c@h]3c(c)(c)oc2=c1	16078
+ebastine	chembl305660	db11742	cc(c)(c)c1=cc=c(c=c1)c(=o)cccn1ccc(cc1)oc(c1=cc=cc=c1)c1=cc=cc=c1	3191
+empagliflozin	chembl2107830	db09038	oc[c@h]1o[c@h]([c@h](o)[c@@h](o)[c@@h]1o)c1=cc(cc2=cc=c(o[c@h]3ccoc3)c=c2)=c(cl)c=c1	11949646
+encainide	chembl315838	db01228	coc1=cc=c(c=c1)c(=o)nc1=cc=cc=c1ccc1ccccn1c	48041
+enoximone	chembl249856	db04880	csc1=cc=c(c=c1)c(=o)c1=c(c)nc(=o)n1	53708
+enoxolone	chembl230006	db13089	cc1(c)[c@@h](o)cc[c@@]2(c)[c@h]1cc[c@]1(c)[c@@h]2c(=o)c=c2[c@@h]3c[c@](c)(cc[c@]3(c)cc[c@@]12c)c(o)=o	10114
+enprostil	chembl2104194	NA	coc(=o)ccc=c=cc[c@h]1[c@h](\c=c\[c@h](o)coc2=cc=cc=c2)[c@@h](o)cc1=o	5311225
+ergometrine	chembl119443	db01253	c[c@@h](co)nc(=o)[c@h]1cn(c)[c@@h]2cc3=cnc4=cc=cc(=c34)c2=c1	443884
+estriol	chembl193482	db04573	c[c@]12cc[c@h]3[c@@h](ccc4=c3c=cc(o)=c4)[c@@h]1c[c@@h](o)[c@@h]2o	5756
+ethambutol	chembl44884	db00330	cc[c@@h](co)nccn[c@@h](cc)co	14052
+ethyl hydroxybenzoate	chembl2251610	NA	ccoc(=o)c1=cc=c(o)c=c1	8365
+ethylestrenol	chembl1200623	db01493	cc[c@]1(o)cc[c@h]2[c@@h]3ccc4=cccc[c@@h]4[c@h]3cc[c@]12c	13765
+etravirine	chembl308954	db06414	cc1=cc(=cc(c)=c1oc1=nc(nc2=cc=c(c=c2)c#n)=nc(n)=c1br)c#n	193962
+femoxetine	chembl94739	NA	coc1=cc=c(oc[c@h]2cn(c)cc[c@@h]2c2=cc=cc=c2)c=c1	3012003
+fenfluramine	chembl87493	db00574	ccnc(c)cc1=cc(=cc=c1)c(f)(f)f	3337
+fingolimod	chembl314854	db05286	ccccccccc1=cc=c(ccc(n)(co)co)c=c1	107970
+flecainide	chembl652	db01195	fc(f)(f)coc1=cc(c(=o)ncc2ccccn2)=c(occ(f)(f)f)c=c1	3356
+fluphenazine enanthate	chembl1200951	db00623	ccccccc(=o)occn1ccn(cccn2c3=cc=cc=c3sc3=c2c=c(c=c3)c(f)(f)f)cc1	3389
+fluvoxamine	chembl814	db00176	cocccc\c(=n/occn)c1=cc=c(c=c1)c(f)(f)f	5324346
+formoterol	chembl1256786	db00983	coc1=cc=c(cc(c)ncc(o)c2=cc(nc=o)=c(o)c=c2)c=c1	3410
+gamolenic acid	chembl464982	NA	ccccc\c=c/c\c=c/c\c=c/ccccc(o)=o	5280933
+gentian violet	chembl64894	db00406	cn(c)c1=cc=c(c=c1)c(c1=cc=c(c=c1)n(c)c)=c1c=cc(c=c1)=[n+](c)c	11057
+gentisic acid	chembl1461	NA	oc(=o)c1=c(o)c=cc(o)=c1	3469
+gramicidin	chembl601118	db00027	NA	16132269
+guanabenz	chembl420	db00629	nc(=n)n\n=c\c1=c(cl)c=cc=c1cl	5702063
+guanethidine	chembl765	db01170	nc(=n)nccn1ccccccc1	3518
+guanfacine	chembl862	db01018	nc(=n)nc(=o)cc1=c(cl)c=cc=c1cl	3519
+haloprogin	chembl1289	db00793	clc1=cc(cl)=c(occ#ci)c=c1cl	3561
+hesperetin	chembl399121	db01094	coc1=c(o)c=c(c=c1)[c@@h]1cc(=o)c2=c(o)c=c(o)c=c2o1	72281
+hexachlorophene	chembl496	db00756	oc1=c(cl)c=c(cl)c(cl)=c1cc1=c(cl)c(cl)=cc(cl)=c1o	3598
+hexocyclium	chembl1201325	db06787	c[n+]1(c)ccn(cc(o)(c2ccccc2)c2=cc=cc=c2)cc1	24199
+histamine	chembl90	db05381	nccc1=cn=cn1	774
+homatropine	chembl1618018	db11181	cn1[c@h]2cc[c@@h]1c[c@@h](c2)oc(=o)c(o)c1=cc=cc=c1	5282593
+hydralazine	chembl276832	db01275	nnc1=nn=cc2=cc=cc=c12	3637
+hydroquinidine	chembl1906890	NA	cc[c@h]1c[n@@]2cc[c@h]1c[c@@h]2[c@@h](o)c1=cc=nc2=cc=c(oc)c=c12	442912
+hydroxyprogesterone caproate	chembl1062	db06789	cccccc(=o)o[c@@]1(cc[c@h]2[c@@h]3ccc4=cc(=o)cc[c@]4(c)[c@h]3cc[c@]12c)c(c)=o	6238
+hymecromone	chembl12208	db07118	cc1=cc(=o)oc2=c1c=cc(o)=c2	5280567
+hyoscyamine	chembl1234973	db00424	cn1[c@h]2cc[c@@h]1c[c@@h](c2)oc(=o)[c@h](co)c1=cc=cc=c1	154417
+ifenprodil	chembl305187	db08954	cc(c(o)c1=cc=c(o)c=c1)n1ccc(cc2=cc=cc=c2)cc1	3689
+indapamide	chembl406	db00808	cc1cc2=c(c=cc=c2)n1nc(=o)c1=cc(=c(cl)c=c1)s(n)(=o)=o	3702
+indinavir	chembl115	db00224	cc(c)(c)nc(=o)[c@@h]1cn(cc2=cn=cc=c2)ccn1c[c@@h](o)c[c@@h](cc1=cc=cc=c1)c(=o)n[c@@h]1[c@h](o)cc2=c1c=cc=c2	5362440
+ivermectin	chembl263291	db00602	NA	6321424
+lacidipine	chembl460291	db09236	ccoc(=o)c1=c(c)nc(c)=c(c1c1=c(\c=c\c(=o)oc(c)(c)c)c=cc=c1)c(=o)occ	5311217
+leflunomide	chembl960	db01097	cc1=c(c=no1)c(=o)nc1=cc=c(c=c1)c(f)(f)f	3899
+levobunolol	chembl1201237	db01210	cc(c)(c)nc[c@h](o)coc1=c2cccc(=o)c2=cc=c1	39468
+levobupivacaine	chembl1201193	db01002	ccccn1cccc[c@h]1c(=o)nc1=c(c)c=cc=c1c	92253
+levonorgestrel	chembl1389	db00367	cc[c@]12cc[c@h]3[c@@h](ccc4=cc(=o)cc[c@h]34)[c@@h]1cc[c@@]2(o)c#c	13109
+levorphanol	chembl592	db00854	cn1cc[c@]23cccc[c@h]2[c@h]1cc1=c3c=c(o)c=c1	5359272
+liothyronine	chembl1544	db00279	n[c@@h](cc1=cc(i)=c(oc2=cc(i)=c(o)c=c2)c(i)=c1)c(o)=o	5920
+lofepramine	chembl87708	NA	cn(cccn1c2=cc=cc=c2ccc2=c1c=cc=c2)cc(=o)c1=cc=c(cl)c=c1	3947
+loprazolam	chembl2107448	db13643	cn1ccn(cc1)\c=c1/n=c2cn=c(c3=cc(=cc=c3n2c1=o)[n+]([o-])=o)c1=c(cl)c=cc=c1	3033860
+lorcainide	chembl87543	NA	cc(c)n1ccc(cc1)n(c(=o)cc1=cc=cc=c1)c1=cc=c(cl)c=c1	42884
+losartan	chembl191	db00678	ccccc1=nc(cl)=c(co)n1cc1=cc=c(c=c1)c1=c(c=cc=c1)c1=nn=nn1	3961
+mazindol	chembl781	db00579	oc1(n2ccn=c2c2=cc=cc=c12)c1=cc=c(cl)c=c1	4020
+mefloquine	chembl416956	db00358	o[c@h]([c@h]1ccccn1)c1=cc(=nc2=c(c=cc=c12)c(f)(f)f)c(f)(f)f	4046
+melperone	chembl1531134	db09224	cc1ccn(cccc(=o)c2=cc=c(f)c=c2)cc1	15387
+mepacrine	chembl7568	db01103	ccn(cc)cccc(c)nc1=c2c=c(oc)c=cc2=nc2=cc(cl)=cc=c12	237
+mepyramine	chembl511	db06691	coc1=cc=c(cn(ccn(c)c)c2=cc=cc=n2)c=c1	4992
+mequitazine	chembl73451	db01071	c(c1cn2ccc1cc2)n1c2=cc=cc=c2sc2=cc=cc=c12	4066
+methapyrilene	chembl1411979	db04819	cn(c)ccn(cc1=cc=cs1)c1=cc=cc=n1	4098
+methaqualone	chembl282052	db04833	cc1=c(c=cc=c1)n1c(c)=nc2=cc=cc=c2c1=o	6292
+methohexital	chembl7413	db00474	ccc#cc(c)c1(cc=c)c(=o)nc(=o)n(c)c1=o	9034
+methscopolamine	chembl1201268	db11315	c[n+]1(c)[c@h]2c[c@@h](c[c@@h]1[c@h]1o[c@@h]21)oc(=o)[c@h](co)c1=cc=cc=c1	49800047
+methyldopa	chembl459	db00968	c[c@](n)(cc1=cc(o)=c(o)c=c1)c(o)=o	38853
+methylparaben	chembl325372	NA	coc(=o)c1=cc=c(o)c=c1	7456
+mezlocillin	chembl1731	db00948	cc1(c)s[c@@h]2[c@h](nc(=o)[c@h](nc(=o)n3ccn(c3=o)s(c)(=o)=o)c3=cc=cc=c3)c(=o)n2[c@h]1c(o)=o	656511
+migalastat	chembl110458	db05018	oc[c@h]1nc[c@h](o)[c@@h](o)[c@h]1o	176077
+miglitol	chembl1561	db00491	occn1c[c@h](o)[c@@h](o)[c@h](o)[c@h]1co	441314
+miglustat	chembl1029	db00419	ccccn1c[c@h](o)[c@@h](o)[c@h](o)[c@h]1co	51634
+mitotane	chembl1670	db00648	clc(cl)c(c1=cc=c(cl)c=c1)c1=c(cl)c=cc=c1	4211
+montelukast	chembl787	db00471	cc(c)(o)c1=c(cc[c@@h](scc2(cc(o)=o)cc2)c2=cc(\c=c\c3=nc4=cc(cl)=cc=c4c=c3)=cc=c2)c=cc=c1	5281040
+mosapride	chembl60889	db11675	ccoc1=c(c=c(cl)c(n)=c1)c(=o)ncc1cn(cc2=cc=c(f)c=c2)cco1	119584
+nabumetone	chembl1070	db00461	coc1=cc=c2c=c(ccc(c)=o)c=cc2=c1	4409
+nefopam	chembl465026	db12293	cn1ccoc(c2=cc=cc=c2)c2=cc=cc=c2c1	4450
+niclosamide	chembl1448	db06803	oc1=c(c=c(cl)c=c1)c(=o)nc1=c(cl)c=c(c=c1)[n+]([o-])=o	4477
+nicotinamide	chembl1140	db02701	nc(=o)c1=cn=cc=c1	936
+nitroprusside	chembl136478	db00325	NA	11963622
+nordazepam	chembl523	NA	clc1=cc=c2nc(=o)cn=c(c3=cc=cc=c3)c2=c1	2997
+norfloxacin	chembl9	db01059	ccn1c=c(c(o)=o)c(=o)c2=cc(f)=c(c=c12)n1ccncc1	4539
+oleic acid	chembl8659	db04224	cccccccc\c=c/cccccccc(o)=o	445639
+oxagrelate	chembl153427	NA	ccoc(=o)c1=c(c)c2=c(c=c1c)c(co)=nnc2=o	41946
+oxatomide	chembl13828	db12877	o=c1nc2=c(c=cc=c2)n1cccn1ccn(cc1)c(c1=cc=cc=c1)c1=cc=cc=c1	4615
+oxiconazole	chembl1262	db00239	clc1=cc(cl)=c(co\n=c(/cn2c=cn=c2)c2=c(cl)c=c(cl)c=c2)c=c1	5353853
+pancuronium	chembl185073	db01337	cc(=o)o[c@h]1[c@h](c[c@h]2[c@@h]3cc[c@h]4c[c@h](oc(c)=o)[c@h](c[c@]4(c)[c@h]3cc[c@]12c)[n+]1(c)ccccc1)[n+]1(c)ccccc1	441289
+pantoprazole	chembl1502	db00213	coc1=cc=nc(cs(=o)c2=nc3=c(n2)c=c(oc(f)f)c=c3)=c1oc	4679
+pecazine	chembl395110	NA	cn1cccc(cn2c3=cc=cc=c3sc3=cc=cc=c23)c1	6075
+pentamidine	chembl55	db00738	nc(=n)c1=cc=c(occcccoc2=cc=c(c=c2)c(n)=n)c=c1	4735
+perhexiline	chembl75880	db01074	c(c(c1ccccc1)c1ccccc1)c1ccccn1	4746
+perlapine	chembl340801	NA	cn1ccn(cc1)c1=nc2=c(cc3=cc=cc=c13)c=cc=c2	16106
+phencyclidine	chembl275528	db03575	c1ccn(cc1)c1(ccccc1)c1=cc=cc=c1	6468
+pheniramine	chembl1193	db01620	cn(c)ccc(c1=cc=cc=c1)c1=nc=cc=c1	4761
+phenyltoloxamine	chembl186720	db11160	cn(c)ccoc1=c(cc2=cc=cc=c2)c=cc=c1	7077
+pimecrolimus	chembl1200686	db00337	cc[c@@h]1\c=c(c)\c[c@h](c)c[c@h](oc)[c@h]2o[c@](o)([c@h](c)c[c@@h]2oc)c(=o)c(=o)n2cccc[c@h]2c(=o)o[c@@h]([c@h](c)[c@@h](o)cc1=o)c(\c)=c\[c@@h]1cc[c@h](cl)[c@@h](c1)oc	6509979
+pipamazine	chembl1909072	NA	nc(=o)c1ccn(cccn2c3=cc=cc=c3sc3=cc=c(cl)c=c23)cc1	6761
+pizotifen	chembl294951	db06153	cn1ccc(cc1)=c1c2=c(ccc3=c1c=cc=c3)sc=c2	27400
+plerixafor	chembl18442	db06809	c(n1cccnccncccncc1)c1=cc=c(cn2cccnccncccncc2)c=c1	65015
+pridinol	chembl404215	NA	oc(ccn1ccccc1)(c1=cc=cc=c1)c1=cc=cc=c1	4904
+primaquine	chembl506	db01087	coc1=cc(nc(c)cccn)=c2n=cc=cc2=c1	4908
+procyclidine	chembl1761	db00387	oc(ccn1cccc1)(c1ccccc1)c1=cc=cc=c1	207841
+progabide	chembl287631	db00837	nc(=o)cccn=c(c1=cc=c(cl)c=c1)c1=c(o)c=cc(f)=c1	6314395
+pyridoxine	chembl1364	db00165	cc1=c(o)c(co)=c(co)c=n1	1054
+pyrithione	chembl1356238	db06815	[o-][n+]1=c(s)c=cc=c1	1570
+quinine	chembl170	db00468	coc1=cc=c2n=cc=c([c@@h](o)[c@@h]3c[c@@h]4cc[n@]3c[c@@h]4c=c)c2=c1	3034034
+reboxetine	chembl14370	db12395	ccoc1=c(o[c@@h]([c@h]2cncco2)c2=cc=cc=c2)c=cc=c1	3022645
+repaglinide	chembl1272	db00912	ccoc1=c(c=cc(cc(=o)n[c@@h](cc(c)c)c2=c(c=cc=c2)n2ccccc2)=c1)c(o)=o	65981
+resorcinol	chembl24147	db11085	oc1=cc(o)=cc=c1	5054
+rilmenidine	chembl289480	db11738	c1cc1c(nc1=ncco1)c1cc1	68712
+rimonabant	chembl111	db06155	cc1=c(n(n=c1c(=o)nn1ccccc1)c1=cc=c(cl)c=c1cl)c1=cc=c(cl)c=c1	104850
+sabcomeline	chembl134641	NA	co\n=c(/c#n)[c@h]1cn2ccc1cc2	9577995
+salmeterol	chembl1263	db00938	occ1=c(o)c=cc(=c1)c(o)cnccccccoccccc1=cc=cc=c1	5152
+saquinavir	chembl114	db01232	cc(c)(c)nc(=o)[c@@h]1c[c@@h]2cccc[c@@h]2cn1c[c@@h](o)[c@h](cc1=cc=cc=c1)nc(=o)[c@h](cc(n)=o)nc(=o)c1=nc2=cc=cc=c2c=c1	441243
+saxagliptin	chembl385517	db06335	n[c@h](c(=o)n1[c@h]2c[c@h]2c[c@h]1c#n)c12cc3cc(cc(o)(c3)c1)c2	11243969
+sertraline	chembl809	db01104	cn[c@h]1cc[c@@h](c2=cc(cl)=c(cl)c=c2)c2=cc=cc=c12	68617
+sibutramine	chembl1419	db01105	cc(c)cc(n(c)c)c1(ccc1)c1=cc=c(cl)c=c1	5210
+sitagliptin	chembl1422	db01261	n[c@@h](cc(=o)n1ccn2c(c1)=nn=c2c(f)(f)f)cc1=c(f)c=c(f)c(f)=c1	4369359
+sodium aurothiomalate	chembl306043	db09276	NA	422786
+stanozolol	chembl2079587	db06718	c[c@]1(o)cc[c@h]2[c@@h]3cc[c@h]4cc5=c(c[c@]4(c)[c@h]3cc[c@]12c)c=nn5	25249
+sulconazole	chembl1221	db06820	clc1=cc=c(cs[c@@h](cn2c=cn=c2)c2=cc=c(cl)c=c2cl)c=c1	5318
+suloctidil	chembl404849	NA	ccccccccnc(c)c(o)c1=cc=c(sc(c)c)c=c1	5354
+tacrine	chembl95	db00382	nc1=c2ccccc2=nc2=cc=cc=c12	1935
+tadalafil	chembl779	db00820	cn1cc(=o)n2[c@h](cc3=c(nc4=c3c=cc=c4)[c@h]2c2=cc=c3ococ3=c2)c1=o	110635
+talipexole	chembl279085	NA	nc1=nc2=c(ccn(cc=c)cc2)s1	5374
+tamsulosin	chembl836	db00706	ccoc1=c(occn[c@h](c)cc2=cc(=c(oc)c=c2)s(n)(=o)=o)c=cc=c1	129211
+tannic acid	chembl506247	db09372	NA	16129778
+tegaserod	chembl76370	db01079	cccccnc(=n)nn=cc1=cnc2=c1c=c(oc)c=c2	5362436
+telmisartan	chembl1017	db00966	cccc1=nc2=c(c=c(c=c2c)c2=nc3=c(c=cc=c3)n2c)n1cc1=cc=c(c=c1)c1=c(c=cc=c1)c(o)=o	65999
+tenidap	chembl1908355	NA	nc(=o)n1c(=o)\c(=c(/o)c2=cc=cs2)c2=c1c=cc(cl)=c2	54683953
+terbinafine	chembl822	db00857	cn(c\c=c\c#cc(c)(c)c)cc1=c2c=cc=cc2=cc=c1	1549008
+terconazole	chembl1306	db00251	cc(c)n1ccn(cc1)c1=cc=c(occ2coc(cn3c=nc=n3)(o2)c2=cc=c(cl)c=c2cl)c=c1	441383
+tetrabenazine	chembl117785	db04844	coc1=cc2=c(c=c1oc)[c@@h]1cc(=o)[c@@h](cc(c)c)cn1cc2	6018
+thiamine	chembl1547	db00152	cc1=c(cco)sc=[n+]1cc1=cn=c(c)n=c1n	1130
+thiomersal	chembl508338	db11590	NA	16684434
+thiothixene	chembl1201	db01623	cn(c)s(=o)(=o)c1=cc2=c(sc3=cc=cc=c3\c2=c\ccn2ccn(c)cc2)c=c1	941651
+tibolone	chembl2103774	db09070	c[c@@h]1cc2=c(ccc(=o)c2)[c@h]2cc[c@@]3(c)[c@@h](cc[c@@]3(o)c#c)[c@h]12	444008
+ticlopidine	chembl833	db00208	clc1=c(cn2ccc3=c(c2)c=cs3)c=cc=c1	5472
+tiludronic acid	chembl1350	db01133	op(o)(=o)c(sc1=cc=c(cl)c=c1)p(o)(o)=o	60937
+tiotropium bromide	chembl1182657	db01409	c[n+]1(c)[c@h]2c[c@h](c[c@@h]1[c@h]1o[c@@h]21)oc(=o)c(o)(c1=cc=cs1)c1=cc=cs1	15057856
+tirilazad	chembl1630578	db13050	c[c@@h]1c[c@h]2[c@@h]3ccc4=cc(=o)c=c[c@]4(c)c3=cc[c@]2(c)[c@h]1c(=o)cn1ccn(cc1)c1=nc(=nc(=c1)n1cccc1)n1cccc1	104903
+tolfenamic acid	chembl121626	db09216	cc1=c(nc2=c(c=cc=c2)c(o)=o)c=cc=c1cl	610479
+tolmetin	chembl1020	db00500	cn1c(cc(o)=o)=cc=c1c(=o)c1=cc=c(c)c=c1	5509
+tranylcypromine	chembl1179	db00752	n[c@@h]1c[c@h]1c1=cc=cc=c1	19493
+trientine	chembl609	db06824	nccnccnccn	5565
+trifluperidol	chembl15023	NA	oc1(ccn(cccc(=o)c2=cc=c(f)c=c2)cc1)c1=cc(=cc=c1)c(f)(f)f	5567
+tropicamide	chembl1200604	db00809	ccn(cc1=cc=nc=c1)c(=o)c(co)c1=cc=cc=c1	5593
+valdecoxib	chembl865	db00580	cc1=c(c(=no1)c1=cc=cc=c1)c1=cc=c(c=c1)s(n)(=o)=o	119607
+valethamate	chembl2111176	NA	ccc(c)c(c(=o)occ[n+](c)(cc)cc)c1=cc=cc=c1	5648
+vardenafil	chembl1520	db00862	cccc1=nc(c)=c2n1n=c(nc2=o)c1=cc(=cc=c1occ)s(=o)(=o)n1ccn(cc)cc1	110634
+vecuronium	chembl1201219	db01339	cc(=o)o[c@h]1[c@h](c[c@h]2[c@@h]3cc[c@h]4c[c@h](oc(c)=o)[c@h](c[c@]4(c)[c@h]3cc[c@]12c)n1ccccc1)[n+]1(c)ccccc1	39765
+venlafaxine	chembl637	db00285	coc1=cc=c(c=c1)c(cn(c)c)c1(o)ccccc1	5656
+vidarabine	chembl1090	db00194	nc1=nc=nc2=c1n=cn2[c@@h]1o[c@h](co)[c@@h](o)[c@@h]1o	21704
+ximelagatran	chembl266349	db04898	ccoc(=o)cn[c@h](c1ccccc1)c(=o)n1cc[c@h]1c(=o)ncc1=cc=c(c=c1)c(=n)no	183797
+zafirlukast	chembl603	db00549	coc1=c(cc2=cn(c)c3=c2c=c(nc(=o)oc2cccc2)c=c3)c=cc(=c1)c(=o)ns(=o)(=o)c1=c(c)c=cc=c1	5717
+zileuton	chembl93	db00744	cc(n(o)c(n)=o)c1=cc2=c(s1)c=cc=c2	60490
+zoledronic acid	chembl924	db00399	oc(cn1c=cn=c1)(p(o)(o)=o)p(o)(o)=o	68740

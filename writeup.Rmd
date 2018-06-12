@@ -13,7 +13,7 @@ output:
 #biocLite("UniProt.ws")
 #devtools::install_github("cmap/cmapR")
 
-list.of.packages <- c('kableExtra', 'knitr', 'ggplot2', 'cmapR', 'stringi', 'data.table','gridExtra','reshape2','grid', 'biomaRt', 'webchem', 'httr', 'jsonlite','UniProt.ws', 'magrittr', 'gplots', 'UpSetR')
+list.of.packages <- c('kableExtra', 'knitr', 'ggplot2', 'cmapR', 'stringi', 'tidyr', 'data.table','gridExtra','reshape2','grid', 'biomaRt', 'webchem', 'httr',  'jsonlite','UniProt.ws', 'magrittr', 'gplots', 'UpSetR')
 new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"Package"])]
 if(length(new.packages)) install.packages(new.packages)
 lapply(list.of.packages, require, character.only = TRUE)
@@ -28,7 +28,7 @@ source('writeup_scripts.R')
 
 ## Project description
 
-In this project, I evaluated the accuracy of different drug target libraries by measuring their agreement with drug perturbation signature libraries. The drug target libraries I looked at are DrugBank, the Target Central Resource Database, the Drug Repurposing Hub, the Drug Gene Interaction Database (DGIdb), DrugCentral, STITCH, and the Drug Target Commons. The drug perturbation signature libraries I used are the CRowd Extracted Expression of Differential Signatures (CREEDS) and the LINCS L1000. For all drug target libraries, since their average number of gene targets was small, I used hu.MAP and ARCHS4, protein-protein interaction (PPI) databases, and ARCHS4, a protein co-expression database, to create expanded gene sets from the target lists.
+In this project, I evaluated the accuracy of different drug target libraries by measuring their agreement with drug perturbation signature libraries. The drug target libraries I looked at are DrugBank, the Target Central Resource Database, the Drug Repurposing Hub, the Drug Gene Interaction Database (DGIdb), DrugCentral, STITCH, and the Drug Target Commons. The drug perturbation signature libraries I used are the CRowd Extracted Expression of Differential Signatures (CREEDS) and the LINCS L1000. For all drug target libraries, since their average number of gene targets was small, I used hu.MAP and BioGRID, protein-protein interaction (PPI) databases, and ARCHS4, a protein co-expression database, to create expanded gene sets from the target lists.
 
 I measured agreement using enrichment analysis--specifically, the Fisher's exact test for overrepresentation. I treated each (drug, expanded target list) from the drug target libraries as an (annotation, gene set) pair, and each (drug sample, list of most-perturbed genes) from the drug perturbation signature libraries also as an (annotation, gene set) pair. I then performed enrichment into one library using the gene sets from the other library, and observed how highly the matching annotations, i.e. those which correspond to the same drug as the input, were ranked. If two libraries agree with one another, then these matching annotations should often be highly ranked.
 
@@ -229,7 +229,7 @@ info = as.data.frame(do.call(rbind, info))
 info = cbind(cutoffs, info)
 colnames(info) = c('Combined Score cutoff', 'Number of unique chemicals','Average number of protein interactions per chemical')
 
-kable_styling(kable(info, 'html', caption='Table 1: Summary statistics for STITCH interactions with different combined score cutoffs', digits=2, font_size=10))
+kable_styling(kable(info, 'html', caption='Table 1: Summary statistics for STITCH interactions with different Confidence Score cutoffs. For a given cutoff value, I removed all interactions with a Confidence Score lower than this value. I then counted the number of chemicals which appear in this new subset (i.e. have at least one interaction with a Confidence Score which made the cutoff), and measured their average number of interactions.', digits=2, font_size=10))
 
 rm(STITCH, gene_symbol_lookup, gene_symbol_lookup_fname, info, s, cutoffs)
 ```
@@ -612,7 +612,7 @@ LINCS_identifiers = read_table('synonyms/LINCS_identifiers.csv')
 LINCS_identifiers = unique(LINCS_identifiers[,-1])
 ```
 
-I was unable to obtain PCIDs for `r sum(is.na(LINCS_identifiers$PCIDs))` out of `r length(LINCS_identifiers$PCIDs)` annotations. I used the drug name if the PCID could not be found.
+I was unable to obtain PCIDs for `r sum(is.na(LINCS_identifiers$PCIDs))` out of `r length(LINCS_identifiers$PCIDs)` drugs. I used the drug name if the PCID could not be found.
 
 ```{r replace_LINCS_names}
 #LINCS was too big to save as a csv--it is a pickled pandas DataFrame file.
@@ -638,7 +638,7 @@ colnames(t1) = c('Name', 'Library Type', 'Description','Samples', 'Unique drugs'
 t1[1:10,'Samples'] = NA
 t1[,'Name'] = paste0("[", as.character(t1[,'Name']), "](http://", links, ")")
 
-kable(t1, 'html', caption='Table 2: Summary of all drug libraries') %>%
+kable(t1, 'html', caption='Table 2: Summary of all drug libraries. For the drug target libraries, I counted the number of drugs and protein targets, and measured the average number of protein targets per annotation (i.e. drug). For the drug perturbation libraries, I counted the number of samples and protein targets, and measured the average number of protein targets per annotation (i.e. sample). I also counted the number of drugs, since there are often multiple samples for the same drug.') %>%
   kable_styling(bootstrap_options=c('striped', 'condensed', full_width=F, font_size=10))
 
 ```
@@ -666,7 +666,7 @@ for(i in 1:nrow(overlaps)){
   }
 }
 
-t2.list = t2.list[-match(c('STITCH_500cutoff'), names(t2.list))]
+t2.list = t2.list[-match(c('STITCH_800cutoff'), names(t2.list))]
 
 t2.grid = matrix(0, nrow = length(all.drugs), ncol=length(t2.list))
 row.names(t2.grid) = all.drugs
@@ -676,23 +676,25 @@ for(i in 1:length(t2.list)){
 }
 ```
 
-```{r}
-kable_styling(kable(overlaps, 'html', font_size=10, caption='Size of drug set intersections between drug target libraries and drug perturbation libraries'))
+```{r eval=TRUE}
+kable_styling(kable(overlaps, 'html', font_size=10, caption='Table 3: Size of drug set intersections between drug target libraries and drug perturbation libraries.')) %>%
+  kable_styling(bootstrap_options=c('striped', 'condensed', full_width=F, font_size=10))
 ```
 
 In my opinion, only the intersection set between TargetCentral and CREEDS is small enough to raise concern.
 
 In addition to looking at these pairwise intersection sizes, I also looked at the overall similarities of each library using a heatmap with hierarchical clustering.
 
-```{r fig.cap='Figure 1: Heatmap and hierarchical clustering of drug libraries', eval=TRUE}
-heatmap.2(t2.grid[rowSums(t2.grid) > 1,], labRow=rep('', length(t2.list)), margins=c(10,1))
+```{r fig.cap='Figure 1: Heatmap and hierarchical clustering of drug libraries. Drugs are listed along the rows (unlabeled). The grid is white where the drug appears in the library, red otherwise. Cyan lines separate red regions from white. To make the library dendrogram clusterings, Jaccard similarity (intersection size over union size) is measured between each library pair. Then, a clustering algorithm (complete linkage) sorts the libraries into hierarchical clusters. The drug dendrogram clusterings are computed similarly, but I do not analyze these.', eval=TRUE}
+heatmap.2(t2.grid[rowSums(t2.grid) > 1,], labRow=rep('', length(t2.list)), 
+          distfun = function(x) dist(x,method = 'binary'), margins=c(10,1))
 ```
 
-STITCH and Drug Target Commons, the largest two libraries, share many drugs which are not represented in the other libaries. TargetCentral, CREEDS and LINCS seem to be similar to each other, with DGIdb, DrugCentral, DrugBank and RepurposeHub forming the other cluster. 
+STITCH and Drug Target Commons, the largest two libraries, share many drugs which are not represented in the other libaries. They are also the most similar to LINCS and CREEDS, the drug perturbation signature libraries. The five other drug target libraries appear in a separate cluster at the first hierarchy. 
 
 Finally, I used the UpSet R package to visualize the frequency of set memberships between the libraries. Here are the top 40 set memberships:
 
-```{r fig.cap='Figure 2: Largest intersection sets between the drug libraries', eval=TRUE}
+```{r fig.cap='Figure 2: Largest intersection sets between the drug libraries. The size of each cell in a 9-way Venn Diagram was measured, and the largest 40 were plotted. For example the right-most set contains the drugs in TargetCentral and DrugCentral, but not in any other library.', eval=TRUE}
 upset(fromList(t2.list), nsets=length(t2.list), nintersects=40, scale.intersections='log2', order.by = 'freq')
 ```
 
@@ -718,12 +720,56 @@ lapply(ppi.coexp_files, get_top_n_coexpressed, output_files)
 system('python convert_files.py expansion_libs')
 ```
 
+Below are histograms showing how the distributions of gene set sizes change after expansion with protein co-expression or interaction data. 
+
+```{r eval=TRUE, fig.cap='Figure 3: Histograms of gene set sizes before and after expansion for each of the drug libraries.'}
+libs = c('STITCH_800cutoff_5OrMoreTargets_noENSP',
+         'STITCH_700cutoff_5OrMoreTargets_noENSP',
+         'STITCH_600cutoff_5OrMoreTargets_noENSP',
+         'STITCH_500cutoff_5OrMoreTargets_noENSP',
+         'DTCommons_5OrMoreTargets',
+         'DrugCentral_5OrMoreTargets',
+         'RepurposeHub_5OrMoreTargets',
+         'DGIdb_5OrMoreTargets',
+         'DrugBank_5OrMoreTargets',
+         'TargetCentral_5OrMoreTargets')
+
+plots = vector('list', 10)
+
+for(i in 1:length(libs)){
+  lib = libs[[i]]
+  t = data.frame(t(read.csv(paste0(c(
+    'intermediate_files/lib_summary_geneset_sizes_', lib, '.csv'), collapse=''),
+    sep='\t', row.names=1)))
+  
+  h = gather(t, library, geneset_size)
+  
+  plots[[i]] = ggplot(h, aes(x = geneset_size, fill = library)) +
+  geom_histogram(alpha=0.8, position='identity', bins=50) + scale_x_log10() + 
+    labs(title=gsub('_noENSP', '', gsub('_5OrMoreTargets', '', lib))) + 
+    theme(legend.position = ifelse(i==length(libs), 'right', 'none'),
+          plot.title = element_text(size=12))
+}
+
+lay.matrix = rbind(
+  c(1,2,3),
+  c(4,5,6),
+  c(7,8,9),
+  c(10,10,10))
+
+grid.arrange(grobs=plots, ncol=3, layout_matrix=lay.matrix)
+```
+
 ## Enrichment analysis
 
-After creating the expanded libraries, I performed enrichment analysis, using the Fisher's exact test, between each drug target library and perturbation signature library pair.
+After creating the expanded libraries, I performed enrichment analysis, using the Fisher's exact test, between each drug target library and drug perturbation signature library pair.
 
 See https://github.com/MaayanLab/Enrichment_Sandbox for an explanation of how enrichment analysis is used to measure the agreement between different gene set libraries, and how to interpret the bridge plots.
 
-Here are the results I obtained so far:
+Here are the results using the drug perturbation library gene sets as inputs, and the drug target libraries as the gene sets which are being ranked. (I was unable to obtain results for inputting STITCH or DTCommons into LINCS due to lack of time.)
 
-![Figure 3: Enrichment analysis results](figures/druglib_bridgeplot.png)
+![Figure 4: Enrichment analysis results. First, the samples in the drug perturbation signature library whose drug also appears in the drug target library are identified. For each of these samples, enrichment analysis compares its gene set to those of the drug target library to rank the drug target library's drugs from most to least enriched. A bridge plot is created to show the distribution of ranks for the matches, i.e. the gene sets corresponding to the same drug which was inputted. The legend gives the area under the curve (AUC) of the bridge.](figures/druglib_bridgeplot.png)
+
+Here is a zoomed-in view of the results, looking at only the top 15% ranked terms. 
+
+![Figure 5: Enrichment analysis results, top 15th percentile. This is the same as Figure 3, but zoomed in to the left 15% of the graph.](figures/druglib_bridgeplot_15th_pctile.png)

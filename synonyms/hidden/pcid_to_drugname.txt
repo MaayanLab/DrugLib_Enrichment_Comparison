@@ -1,0 +1,1500 @@
+Acetyl-DL-carnitine
+ST079275
+5,6-dihydroxycyclohexa-1,3-diene-1-carboxylic acid
+1-Aminopropan-2-ol
+3-Amino-2-oxopropyl phosphate
+1-chloro-2,4-dinitrobenzene
+9-ethyl-9h-purin-6-amine
+2,3-Dihydroxy-3-methylpentanoic acid
+(2,3,4,5,6-pentahydroxycyclohexyl) dihydrogen phosphate
+10-Formyltetrahydrofolate
+1,2-dichloroethane
+1,2,3,5-Benzenetetrol
+1,2,4-trichlorobenzene
+AC1L18A7
+Anaprotin
+1,8-diazacyclotetradecane-2,9-dione
+2,3-dihydropyridine-2,6-dicarboxylic acid
+AC1L18AJ
+2,3-Dihydroxybenzoic acid
+3714-73-6
+Acetohydroxybutyrate
+2-Acetolactate
+16597-58-3
+AC1L18B1
+2-amino-4-oxo-6-(1',2',3'-trihydroxypropyl)-diquinoid-7,8-dihydroxypterin
+AC1L18B7
+AC1L18BA
+2,4-Hexadienedioicacid, 2-amino-
+3-oxoalanine
+2,4-Hexadienoic acid, 2-amino-6-oxo-
+Methyl-D-erythritol Phosphate
+buta-1,3-diene-1,1,4-tricarboxylic acid
+CHLOROACETALDEHYDE
+2-chloroethanol
+(2-chloro-5-oxo-2,5-dihydrofuran-2-yl)acetic acid
+3-isopropylmalic acid
+3-deoxyhex-2-ulosonic acid
+2-dehydropantoate
+13031-04-4
+2-Deoxyhexopyranose
+1-Penten-3-one, 2-hydroxy-5-(methylthio)-1-(phosphonooxy)-
+2-hydroxy-6-oxonona-2,4-dienedioic acid
+2-hydroxyglutaric acid
+tartronate
+Tartronic acid
+AC1Q6RYN
+3-Methyl-2-oxovaleric acid
+alpha-Ketoglutaramate
+3-Methyl-2-oxobutanoic acid
+2-keto-L-gluconate
+2-ketoglutaric acid
+AC1L18DD
+alpha-methylacetoacetyl-CoA
+AC1L18DJ
+AC1L18DM
+AC1L18DP
+AC1L18DS
+2-oxobutanoic acid
+glycerate 2-phosphate
+AC1L18E1
+2,3-Bisphosphoglyceric acid
+2,4,5-Trichloro-2,5-cyclohexadiene-1-ol
+2,4-diaminopentanoic acid
+2,5-dichloro-2,5-cyclohexadiene-1,4-diol
+2,5-dichlorohydroquinone
+2,5-dichlorophenol
+hexo-2,5-diulosonic acid
+2-C-Methyl-D-erythritol-2,4-cyclopyrophosphate
+2-hydroxy-6-oxohepta-2,4-dienoic acid
+4-Methyl-2-oxovaleric acid
+2-Oxoadipic acid
+3,4-DIHYDROXYBENZOIC ACID
+adenosine-3',5'-bisphosphate
+S-Acetoacetylcoenzyme A
+3-Aminopropanal
+3-Hydroxyandrost-5-en-17-one
+2-Isopropylmalic acid
+3-Chloroalanine
+3-cyanopyridine
+4,5-dihydroxy-3-oxocyclohex-1-ene-1-carboxylic acid
+3-deoxy-7-o-phosphonohept-2-ulosonic acid
+27840-48-8
+3-Phosphonylpyruvic acid
+S-(Hydrogen 3-hydroxy-3-methylglutaryl)coenzyme A
+CHEBI:3424
+2-Amino-3-hydroxybenzoic acid
+3-Hydroxyisobutyric acid
+(S)-3-Hydroxyisobutyryl-CoA
+3-Hydroxy-dl-kynurenine
+AC1L18GG
+3-(3-hydroxyphenyl)propanoic acid
+(3R)-3-Hydroxy Quinine
+3-Oxoadipic acid
+AC1L18GS
+AC1L18GV
+acetoacetic acid
+AC1L18H1
+3-mercaptopyruvic acid
+3-methylcrotonyl-CoA
+AC1L18H9
+3-hydroxybenzaldehyde
+3-hydroxybenzyl alcohol
+AC1L18HI
+3-Oxoadipate enol-lactone
+Phosphohydroxypyruvic acid
+dl-O-Phosphoserine
+hydrocinnamic acid
+3-pyridineacetic acid
+Cysteine sulfinic acid
+b-sulfinyl pyruvate
+3-Ureidopropionic acid
+AC1L18I9
+3-hydroxy-2-oxo-4-(phosphonooxy)butanoic acid
+3-pyridinebutanoic acid
+115
+AC1Q5TCI
+5-amino-1H-imidazole-4-carboxylic acid
+4-aminobutanal
+4-aminobutyric acid
+2-(5-OXO-2-FURYLIDENE)ACETIC ACID
+AC1L18IX
+4,6-dioxooct-2-enedioic acid
+Tiformin
+4-Hydroxy-2-oxovalerate
+4-hydroxybenzyl alcohol
+4-hydroxybenzaldehyde
+4-hydroxyphenylacetic acid
+Imidazol-4-one-5-propionic acid
+4-methylpentanal
+2-hydroxy-4-oxobutane-1,2,4-tricarboxylic acid
+3-{2-HYDROXY-3-METHYL-3-[(PHOSPHONOOXY)METHYL]BUTANAMIDO}PROPANOIC ACID
+AC1L18JU
+4-TRIMETHYLAMMONIOBUTANAL
+4-trimethylammoniobutanoic acid
+4-HYDROXYBENZOIC ACID
+2-[[4-(3-amino-1-oxo-5,6,6a,7-tetrahydro-4H-imidazo[1,5-f]pteridin-10-ium-8-yl)benzoyl]amino]pentanedioic acid
+5-Aminolevulinic acid
+5-Aminovaleric acid
+AC1L18KF
+27-Deoxy-5alpha-cyprinol
+AC1L18KL
+72-90-2
+folinic acid
+5-Hydroxy-DL-tryptophan
+AC1L18KX
+methyl-THF
+147
+148
+MeSAdo
+Phosphoribosylamine
+AC1L18L9
+92379-77-6
+1-(5-o-phosphonopentofuranosyl)-1h-imidazol-5-amine
+AC1L18LI
+5-Ureido-4-imidazole carboxylate
+5,6,7,8-tetrahydropteridine
+hex-5-ulosonic acid
+8-iso PROSTAGLANDIN E2
+Prostacycline
+MLS003107056
+AC1L18M3
+6-Amino-3,3-dimethyl-7-oxo-4-thia-1-azabicyclo[3.2.0]heptane-2-carboxylic acid
+AC1L18M9
+6-diazo-5-oxo-L-norleucine
+AC1L18MF
+AC1L18MI
+dihydropteridine
+AC1L18MO
+73151-67-4
+dihydropteroate
+7-Aminomethyl-7-carbaguanine
+Cholesterol, 7-dehydro-
+8-Amino-7-oxononanoic acid
+ETHYLENE GLYCOL
+acetate
+acetic acid
+acetaldehyde
+acetamide
+acetoin
+acetone
+Acetyl-CoenzymeA
+AC1L18NU
+AC1L18NX
+2776-93-4
+2-acetamidopentanedioic acid
+acetylphosphate
+acetylcholine
+AC1L18OC
+4985-36-8
+adenine
+3228-71-5
+adpribose
+AC1L18OR
+AC1L18OU
+Adenylosuccinic acid
+adipic acid
+Adenosine-5'-Diphosphate, free acid
+AC1Q6SL6
+agmatine
+AICA-Riboside, 5'-Phosphate
+AC1L18PD
+AC1L18PG
+Allantoic acid
+allantoin
+DL-Threonine
+Hexopyranose
+allysine
+6-o-phosphonohexopyranose
+AC1L18Q1
+AC1L18Q4
+5,6-dimethyl-1-pentofuranosyl-1h-benzimidazole
+AC1L18QA
+AC1L18QD
+8-iso Prostaglandin E1
+1-aminopropan-2-one
+(4-AMINO-2-METHYLPYRIMIDIN-5-YL)METHYL DIHYDROGEN PHOSPHATE
+(4-amino-2-methylpyrimidin-5-yl)methyl trihydrogen diphosphate
+6-HYDROXYMETHYL-7,8-DIHYDROPTERIN
+2-amino-3-oxobutanoic acid
+Aminoparathion
+5-Amino-6-ribitylamino uracil
+ammonia
+ammonium
+NSC20264
+Isoandrosterone
+amino(phosphanyl)methanol
+anthranilic acid
+AC1L18RM
+Pentopyranose
+5-o-phosphonopentose
+5,8,11,14-Eicosatetraenoic acid
+DL-Arginine
+hydrogen arsenate
+Arsenic acid
+235
+DL-Asparagine
+quinacrine
+Laevadosin
+beta-alanine
+benzaldehyde
+benzene
+benzoate
+benzoic acid
+benzyl alcohol
+N-acetyllactosamine
+AC1L18T4
+betaine
+TRIMETHYL GLYCINE
+betaine aldehyde
+21H-Biline-8,12-dipropanoicacid,2,17-diethenyl-1,10,19,22,23,24-hexahydro-3,7,13,18-tetramethyl-1,19-dioxo-,(4E)-
+21H-Biline-8,12-dipropanoicacid, 3,18-diethenyl-1,19,22,24-tetrahydro-2,7,13,17-tetramethyl-1,19-dioxo-
+7,8-dihydrobiopterin
+Biotin(V-H)
+biphenyl-2,3-diol
+Bis(4-nitrophenyl)phosphate
+AC1L18TY
+AC1L18U1
+Blasticidin S
+bromide
+HYDROBROMIC ACID
+butyraldehyde
+2,3-butanediol
+1-butanol
+butyric acid
+butanoyl-CoA
+butanoyl phosphate
+AC1L18UV
+4-[2-[2-[3-acetamido-2-[[[5-(2,4-dioxopyrimidin-1-yl)-3,4-dihydroxyoxolan-2-yl]methoxy-hydroxyphosphoryl]oxy-hydroxyphosphoryl]oxy-5-hydroxy-6-(hydroxymethyl)oxan-4-yl]oxypropanoylamino]propanoylamino]-5-[[6-amino-1-[[1-[(1-hydroxy-1-oxopropan-2-yl)amino]-1-oxopropan-2-yl]amino]-1-oxohexan-2-yl]amino]-5-oxopentanoic acid
+AC1L18V1
+AC1L18V4
+calcium ion
+272
+1,5-Diaminopentane
+NSC94017
+O-{[amino(imino)methyl]amino}homoserine sulfate (salt)
+carbamate
+CARBAMIC ACID
+carbamoylphosphate
+Ureidosuccinic acid
+carbon dioxide
+carbon monoxide
+3-(5,6-dihydroxycyclohexa-1,3-dien-1-yl)propanoic acid
+formate
+formic acid
+(aminooxy)acetate
+Aminooxyacetic acid
+AC1L18WG
+DL-Carnitine
+pyrocatechol
+AC1L18WP
+AC1L18WS
+2906-23-2
+AC1L18WY
+cellobiose
+AC1Q1IDM
+Methylmalonate semialdehyde
+methane
+Tyfomycine
+chlordecone
+chloroacetic acid
+chlorohydroquinone
+4-(3,12-dihydroxy-10,13-dimethyl-7-oxo-1,2,3,4,5,6,8,9,11,12,14,15,16,17-tetradecahydrocyclopenta[a]phenanthren-17-yl)pentanoic acid
+3,7,12-Trihydroxycholan-24-oic acid
+Cholest-5-en-3-ol
+choline
+AC1Q5TCJ
+2-Propenal, 3-phenyl-
+3-phenyl-2-propene-1-ol
+ACONITIC ACID
+2,4-Hexadienedioic acid
+citric acid
+chloride
+hydrochloric acid
+NSC99445
+AC1L18YS
+3063-71-6
+coenzyme A
+318
+AC1L18Z4
+NSC277817
+coproporphyrinogen III
+(E)-P-Coumaricacid
+coumarin
+AC1L18ZJ
+4-isopropylbenzyl alcohol
+4-isopropylbenzaldehyde
+PQQH2
+4-Hydroxyphenylglycolic acid
+86316-83-8
+AC1L18ZY
+3,5-diaminohexanoic acid
+2-Methoxy-4-vinylphenol
+5-amino-6-(5'-phosphoribitylamino)uracil
+7-Hydroxycholest-4-en-3-one
+o-cresol
+Ureidoglycolic Acid
+SCHEMBL619208
+salicylic acid
+(2-Aminoethyl)phosphonic acid
+3-methylcatechol
+Digallic acid
+m-cresol
+AC1Q6T8I
+3,4,5-trihydroxycyclohexane-1,2-dione
+2-Butene-1,2,3-tricarboxylic acid
+4-Hydroxyphenyl hexopyranoside
+AC1L191D
+AC1L191G
+AC1L191J
+AC1L191M
+AC1L191P
+AC1L191S
+AC1L191V
+2-oxohept-3-enedioic acid
+4-Hydroxyphenylglyoxylic acid
+octane
+1,3,4,6-tetrachloro-1,4-cyclohexadiene
+5-Amino-3-oxohexanoic acid
+phloroglucinol
+AC1L192G
+dihydrophloroglucinol
+1,2-Dihydronaphthalene-1,2-diol
+aminoacetaldehyde
+2,3-diaminopropanoic acid
+AC1L192V
+7-Acetoxy-4-methylcoumarin
+367
+Homospermidine
+369
+Gallic acid
+acetylenedicarboxylic acid
+2-oxo-2H-pyran-4,6-dicarboxylic acid
+373
+4-oxobut-2-ene-1,2,4-tricarboxylic acid
+3,7,11,15,19,23,27,31,35,39,43-undecamethyltetratetraconta-2,6,10,14,18,22,26,30,34,38,42-undecaen-1-ol
+3-Hydroxy-5-oxohexanoic acid
+AC1L193P
+4-nitrophenyl phosphate
+octanoic acid
+capryloyl-CoA
+AC1L1941
+AC1L1944
+AC1L1947
+AC1L194A
+pimelic acid
+AC1L194G
+AC1L194J
+Malyl-coenzyme A
+2,5-Diaminopentanoic acid
+udp-glcua
+AC1L194V
+beta-lysine
+AC1L1951
+394
+AC1L1954
+396
+indole-3-acetamide
+2-nitropropane
+buta-1,3-diene-1,2,4-tricarboxylic acid
+N-(2-formylphenyl)formamide
+DL-Cycloserine
+hydrogen sulfide
+4-aminophenol
+7-hydroxylysine
+7|A-hydroxycholesterol
+Phosphonic acid dianion
+407
+rac Cotinine
+nicotine-1'-N-oxide
+AC1L1964
+cotinineglucuronide
+3-(pyrrolidin-2-yl)pyridine
+norcotinine
+Hydroxycotinine
+61192-50-5
+trans-3-hydroxycotinine glucuronide
+SCHEMBL498748
+3,5-Cyclohexadiene-1,2-diol
+4-oxohex-2-enedioic acid
+7-Cholesterol
+Dihydrolipoic acid
+ST51037416
+2-Amino-4-oxopentanoic acid
+DL-ASPARTIC ACID
+1-(2,4-Dihydroxyphenyl)-3-(4-hydroxyphenyl)prop-2-en-1-one
+Nopaline
+ST51006713
+1,3-diaminopropane
+AC1L197P
+N-Methylnicotinium
+nicotine imine
+2'-hydroxynicotine
+1-(HYDROXYMETHYL)-5-(PYRIDIN-3-YL)-PYRROLIDIN-2-ONE
+pseudooxynicotine
+4-(3-pyridyl)-4-oxobutyramide
+Oxoamide
+3-succinoylpyridine
+4-hydroxy-4-(3-pyridyl)-butanoic acid
+4-(pyridin-3-yl)but-3-enoic acid
+Cholestenone
+3-hydroxybutyric acid
+AC1L198S
+Androstane-3,17-dione
+bupropion
+2-(tert-butylamino)-1-(3-chlorophenyl)propan-1-ol
+hydroxybupropion
+3-chlorobenzoic acid
+57728-59-3
+DL-Mevalonic acid
+ST013886
+GDP-Fuc
+2,3,4,5,6-Pentahydroxycyclohexanone
+Hexitol
+Octanal
+AC1L199V
+Oxaluric acid
+Trigonellinamide
+S-methylmethionine
+AC1Q6RZM
+guaiacol
+PALMITOYLCARNITINE
+palmitoyl carnitine
+N2-Succinoylarginine
+Hippuric acid
+[3,4-dihydroxy-5- oxolan-2-yl]oxyphosphonicacid
+1-O-phosphonohexopyranose
+prephytoene diphosphate
+AC1L19AY
+2-Aminohexanedioic acid
+2,4-Diaminobutanoic acid
+dihydroquercetin
+4-(2-aminophenyl)-2,4-dioxobutanoic acid
+4-Methylthio-2-oxobutanoic acid
+AC1L19BG
+AC1L19BJ
+Phosphomevalonic acid
+myo-Inositol,1,3,4,6-tetrakis(dihydrogen phosphate)
+AC1L19BS
+Lactobacillus bulgaricus factor
+480
+fructose-1-phosphate
+inositol pentaphosphate
+AC1L19C4
+4-aminoimidazole
+choline sulfate
+choline hydrogen sulfate
+Methylmalonic acid
+AC1L19CJ
+2-deoxy-2-sulfoaminohexose
+phosphonoacetaldehyde
+trithionate
+Trithionic acid
+ADP-Ribosyl-L-arginine
+AC1L19D1
+AC1L19D4
+N1-Acetylspermidine
+AC1L19DA
+AC1L19DD
+DL-Pyroglutamic acid
+4-Guanidinobutyric acid
+2-amino-5-(amino-dimethylamino-methylidene)amino-pentanoic acid
+N-carbamoylputrescine
+N-carbamylglycinamide
+4-imidazolone
+AC1L19DY
+506
+AC1L19E1
+58337-43-2
+AC1L19E7
+trimetaphosphoric acid
+thiamin triphosphate
+2,6-dioxo-6-phenylhex-3-enoic acid
+d.l-methylisocitrate
+AC1L19EM
+2-Methylcitric acid
+(RS)-5-diphosphomevalonate
+AC1L19EV
+AC1L19EY
+AC1L19F1
+(2S,3R)-Sphinganine 1-phosphate
+DL-beta-Hydroxybutyryl coenzyme A lithium salt
+AC1L19FA
+2,5-dioxopentanoic acid
+Oxaloglycolate
+malic acid
+AC1L19FM
+Propionaldehyde
+4-Acetoxy-2-aminobutanoic acid
+Phosphoglycolic acid
+5-Formiminotetrahydrofolic acid
+AC1L19G1
+AC1L19G4
+Hydrogen selenide
+AC1L19GA
+1-Aminocyclopropane-1-carboxylic acid
+AC1L19GG
+AC1L19GJ
+AC1L19GM
+539
+Cyanic acid
+4-nitrobenzaldehyde
+Muconolactone
+4-carboxymuconolactone
+arsorite
+Arsenous acid
+Phosphonoacetic acid
+3,4-Dihydroxyphenylacetic acid
+5-(hydroxymethylidene)-2-oxohept-3-enedioic acid
+549
+AC1L19HM
+2-hydroxyhepta-2,4-dienedioic acid
+552
+4-Hydroxy-2-oxoheptanedioic acid
+1,1-Dimethylpyrrolidinium-2-carboxylate
+Pyrrolidinium, 2-carboxy-1,1-dimethyl-
+AC1L19I1
+1-methylpyrrolidine-2-carboxylic acid
+2-oxoarginine
+4-guanidinobutanal
+AC1L19ID
+5-(Methylthio)-2,3-dioxopentyl phosphate
+1-Penten-3-one, 1,2-dihydroxy-5-(methylthio)-
+3-(Methylthio)propionic acid
+6-aminohexanoic acid
+565
+566
+Phenylmercury
+dibenzofuran
+2,2',3-trihydroxybiphenyl
+6-hydroxy-2-oxo-6-phenylhexa-3,5-dienoic acid
+Butanoic acid, 4-[[6-amino-1-(2-mercaptoethyl)-6-oxohexyl]thio]-4-oxo-
+fosmidomycin
+Provitamin A1
+574
+575
+576
+AC1L19JG
+AC1L19JJ
+1-O-alpha-2-Acetamido-2-deoxygalactopyranosyl-inositol
+AC1L19JP
+7218-04-4
+AC1L19JV
+cotinine methonium ion
+2-hydroxy-2H-chromene-2-carboxylic acid
+4-(2-hydroxyphenyl)-2-oxobut-3-enoic acid
+creatine
+Glycine, N-[imino(phosphonoamino)methyl]-N-methyl-
+creatinine
+4-(trimethylammonio)but-2-enoate
+AC1L19KJ
+AC1L19KM
+S-But-2-enoylcoenzyme A
+AC1L19KS
+DL-Cysteine
+DL-CYSTINE
+.beta.-Arabinosylcytosine
+cytosine
+2-Mercaptoethanesulfonic acid
+2-Hydroxy-4-oxopentanedioic acid
+methoxyphosphonicacid
+DL-Alanyl-DL-alanine
+DL-ALANINE
+fructose-6-phosphate
+Hexonic acid
+AC1L19LS
+27982-01-0
+Schleimsaure
+D-Galactonic acid, .gamma.-lactone
+D-glucosamine 6-phosphate
+Hexopyranuronic acid
+DL-Glutamic acid
+lactic acid
+AC1L19MG
+DL-Proline
+AC1L19MM
+7-o-phosphonohept-2-ulose
+DL-Serine
+Alditol 6-phosphate
+2-pentulose
+AC1Q6S1V
+Adenosine, 5'-phosphoric acid
+2'-Deoxyadenosine 5'-triphosphate disodium salt(dATP)
+AC1L19NA
+ST013873
+AC1L19NG
+2-deoxyhexonic acid
+2-deoxyhex-3-ulosonic acid
+1-[5-[[[[5-(6-aminopurin-9-yl)-3,4-dihydroxy-tetrahydrofuran-2-yl]methoxy-hydroxy-phosphoryl]oxy-hydroxy-phosphoryl]oxymethyl]-3,4-dihydroxy-tetrahydrofuran-2-yl]pyridin-1-ium-3-carboxylic acid
+AC1L19NS
+1,3,4-TRIHYDROXY-5-OXO-CYCLOHEXANECARBOXYLIC ACID
+2-amino-1-hydroxyoctadecan-3-one
+THDPA
+AC1L19O4
+4-HYDROXY-5-(HYDROXYMETHYL)OXOLAN-2-YL]OXYPHOSPHONIC ACID
+AC1Q6SXY
+deoxyadenosine
+Cytosine deoxyribonucleoside
+Desoxyguanosine
+ACMC-209qyj
+2'-Desoxyuridine
+AC1L19OT
+3633-59-8
+Desthiobiotin
+102783-74-4
+902-04-5
+AC1Q6S3Y
+DMAPP
+hydroorotic acid
+dihydrouracil
+2,3-butanedione
+AC1L19PN
+7,8-Diaminopelargonic acid
+653
+diethyl hydrogen phosphate
+DETP
+AC1L19Q2
+AC1L19Q5
+AC1L19Q8
+7,8-dihydro-D-neopterin
+dihydrocoumarin
+4033-27-6
+Aromadedrin
+dihydrolipoamide
+AC1L19QQ
+27040-09-1
+Pteridine diphosphate
+AC1L19QZ
+DIHYDROXYACETONE PHOSPHATE
+2-hydroxy-3-oxobutyl phosphate
+1,3-dihydroxyacetone
+1,4-Dihydroxy-2-naphthoic acid
+AC1L19RE
+N,N-dimethylglycine
+dimethylamine
+5,6-Dimethylbenzimidazole
+AC1L19RQ
+2,3-Dihydroxyisovaleric acid
+AC1L19RW
+dimethyl sulfoxide
+3,8-dimethyldec-7-en-1-yl dihydrogen phosphate
+dopamine
+L-dopaquinone
+1,3-biphosphoglycerate
+TDP-Glucose
+AC1L19SH
+AC1L19SK
+AC1L19SN
+AC1Q6RZJ
+AC1L19ST
+117305-84-7
+2-hydroxy-3-phenylacrylic acid
+AC1L19T2
+2,2-dimethyl-3-(3,7,12,16,20-pentamethylhenicosa-3,7,11,15,19-pentaen-1-yl)oxirane
+3-pyridine aldoxime
+AC1L19TB
+2,3-dihydroxy-4-(phosphonooxy)butanoic acid
+CHEMBL75612
+Estrone-d4
+[6,7-3H] E1S
+Ethanolamine
+Ethyl 2-methylacetoacetate
+ethanol
+flavitan
+AC1L19U2
+AC1Q6N7S
+Diphosphoric acid,P-(3,7,11-trimethyl-2,6,10-dodecatrienyl) ester
+3,7,11,15,19,23,27,31-octamethyldotriaconta-2,6,10,14,18,22,26,30-octaen-1-ol
+3,7,11,15,19,23,27,31-octamethyldotriaconta-2,6,10,14,18,22,26,30-octaen-1-yl trihydrogen diphosphate
+Ferulic acid-1,2,3-13C3
+Riboflavin monophosphate
+fmnh
+formaldehyde
+formamide
+AC1L19UW
+AC1L19UZ
+2,5-bis(hydroxymethyl)oxolane-2,3,4-triol
+Fructose 1-phosphate
+1,6-di-o-phosphonohex-2-ulofuranose
+6-o-phosphonohex-2-ulofuranose
+AC1L19VE
+AC1L19VH
+AC1L19VK
+MALEICACID
+glycerate 3-phosphate
+Butyrobetaine
+AC1L19VW
+lindane
+beta-Pch
+GLYCERALDEHYDE 3-PHOSPHATE
+guanosine diphos-phate
+AC1L19WB
+Guanosine diphosphate glucose
+AC1L19WH
+3,7-dimethylocta-2,6-dienyl phosphono hydrogen phosphate
+phosphono 3,7,11,15-tetramethylhexadeca-2,6,10,14-tetraenyl hydrogen phosphate
+.delta.-Gluconolactone
+1,6-di-o-phosphonohexopyranose
+DL-Glutamine
+2-Amino-2-deoxyhexopyranose
+2-amino-2-deoxy-1-o-phosphonohexopyranose
+glutaconyl-CoA
+4-amino-5-oxopentanoic acid
+GLUTARIC ACID
+AC1L19XE
+gamma-Glutamylcysteinylglycine
+AC1L19XK
+AC1L19XN
+AC1L19XQ
+AC1L19XT
+glycine
+DL-Glyceraldehyde
+2,3-Dihydroxypropanoic acid
+glycerol
+3-Glycerophosphate
+N-Choloylglycine
+glycolaldehyde
+glycolic acid
+AC1L19YK
+AC1L19YN
+glyoxylic acid
+ST013875
+guanosine triphos-phate
+glycocyamine
+guanine
+NSC19994
+AC1L19Z8
+carbonic acid
+hydrogen cyanide
+bicarbonate
+770
+AC1L19ZK
+heparin
+DL-HISTIDINE
+histamine
+2-amino-3-(1h-imidazol-4-yl)propanal
+histidinol
+73-67-6
+DL-Homocysteine
+DL-Homoserine
+Homogentisic acid
+thiocyanic acid
+5624-26-0
+Hydrogen
+hydrogen peroxide
+hydroquinone
+AC1L1A0T
+hydroxylamine
+hydroxymethylbilane
+789
+hypoxanthine
+DL-ISOLEUCINE
+Imidazole-acetol phosphate
+Imidazole lactic acid
+Imidazole pyruvate
+imidazole
+iminoaspartate
+Polyinosine
+indole
+IGPS
+indole-3-acetaldehyde
+3-indoleacetate
+indole-3-acetic acid
+Indole-3-pyruvic acid
+arabinosylhypoxanthine
+1,2,3,4,5,6-cyclohexanehexol, 1,4-bis(dihydrogen phosphate)
+D-myo-Inositol 1,3,4-tris-phosphate ammonium salt
+Iodine
+S-[2-[3-[[4-[[[5-(6-aminopurin-9-yl)-4-hydroxy-3-phosphonooxyoxolan-2-yl]methoxy-hydroxyphosphoryl]oxy-hydroxyphosphoryl]oxy-2-hydroxy-3,3-dimethylbutanoyl]amino]propanoylamino]ethyl] 2-methylpropanethioate
+5-((1-Carboxyethenyl)oxy)-6-hydroxy-1,3-cyclohexadiene-1-carboxylic acid
+Coenzyme A, valeryl-
+Itaconic acid
+AC1L1A2W
+potassium ion
+814
+ST095151
+bekanamycin
+3-Deoxyoctulosonic acid
+AC1L1A3B
+AC1L1A3E
+AC1L1A3H
+AC1L1A3K
+AC1L1A3N
+563-23-5
+DL-NORVALINE
+4-hydroxyproline
+AC1L1A3Z
+Pentitol
+AC1L1A45
+2-amino-4-oxobutanoic acid
+L-Serine, diazoacetate (ester)
+AC1L1A4E
+4-oxo-O-phosphonohomoserine
+DL-Citrulline
+cystathionine
+5-(1,2-Dihydroxyethyl)-2,3,4(5H)-furantrione
+DL-DOPA
+AC1L1A4W
+DL-Adrenaline
+2-amino-4-hydroxypentanedioic acid
+6-Deoxyhexopyranose
+fuculose
+h-gamma-glu-cys-oh
+5-oxo-5-(phosphonooxy)norvaline
+2-Amino-5-oxopentanoic acid
+HSA
+kynurenine
+DL-Methionine sulfoxide
+2,4-dihydroxy-3,3-dimethylbutanoic acid
+piperidine-2-carboxylic acid
+(2,3,5-TRIHYDROXY-4-OXO-PENTOXY)PHOSPHONIC ACID
+AC1L1A62
+2-Amino-3-methylsuccinic acid
+DL-Thyroxine
+DL-Arabinose
+lactaldehyde
+Lanosta-8,24-dien-3-ol
+DL-Leucine
+AC1L1A6N
+AC1L1A6Q
+Octadeca-9,12,15-trienoic acid
+Rathyronine
+AC1L1A6Z
+lipoamide
+dl-Thioctic acid
+2,6-Diaminopimelic acid
+DL-Lysine
+malonic acid
+3-oxopropanoic acid
+MALONYL COENZYME A
+Mannan
+maltotriose
+melibiose
+3-(2-hydroxyphenyl)propanoic acid
+2-methylbut-2-enedioic acid
+tartaric acid
+DL-METHIONINE
+AC1L1A88
+methanethiol
+AC1L1A8E
+methylglyoxal
+methane, ion(1-)
+AC1L1A8N
+92481-97-5
+AC1L1A8T
+AC1L1A8W
+AC1L1A8Z
+methanol
+magnesium ion
+889
+Phytic acid
+3-(methoxycarbonyl)pent-2-enedioic acid
+Scyllo-inositol
+methyl coenzyme M
+AC1L1A9K
+6-(6-aminohexanamido)hexanoic acid
+Melatonin
+N-[2-amino-4,5-dihydroxy-6-(hydroxymethyl)oxan-3-yl]acetamide
+GlcNAc-6-P
+N-Acetylhexosamine
+N-acetyl-D-hexosamine 1-phosphate
+AC1L1AA5
+4-acetamido-2-aminobutanoic acid
+N-Acetyl-5-hydroxytryptamine
+acetanilide
+2-acetamido-5-oxovaleric acid
+sialic acid
+Nalpha-Acetyl-L-ornithine
+Formiminoglycine
+n-formimidoyl-glutamic acid
+Formylkynurenine
+N-Formyl-DL-methionine
+673-50-7
+2-(Methylamino)-1-phenylethanol
+N-methyltryptophan
+N-Succinyl-2-amino-6-oxopimelate
+N1-acetylspermine
+1-methyl-2,3,6,7-tetrahydro-1H-purin-6-amine
+AC1L1ABK
+AC1L1ABN
+899816-95-6
+AC1L1ABT
+N5-methyl-DL-glutamine
+sodium ion
+924
+Coenzyme 1
+AC1L1AC5
+AC1L1AC8
+74927-11-0
+beta-NADP-sodium salt
+NADP(H)
+naphthalene
+naringenin
+hydroxyammonium
+Nickel(2+)
+Nickel
+nicotinamide
+nicotinate
+nicotinic acid
+AC1Q6RZA
+1341-23-7
+nicotinic acid mononucleotide
+3-(1-methylpyrrolidin-2-yl)pyridine
+nitrate
+NITRIC ACID
+Nitroxyl
+nitrite
+Nitrogen
+nitrous oxide
+N,N-dimethylaniline
+Dimethylaniline N-oxide
+dl-Norepinephrine
+2-(hydroxymethyl)oxolane-3,4-diol
+O-Phosphorylhomoserine
+Homoserine, O-succinyl-
+O-succinylbenzoate
+2-Succinylbenzoyl-coenzyme A
+1-octanol
+6917-53-9
+5-methoxy-2-methyl-3-(3,7,11,15,19,23,27,31-octamethyldotriaconta-2,6,10,14,18,22,26,30-octaen-1-yl)cyclohexa-2,5-diene-1,4-dione
+AC1L1AEZ
+hydroxide
+water
+AC1L1AF8
+3-Hydroxypyruvic acid
+9-octadecenoic acid
+AC1L1AFH
+Orotic acid
+AC1L1AFN
+AC1L1AFQ
+oxalacetic acid
+oxalic acid
+Oxalosuccinic acid
+AC1L1AG2
+OXAMIC ACID
+L-Glutathione (Oxidized)
+2-keto-4-pentenoic acid
+Oxygen
+4-aminobenzoic acid
+4-Hydroxyphenylpyruvic acid
+4-Nitrophenol
+AC1L1AGQ
+AC1L1AGT
+Triphosphoric acid
+hexadecanal
+palmitic acid
+AC1L1AH5
+pantetheine 4'-phosphate
+DL-Pantothenic acid
+PANTOLACTONE
+AC1L1AHH
+parathion
+pentachlorophenol
+pentofuranose
+DL-PHENYLALANINE
+PHENANTHRENE
+phenol
+phenylpyruvic acid
+phenylacetaldehyde
+PHENYLACETIC ACID
+2-Amino-1-phenylethanol
+Phenethylamine
+5-Phenylhydantoin
+DIHYDROGEN PHOSPHATE
+Phosphoric acid
+phosphoenolpyruvate
+AC1L1AIT
+AC1L1AIW
+AC1L1AIZ
+AC1L1AJ2
+AC1L1AJ5
+AC1L1AJ8
+AC1L1AJB
+AC1L1AJE
+phosphocholine
+2-Aminoethyl dihydrogen phosphate
+O-Phospho-DL-threonine
+phthalic acid
+picolinic acid
+1019
+AC1L1AJW
+porphobilinogen
+1022
+Diphosphoric acid
+methoxatin
+AC1L1AK8
+AC1L1AKB
+3-Hydroxypregn-5-en-20-one
+Prephenic acid
+2,6-diamino-5-hydroxyhexanoic acid
+1,2-propanediol
+1-propanol
+propionic acid
+Propionoyl-CoA
+Propanoyl phosphate
+AC1L1AL2
+1036
+AC1L1AL5
+hydron
+AC1L1ALB
+1040
+AC1L1ALE
+AC1L1ALH
+PTERIDINE
+Purine
+1,4-diaminobutane
+pyrazinamide
+Pyrazine-2-carboxylic acid
+pyrazole
+PYRIDINE
+pyridoxal
+pyridoxal phosphate
+pyridoxamine
+pyridoxamine phosphate
+pyridoxine
+Pyridoxine 5-phosphate
+dihydropyrimidine
+pyrogallol
+Diphosphate, trihydrogen
+4-hydroxy-3,4-dihydro-2H-pyrrole-2-carboxylic acid
+Pyruvic acid
+phosphate
+56275-39-9
+AC1L1AN8
+1,3,4,5-Tetrahydroxycyclohexanecarboxylic acid
+Quniacridine
+quinolinic acid
+AC1L1ANK
+dimethyl sulfide
+AC1L1ANQ
+11-cis Retinal
+9-cis retinol
+83-88-5
+AC1L1AO2
+1-o-phosphonopentofuranose
+1075
+S-acetyldihydrolipoamide
+AC1L1AOB
+22365-13-5
+(3-amino-4-hydroxy-4-oxobutyl)-[[5-(6-aminopurin-9-yl)-3,4-dihydroxyoxolan-2-yl]methyl]-methylsulfanium
+carbocysteine
+Citramalic acid
+LJP 1082
+NSC651836
+thiosulfate
+hydroxidodioxidosulfanidosulfur
+dithionite
+Saccharopin
+sarcosine
+SELENIC ACID
+selenite
+SELENIOUS ACID
+selenophosphoric acid
+AC1L1APK
+3,4,5-Trihydroxy-1-cyclohexene-1-carboxylic acid
+shikimic acid-3-phosphate
+1096
+AC1L1APW
+AC1L1APZ
+sulfite
+Sulfurous acid
+Sorbose, L-
+spermidine
+spermine
+IN1085
+(E,E,E,E)-Squalene
+COENZYME A,S-OCTADECANOATE
+sterol
+sterone-ring
+1109
+succinic acid
+AC1L1AQZ
+Succinic semialdehyde
+4-[[2-[3-[(4-amino-2-methylpyrimidin-5-yl)methyl]-4-methyl-1,3-thiazol-3-ium-5-yl]ethoxy-hydroxyphosphoryl]oxy-hydroxyphosphoryl]oxy-4-hydroxybutanoic acid
+AC1L1AR8
+Hex-2-ulofuranosyl hexopyranoside
+AC1L1ARE
+sulfate
+SULFURIC ACID
+sulfur dioxide
+3,7,11,15,19,23,27,31,35,39-decamethyltetraconta-2,6,10,14,18,22,26,30,34,38-decaen-1-yl trihydrogen diphosphate
+AC1L1ART
+tartronate semialdehyde
+taurine
+AC1L1AS2
+tetrahydrobiopterin
+AC1L1AS8
+tetrahydrothiophene
+Tetramethylene sulfoxide
+tetrahydrofolate
+thiamine
+thiamin phosphate
+cocarboxylase
+mercaptoacetic acid
+1-(2-deoxypentofuranosyl)-5-methylpyrimidine-2,4(1H,3H)-dione
+thymine
+4-METHYL-5-THIAZOLEETHANOL
+4-METHYL-5-HYDROXYETHYLTHIAZOLE PHOSPHATE
+AC1L1AT8
+AC1L1ATB
+toluene
+3-methylcyclohexa-3,5-diene-1,2-diol
+5-[2-[3-[[4-[[[5-(6-aminopurin-9-yl)-4-hydroxy-3-phosphonooxyoxolan-2-yl]methoxy-hydroxyphosphoryl]oxy-hydroxyphosphoryl]oxy-2-hydroxy-3,3-dimethylbutanoyl]amino]propanoylamino]ethylsulfanyl]-3-methyl-5-oxopent-3-enoic acid
+D-(+)-Trehalose
+6-o-phosphonohexopyranosyl hexopyranoside
+TRIMETHYLAMINE N-OXIDE
+trimethylamine
+Trimethylsulfonium
+DL-Tryptophan
+AC1L1AU5
+tryptamine
+AC1L1AUB
+Tungstic acid
+DL-Tyrosine
+AC1L1AUK
+AC1L1AUN
+Ubidecarenonev
+AC1L1AUT
+UDP - Na
+1159
+AC1L1AUZ
+AC1L1AV2
+AC1L1AV5
+AC1L1AV8
+AC1L1AVB
+AC1L1AVE
+AC1L1AVH
+UDP-N-acetylgalactosamine
+AC1L1AVN
+UDP-N-acetylmuraminate
+AC1L1AVT
+AC1L1AVW
+28086-43-3
+AC1L1AW2
+uracil
+uric acid
+urea
+58-96-8
+3-(1H-imidazol-4-yl)acrylic acid
+Uroporphyrinogen III
+1180
+Uridine, trisodium salt
+DL-Valine
+vanillin
+AC1L1AWW
+1185
+1186
+1187
+xanthine
+9-.beta.-D-Ribofuranosylxanthine
+AC1L1AX5
+AC1L1AX8
+1,5-di-o-phosphonopent-2-ulose
+AC1L1AXE
+2756-89-0
+isopentenyl pyrophosphate
+3,4-dihydro-2H-pyrrole-2-carboxylic acid
+2-AMINO-6-(3-CARBOXYPROPANAMIDO)HEPTANEDIOIC ACID
+isocitric acid
+STK027440
+AC1L1AXZ
+Calanolide
+Carbocyclic thromboxane A2
+DL-Catechin
+(+/-)-Epibatidine
+AC1L1AYE
+DL-Methamphetamine
+[3H]dizocilpine
+Norcyclazocine
+L-Quisqualic acid
+Tubocurarine,d
+AC1L1AYW
+AC1L1AYZ
+23333-91-7
+1-aminocyclobutane-1,3-dicarboxylic acid
+1-(2,3-dichlorophenyl)ethanamine
+76326-31-3
+31932-87-3
+Skf-81297
+7-OH-DPAT
+8-OH-Dpat
+ampa
+(RS)-MCPG
+CHEMBL350384
+BUTACLAMOL
+Cl-Apb
+2,3-Piperidinedicarboxylic acid
+147732-31-8
+100828-16-8
+1-(4-iodo-2,5-dimethoxyphenyl)propan-2-amine
+2-[6-(4-chlorophenoxy)hexyl]oxirane-2-carboxylate
+2-(6-(4-Chlorophenoxy)hexyl)oxirane-2-carboxylic acid
+3-amino-1-hydroxypyrrolidin-2-one
+Ibotenic acid
+Gallopamil
+N-Allylnormetazocine
+NIGULDIPINE
+NORMETANEPHRINE
+Clorotepine
+(+/-)-Pindobind
+N 434
+Skf-77434
+SKF 38393
+SK&F-83566
+1244
+Vanillylmandelic acid
+AC1L1B1Q
+AC1L1B1T
+AC1L1B1W
+CHEBI:71224
+STK683285
+AC1L1B25
+AC1L1B28
+Huperzine A
+MENTHOL
+N-Norcodeine
+Perillic acid
+(A+/-)-Quinpirole dihydrochloride
+Scopolamine N-oxide
+AC1L1B2T
+AC1L1B2W
+AC1L1B2Z
+AC1L1B32
+D0F0UA
+AR1
+AC1Q5GRJ
+1ld8
+AC1L1B3H
+AC1L1B3K
+AC1L1B3N
+AC1L1B3Q
+L-Ccg-I
+AC1L1B3W
+AC1L1B3Z
+Tetradeca-3,5-dien-2-amine
+AC1L1B45
+AC1L1B48
+AC1L1B4B
+AC1L1B4E
+AC1L1B4H
+AC1L1B4K
+BAI
+HEMI-BABIM
+5-Iodo-5,6-dihydrouracil
+AC1L1B4W
+AC1L1B4Z
+Dimethylmatairesinol
+CHEMBL311663
+(-)-Indolactam V (low PS)
+AC1Q5QCQ
+DB04123
+AC1L1B5H
+MANDELIC ACID
+methanandamide
+1-phenoxybutan-2-yl methylphosphonochloridate
+2-benzhydrylpyrrolidine
+AC1L1B5W
+4-Chpgly
+1298
+AC1L1B62
+AC1L1B65
+sodium 2-(6-methoxynaphthalen-2-yl)propanoate
+23981-80-8
+2-Hydroxy-2-phenylpropanoic acid
+S-Farnesyl-L-cysteine Methyl Ester
+AC1L1B6K
+AC1L1B6N
+AC1L1B6Q
+CHEMBL156702
+6,7-Dimethoxy-3-(6-methyl-5,6,7,8-tetrahydro[1,3]dioxolo[4,5-g]isoquinolin-5-yl)-2-benzofuran-1(3H)-one
+ACPD
+AC1L1B72
+AC1L1B75
+3,4-PYRROLIDINEDIOL,2-(1,2-DIHYDROXYETHYL)-,[2S-[2A(R*),3B,4A]]-;GALACTOFURANOSE,4-AMINO-1,4-DIDEOXY-,D-
+Acetamide, N-[3,3,3-trifluoro-2-oxo-1-(phenylmethyl)propyl]-
+AC1L1B7E
+Dimethylphenylpiperazinium
+1,10-Diaminodecane
+1,10-phenanthroline
+Benzo(a)pyrene-7,8,9-triol, 7,8,9,10-tetrahydro-
+Anthrapurpurin
+1,2-Dicaprin
+1,2-DIMETHYLHYDRAZINE
+1,2-Dioctanoylglycerol
+3-hydroxypropane-1,2-diyl bisoctadec-9-enoate
+AC1L1B88
+Isocaffeine
+AC1L1B8E
+1,3-Diethyl-8-phenylxanthine
+8-Cyclopentyl-1,3-dipropylxanthine
+1,3-Dipropyl-8-p-sulfophenylxanthine
+PIBTU
+1332
+AC1L1B8T
+AC1L1B8W
+2-(hydroxymethyl)pyrrolidine-3,4-diol
+Aza-C-nucleosides
+CHEMBL444422
+BW284c51
+AC1L1B9B
+1,5-isoquinolinediol
+64657-18-7
+1-(1-Naphthyl)piperazine
+NSC88790
+1-(2-Aminoethyl)pyrrolidine
+PK 11195
+1-(2-Methoxyphenyl)piperazine
+Benzoic acid, 5-[2-(2,5-dihydroxyphenyl)ethenyl]-2-hydroxy-
+MY-5445
+1349
+[3,4-dihydroxy-5-(2,4,6-trioxo-1,3-diazinan-1-yl)oxolan-2-yl]methyl dihydrogen phosphate
+1-(5-bromopyridin-2-yl)-3-[2-(6-fluoro-2-hydroxy-3-propanoylphenyl)cyclopropyl]urea
+Iso-H-7
+AC1L1BAE
+m-Chlorophenylbiguanide
+1-(3-Chlorophenyl)piperazine
+AC1L1BAN
+AC1L1BAQ
+AC1L1BAT
+Trim
+1-[6-(2-chloro-4-methyxyphenoxy)-hexyl]-imidazole
+AC1L1BB2
+AC1L1BB5
+1-acyl-PAF
+AC1L1BBB
+1-Allyl-3,7-dimethyl-8-sulfophenylxanthine
+1-Aminocyclohexanecarboxylic acid
+1-aminobenzotriazole
+Cycloglutamate
+8-Anilino-1-naphthalenesulfonic acid
+1-BCP
+AC1L1BBW
+CHEMBL148756
+AC1L1BC2
+2-(hydroxymethyl)piperidine-3,4,5-triol
+AC1L1BC8
+AC1L1BCB
+1-O-Hexadecyl-2-O-methyl-rac-glycero-3-phosphocholine
+2-O-Methyl PAF
+1-(hexadecyloxy)-3-hydroxypropan-2-yl acetate
+1-O-Hexadecyl-2-O-methyl-rac-glycerol
+GLE
+1-hydroxy-2,3-dimethylanthracene-9,10-dione
+noc-7
+367947-68-0
+UC84
+1386
+1-methyl-3-oxo-1,3-dihydro-benzo[c]isothiazole-5-sulfonic acid amide
+MPTP
+AC1L1BDB
+1-methylimidazole
+AC1L1BDH
+EDELFOSINE
+ALKYL-LYSOPHOSPHOLIPID
+IN1184
+1395
+C16H11BrF3N3O2S
+AC1L1BDW
+1-STEAROYL-2-ARACHIDONOYL-SN-GLYCEROL
+34487-26-8
+172889-26-8
+219580-11-7
+AC1L1BEB
+AS-1397
+AC1L1BEH
+PDDF
+11-hydroxyicosa-5,8,12,14-tetraenoic acid
+81276-02-0
+AC1L1BET
+11-Dehydro-txb2
+AC1L1BEZ
+11-nor-8-Tetrahydrocannabinol-9-carboxylic acid
+12,20-dihydroxyicosa-5,8,10,14-tetraenoic acid
+12-Hete
+12-Hht
+omega-9 Hpaa
+11-(3-pentyloxiran-2-yl)undec-9-enoic acid
+AC1L1BFK
+AC1L1BFN
+AC1L1BFQ
+12-methoxydodecanoic acid
+oxocalanolide
+AC1L1BFZ
+7-[2-(heptylamino)cyclopentyl]heptanoic acid
+13(S)-HODE
+13-hydroxyoctadeca-6,9,11-trienoic acid
+13-hydroperoxyoctadeca-9,11-dienoic acid
+7-[3,5-dihydroxy-2-(3-oxooctyl)cyclopentyl]hept-5-enoic acid
+13,14-dihydro-15(R)-Prostaglandin E1
+13-oxoheptadeca-9,11-dienoic acid
+5,12-dihydroxyicosa-6,8,10-trien-14-ynoic acid
+81276-03-1
+1432
+N-(3-(AMINOMETHYL)BENZYL)ACETAMIDINE
+15-hydroxyicosa-11,13-dienoic acid
+15-hydroxyicosa-5,8,11,13,17-pentaenoic acid
+15(S)-HETE-d8
+15-hydroxyicosa-8,11,13-trienoic acid
+15-hydroperoxyicosa-11,13-dienoic acid
+15-hydroperoxyicosa-5,8,11,13,17-pentaenoic acid
+15-hydroperoxyicosa-5,8,11,13-tetraenoic acid
+AC1L1BHH
+AC1L1BHK
+15-oxoicosa-5,8,11,13-tetraenoic acid
+ACMC-20lrps
+39746-25-3
+heptadeca-1,9,16-trien-4,6-diyne-3,8-diol
+heptadeca-1,9,16-trien-4,6-diyn-3-ol
+AC1L1BI2
+17-octadecynoic acid
+38315-43-4
+AC1L1BIB
+AC1L1BIE
+AC1L1BIH
+AC1L1BIK
+Pocapavir
+1h-[1,2,4]oxadiazolo[4,3-a]quinoxalin-1-one
+Benz[a]anthracene-2,3,4-triol, 1,2,3,4-tetrahydro-
+AC1L1BIW
+AC1L1BIZ
+AC1L1BJ2
+AC1L1BJ5
+AC1L1BJ8
+PHOSPHORIC ACID [5-(6-AMINOPURIN-9-YL)-2-METHYLTETRAHYDROFURAN-3-YL] ESTER
+Hoechst 33342
+AC1L1BJH
+2'-acetylneriifolin
+AC1L1BJN
+112318-09-9
+AC1L1BJT
+NSC692930
+AC1L1BK0
+2,5-pyrrolidinedimethanol, 3,4-dihydroxy-
+AC1L1BK6
+2,2'-BIPYRIDINE
+CHEMBL113381
+1476
+AC1L1BKF
+2,3-dicarboxy-4-(2-chloro-phenyl)-1-ethyl-5-isopropoxycarbonyl-6-methyl-pyridinium
+AC1L1BKL
+2,4,5-trichlorophenoxyacetic acid
+219827-50-6
+2,4,5-T Methyl ester
+2,4,6-tribromophenol
+6-phenyl-5,6,7,8-tetrahydropteridine-2,4-diamine
+2,4-Dichlorobenzylamine
+2,4-dichlorophenoxyacetic acid
+Caswell No. 315AU
+2,4-D methyl ester
+4-(2,4-Dichlorophenoxy)butanoic acid
+Methyl 4-(2,4-dichlorophenoxy)butanoate
+2,4-dihydroxybenzoic acid
+4-methoxy-N-(2-methoxy-5-nitrophenyl)benzenesulfonamide
+2,4-dinitrophenol
+D-Mannitol,5-anhydro-
+2,5-Anhydro-D-glucitol-1,6-diphosphate
+AC1L1BM0
+AC1L1BM3
+2,6-dimethyl-1-(3-[3-methyl-5-isoxazolyl]-propanyl)-4-[2n-methyl-2h-tetrazol-5-yl]-phenol
+BIS-BENZAMIDINE
+AC1L1BMC
