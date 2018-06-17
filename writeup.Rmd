@@ -626,6 +626,10 @@ rm(list = setdiff(ls(), lsf.str()))
 
 #### Comparison of libraries
 
+```{r}
+system('python summarize_libraries.py')
+```
+
 *Summary statistics*: Here is a table summarizing the features of each drug library.
 
 ```{r table_1, eval=TRUE}

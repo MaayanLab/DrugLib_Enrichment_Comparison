@@ -1,5 +1,16 @@
-In this project, I compare the agreement of different drug target libraries with different drug perturbation signature libraries using enrichment analysis. The drug target libraries I look at are DrugBank, the Target Central Resource Database, Drug Repurposing Hub, the Drug Gene Interaction Database (DGIdb), DrugCentral, STITCH, and the Drug Target Commons. The drug perturbation signature libraries I used are the CRowd Extracted Expression of Differential Signatures (CREEDS) and the LINCS L1000.
+In this project, I evaluated the accuracy of different drug target libraries by measuring their agreement with drug perturbation signature libraries. The drug target libraries I looked at are DrugBank, the Target Central Resource Database, the Drug Repurposing Hub, the Drug Gene Interaction Database (DGIdb), DrugCentral, STITCH, and the Drug Target Commons. The drug perturbation signature libraries I used are the CRowd Extracted Expression of Differential Signatures (CREEDS) and the LINCS L1000. For all drug target libraries, since their average number of gene targets was small, I used hu.MAP and BioGRID, protein-protein interaction (PPI) databases, and ARCHS4, a protein co-expression database, to create expanded gene sets from the target lists.
 
-For drug target libraries whose samples have a small number of gene targets on average, I used protein-protein interaction (PPI) databases to expand their target lists. The PPI databases I used are hu.MAP, ARCHS4, and BioGRID.
+I measured agreement using enrichment analysis–specifically, the Fisher’s exact test for overrepresentation. I treated each (drug, expanded target list) from the drug target libraries as an (annotation, gene set) pair, and each (drug sample, list of most-perturbed genes) from the drug perturbation signature libraries also as an (annotation, gene set) pair. I then performed enrichment into one library using the gene sets from the other library, and observed how highly the matching annotations, i.e. those which correspond to the same drug as the input, were ranked. If two libraries agree with one another, then these matching annotations should often be highly ranked.
 
-See http://htmlpreview.github.io/?https://github.com/MaayanLab/DrugLib_Enrichment_Comparison/blob/master/writeup.html for a full description and results.
+The full description and results of this project can be found here:
+
+* [With code](http://htmlpreview.github.io/?https://github.com/MaayanLab/DrugLib_Enrichment_Comparison/blob/master/writeup_with_code.html)
+* [Without code](http://htmlpreview.github.io/?https://github.com/MaayanLab/DrugLib_Enrichment_Comparison/blob/master/writeup.html)
+
+Here is how to run the code and replicate my results:
+
+1. Clone this repository to your computer.
+2. Download the library files from [this zip file](https://drive.google.com/file/d/1RZVz7W-MuikJbX0IlJvQwbuMsBjtYD5k/view?usp=sharing). It contains three folders, one for each format: "original_drug-gene_libs", the original format, "gvms", gene vector matrices, and "gmts", gene matrix transpose. Place "original_drug-gene_libs" as a subfolder within the main repository folder. The other two folders will be re-created in the next step.
+3. Run `writeup.rmd` to convert and expand the drug libraries.
+4. Run `perform_enrichment.py` to perform enrichment analysis.
+5. Run `visualize_results` to produce the bridge plots visualizing the results of enrichment.
