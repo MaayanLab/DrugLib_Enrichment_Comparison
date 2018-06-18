@@ -1,3 +1,5 @@
+# Summary
+
 In this project, I evaluated the accuracy of different drug target libraries by measuring their agreement with drug perturbation signature libraries. The drug target libraries I looked at are DrugBank, the Target Central Resource Database, the Drug Repurposing Hub, the Drug Gene Interaction Database (DGIdb), DrugCentral, STITCH, and the Drug Target Commons. The drug perturbation signature libraries I used are the CRowd Extracted Expression of Differential Signatures (CREEDS) and the LINCS L1000. For all drug target libraries, since their average number of gene targets was small, I used hu.MAP and BioGRID, protein-protein interaction (PPI) databases, and ARCHS4, a protein co-expression database, to create expanded gene sets from the target lists.
 
 I measured agreement using enrichment analysis–specifically, the Fisher’s exact test for overrepresentation. I treated each (drug, expanded target list) from the drug target libraries as an (annotation, gene set) pair, and each (drug sample, list of most-perturbed genes) from the drug perturbation signature libraries also as an (annotation, gene set) pair. I then performed enrichment into one library using the gene sets from the other library, and observed how highly the matching annotations, i.e. those which correspond to the same drug as the input, were ranked. If two libraries agree with one another, then these matching annotations should often be highly ranked.
@@ -6,6 +8,8 @@ The full description and results of this project can be found here:
 
 * [With code](http://htmlpreview.github.io/?https://github.com/MaayanLab/DrugLib_Enrichment_Comparison/blob/master/writeup_with_code.html)
 * [Without code](http://htmlpreview.github.io/?https://github.com/MaayanLab/DrugLib_Enrichment_Comparison/blob/master/writeup.html)
+
+# How to Use
 
 Here is how to run the code and replicate my results:
 
